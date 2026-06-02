@@ -1,0 +1,17 @@
+{
+ "updated": "2026-06-02T00:00:00Z",
+ "count": 1,
+ "jobs": [
+  {
+   "title": "Your listings will appear here after the first scrape",
+   "url": "#",
+   "description": "This is placeholder data. Once GitHub Actions runs the scraper (Actions tab to Run workflow), this file is replaced with live job listings.",
+   "date": "2026-06-02",
+   "source": "Setup",
+   "company": "",
+   "types": ["freelance"],
+   "locations": ["remote"],
+   "category": "writing"
+  }
+ ]
+}
