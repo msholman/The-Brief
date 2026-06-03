@@ -109,6 +109,22 @@
   .apply-link { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); text-decoration:none; display:flex; align-items:center; gap:5px; transition:color 0.15s; white-space:nowrap; }
   .apply-link:hover { color:var(--charcoal); }
 
+  .card-actions { display:flex; gap:5px; align-items:center; }
+  .act-btn { background:transparent; border:0.5px solid var(--border-strong); border-radius:var(--radius); padding:4px 9px; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted); cursor:pointer; display:flex; align-items:center; gap:5px; transition:all 0.15s; }
+  .act-btn:hover { border-color:var(--gold); color:var(--charcoal); }
+  .act-btn.on.act-saved { background:var(--gold); color:var(--charcoal); border-color:var(--gold); }
+  .act-btn.on.act-applied { background:var(--green-text); color:#fff; border-color:var(--green-text); }
+  .act-btn.act-dismiss:hover { border-color:#c0392b; color:#c0392b; }
+  .job-card.is-applied { opacity:0.6; }
+  .job-card.is-applied:hover { opacity:1; }
+
+  .view-tabs { display:flex; gap:6px; margin-bottom:1.1rem; flex-wrap:wrap; }
+  .view-tab { display:flex; align-items:center; gap:7px; padding:6px 13px; border-radius:99px; font-size:11px; font-family:'DM Mono',monospace; letter-spacing:0.08em; cursor:pointer; border:0.5px solid var(--border-strong); background:var(--warm-white); color:var(--muted); transition:all 0.15s; user-select:none; }
+  .view-tab:hover { border-color:var(--gold); }
+  .view-tab.on { background:var(--charcoal); color:var(--warm-white); border-color:var(--charcoal); }
+  .view-tab .vt-count { font-size:10px; opacity:0.7; background:var(--linen-dark); color:var(--charcoal); padding:0 6px; border-radius:99px; }
+  .view-tab.on .vt-count { background:rgba(255,255,255,0.2); color:var(--warm-white); }
+
   .state-panel { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:4rem 2rem; text-align:center; gap:1rem; }
   .state-icon { font-size:2.5rem; opacity:0.25; }
   .state-title { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:300; font-style:italic; color:var(--charcoal); }
@@ -165,6 +181,7 @@
 </aside>
 
 <main>
+  <div class="view-tabs" id="viewTabs"></div>
   <div class="toolbar">
     <div class="result-count" id="resultCount">Loading…</div>
     <div class="sort-wrap"><span>Sort</span>
@@ -187,6 +204,21 @@ let allJobs = [];
 let sourceEnabled = {};
 let SOURCE_NAMES = [];
 let hasAnyFit = false;
+let currentView = 'active';  // active | saved | applied | dismissed
+
+// ─── STATUS STORAGE (saved / applied / dismissed), persisted per browser ──────
+const STATUS_KEY = 'thebrief_status_v1';
+let statusMap = {};
+try { statusMap = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}'); } catch(e) { statusMap = {}; }
+function saveStatus() { try { localStorage.setItem(STATUS_KEY, JSON.stringify(statusMap)); } catch(e) {} }
+function getStatus(url) { return statusMap[url] || { saved:false, applied:false, dismissed:false }; }
+function setStatus(url, patch) {
+  statusMap[url] = { ...getStatus(url), ...patch };
+  saveStatus();
+}
+function toggleSaved(url){ const s=getStatus(url); setStatus(url,{saved:!s.saved}); applyFilters(); }
+function toggleApplied(url){ const s=getStatus(url); setStatus(url,{applied:!s.applied}); applyFilters(); }
+function toggleDismissed(url){ const s=getStatus(url); setStatus(url,{dismissed:!s.dismissed}); applyFilters(); }
 
 let freshnessDays = 7;
 let strictness = 'relevant';
@@ -285,7 +317,31 @@ function applyFilters() {
   const query=document.getElementById('searchInput').value.toLowerCase();
   const sortBy=document.getElementById('sortSelect').value;
   let hiddenByDate=0, hiddenByRel=0;
+
+  // Status-based views (Saved / Applied / Dismissed) bypass the sidebar filters
+  // so items never silently vanish; only the search box still applies.
+  if (currentView !== 'active') {
+    let list = allJobs.filter(job=>{
+      const st = getStatus(job.url);
+      if (currentView==='saved' && !st.saved) return false;
+      if (currentView==='applied' && !st.applied) return false;
+      if (currentView==='dismissed' && !st.dismissed) return false;
+      if (query) { const text=(job.title+' '+job.description+' '+job.company).toLowerCase(); if(!text.includes(query)) return false; }
+      return true;
+    });
+    let scored = list.map(job=>({job,...scoreJob(job)}));
+    sortScored(scored, sortBy);
+    renderCounts();
+    document.getElementById('statFiltered').textContent=scored.length;
+    document.getElementById('resultCount').textContent= scored.length===0 ? emptyViewMsg() : `${scored.length} ${currentView}`;
+    renderJobs(scored);
+    return;
+  }
+
+  // Active view = the working pipeline: all filters apply, minus dismissed & applied
   let base=allJobs.filter(job=>{
+    const st = getStatus(job.url);
+    if (st.dismissed || st.applied) return false;
     if (!sourceEnabled[job.source]) return false;
     const text=(job.title+' '+job.description+' '+job.company).toLowerCase();
     if (query && !text.includes(query)) return false;
@@ -298,16 +354,26 @@ function applyFilters() {
   });
   let scored=base.map(job=>({job,...scoreJob(job)}));
   scored=scored.filter(s=>{ if(passesStrictness(s.score,s.matched)) return true; hiddenByRel++; return false; });
-  if (sortBy==='fit') scored.sort((a,b)=> (b.job.fitScore??-1)!==(a.job.fitScore??-1) ? (b.job.fitScore??-1)-(a.job.fitScore??-1) : b.score-a.score);
-  else if (sortBy==='relevance') scored.sort((a,b)=> b.score!==a.score ? b.score-a.score : b.job.pubDate-a.job.pubDate);
-  else if (sortBy==='date') scored.sort((a,b)=>b.job.pubDate-a.job.pubDate);
-  else if (sortBy==='source') scored.sort((a,b)=>a.job.source.localeCompare(b.job.source));
+  sortScored(scored, sortBy);
+  renderCounts();
   document.getElementById('statFiltered').textContent=scored.length;
   let note='';
   if (freshnessDays>0 && hiddenByDate>0) note+=` · ${hiddenByDate} older/undated`;
   if (strictness!=='all' && hiddenByRel>0) note+=` · ${hiddenByRel} off-topic`;
   document.getElementById('resultCount').textContent= scored.length===0 ? 'No results match your current filters' : `${scored.length} opportunit${scored.length===1?'y':'ies'}${note}`;
   renderJobs(scored);
+}
+function sortScored(scored, sortBy) {
+  if (sortBy==='fit') scored.sort((a,b)=> (b.job.fitScore??-1)!==(a.job.fitScore??-1) ? (b.job.fitScore??-1)-(a.job.fitScore??-1) : b.score-a.score);
+  else if (sortBy==='relevance') scored.sort((a,b)=> b.score!==a.score ? b.score-a.score : b.job.pubDate-a.job.pubDate);
+  else if (sortBy==='date') scored.sort((a,b)=>b.job.pubDate-a.job.pubDate);
+  else if (sortBy==='source') scored.sort((a,b)=>a.job.source.localeCompare(b.job.source));
+}
+function emptyViewMsg() {
+  if (currentView==='saved') return 'No saved roles yet — tap Save on any listing';
+  if (currentView==='applied') return 'No roles marked applied yet';
+  if (currentView==='dismissed') return 'Nothing dismissed';
+  return 'No results';
 }
 
 // ─── RENDER ───────────────────────────────────────────────────────────────────
@@ -325,12 +391,22 @@ function renderJobs(scored) {
     const dateStr=job.pubDate>new Date(0)?job.pubDate.toLocaleDateString('en-US',{month:'short',day:'numeric'}):'';
     const tags=matched.slice(0,4).map(kw=>`<span class="match-tag">${kw}</span>`).join('');
     const priority=(job.category==='writing'||job.category==='marketing');
-    return `<div class="job-card${priority?' is-priority':''}" style="animation-delay:${Math.min(i*0.015,0.5)}s">
+    const st=getStatus(job.url);
+    const u=job.url.replace(/'/g,"\\'");
+    const dismissBtn = st.dismissed
+      ? `<button class="act-btn act-dismiss" onclick="toggleDismissed('${u}')">↩ Restore</button>`
+      : `<button class="act-btn act-dismiss" onclick="toggleDismissed('${u}')">✕ Dismiss</button>`;
+    const actions = `<div class="card-actions">
+      <button class="act-btn act-saved ${st.saved?'on':''}" onclick="toggleSaved('${u}')">${st.saved?'★ Saved':'☆ Save'}</button>
+      <button class="act-btn act-applied ${st.applied?'on':''}" onclick="toggleApplied('${u}')">${st.applied?'✓ Applied':'Applied'}</button>
+      ${dismissBtn}
+    </div>`;
+    return `<div class="job-card${priority?' is-priority':''}${st.applied?' is-applied':''}" style="animation-delay:${Math.min(i*0.015,0.5)}s">
       <div class="card-top"><div class="job-title"><a href="${job.url}" target="_blank" rel="noopener">${job.title}</a></div><div style="display:flex;gap:6px;flex-shrink:0;">${fitBadge(job)}<span class="source-badge">${job.source}</span></div></div>
       <div class="card-meta">${locBadge(job)}${typeBadge(job)}${job.company?`<span class="meta-sep">·</span><span>${job.company}</span>`:''}${dateStr?`<span class="meta-sep">·</span><span>${dateStr}</span>`:''}</div>
       ${job.fitReason?`<div class="fit-reason">${job.fitReason}</div>`:''}
       ${job.description?`<div class="job-desc">${job.description}</div>`:''}
-      <div class="card-footer"><div class="match-tags">${tags}</div><a href="${job.url}" target="_blank" rel="noopener" class="apply-link">View listing →</a></div>
+      <div class="card-footer"><div class="match-tags">${tags}</div><div style="display:flex;align-items:center;gap:12px;">${actions}<a href="${job.url}" target="_blank" rel="noopener" class="apply-link">View →</a></div></div>
     </div>`;
   }).join('');
 }
@@ -342,7 +418,21 @@ function renderChips(id, defs, state) {
   }).join('');
 }
 function toggleChip(id,key){ if(id==='categoryChips')categoryFilter[key]=!categoryFilter[key]; else if(id==='typeChips')typeFilter[key]=!typeFilter[key]; else if(id==='locationChips')locationFilter[key]=!locationFilter[key]; renderAllChips(); applyFilters(); }
-function renderFreshnessChips(){ document.getElementById('freshnessChips').innerHTML=FRESHNESS_DEFS.map(d=>`<span class="chip ${freshnessDays===d.key?'on':''}" onclick="setFreshness(${d.key})"><span class="chip-dot"></span>${d.label}</span>`).join(''); }
+function renderCounts() {
+  let saved=0, applied=0, dismissed=0;
+  allJobs.forEach(j=>{ const s=getStatus(j.url); if(s.saved)saved++; if(s.applied)applied++; if(s.dismissed)dismissed++; });
+  const active = allJobs.filter(j=>{ const s=getStatus(j.url); return !s.dismissed && !s.applied; }).length;
+  const tabs = [
+    {key:'active', label:'Active', n:active},
+    {key:'saved', label:'Saved', n:saved},
+    {key:'applied', label:'Applied', n:applied},
+    {key:'dismissed', label:'Dismissed', n:dismissed},
+  ];
+  document.getElementById('viewTabs').innerHTML = tabs.map(t=>
+    `<span class="view-tab ${currentView===t.key?'on':''}" onclick="setView('${t.key}')">${t.label}<span class="vt-count">${t.n}</span></span>`
+  ).join('');
+}
+function setView(v){ currentView=v; applyFilters(); }
 function setFreshness(d){ freshnessDays=d; renderFreshnessChips(); applyFilters(); }
 function renderStrictnessChips(){ document.getElementById('strictnessChips').innerHTML=STRICTNESS_DEFS.map(d=>`<span class="chip ${strictness===d.key?'on':''}" onclick="setStrictness('${d.key}')"><span class="chip-dot"></span>${d.label}</span>`).join(''); }
 function setStrictness(k){ strictness=k; renderStrictnessChips(); applyFilters(); }
