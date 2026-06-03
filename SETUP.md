@@ -101,6 +101,49 @@ the pencil icon (top-right of the file), make your change, and **Commit changes*
 
 ---
 
+## Turning on AI scoring (optional but recommended)
+
+This scores every listing 0–100 for how well it fits you, with a one-line
+reason, and lets you sort and filter by fit. It needs an Anthropic API key,
+stored privately as a repository secret. Without a key, everything else still
+works — the scraper just skips scoring.
+
+**Step 1 — Get an API key**
+1. Go to https://console.anthropic.com and sign in (or create an account).
+2. Add a small amount of credit under **Billing** (scoring is cheap — see below).
+3. Under **API Keys**, click **Create Key**, name it `the-brief`, and copy it.
+   You'll only see it once, so copy it now.
+
+**Step 2 — Store it as a GitHub secret**
+1. In your repo, go to **Settings** → **Secrets and variables** → **Actions**.
+2. Click **New repository secret**.
+3. Name: `ANTHROPIC_API_KEY` (exactly, all caps with underscores).
+4. Secret: paste your key.
+5. Click **Add secret**.
+
+**Step 3 — Tell the Action to use it**
+1. Open `.github/workflows/update-jobs.yml` → pencil icon.
+2. Find the line `run: python scraper.py` and replace that whole step with:
+   ```
+         - name: Run the scraper
+           env:
+             ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+           run: python scraper.py
+   ```
+3. Commit changes, then **Actions** → **Run workflow**.
+
+After it runs, your dashboard shows a fit score on each card, a "Minimum AI fit"
+filter, and a "Best AI fit" sort option.
+
+**Personalize the scoring:** the profile the AI scores against lives in
+`scraper.py` under `PROFILE`. Edit it anytime to shift what counts as a good fit.
+
+**Cost:** scoring runs on a fast, inexpensive model and only scores your top
+~120 candidates per run, batched. In practice this is a few cents per day. You
+can lower `MAX_TO_SCORE` in the config to spend even less.
+
+---
+
 ## A few honest notes
 
 - **Big boards from cloud servers:** Indeed and Google Jobs are the most
