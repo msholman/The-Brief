@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rate Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --warm-white:#FAF8F5; --linen:#EDE8DF; --linen-dark:#D8D0C4;
+    --charcoal:#2C2B29; --charcoal-light:#4A4845;
+    --gold:#C9A84C; --gold-light:#E2C97A; --gold-pale:#F5EDD6;
+    --muted:#8A8780; --border:rgba(44,43,41,0.12); --border-strong:rgba(44,43,41,0.22);
+    --radius:6px; --radius-lg:12px;
+    --green-pale:#EAF3DE; --green-text:#3B6D11;
+    --coral-pale:#FAECE7; --coral-text:#993C1D;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:var(--warm-white); color:var(--charcoal);
+    font-family:'DM Sans',sans-serif; font-weight:300; min-height:100vh;
+    background-image:radial-gradient(circle at 12% 10%, rgba(201,168,76,0.06), transparent 42%),
+                     radial-gradient(circle at 88% 85%, rgba(201,168,76,0.04), transparent 45%);
+  }
+  .wrap { max-width:760px; margin:0 auto; padding:3rem 2rem 4rem; }
+  a.back { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; display:inline-flex; gap:6px; margin-bottom:1.75rem; transition:color 0.15s; }
+  a.back:hover { color:var(--gold); }
+
+  .eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:0.7rem; }
+  h1 { font-family:'Cormorant Garamond',serif; font-size:2.6rem; font-weight:300; line-height:1.08; }
+  .lede { font-size:14px; color:var(--muted); margin-top:0.7rem; max-width:54ch; line-height:1.6; }
+
+  .tabs { display:flex; gap:6px; margin:2rem 0 1.5rem; }
+  .tab { flex:1; text-align:center; padding:11px 0; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; border:0.5px solid var(--border-strong); border-radius:var(--radius); background:var(--warm-white); color:var(--muted); transition:all 0.15s; }
+  .tab.on { background:var(--charcoal); color:var(--warm-white); border-color:var(--charcoal); }
+
+  .panel { display:none; animation:fade 0.3s ease; }
+  .panel.on { display:block; }
+  @keyframes fade { from{opacity:0;transform:translateY(6px);} to{opacity:1;transform:translateY(0);} }
+
+  .field { margin-bottom:1.15rem; }
+  .field label { display:block; font-size:13px; color:var(--charcoal); margin-bottom:0.3rem; font-weight:400; }
+  .field .hint { font-size:11.5px; color:var(--muted); margin-bottom:0.45rem; line-height:1.5; }
+  .input-row { display:flex; align-items:center; gap:8px; }
+  .input-prefix { font-family:'DM Mono',monospace; font-size:14px; color:var(--muted); }
+  input[type="number"], input[type="text"] {
+    width:100%; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius);
+    padding:10px 12px; font-family:'DM Mono',monospace; font-size:15px; color:var(--charcoal); outline:none; transition:border-color 0.15s;
+  }
+  input:focus { border-color:var(--gold); }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media (max-width:560px){ .two-col{ grid-template-columns:1fr; } }
+
+  .chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip { display:flex; align-items:center; gap:6px; padding:7px 12px; border-radius:99px; font-size:11.5px; font-family:'DM Mono',monospace; cursor:pointer; border:0.5px solid var(--border-strong); background:#fff; color:var(--muted); transition:all 0.15s; user-select:none; }
+  .chip:hover { border-color:var(--gold); }
+  .chip.on { background:var(--charcoal); color:var(--warm-white); border-color:var(--charcoal); }
+
+  .seg { display:flex; gap:0; border:0.5px solid var(--border-strong); border-radius:var(--radius); overflow:hidden; margin-bottom:1.15rem; }
+  .seg-btn { flex:1; padding:9px 0; text-align:center; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; background:#fff; color:var(--muted); border:none; transition:all 0.15s; }
+  .seg-btn.on { background:var(--gold); color:var(--charcoal); }
+
+  .result {
+    background:#fff; border:0.5px solid var(--border); border-left:3px solid var(--gold);
+    border-radius:var(--radius-lg); padding:1.5rem 1.6rem; margin-top:1.5rem;
+  }
+  .result-big { font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:400; line-height:1; color:var(--charcoal); }
+  .result-big .unit { font-size:1rem; color:var(--muted); font-family:'DM Mono',monospace; letter-spacing:0.05em; }
+  .result-cap { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--muted); margin-bottom:0.6rem; }
+  .breakdown { margin-top:1.1rem; padding-top:1.1rem; border-top:0.5px solid var(--border); font-size:13px; color:var(--charcoal-light); line-height:1.9; }
+  .breakdown .row { display:flex; justify-content:space-between; gap:1rem; }
+  .breakdown .row span:last-child { font-family:'DM Mono',monospace; color:var(--charcoal); }
+  .secondary-stats { display:flex; gap:1.5rem; margin-top:1.1rem; flex-wrap:wrap; }
+  .sstat-num { font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:var(--charcoal); }
+  .sstat-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-top:2px; }
+
+  .floor-note { margin-top:1.1rem; padding:10px 14px; border-radius:var(--radius); font-size:12.5px; line-height:1.55; }
+  .floor-ok { background:var(--green-pale); color:var(--green-text); border:0.5px solid rgba(59,109,17,0.25); }
+  .floor-warn { background:var(--coral-pale); color:var(--coral-text); border:0.5px solid rgba(153,60,29,0.25); }
+
+  .action-btn { margin-top:1.2rem; background:var(--charcoal); color:var(--warm-white); border:none; border-radius:var(--radius); padding:11px 20px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.15s; }
+  .action-btn:hover { background:var(--gold); color:var(--charcoal); }
+  .save-hint { font-size:11.5px; color:var(--muted); margin-top:0.8rem; line-height:1.55; }
+  .save-hint code { background:var(--linen); padding:1px 6px; border-radius:3px; font-family:'DM Mono',monospace; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./command-center.html">&larr; Command Center</a>
+
+  <div class="eyebrow">Run the business</div>
+  <h1>Rate Calculator</h1>
+  <p class="lede">Two questions: what you need to charge to hit your income goal, and what to quote for a given project — checked against your floor.</p>
+
+  <div class="tabs">
+    <div class="tab on" id="tabRate" onclick="showTab('rate')">Set your rate</div>
+    <div class="tab" id="tabQuote" onclick="showTab('quote')">Quote a project</div>
+  </div>
+
+  <!-- ── TAB 1: SET YOUR RATE ───────────────────────────────────────────── -->
+  <div class="panel on" id="panelRate">
+    <div class="two-col">
+      <div class="field">
+        <label>Target take-home income</label>
+        <div class="hint">What you want to actually keep, per year.</div>
+        <div class="input-row"><span class="input-prefix">$</span><input type="number" id="targetIncome" value="85000" oninput="calcRate()" /></div>
+      </div>
+      <div class="field">
+        <label>Annual business expenses</label>
+        <div class="hint">Software, equipment, subscriptions, etc.</div>
+        <div class="input-row"><span class="input-prefix">$</span><input type="number" id="expenses" value="6000" oninput="calcRate()" /></div>
+      </div>
+    </div>
+    <div class="two-col">
+      <div class="field">
+        <label>Billable hours per week</label>
+        <div class="hint">Be realistic — of a ~40hr week, often only 50–60% is billable (the rest is admin, pitching, email).</div>
+        <div class="input-row"><input type="number" id="billableWeek" value="22" oninput="calcRate()" /></div>
+      </div>
+      <div class="field">
+        <label>Weeks worked per year</label>
+        <div class="hint">52 minus vacation, holidays, slow weeks.</div>
+        <div class="input-row"><input type="number" id="weeksYear" value="48" oninput="calcRate()" /></div>
+      </div>
+    </div>
+    <div class="field" style="max-width:50%;">
+      <label>Tax set-aside</label>
+      <div class="hint">Self-employment + income tax, roughly.</div>
+      <div class="input-row"><input type="number" id="taxRate" value="28" oninput="calcRate()" /><span class="input-prefix">%</span></div>
+    </div>
+
+    <div class="result" id="rateResult">
+      <div class="result-cap">Your minimum hourly rate</div>
+      <div class="result-big" id="rateBig">$—<span class="unit">/hr</span></div>
+      <div class="breakdown" id="rateBreakdown"></div>
+      <button class="action-btn" onclick="useAsWorkingRate()">Use as working rate →</button>
+      <div class="save-hint" id="saveHint"></div>
+    </div>
+  </div>
+
+  <!-- ── TAB 2: QUOTE A PROJECT ─────────────────────────────────────────── -->
+  <div class="panel" id="panelQuote">
+    <div class="field">
+      <label>Your working hourly rate</label>
+      <div class="hint" id="rateSource">Set this on the first tab, or enter it directly.</div>
+      <div class="input-row"><span class="input-prefix">$</span><input type="number" id="workingRate" value="" oninput="calcQuote()" /></div>
+    </div>
+
+    <div class="field">
+      <label>Quote based on</label>
+      <div class="seg">
+        <button class="seg-btn on" id="segHours" onclick="setMode('hours')">Estimated hours</button>
+        <button class="seg-btn" id="segWords" onclick="setMode('words')">Word count</button>
+      </div>
+    </div>
+
+    <div id="hoursInputs">
+      <div class="field">
+        <label>Estimated hours for the project</label>
+        <div class="input-row"><input type="number" id="estHours" value="10" oninput="calcQuote()" /></div>
+      </div>
+    </div>
+
+    <div id="wordInputs" style="display:none;">
+      <div class="two-col">
+        <div class="field">
+          <label>Word count</label>
+          <div class="input-row"><input type="number" id="wordCount" value="1500" oninput="calcQuote()" /></div>
+        </div>
+        <div class="field">
+          <label>Your per-word rate</label>
+          <div class="hint">Leave blank to derive it from your hourly.</div>
+          <div class="input-row"><span class="input-prefix">$</span><input type="number" id="perWord" step="0.05" value="" oninput="calcQuote()" /></div>
+        </div>
+      </div>
+      <div class="field" style="max-width:60%;">
+        <label>Your drafting speed</label>
+        <div class="hint">Words per hour, for the effective-rate check.</div>
+        <div class="input-row"><input type="number" id="wordsPerHour" value="500" oninput="calcQuote()" /><span class="input-prefix">wph</span></div>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Adjustments</label>
+      <div class="hint">Stack any that apply.</div>
+      <div class="chips" id="adjChips"></div>
+    </div>
+
+    <div class="result" id="quoteResult">
+      <div class="result-cap">Suggested quote</div>
+      <div class="result-big" id="quoteBig">$—</div>
+      <div class="secondary-stats" id="quoteStats"></div>
+      <div id="floorNote"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const RATE_KEY = 'thebrief_rate_v1';
+let profile = {};
+let mode = 'hours';
+let adjustments = [
+  { key:'specialized', label:'Specialized / clinical +25%', pct:25, on:false },
+  { key:'rush',        label:'Rush turnaround +40%',        pct:40, on:false },
+  { key:'research',    label:'Heavy research +15%',         pct:15, on:false },
+  { key:'retainer',    label:'Ongoing retainer −10%',       pct:-10, on:false },
+];
+
+const fmt = n => '$' + Math.round(n).toLocaleString('en-US');
+const fmt2 = n => '$' + n.toFixed(2);
+
+// ── Tabs ──
+function showTab(t) {
+  document.getElementById('tabRate').classList.toggle('on', t==='rate');
+  document.getElementById('tabQuote').classList.toggle('on', t==='quote');
+  document.getElementById('panelRate').classList.toggle('on', t==='rate');
+  document.getElementById('panelQuote').classList.toggle('on', t==='quote');
+}
+
+// ── Tab 1: rate setting ──
+function calcRate() {
+  const target = +document.getElementById('targetIncome').value || 0;
+  const expenses = +document.getElementById('expenses').value || 0;
+  const billWk = +document.getElementById('billableWeek').value || 0;
+  const weeks = +document.getElementById('weeksYear').value || 0;
+  const tax = +document.getElementById('taxRate').value || 0;
+
+  const billableHrsYear = billWk * weeks;
+  const preTaxProfit = tax < 100 ? target / (1 - tax/100) : target;
+  const revenueNeeded = preTaxProfit + expenses;
+  const hourly = billableHrsYear > 0 ? revenueNeeded / billableHrsYear : 0;
+  const rounded = Math.ceil(hourly / 5) * 5;
+
+  document.getElementById('rateBig').innerHTML = (hourly>0? fmt(hourly) : '$—') + '<span class="unit">/hr</span>';
+  document.getElementById('rateBreakdown').innerHTML = `
+    <div class="row"><span>Take-home target</span><span>${fmt(target)}</span></div>
+    <div class="row"><span>Gross up for ${tax}% tax</span><span>${fmt(preTaxProfit)}</span></div>
+    <div class="row"><span>+ business expenses</span><span>${fmt(revenueNeeded)} needed</span></div>
+    <div class="row"><span>÷ ${billableHrsYear.toLocaleString()} billable hrs/yr</span><span>= ${fmt(hourly)}/hr</span></div>
+    <div class="row" style="margin-top:6px;color:var(--gold);"><span>Suggested floor (rounded)</span><span>${fmt(rounded)}/hr</span></div>
+  `;
+  document.getElementById('saveHint').innerHTML =
+    `To make <strong>${fmt(rounded)}/hr</strong> your permanent floor across every tool, set <code>"rate_floor": "${rounded}"</code> in profile.json.`;
+  return rounded;
+}
+
+function useAsWorkingRate() {
+  const rounded = calcRate();
+  try { localStorage.setItem(RATE_KEY, JSON.stringify({ workingRate: rounded })); } catch(e) {}
+  document.getElementById('workingRate').value = rounded;
+  showTab('quote');
+  calcQuote();
+}
+
+// ── Tab 2: project quoting ──
+function setMode(m) {
+  mode = m;
+  document.getElementById('segHours').classList.toggle('on', m==='hours');
+  document.getElementById('segWords').classList.toggle('on', m==='words');
+  document.getElementById('hoursInputs').style.display = m==='hours' ? '' : 'none';
+  document.getElementById('wordInputs').style.display = m==='words' ? '' : 'none';
+  calcQuote();
+}
+
+function renderAdjChips() {
+  document.getElementById('adjChips').innerHTML = adjustments.map((a,i)=>
+    `<span class="chip ${a.on?'on':''}" onclick="toggleAdj(${i})">${a.label}</span>`
+  ).join('');
+}
+function toggleAdj(i){ adjustments[i].on=!adjustments[i].on; renderAdjChips(); calcQuote(); }
+
+function getFloor() {
+  // working rate the person set, else profile rate_floor
+  const rate = +document.getElementById('workingRate').value || 0;
+  if (rate) return rate;
+  const pf = parseFloat(profile.rate_floor);
+  return isNaN(pf) ? 0 : pf;
+}
+
+function calcQuote() {
+  const rate = +document.getElementById('workingRate').value || 0;
+  const adjPct = adjustments.filter(a=>a.on).reduce((s,a)=>s+a.pct,0);
+  const mult = 1 + adjPct/100;
+
+  let base = 0, hoursUsed = 0, words = 0;
+
+  if (mode === 'hours') {
+    hoursUsed = +document.getElementById('estHours').value || 0;
+    base = hoursUsed * rate;
+  } else {
+    words = +document.getElementById('wordCount').value || 0;
+    let perWord = parseFloat(document.getElementById('perWord').value);
+    const wph = +document.getElementById('wordsPerHour').value || 0;
+    if (isNaN(perWord) || perWord <= 0) {
+      // derive a per-word rate from hourly × drafting speed
+      perWord = (rate > 0 && wph > 0) ? rate / wph : 0;
+      if (perWord) document.getElementById('perWord').placeholder = perWord.toFixed(2);
+    }
+    base = words * perWord;
+    hoursUsed = wph > 0 ? words / wph : 0;
+  }
+
+  const quote = base * mult;
+  document.getElementById('quoteBig').textContent = quote>0 ? fmt(quote) : '$—';
+
+  // secondary stats
+  const stats = [];
+  if (hoursUsed > 0) stats.push(`<div><div class="sstat-num">${fmt(quote/hoursUsed)}</div><div class="sstat-label">Effective / hr</div></div>`);
+  if (mode==='words' && words>0) stats.push(`<div><div class="sstat-num">${fmt2(quote/words)}</div><div class="sstat-label">Per word</div></div>`);
+  if (mode==='hours' && hoursUsed>0) stats.push(`<div><div class="sstat-num">${hoursUsed}</div><div class="sstat-label">Hours</div></div>`);
+  if (adjPct !== 0) stats.push(`<div><div class="sstat-num">${adjPct>0?'+':''}${adjPct}%</div><div class="sstat-label">Adjustments</div></div>`);
+  document.getElementById('quoteStats').innerHTML = stats.join('');
+
+  // floor check (compare effective hourly to floor)
+  const floor = getFloor();
+  const eff = hoursUsed > 0 ? quote / hoursUsed : 0;
+  const note = document.getElementById('floorNote');
+  if (floor > 0 && eff > 0) {
+    if (eff >= floor) {
+      note.innerHTML = `<div class="floor-note floor-ok">✓ Clears your ${fmt(floor)}/hr floor — effective rate is ${fmt(eff)}/hr.</div>`;
+    } else {
+      const short = Math.round((1 - eff/floor) * 100);
+      note.innerHTML = `<div class="floor-note floor-warn">⚠ Below your ${fmt(floor)}/hr floor by ~${short}% — this works out to ${fmt(eff)}/hr. Consider raising the quote or scope.</div>`;
+    }
+  } else { note.innerHTML = ''; }
+}
+
+// ── Init ──
+async function init() {
+  try {
+    const res = await fetch('./profile.json?cb=' + Date.now());
+    if (res.ok) profile = await res.json();
+  } catch(e) {}
+
+  // working rate priority: saved → profile.rate_floor
+  let working = '';
+  try { const saved = JSON.parse(localStorage.getItem(RATE_KEY) || '{}'); if (saved.workingRate) working = saved.workingRate; } catch(e) {}
+  if (!working && profile.rate_floor) working = parseFloat(profile.rate_floor) || '';
+  if (working) {
+    document.getElementById('workingRate').value = working;
+    document.getElementById('rateSource').textContent =
+      'Pulled from ' + (localStorage.getItem(RATE_KEY) ? 'your saved rate' : 'profile.json') + '. Edit anytime.';
+  }
+
+  renderAdjChips();
+  calcRate();
+  calcQuote();
+}
+init();
+</script>
+</body>
+</html>
