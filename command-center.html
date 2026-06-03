@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Command Center</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --warm-white:#FAF8F5; --linen:#EDE8DF; --linen-dark:#D8D0C4;
+    --charcoal:#2C2B29; --charcoal-light:#4A4845;
+    --gold:#C9A84C; --gold-light:#E2C97A; --gold-pale:#F5EDD6;
+    --muted:#8A8780; --border:rgba(44,43,41,0.12); --border-strong:rgba(44,43,41,0.22);
+    --radius:6px; --radius-lg:12px;
+    --green-pale:#EAF3DE; --green-text:#3B6D11;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:var(--warm-white); color:var(--charcoal);
+    font-family:'DM Sans',sans-serif; font-weight:300; min-height:100vh;
+    background-image:radial-gradient(circle at 15% 12%, rgba(201,168,76,0.06), transparent 42%),
+                     radial-gradient(circle at 85% 80%, rgba(201,168,76,0.045), transparent 45%);
+  }
+  .wrap { max-width:980px; margin:0 auto; padding:3.5rem 2rem 4rem; }
+
+  /* Masthead */
+  .masthead { margin-bottom:2.75rem; animation:rise 0.6s ease both; }
+  .eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:0.9rem; }
+  .greeting { font-family:'Cormorant Garamond',serif; font-size:2.9rem; font-weight:300; line-height:1.08; letter-spacing:0.01em; }
+  .greeting .accent { font-style:italic; color:var(--charcoal-light); }
+  .sub { font-size:14px; color:var(--muted); margin-top:0.85rem; max-width:46ch; line-height:1.6; }
+  .date-line { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--muted); margin-top:0.5rem; }
+
+  /* Pipeline strip */
+  .pipeline {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--border); border:0.5px solid var(--border);
+    border-radius:var(--radius-lg); overflow:hidden; margin-bottom:3rem;
+    animation:rise 0.6s ease 0.08s both;
+  }
+  .pstat { background:var(--warm-white); padding:1.35rem 1.25rem; text-align:left; }
+  .pstat-num { font-family:'Cormorant Garamond',serif; font-size:2.5rem; font-weight:400; line-height:1; color:var(--charcoal); }
+  .pstat-num.gold { color:var(--gold); }
+  .pstat-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.13em; text-transform:uppercase; color:var(--muted); margin-top:0.55rem; }
+  @media (max-width:640px){ .pipeline{ grid-template-columns:repeat(2,1fr); } }
+
+  /* Section label */
+  .section-label {
+    font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.18em;
+    text-transform:uppercase; color:var(--muted); margin:0 0 1.1rem;
+    display:flex; align-items:center; gap:0.75rem;
+  }
+  .section-label::after { content:''; flex:1; height:0.5px; background:var(--border); }
+
+  /* Tool grid */
+  .tools { display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; margin-bottom:3rem; }
+  @media (max-width:640px){ .tools{ grid-template-columns:1fr; } }
+
+  .tool {
+    position:relative; display:flex; flex-direction:column;
+    background:#fff; border:0.5px solid var(--border); border-radius:var(--radius-lg);
+    padding:1.5rem 1.5rem 1.35rem; text-decoration:none; color:inherit;
+    transition:border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+    overflow:hidden; min-height:158px;
+    animation:rise 0.6s ease both;
+  }
+  .tool::before {
+    content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:var(--gold); opacity:0; transition:opacity 0.25s;
+  }
+  .tool.live:hover { border-color:var(--gold-light); box-shadow:0 6px 28px rgba(201,168,76,0.13); transform:translateY(-2px); }
+  .tool.live:hover::before { opacity:1; }
+
+  .tool-stage { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:0.6rem; }
+  .tool-name { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400; line-height:1.1; margin-bottom:0.45rem; }
+  .tool-desc { font-size:13px; color:var(--charcoal-light); line-height:1.6; flex:1; }
+  .tool-foot { display:flex; align-items:center; justify-content:space-between; margin-top:1.1rem; }
+  .tool-open { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); display:flex; align-items:center; gap:6px; transition:gap 0.2s; }
+  .tool.live:hover .tool-open { gap:11px; }
+  .tool-meta { font-family:'DM Mono',monospace; font-size:10px; color:var(--muted); }
+
+  /* Disabled / planned tools */
+  .tool.planned { background:transparent; border-style:dashed; opacity:0.72; cursor:default; }
+  .tool.planned .tool-stage { color:var(--muted); }
+  .tool.planned .tool-open { color:var(--muted); }
+  .badge-soon { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); border:0.5px solid var(--border-strong); border-radius:99px; padding:2px 8px; }
+  .badge-setup { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:#854F0B; background:var(--gold-pale); border:0.5px solid rgba(133,79,11,0.25); border-radius:99px; padding:2px 8px; }
+
+  footer { margin-top:2.5rem; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.08em; color:var(--muted); text-align:center; line-height:1.7; }
+
+  @keyframes rise { from{ opacity:0; transform:translateY(12px);} to{ opacity:1; transform:translateY(0);} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="eyebrow" id="eyebrow">Command Center</div>
+    <h1 class="greeting" id="greeting">Welcome back.</h1>
+    <p class="sub" id="sub">Your practice, in one place — find work, do the work, run the business.</p>
+    <div class="date-line" id="dateLine"></div>
+  </div>
+
+  <div class="pipeline" id="pipeline">
+    <div class="pstat"><div class="pstat-num gold" id="pOpps">—</div><div class="pstat-label">Live opportunities</div></div>
+    <div class="pstat"><div class="pstat-num" id="pFresh">—</div><div class="pstat-label">New this week</div></div>
+    <div class="pstat"><div class="pstat-num" id="pSaved">—</div><div class="pstat-label">Saved</div></div>
+    <div class="pstat"><div class="pstat-num" id="pApplied">—</div><div class="pstat-label">Applied</div></div>
+  </div>
+
+  <div class="section-label">Find &amp; win work</div>
+  <div class="tools" id="toolsFind"></div>
+
+  <div class="section-label">Do the work</div>
+  <div class="tools" id="toolsDo"></div>
+
+  <div class="section-label">Run the business</div>
+  <div class="tools" id="toolsRun"></div>
+
+  <footer id="footer">Your toolbox · all tools open in the same window unless noted</footer>
+
+</div>
+
+<script>
+// ─── Tool registry ────────────────────────────────────────────────────────────
+// "linkKey" pulls a URL from profile.json → links; "url" is a direct fallback.
+const TOOLS = {
+  find: [
+    { stage:'Find work', name:'The Brief', desc:'Self-updating, AI-scored job finder across boards, search engines, and company pages.', linkKey:'the_brief', live:true, meta:'pipeline below' },
+    { stage:'Pitch & ideas', name:'Lede', desc:'Develops article ideas and pitches from a spark.', linkKey:'lede', live:'maybe' },
+    { stage:'Pitch', name:'Pitch generator', desc:'Drafts a tailored intro for a saved role using your profile.', planned:true, note:'planned' },
+    { stage:'Quote', name:'Rate calculator', desc:'Suggests a quote from scope, your target, and your floor.', planned:true, note:'planned' },
+  ],
+  do: [
+    { stage:'Audit', name:'Ruffin', desc:'Plain-language & health-literacy audit for any draft.', linkKey:'ruffin', live:'maybe' },
+    { stage:'Brief', name:'Content brief builder', desc:'Turns a client ask into a structured brief.', planned:true, note:'planned' },
+    { stage:'Voice', name:'Voice & register checker', desc:'Checks a draft against lay vs. HCP voice.', planned:true, note:'planned' },
+  ],
+  run: [
+    { stage:'Track', name:'Client & project tracker', desc:'Who, what, status, deadline, deliverables — your pipeline at a glance.', planned:true, note:'planned' },
+    { stage:'Bill', name:'Invoice generator', desc:'Branded invoices from a project, with a paid/unpaid log.', planned:true, note:'planned' },
+    { stage:'Measure', name:'Income vs. target', desc:'Are you on pace? What\u2019s your true effective rate?', planned:true, note:'planned' },
+  ],
+};
+
+let profile = {};
+
+async function loadProfile() {
+  try {
+    const res = await fetch('./profile.json?cb=' + Date.now());
+    if (res.ok) profile = await res.json();
+  } catch(e) {}
+}
+
+function resolveUrl(t) {
+  const links = profile.links || {};
+  if (t.linkKey && links[t.linkKey]) return links[t.linkKey];
+  if (t.url) return t.url;
+  return '';
+}
+
+function greet() {
+  const hour = new Date().getHours();
+  const part = hour < 12 ? 'Good morning' : hour < 18 ? 'Good afternoon' : 'Good evening';
+  const first = (profile.name || '').split(' ')[0];
+  document.getElementById('greeting').innerHTML = `${part}${first ? ', ' + first : ''}. <span class="accent">Here\u2019s the brief.</span>`;
+  if (profile.headline) document.getElementById('sub').textContent = profile.headline + '.';
+  document.getElementById('dateLine').textContent = new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
+}
+
+async function loadPipeline() {
+  // Live opportunities + freshness from The Brief's jobs.json (same origin)
+  let total = 0, fresh = 0, updated = '';
+  try {
+    const res = await fetch('./jobs.json?cb=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      const jobs = (data.jobs || []);
+      total = jobs.length;
+      const weekAgo = Date.now() - 7*86400000;
+      fresh = jobs.filter(j => j.date && new Date(j.date+'T00:00:00').getTime() >= weekAgo).length;
+      updated = data.updated || '';
+    }
+  } catch(e) {}
+
+  // Saved / applied from the SAME localStorage the dashboard writes (shared origin)
+  let saved = 0, applied = 0;
+  try {
+    const status = JSON.parse(localStorage.getItem('thebrief_status_v1') || '{}');
+    Object.values(status).forEach(s => { if (s.saved) saved++; if (s.applied) applied++; });
+  } catch(e) {}
+
+  document.getElementById('pOpps').textContent = total || '0';
+  document.getElementById('pFresh').textContent = fresh || '0';
+  document.getElementById('pSaved').textContent = saved;
+  document.getElementById('pApplied').textContent = applied;
+
+  if (updated) {
+    const d = new Date(updated);
+    document.getElementById('footer').textContent =
+      'The Brief last refreshed ' + d.toLocaleString([], {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) + ' · tools open in the same window unless noted';
+  }
+}
+
+function cardHtml(t, i) {
+  const delay = (0.12 + i*0.05).toFixed(2);
+  if (t.planned) {
+    return `<div class="tool planned" style="animation-delay:${delay}s">
+      <div class="tool-stage">${t.stage}</div>
+      <div class="tool-name">${t.name}</div>
+      <div class="tool-desc">${t.desc}</div>
+      <div class="tool-foot"><span class="tool-open">On the roadmap</span><span class="badge-soon">Soon</span></div>
+    </div>`;
+  }
+  const url = resolveUrl(t);
+  // A "maybe" live tool whose URL isn't set yet shows a gentle setup hint.
+  if (t.live === 'maybe' && !url) {
+    return `<div class="tool planned" style="animation-delay:${delay}s">
+      <div class="tool-stage">${t.stage}</div>
+      <div class="tool-name">${t.name}</div>
+      <div class="tool-desc">${t.desc}</div>
+      <div class="tool-foot"><span class="tool-open">Add its link in profile.json</span><span class="badge-setup">Setup</span></div>
+    </div>`;
+  }
+  const external = url && !url.startsWith('.') && !url.startsWith('/');
+  const meta = t.meta ? `<span class="tool-meta">${t.meta}</span>` : '<span></span>';
+  return `<a class="tool live" href="${url}" ${external?'target="_blank" rel="noopener"':''} style="animation-delay:${delay}s">
+    <div class="tool-stage">${t.stage}</div>
+    <div class="tool-name">${t.name}</div>
+    <div class="tool-desc">${t.desc}</div>
+    <div class="tool-foot"><span class="tool-open">Open <span>&rarr;</span></span>${meta}</div>
+  </a>`;
+}
+
+function renderTools() {
+  document.getElementById('toolsFind').innerHTML = TOOLS.find.map(cardHtml).join('');
+  document.getElementById('toolsDo').innerHTML   = TOOLS.do.map(cardHtml).join('');
+  document.getElementById('toolsRun').innerHTML  = TOOLS.run.map(cardHtml).join('');
+}
+
+(async function init(){
+  await loadProfile();
+  greet();
+  renderTools();
+  loadPipeline();
+})();
+</script>
+</body>
+</html>
