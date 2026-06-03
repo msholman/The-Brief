@@ -250,6 +250,8 @@ async function score() {
 
 The draft is ${draftWords} words (counted exactly).
 
+IMPORTANT — about formatting: both texts were extracted from uploaded documents. Headings may appear marked with leading # / ## / ###, list items as "- " or "1.", and links as "anchor text (URL)". Use these markers to verify structural requirements (required headings/sections, links). Judge substance and structure only — do NOT penalize for lost visual formatting such as fonts, bold, color, or exact spacing; assume the original document was properly formatted. If a required heading's text or a required link's URL is present in the draft, count it as met even if its visual styling didn't survive extraction.
+
 === ASSIGNMENT BRIEF ===
 ${brief}
 
@@ -374,6 +376,49 @@ if (window.pdfjsLib) {
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 }
 
+// Convert mammoth's HTML into clean text that keeps headings (#/##/###),
+// list items (- / 1.), and link URLs — the structure briefs actually specify.
+function htmlToStructuredText(html) {
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  // turn links into "anchor text (URL)" so link requirements survive
+  doc.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href') || '';
+    const t = a.textContent.trim();
+    if (href && !href.startsWith('#')) a.replaceWith(doc.createTextNode(t + ' (' + href + ')'));
+  });
+  const lines = [];
+  const walk = (el) => {
+    el.childNodes.forEach(node => {
+      if (node.nodeType !== 1) return;
+      const tag = node.tagName.toLowerCase();
+      if (/^h[1-6]$/.test(tag)) {
+        const lvl = +tag[1];
+        const t = node.textContent.trim();
+        if (t) lines.push('\n' + '#'.repeat(lvl) + ' ' + t);
+      } else if (tag === 'p') {
+        const t = node.textContent.trim();
+        if (t) lines.push(t);
+      } else if (tag === 'ul' || tag === 'ol') {
+        Array.from(node.children).filter(c => c.tagName.toLowerCase() === 'li')
+          .forEach((li, i) => {
+            const pre = tag === 'ol' ? (i + 1) + '. ' : '- ';
+            const t = li.textContent.trim();
+            if (t) lines.push(pre + t);
+          });
+      } else if (tag === 'table') {
+        node.querySelectorAll('tr').forEach(tr => {
+          const cells = Array.from(tr.children).map(c => c.textContent.trim()).join(' | ');
+          if (cells) lines.push(cells);
+        });
+      } else {
+        walk(node); // descend through divs and other wrappers
+      }
+    });
+  };
+  walk(doc.body);
+  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
 async function extractText(file) {
   const name = file.name.toLowerCase();
   const buf = await file.arrayBuffer();
@@ -390,8 +435,13 @@ async function extractText(file) {
   }
   if (name.endsWith('.docx')) {
     if (!window.mammoth) throw new Error('DOCX reader didn\u2019t load — check your connection and retry.');
-    const r = await mammoth.extractRawText({ arrayBuffer: buf });
-    return r.value;
+    try {
+      const r = await mammoth.convertToHtml({ arrayBuffer: buf });
+      const structured = htmlToStructuredText(r.value);
+      if (structured) return structured;
+    } catch(e) { /* fall back to raw text below */ }
+    const raw = await mammoth.extractRawText({ arrayBuffer: buf });
+    return raw.value;
   }
   if (name.endsWith('.txt') || name.endsWith('.md')) {
     return new TextDecoder().decode(buf);
