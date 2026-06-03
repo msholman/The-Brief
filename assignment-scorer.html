@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Assignment Scorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --warm-white:#FAF8F5; --linen:#EDE8DF; --linen-dark:#D8D0C4;
+    --charcoal:#2C2B29; --charcoal-light:#4A4845;
+    --gold:#C9A84C; --gold-light:#E2C97A; --gold-pale:#F5EDD6;
+    --muted:#8A8780; --border:rgba(44,43,41,0.12); --border-strong:rgba(44,43,41,0.22);
+    --radius:6px; --radius-lg:12px;
+    --green-pale:#EAF3DE; --green-text:#3B6D11;
+    --coral-pale:#FAECE7; --coral-text:#993C1D;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:var(--warm-white); color:var(--charcoal);
+    font-family:'DM Sans',sans-serif; font-weight:300; min-height:100vh;
+    background-image:radial-gradient(circle at 12% 10%, rgba(201,168,76,0.06), transparent 42%),
+                     radial-gradient(circle at 88% 88%, rgba(201,168,76,0.04), transparent 45%);
+  }
+  .wrap { max-width:820px; margin:0 auto; padding:3rem 2rem 4rem; }
+  a.back { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; display:inline-flex; gap:6px; margin-bottom:1.75rem; transition:color 0.15s; }
+  a.back:hover { color:var(--gold); }
+
+  .eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:0.7rem; }
+  h1 { font-family:'Cormorant Garamond',serif; font-size:2.6rem; font-weight:300; line-height:1.08; }
+  .lede { font-size:14px; color:var(--muted); margin-top:0.7rem; max-width:58ch; line-height:1.6; }
+
+  .field { margin-bottom:1.25rem; }
+  .field label { display:flex; justify-content:space-between; align-items:baseline; font-size:13px; color:var(--charcoal); margin-bottom:0.4rem; font-weight:400; }
+  .field .count { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); }
+  textarea {
+    width:100%; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius);
+    padding:12px 14px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:300; line-height:1.6;
+    color:var(--charcoal); outline:none; resize:vertical; transition:border-color 0.15s;
+  }
+  textarea:focus { border-color:var(--gold); }
+  textarea.brief { min-height:150px; }
+  textarea.article { min-height:240px; }
+
+  .run-row { display:flex; align-items:center; gap:1rem; margin-top:0.5rem; }
+  .run-btn { background:var(--charcoal); color:var(--warm-white); border:none; border-radius:var(--radius); padding:12px 26px; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.15s; }
+  .run-btn:hover:not(:disabled) { background:var(--gold); color:var(--charcoal); }
+  .run-btn:disabled { opacity:0.5; cursor:not-allowed; }
+  .run-note { font-size:11.5px; color:var(--muted); line-height:1.5; }
+
+  /* key setup */
+  .keybar { background:var(--gold-pale); border:0.5px solid rgba(201,168,76,0.35); border-radius:var(--radius); padding:0.85rem 1rem; margin-bottom:1.5rem; font-size:12.5px; color:var(--charcoal-light); line-height:1.6; }
+  .keybar input { width:100%; margin-top:8px; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius); padding:8px 10px; font-family:'DM Mono',monospace; font-size:12px; outline:none; }
+  .keybar input:focus { border-color:var(--gold); }
+  .keybar .krow { display:flex; gap:8px; align-items:center; margin-top:8px; }
+  .keybar button { background:var(--charcoal); color:#fff; border:none; border-radius:var(--radius); padding:8px 14px; font-family:'DM Mono',monospace; font-size:11px; cursor:pointer; white-space:nowrap; }
+  .key-ok { font-family:'DM Mono',monospace; font-size:11px; color:var(--green-text); }
+  .key-link { color:var(--gold); cursor:pointer; text-decoration:underline; }
+
+  /* results */
+  .results { margin-top:2rem; display:none; }
+  .results.show { display:block; animation:fade 0.4s ease; }
+  @keyframes fade { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+
+  .score-hero { display:flex; align-items:center; gap:1.5rem; background:#fff; border:0.5px solid var(--border); border-left:3px solid var(--gold); border-radius:var(--radius-lg); padding:1.5rem 1.75rem; margin-bottom:1.5rem; }
+  .score-ring { width:92px; height:92px; flex-shrink:0; position:relative; }
+  .score-ring svg { transform:rotate(-90deg); }
+  .score-ring .num { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:2rem; color:var(--charcoal); }
+  .score-verdict-label { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.13em; text-transform:uppercase; color:var(--muted); margin-bottom:0.4rem; }
+  .score-verdict { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:400; line-height:1.25; color:var(--charcoal); }
+
+  .section-h { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin:1.75rem 0 0.9rem; display:flex; align-items:center; gap:0.75rem; }
+  .section-h::after { content:''; flex:1; height:0.5px; background:var(--border); }
+
+  .dim { background:#fff; border:0.5px solid var(--border); border-radius:var(--radius); padding:0.9rem 1.1rem; margin-bottom:0.6rem; }
+  .dim-top { display:flex; justify-content:space-between; align-items:baseline; gap:1rem; }
+  .dim-name { font-size:14px; color:var(--charcoal); font-weight:400; }
+  .dim-score { font-family:'DM Mono',monospace; font-size:12px; color:var(--muted); }
+  .dim-bar { height:5px; background:var(--linen); border-radius:99px; margin:8px 0; overflow:hidden; }
+  .dim-fill { height:100%; border-radius:99px; transition:width 0.6s ease; }
+  .dim-note { font-size:12.5px; color:var(--charcoal-light); line-height:1.55; }
+
+  .req { display:flex; gap:10px; padding:8px 0; border-bottom:0.5px solid var(--border); font-size:13.5px; line-height:1.5; }
+  .req:last-child { border-bottom:none; }
+  .req-icon { flex-shrink:0; width:18px; height:18px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; margin-top:1px; }
+  .req-yes .req-icon { background:var(--green-pale); color:var(--green-text); }
+  .req-partial .req-icon { background:var(--gold-pale); color:#854F0B; }
+  .req-no .req-icon { background:var(--coral-pale); color:var(--coral-text); }
+  .req-text b { font-weight:500; }
+  .req-note { color:var(--muted); }
+
+  .sugg { background:var(--gold-pale); border:0.5px solid rgba(201,168,76,0.3); border-radius:var(--radius); padding:0.7rem 1rem 0.7rem 1.1rem; margin-bottom:0.55rem; font-size:13.5px; line-height:1.6; color:var(--charcoal-light); }
+
+  .loading { display:none; flex-direction:column; align-items:center; gap:1rem; padding:3rem 1rem; text-align:center; }
+  .loading.show { display:flex; }
+  .loading-dots span { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--gold); margin:0 3px; animation:bounce 1.2s infinite ease-in-out; }
+  .loading-dots span:nth-child(2){animation-delay:.2s;} .loading-dots span:nth-child(3){animation-delay:.4s;}
+  @keyframes bounce { 0%,80%,100%{transform:scale(.6);opacity:.4;} 40%{transform:scale(1);opacity:1;} }
+  .loading-msg { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.3rem; color:var(--charcoal); }
+  .err { display:none; background:var(--coral-pale); color:var(--coral-text); border:0.5px solid rgba(153,60,29,0.25); border-radius:var(--radius); padding:0.9rem 1.1rem; margin-top:1.5rem; font-size:13px; line-height:1.6; }
+  .err.show { display:block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./command-center.html">&larr; Command Center</a>
+
+  <div class="eyebrow">Do the work</div>
+  <h1>Assignment Scorer</h1>
+  <p class="lede">Paste the content brief and your draft. Get a fidelity score — did you cover what was asked, hit the word count, work in the keywords, and match the audience and tone — with specific gaps to fix before you send.</p>
+
+  <div class="keybar" id="keybar">
+    <div id="keyPrompt">
+      <strong>One-time setup:</strong> paste your Anthropic API key (the same one Ruffin and Lede use). It's stored only in this browser — never in the page's code.
+      <div class="krow">
+        <input type="password" id="keyInput" placeholder="sk-ant-..." />
+        <button onclick="saveKey()">Save</button>
+      </div>
+    </div>
+    <div id="keySaved" style="display:none;">
+      <span class="key-ok">✓ API key saved in this browser.</span>
+      &nbsp; <span class="key-link" onclick="clearKey()">change</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label>Content brief <span class="count" id="briefCount">0 words</span></label>
+    <textarea class="brief" id="brief" placeholder="Paste the assignment brief — target word count, required sections/H2s, keywords, audience, tone, key points to cover, deliverable specs…" oninput="updateCounts()"></textarea>
+  </div>
+
+  <div class="field">
+    <label>Your draft <span class="count" id="articleCount">0 words</span></label>
+    <textarea class="article" id="article" placeholder="Paste your article or draft here…" oninput="updateCounts()"></textarea>
+  </div>
+
+  <div class="run-row">
+    <button class="run-btn" id="runBtn" onclick="score()">Score the draft</button>
+    <span class="run-note">Sends both texts to Claude for analysis. Nothing is stored.</span>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="loading-dots"><span></span><span></span><span></span></div>
+    <div class="loading-msg" id="loadingMsg">Reading your brief…</div>
+  </div>
+
+  <div class="err" id="err"></div>
+
+  <div class="results" id="results">
+    <div class="score-hero">
+      <div class="score-ring" id="ring"></div>
+      <div>
+        <div class="score-verdict-label">Overall match</div>
+        <div class="score-verdict" id="verdict">—</div>
+      </div>
+    </div>
+
+    <div class="section-h">By dimension</div>
+    <div id="dims"></div>
+
+    <div class="section-h">Brief requirements</div>
+    <div id="reqs"></div>
+
+    <div class="section-h">Suggested fixes</div>
+    <div id="suggs"></div>
+  </div>
+
+</div>
+
+<script>
+const KEY_STORE = 'thebrief_anthropic_key';
+const MODEL = 'claude-sonnet-4-6';
+let apiKey = '';
+
+function initKey() {
+  try { apiKey = localStorage.getItem(KEY_STORE) || ''; } catch(e) {}
+  document.getElementById('keyPrompt').style.display = apiKey ? 'none' : 'block';
+  document.getElementById('keySaved').style.display = apiKey ? 'block' : 'none';
+}
+function saveKey() {
+  const v = document.getElementById('keyInput').value.trim();
+  if (!v) return;
+  apiKey = v;
+  try { localStorage.setItem(KEY_STORE, v); } catch(e) {}
+  initKey();
+}
+function clearKey() {
+  apiKey = '';
+  try { localStorage.removeItem(KEY_STORE); } catch(e) {}
+  document.getElementById('keyInput').value = '';
+  initKey();
+}
+
+function wordCount(s){ return (s.trim().match(/\S+/g) || []).length; }
+function updateCounts() {
+  document.getElementById('briefCount').textContent = wordCount(document.getElementById('brief').value) + ' words';
+  document.getElementById('articleCount').textContent = wordCount(document.getElementById('article').value) + ' words';
+}
+
+const LOADING_MSGS = ['Reading your brief…','Checking it against your draft…','Tallying coverage and gaps…','Writing up the score…'];
+let msgTimer = null;
+function cycleMsgs() {
+  let i = 0;
+  document.getElementById('loadingMsg').textContent = LOADING_MSGS[0];
+  msgTimer = setInterval(()=>{ i=(i+1)%LOADING_MSGS.length; document.getElementById('loadingMsg').textContent = LOADING_MSGS[i]; }, 2200);
+}
+
+function showErr(msg) {
+  const e = document.getElementById('err');
+  e.textContent = msg; e.classList.add('show');
+}
+
+async function score() {
+  const brief = document.getElementById('brief').value.trim();
+  const article = document.getElementById('article').value.trim();
+  document.getElementById('err').classList.remove('show');
+  document.getElementById('results').classList.remove('show');
+
+  if (!apiKey) { showErr('Add your Anthropic API key first (the box up top).'); return; }
+  if (!brief || !article) { showErr('Paste both the brief and your draft before scoring.'); return; }
+
+  const btn = document.getElementById('runBtn');
+  btn.disabled = true;
+  document.getElementById('loading').classList.add('show');
+  cycleMsgs();
+
+  const draftWords = wordCount(article);
+  const prompt = `You are an exacting content editor scoring a writer's DRAFT against an ASSIGNMENT BRIEF. Judge only how faithfully the draft delivers what the brief asked for — coverage of required points and sections, word count, keywords/SEO terms, target audience, and tone/register. Do not rewrite the article.
+
+The draft is ${draftWords} words (counted exactly).
+
+=== ASSIGNMENT BRIEF ===
+${brief}
+
+=== DRAFT ===
+${article}
+
+Respond with ONLY a JSON object, no prose or markdown, in this exact shape:
+{
+  "overall_score": <0-100 integer>,
+  "verdict": "<one sentence, plain and specific>",
+  "dimensions": [
+    {"name": "Brief coverage", "score": <0-100>, "note": "<1-2 sentences>"},
+    {"name": "Required sections", "score": <0-100>, "note": "<...>"},
+    {"name": "Keywords / SEO", "score": <0-100>, "note": "<...>"},
+    {"name": "Audience & tone", "score": <0-100>, "note": "<...>"},
+    {"name": "Word count", "score": <0-100>, "note": "<state target vs actual if the brief gave a target; otherwise note none specified>"}
+  ],
+  "requirements": [
+    {"item": "<specific requirement pulled verbatim-ish from the brief>", "met": "yes|partial|no", "note": "<short>"}
+  ],
+  "suggestions": ["<specific, actionable fix>", "..."]
+}
+Only include dimensions that the brief gives you something to judge; omit any that don't apply. List every concrete requirement you can find in the brief. Keep suggestions concrete and prioritized (most important first), max 6.`;
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
+        "anthropic-dangerous-direct-browser-access": "true"
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        max_tokens: 2000,
+        messages: [{ role: "user", content: prompt }]
+      })
+    });
+
+    if (!res.ok) {
+      let detail = 'HTTP ' + res.status;
+      try { const j = await res.json(); if (j.error && j.error.message) detail = j.error.message; } catch(e) {}
+      throw new Error(detail);
+    }
+    const data = await res.json();
+    let text = (data.content || []).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
+    text = text.replace(/^```(?:json)?|```$/g, '').trim();
+    const result = JSON.parse(text);
+    renderResult(result);
+  } catch(err) {
+    let m = err.message || String(err);
+    if (/Failed to fetch/i.test(m)) m = 'Could not reach the API. Check your connection and that your key is valid.';
+    if (/401|authentication|x-api-key/i.test(m)) m = 'The API key looks invalid or unauthorized. Use "change" above to re-enter it.';
+    if (/credit|balance|billing/i.test(m)) m = 'API call refused for billing reasons — check your Anthropic account has credit.';
+    showErr(m);
+  } finally {
+    clearInterval(msgTimer);
+    document.getElementById('loading').classList.remove('show');
+    btn.disabled = false;
+  }
+}
+
+function scoreColor(s){ return s>=80 ? 'var(--green-text)' : s>=60 ? 'var(--gold)' : 'var(--coral-text)'; }
+
+function renderResult(r) {
+  const overall = Math.max(0, Math.min(100, parseInt(r.overall_score) || 0));
+
+  // ring
+  const radius = 40, circ = 2*Math.PI*radius, off = circ*(1-overall/100);
+  document.getElementById('ring').innerHTML = `
+    <svg width="92" height="92" viewBox="0 0 92 92">
+      <circle cx="46" cy="46" r="${radius}" fill="none" stroke="var(--linen)" stroke-width="7"/>
+      <circle cx="46" cy="46" r="${radius}" fill="none" stroke="${scoreColor(overall)}" stroke-width="7"
+        stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ}" style="transition:stroke-dashoffset 0.9s ease;" id="ringFill"/>
+    </svg>
+    <div class="num">${overall}</div>`;
+  setTimeout(()=>{ const rf=document.getElementById('ringFill'); if(rf) rf.style.strokeDashoffset=off; }, 60);
+
+  document.getElementById('verdict').textContent = r.verdict || '';
+
+  document.getElementById('dims').innerHTML = (r.dimensions||[]).map(d=>{
+    const s = Math.max(0, Math.min(100, parseInt(d.score)||0));
+    return `<div class="dim">
+      <div class="dim-top"><span class="dim-name">${esc(d.name)}</span><span class="dim-score">${s}/100</span></div>
+      <div class="dim-bar"><div class="dim-fill" style="width:${s}%;background:${scoreColor(s)};"></div></div>
+      <div class="dim-note">${esc(d.note||'')}</div>
+    </div>`;
+  }).join('');
+
+  const icon = m => m==='yes'?'✓':m==='partial'?'~':'✕';
+  document.getElementById('reqs').innerHTML = (r.requirements||[]).map(q=>{
+    const cls = q.met==='yes'?'req-yes':q.met==='partial'?'req-partial':'req-no';
+    return `<div class="req ${cls}">
+      <div class="req-icon">${icon(q.met)}</div>
+      <div class="req-text"><b>${esc(q.item)}</b>${q.note?` — <span class="req-note">${esc(q.note)}</span>`:''}</div>
+    </div>`;
+  }).join('') || '<div class="dim-note">No discrete requirements detected in the brief.</div>';
+
+  document.getElementById('suggs').innerHTML = (r.suggestions||[]).map(s=>`<div class="sugg">${esc(s)}</div>`).join('')
+    || '<div class="dim-note">No fixes suggested — strong alignment.</div>';
+
+  document.getElementById('results').classList.add('show');
+}
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+initKey();
+updateCounts();
+</script>
+</body>
+</html>
