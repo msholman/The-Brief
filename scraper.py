@@ -95,7 +95,9 @@ ENABLE_AI_SCORING = True
 # Model used for scoring. Haiku is fast and cheap — ideal for high volume.
 SCORING_MODEL = "claude-haiku-4-5-20251001"
 
-# Your profile — this is what each job is scored against. Edit freely.
+# Your profile — this is the fallback used for scoring if profile.json is
+# missing. Normally the scraper reads profile.json (the shared file every tool
+# uses), so you only have to describe yourself in one place.
 PROFILE = """
 Freelance healthcare communications writer, editor, and content strategist with
 15+ years of experience. Specialties: translating clinical complexity into
@@ -107,6 +109,31 @@ design and technical writing in health contexts.
 Strong preference for REMOTE; hybrid is acceptable.
 Not interested in: grant writing, full-time in-office roles, sales, recruiting.
 """
+
+
+def load_profile():
+    """Build the scoring profile from profile.json (shared across all tools).
+    Falls back to the inline PROFILE above if the file is missing."""
+    try:
+        with open("profile.json", encoding="utf-8") as f:
+            p = json.load(f)
+    except Exception:
+        return PROFILE.strip()
+    parts = []
+    if p.get("headline"):
+        exp = f" with {p['years_experience']} years of experience" if p.get("years_experience") else ""
+        parts.append(p["headline"] + exp + ".")
+    if p.get("specialties"):
+        parts.append("Specialties: " + "; ".join(p["specialties"]) + ".")
+    if p.get("clients"):
+        parts.append("Past clients include " + ", ".join(p["clients"]) + ".")
+    if p.get("open_to"):
+        parts.append("Open to: " + ", ".join(p["open_to"]) + ".")
+    if p.get("location_preference"):
+        parts.append(p["location_preference"])
+    if p.get("not_interested_in"):
+        parts.append("Not interested in: " + ", ".join(p["not_interested_in"]) + ".")
+    return "\n".join(parts) if parts else PROFILE.strip()
 
 # Only send the top N candidates (by keyword/category pre-score) to the AI, to
 # control cost. Set to 0 to score everything.
@@ -363,6 +390,7 @@ def score_jobs_with_ai(jobs):
         return jobs
 
     client = anthropic.Anthropic(api_key=api_key)
+    profile_text = load_profile()
 
     # Pick the most promising candidates to score (cost control)
     ranked = sorted(jobs, key=_prescore, reverse=True)
@@ -388,7 +416,7 @@ def score_jobs_with_ai(jobs):
             "You are screening freelance/contract job listings for a specific "
             "person. Score each listing 0–100 for how well it fits their "
             "profile, where 100 is a perfect fit and 0 is irrelevant.\n\n"
-            f"PROFILE:\n{PROFILE.strip()}\n\n"
+            f"PROFILE:\n{profile_text}\n\n"
             "Scoring guidance: reward health/medical content, content strategy, "
             "plain-language/health-literacy, and remote freelance/contract work. "
             "Penalize full-time in-office, sales, grant writing, and roles "
