@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <style>
   :root {
     --warm-white:#FAF8F5; --linen:#EDE8DF; --linen-dark:#D8D0C4;
@@ -43,6 +45,14 @@
   textarea:focus { border-color:var(--gold); }
   textarea.brief { min-height:150px; }
   textarea.article { min-height:240px; }
+  textarea.drag { border-color:var(--gold); background:var(--gold-pale); }
+
+  .uploader { display:flex; align-items:center; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
+  .upload-btn { background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius); padding:7px 14px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.06em; color:var(--charcoal); cursor:pointer; transition:all 0.15s; display:inline-flex; align-items:center; gap:6px; }
+  .upload-btn:hover { border-color:var(--gold); color:var(--gold); }
+  .upload-status { font-size:11.5px; color:var(--muted); line-height:1.4; }
+  .upload-status.ok { color:var(--green-text); }
+  .upload-status.bad { color:var(--coral-text); }
 
   .run-row { display:flex; align-items:center; gap:1rem; margin-top:0.5rem; }
   .run-btn { background:var(--charcoal); color:var(--warm-white); border:none; border-radius:var(--radius); padding:12px 26px; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.15s; }
@@ -127,11 +137,21 @@
 
   <div class="field">
     <label>Content brief <span class="count" id="briefCount">0 words</span></label>
+    <div class="uploader">
+      <input type="file" id="briefFile" accept=".pdf,.docx,.txt,.md" hidden onchange="handleFile('brief', this)" />
+      <button class="upload-btn" onclick="document.getElementById('briefFile').click()">⬆ Upload PDF / DOCX</button>
+      <span class="upload-status" id="briefStatus">or paste below · drag a file onto the box</span>
+    </div>
     <textarea class="brief" id="brief" placeholder="Paste the assignment brief — target word count, required sections/H2s, keywords, audience, tone, key points to cover, deliverable specs…" oninput="updateCounts()"></textarea>
   </div>
 
   <div class="field">
     <label>Your draft <span class="count" id="articleCount">0 words</span></label>
+    <div class="uploader">
+      <input type="file" id="articleFile" accept=".pdf,.docx,.txt,.md" hidden onchange="handleFile('article', this)" />
+      <button class="upload-btn" onclick="document.getElementById('articleFile').click()">⬆ Upload PDF / DOCX</button>
+      <span class="upload-status" id="articleStatus">or paste below · drag a file onto the box</span>
+    </div>
     <textarea class="article" id="article" placeholder="Paste your article or draft here…" oninput="updateCounts()"></textarea>
   </div>
 
@@ -265,7 +285,7 @@ Only include dimensions that the brief gives you something to judge; omit any th
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 2000,
+        max_tokens: 4000,
         messages: [{ role: "user", content: prompt }]
       })
     });
@@ -277,8 +297,20 @@ Only include dimensions that the brief gives you something to judge; omit any th
     }
     const data = await res.json();
     let text = (data.content || []).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
-    text = text.replace(/^```(?:json)?|```$/g, '').trim();
-    const result = JSON.parse(text);
+    if (!text) throw new Error('The model returned an empty response — please try again.');
+    // strip code fences and isolate the outermost JSON object
+    text = text.replace(/```json/gi, '').replace(/```/g, '').trim();
+    const first = text.indexOf('{'), last = text.lastIndexOf('}');
+    if (first !== -1 && last !== -1 && last > first) text = text.slice(first, last + 1);
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch(parseErr) {
+      if (data.stop_reason === 'max_tokens') {
+        throw new Error('The analysis was long enough to get cut off. Try scoring a shorter draft, or one section at a time.');
+      }
+      throw new Error('Could not read the analysis (the response came back malformed). Please try again.');
+    }
     renderResult(result);
   } catch(err) {
     let m = err.message || String(err);
@@ -336,6 +368,68 @@ function renderResult(r) {
 }
 
 function esc(s){ return String(s==null?'':s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
+
+// ── File upload / extraction ──
+if (window.pdfjsLib) {
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+}
+
+async function extractText(file) {
+  const name = file.name.toLowerCase();
+  const buf = await file.arrayBuffer();
+  if (name.endsWith('.pdf')) {
+    if (!window.pdfjsLib) throw new Error('PDF reader didn\u2019t load — check your connection and retry.');
+    const pdf = await pdfjsLib.getDocument({ data: buf }).promise;
+    const pages = [];
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const content = await page.getTextContent();
+      pages.push(content.items.map(it => it.str).join(' '));
+    }
+    return pages.join('\n\n');
+  }
+  if (name.endsWith('.docx')) {
+    if (!window.mammoth) throw new Error('DOCX reader didn\u2019t load — check your connection and retry.');
+    const r = await mammoth.extractRawText({ arrayBuffer: buf });
+    return r.value;
+  }
+  if (name.endsWith('.txt') || name.endsWith('.md')) {
+    return new TextDecoder().decode(buf);
+  }
+  if (name.endsWith('.doc')) {
+    throw new Error('Old .doc files can\u2019t be read in the browser. Please re-save as .docx or PDF.');
+  }
+  throw new Error('Unsupported file — use PDF, DOCX, TXT, or MD.');
+}
+
+async function handleFile(target, fileOrInput) {
+  const file = fileOrInput.files ? fileOrInput.files[0] : fileOrInput;
+  if (!file) return;
+  const statusEl = document.getElementById(target + 'Status');
+  statusEl.className = 'upload-status';
+  statusEl.textContent = 'Reading ' + file.name + '…';
+  try {
+    const text = (await extractText(file)).trim();
+    if (!text) throw new Error('No readable text found in that file.');
+    document.getElementById(target).value = text;
+    updateCounts();
+    statusEl.className = 'upload-status ok';
+    statusEl.textContent = '✓ ' + file.name + ' — ' + wordCount(text) + ' words. Edit below if needed.';
+  } catch(e) {
+    statusEl.className = 'upload-status bad';
+    statusEl.textContent = e.message || 'Could not read that file.';
+  }
+}
+
+['brief','article'].forEach(id => {
+  const ta = document.getElementById(id);
+  ta.addEventListener('dragover', e => { e.preventDefault(); ta.classList.add('drag'); });
+  ta.addEventListener('dragleave', () => ta.classList.remove('drag'));
+  ta.addEventListener('drop', e => {
+    e.preventDefault(); ta.classList.remove('drag');
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) handleFile(id, e.dataTransfer.files[0]);
+  });
+});
 
 initKey();
 updateCounts();
