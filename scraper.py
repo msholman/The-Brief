@@ -81,6 +81,40 @@ LEVER_BOARDS = [
     ("Solutions Journalism", "solutionsjournalism", "journalism"),
 ]
 
+# ─── AI RELEVANCE SCORING ───────────────────────────────────────────────────
+# Each listing is scored 0–100 for fit against the profile below, with a short
+# reason. Scoring is skipped automatically if no API key is present, so the
+# scraper still works without it.
+#
+# The API key is read from the ANTHROPIC_API_KEY environment variable — set it
+# as a GitHub repository secret (see SETUP, "Turning on AI scoring"). Never put
+# the key directly in this file.
+
+ENABLE_AI_SCORING = True
+
+# Model used for scoring. Haiku is fast and cheap — ideal for high volume.
+SCORING_MODEL = "claude-haiku-4-5-20251001"
+
+# Your profile — this is what each job is scored against. Edit freely.
+PROFILE = """
+Freelance healthcare communications writer, editor, and content strategist with
+15+ years of experience. Specialties: translating clinical complexity into
+plain, accessible language; health literacy; content strategy; writing for both
+lay/patient audiences and executive/clinical (HCP) audiences. Past clients
+include GE HealthCare, HCA Healthcare, Mass General, Beth Israel Lahey.
+Open to: freelance, contract, and part-time. Also open to UX writing / content
+design and technical writing in health contexts.
+Strong preference for REMOTE; hybrid is acceptable.
+Not interested in: grant writing, full-time in-office roles, sales, recruiting.
+"""
+
+# Only send the top N candidates (by keyword/category pre-score) to the AI, to
+# control cost. Set to 0 to score everything.
+MAX_TO_SCORE = 120
+
+# How many jobs to score per API call (batched to save cost/time).
+SCORE_BATCH_SIZE = 10
+
 # ============================================================================
 # END CONFIG
 # ============================================================================
@@ -295,6 +329,102 @@ def scrape_lever():
     return jobs
 
 
+def _prescore(job):
+    """Cheap heuristic to pick which jobs are worth sending to the AI."""
+    s = 0
+    if job.get("category") in ("writing", "marketing"):
+        s += 5
+    elif job.get("category") == "journalism":
+        s += 2
+    if "remote" in job.get("locations", []):
+        s += 3
+    elif "hybrid" in job.get("locations", []):
+        s += 1
+    if "freelance" in job.get("types", []) or "contract" in job.get("types", []):
+        s += 2
+    return s
+
+
+def score_jobs_with_ai(jobs):
+    """Add fit_score (0-100) and fit_reason to each job. Degrades gracefully:
+    if the key is missing or the API errors, jobs are returned unscored."""
+    import os
+    if not ENABLE_AI_SCORING:
+        return jobs
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    if not api_key:
+        print("  ! ANTHROPIC_API_KEY not set — skipping AI scoring", file=sys.stderr)
+        return jobs
+
+    try:
+        import anthropic
+    except ImportError:
+        print("  ! anthropic package not installed — skipping AI scoring", file=sys.stderr)
+        return jobs
+
+    client = anthropic.Anthropic(api_key=api_key)
+
+    # Pick the most promising candidates to score (cost control)
+    ranked = sorted(jobs, key=_prescore, reverse=True)
+    to_score = ranked if MAX_TO_SCORE == 0 else ranked[:MAX_TO_SCORE]
+    print(f"  Scoring {len(to_score)} of {len(jobs)} listings with {SCORING_MODEL}…")
+
+    by_id = {id(j): j for j in jobs}
+    scored_count = 0
+
+    for i in range(0, len(to_score), SCORE_BATCH_SIZE):
+        batch = to_score[i:i + SCORE_BATCH_SIZE]
+        listing_lines = []
+        for n, j in enumerate(batch):
+            desc = (j.get("description", "") or "")[:300]
+            listing_lines.append(
+                f'{n}. TITLE: {j.get("title","")}\n'
+                f'   COMPANY: {j.get("company","")}\n'
+                f'   DETAILS: {desc}'
+            )
+        listings = "\n\n".join(listing_lines)
+
+        prompt = (
+            "You are screening freelance/contract job listings for a specific "
+            "person. Score each listing 0–100 for how well it fits their "
+            "profile, where 100 is a perfect fit and 0 is irrelevant.\n\n"
+            f"PROFILE:\n{PROFILE.strip()}\n\n"
+            "Scoring guidance: reward health/medical content, content strategy, "
+            "plain-language/health-literacy, and remote freelance/contract work. "
+            "Penalize full-time in-office, sales, grant writing, and roles "
+            "outside writing/content/communications. A generic non-health "
+            "writing role is a mild fit (~40-55); a strong health-content match "
+            "is 80+.\n\n"
+            f"LISTINGS:\n{listings}\n\n"
+            "Respond with ONLY a JSON array, one object per listing, in order, "
+            'like: [{"i":0,"score":82,"reason":"six-word reason"}]. '
+            "The reason must be at most 8 words. No prose, no markdown, JSON only."
+        )
+
+        try:
+            msg = client.messages.create(
+                model=SCORING_MODEL,
+                max_tokens=1024,
+                messages=[{"role": "user", "content": prompt}],
+            )
+            text = "".join(b.text for b in msg.content if getattr(b, "type", "") == "text").strip()
+            text = re.sub(r"^```(?:json)?|```$", "", text.strip()).strip()
+            results = json.loads(text)
+            for r in results:
+                idx = r.get("i")
+                if idx is None or idx >= len(batch):
+                    continue
+                job = batch[idx]
+                job["fit_score"] = max(0, min(100, int(r.get("score", 0))))
+                job["fit_reason"] = str(r.get("reason", ""))[:80]
+                scored_count += 1
+        except Exception as e:
+            print(f"  ! scoring batch {i//SCORE_BATCH_SIZE} failed: {e}", file=sys.stderr)
+
+    print(f"  AI scored {scored_count} listings")
+    return jobs
+
+
 def main():
     print("Scraping job sources…")
     all_jobs = []
@@ -314,6 +444,9 @@ def main():
         if u and u not in seen:
             seen.add(u)
             deduped.append(j)
+
+    # AI relevance scoring (skipped automatically if no API key)
+    deduped = score_jobs_with_ai(deduped)
 
     output = {
         "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
