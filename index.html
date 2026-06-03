@@ -146,6 +146,7 @@
     </div>
   </div>
   <div class="sidebar-section"><span class="sidebar-label">Posted within</span><div class="chip-group" id="freshnessChips"></div></div>
+  <div class="sidebar-section"><span class="sidebar-label">Relevance</span><div class="chip-group" id="strictnessChips"></div></div>
   <div class="sidebar-section"><span class="sidebar-label">Category</span><div class="chip-group" id="categoryChips"></div></div>
   <div class="sidebar-section"><span class="sidebar-label">Employment type</span><div class="chip-group" id="typeChips"></div></div>
   <div class="sidebar-section"><span class="sidebar-label">Location</span><div class="chip-group" id="locationChips"></div></div>
@@ -179,11 +180,13 @@ let allJobs = [];
 let sourceEnabled = {};
 
 let freshnessDays = 30;
+let strictness = 'relevant';
 let categoryFilter = { writing:true, marketing:true, journalism:true, other:false };
 let typeFilter = { freelance:true, contract:true, 'part-time':true, 'full-time':true, unknown:true };
 let locationFilter = { remote:true, hybrid:true, onsite:false, unknown:true };
 
 const FRESHNESS_DEFS = [ {key:14,label:'2 weeks'},{key:30,label:'1 month'},{key:90,label:'3 months'},{key:0,label:'Any time'} ];
+const STRICTNESS_DEFS = [ {key:'all',label:'All'},{key:'relevant',label:'Relevant'},{key:'strict',label:'Strict'} ];
 const CATEGORY_DEFS = [ {key:'writing',label:'Writing',priority:true},{key:'marketing',label:'Marketing',priority:true},{key:'journalism',label:'Journalism'},{key:'other',label:'Other'} ];
 const TYPE_DEFS = [ {key:'freelance',label:'Freelance'},{key:'contract',label:'Contract'},{key:'part-time',label:'Part-time'},{key:'full-time',label:'Full-time'},{key:'unknown',label:'Unspecified'} ];
 const LOCATION_DEFS = [ {key:'remote',label:'Remote',priority:true},{key:'hybrid',label:'Hybrid'},{key:'onsite',label:'On-site'},{key:'unknown',label:'Unspecified'} ];
@@ -252,11 +255,17 @@ function passesFreshness(j) {
   if (!t||t<1) return false;
   return t >= Date.now() - freshnessDays*86400000;
 }
+function passesStrictness(score, matched) {
+  if (strictness==='all') return true;
+  if (strictness==='relevant') return score >= 5;       // has category priority or boosts
+  if (strictness==='strict') return matched.length > 0;  // explicitly matches a keyword
+  return true;
+}
 function applyFilters() {
   const query=document.getElementById('searchInput').value.toLowerCase();
   const sortBy=document.getElementById('sortSelect').value;
-  let hiddenByDate=0;
-  let filtered=allJobs.filter(job=>{
+  let hiddenByDate=0, hiddenByRel=0;
+  let base=allJobs.filter(job=>{
     if (!sourceEnabled[job.source]) return false;
     const text=(job.title+' '+job.description+' '+job.company).toLowerCase();
     if (query && !text.includes(query)) return false;
@@ -266,12 +275,15 @@ function applyFilters() {
     if (!passesFreshness(job)) { hiddenByDate++; return false; }
     return true;
   });
-  const scored=filtered.map(job=>({job,...scoreJob(job)}));
+  let scored=base.map(job=>({job,...scoreJob(job)}));
+  scored=scored.filter(s=>{ if(passesStrictness(s.score,s.matched)) return true; hiddenByRel++; return false; });
   if (sortBy==='relevance') scored.sort((a,b)=> b.score!==a.score ? b.score-a.score : b.job.pubDate-a.job.pubDate);
   else if (sortBy==='date') scored.sort((a,b)=>b.job.pubDate-a.job.pubDate);
   else if (sortBy==='source') scored.sort((a,b)=>a.job.source.localeCompare(b.job.source));
   document.getElementById('statFiltered').textContent=scored.length;
-  const note=(freshnessDays>0&&hiddenByDate>0)?` · ${hiddenByDate} older/undated hidden`:'';
+  let note='';
+  if (freshnessDays>0 && hiddenByDate>0) note+=` · ${hiddenByDate} older/undated`;
+  if (strictness!=='all' && hiddenByRel>0) note+=` · ${hiddenByRel} off-topic`;
   document.getElementById('resultCount').textContent= scored.length===0 ? 'No results match your current filters' : `${scored.length} opportunit${scored.length===1?'y':'ies'}${note}`;
   renderJobs(scored);
 }
@@ -304,7 +316,9 @@ function renderChips(id, defs, state) {
 function toggleChip(id,key){ if(id==='categoryChips')categoryFilter[key]=!categoryFilter[key]; else if(id==='typeChips')typeFilter[key]=!typeFilter[key]; else if(id==='locationChips')locationFilter[key]=!locationFilter[key]; renderAllChips(); applyFilters(); }
 function renderFreshnessChips(){ document.getElementById('freshnessChips').innerHTML=FRESHNESS_DEFS.map(d=>`<span class="chip ${freshnessDays===d.key?'on':''}" onclick="setFreshness(${d.key})"><span class="chip-dot"></span>${d.label}</span>`).join(''); }
 function setFreshness(d){ freshnessDays=d; renderFreshnessChips(); applyFilters(); }
-function renderAllChips(){ renderFreshnessChips(); renderChips('categoryChips',CATEGORY_DEFS,categoryFilter); renderChips('typeChips',TYPE_DEFS,typeFilter); renderChips('locationChips',LOCATION_DEFS,locationFilter); }
+function renderStrictnessChips(){ document.getElementById('strictnessChips').innerHTML=STRICTNESS_DEFS.map(d=>`<span class="chip ${strictness===d.key?'on':''}" onclick="setStrictness('${d.key}')"><span class="chip-dot"></span>${d.label}</span>`).join(''); }
+function setStrictness(k){ strictness=k; renderStrictnessChips(); applyFilters(); }
+function renderAllChips(){ renderFreshnessChips(); renderStrictnessChips(); renderChips('categoryChips',CATEGORY_DEFS,categoryFilter); renderChips('typeChips',TYPE_DEFS,typeFilter); renderChips('locationChips',LOCATION_DEFS,locationFilter); }
 
 function renderSourceList() {
   const names=[...new Set(allJobs.map(j=>j.source))].sort();
