@@ -433,6 +433,7 @@ function renderCounts() {
   ).join('');
 }
 function setView(v){ currentView=v; applyFilters(); }
+function renderFreshnessChips(){ document.getElementById('freshnessChips').innerHTML=FRESHNESS_DEFS.map(d=>`<span class="chip ${freshnessDays===d.key?'on':''}" onclick="setFreshness(${d.key})"><span class="chip-dot"></span>${d.label}</span>`).join(''); }
 function setFreshness(d){ freshnessDays=d; renderFreshnessChips(); applyFilters(); }
 function renderStrictnessChips(){ document.getElementById('strictnessChips').innerHTML=STRICTNESS_DEFS.map(d=>`<span class="chip ${strictness===d.key?'on':''}" onclick="setStrictness('${d.key}')"><span class="chip-dot"></span>${d.label}</span>`).join(''); }
 function setStrictness(k){ strictness=k; renderStrictnessChips(); applyFilters(); }
