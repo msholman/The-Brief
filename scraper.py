@@ -21,12 +21,26 @@ from urllib.error import URLError, HTTPError
 
 # Search terms sent to LinkedIn / Indeed / Glassdoor / Google / ZipRecruiter.
 SEARCH_TERMS = [
-    "healthcare writer",
+    "healthcare content writer",
     "health content strategist",
     "medical writer",
     "health communications",
-    "freelance copywriter healthcare",
-    "content strategist remote",
+    "healthcare copywriter",
+    "content designer healthcare",
+    "ux writer",
+    "technical writer healthcare",
+]
+
+# Titles containing any of these phrases are dropped — roles you don't want.
+EXCLUDE_TITLE_TERMS = [
+    "grant writer",
+    "grant writing",
+    "grants writer",
+    "compensation analyst",
+    "recruiter",
+    "account executive",
+    "sales representative",
+    "sales manager",
 ]
 
 # Which big boards to scrape via JobSpy.
@@ -93,22 +107,31 @@ def detect_location(text):
     return locs
 
 
-def detect_category(text, source_cat):
-    t = text.lower()
-    if re.search(r"\bwrit|\beditor|\bediting|copywrit|content\b|journalis|reporter|author", t):
-        if re.search(r"journalis|reporter|newsroom|investigat", t):
-            return "journalism"
+def detect_category(title, text, source_cat):
+    """Category is decided primarily from the TITLE. Scanning the full
+    description produces false positives (e.g. a 'Compensation Analyst' whose
+    description happens to mention 'growth' or 'communications')."""
+    t = title.lower()
+    if re.search(r"\b(journalist|reporter|correspondent|newsroom|news editor)\b", t):
+        return "journalism"
+    if (re.search(r"\b(writer|writing|copywriter|copywriting|editor|editorial|"
+                  r"proofread|author|ux writer|technical writer)\b", t)
+            or re.search(r"content (strateg|design|market|writ|lead|manager|specialist)", t)):
         return "writing"
-    if re.search(r"market|\bpr\b|public relations|communications|brand|social media|seo|campaign|growth", t):
+    if re.search(r"\b(marketing|brand|social media|seo|public relations|"
+                 r"communications|demand gen|growth marketing|campaign manager)\b", t):
         return "marketing"
+    # Fall back to the feed's declared category (RSS feeds set this).
+    # Do NOT scan the description — that's what created the noise.
     return source_cat if source_cat and source_cat != "mixed" else "other"
 
 
 def enrich(job, source_cat):
-    text = f"{job.get('title','')} {job.get('description','')} {job.get('company','')}"
+    title = job.get("title", "")
+    text = f"{title} {job.get('description','')} {job.get('company','')}"
     job["types"] = detect_type(text)
     job["locations"] = detect_location(text)
-    job["category"] = detect_category(text, source_cat)
+    job["category"] = detect_category(title, text, source_cat)
     return job
 
 
@@ -280,11 +303,14 @@ def main():
     all_jobs += scrape_greenhouse()
     all_jobs += scrape_lever()
 
-    # Deduplicate by URL
+    # Deduplicate by URL and drop excluded titles
     seen = set()
     deduped = []
     for j in all_jobs:
         u = j.get("url", "")
+        title = (j.get("title", "") or "").lower()
+        if any(term in title for term in EXCLUDE_TITLE_TERMS):
+            continue
         if u and u not in seen:
             seen.add(u)
             deduped.append(j)
