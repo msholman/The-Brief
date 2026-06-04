@@ -63,10 +63,19 @@ RSS_FEEDS = [
     ("ProBlogger",                   "https://jobs.problogger.com/feed/",                                   "writing"),
     ("We Work Remotely — Writing",   "https://weworkremotely.com/categories/remote-writing-jobs.rss",       "writing"),
     ("We Work Remotely — Marketing", "https://weworkremotely.com/categories/remote-marketing-jobs.rss",     "marketing"),
+    ("We Work Remotely — Contract",  "https://weworkremotely.com/categories/remote-contract-jobs.rss",      "writing"),
     ("Jobicy — Content",             "https://jobicy.com/?feed=job_feed&search_keywords=content+writer",    "writing"),
     ("Jobicy — Marketing",           "https://jobicy.com/?feed=job_feed&search_keywords=marketing",         "marketing"),
+    ("Jobicy — Copywriter",          "https://jobicy.com/?feed=job_feed&search_keywords=copywriter",        "writing"),
+    ("Jobicy — Editor",              "https://jobicy.com/?feed=job_feed&search_keywords=editor",            "writing"),
+    ("Jobicy — Healthcare",          "https://jobicy.com/?feed=job_feed&search_keywords=healthcare",        "writing"),
+    ("Jobicy — Communications",      "https://jobicy.com/?feed=job_feed&search_keywords=communications",    "marketing"),
     ("RemoteOK — Writing",           "https://remoteok.com/remote-writing-jobs.rss",                        "writing"),
+    ("RemoteOK — Marketing",         "https://remoteok.com/remote-marketing-jobs.rss",                      "marketing"),
+    ("RemoteOK — Content",           "https://remoteok.com/remote-content-writing-jobs.rss",                "writing"),
     ("JournalismJobs",               "https://www.journalismjobs.com/rss",                                  "journalism"),
+    ("Working Nomads — Writing",     "https://www.workingnomads.com/jobsrss?category=writing",              "writing"),
+    ("Working Nomads — Marketing",   "https://www.workingnomads.com/jobsrss?category=marketing",            "marketing"),
 ]
 
 # Company boards on Greenhouse (use the slug from boards.greenhouse.io/SLUG).
@@ -74,11 +83,18 @@ GREENHOUSE_BOARDS = [
     ("RVO Health (freelance)", "rvohcontentfreelance", "writing"),
     ("Axios",                  "axios",                "journalism"),
     ("Grist",                  "grist",                "journalism"),
+    ("The Arena Group",        "thearenagroup",        "writing"),
+    ("The Daily Beast",        "thedailybeast31",      "journalism"),
+    ("VSA Partners",           "vsapartners",          "writing"),
 ]
 
 # Company boards on Lever (use the slug from jobs.lever.co/SLUG).
 LEVER_BOARDS = [
     ("Solutions Journalism", "solutionsjournalism", "journalism"),
+    ("MissionWired",         "MissionWired",        "writing"),
+    ("Bisnow",               "bisnow",              "journalism"),
+    ("Modern Age",           "modern-age",          "writing"),
+    ("Artera",               "artera",              "writing"),
 ]
 
 # ─── AI RELEVANCE SCORING ───────────────────────────────────────────────────
