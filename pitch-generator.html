@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pitch Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --warm-white:#FAF8F5; --linen:#EDE8DF; --linen-dark:#D8D0C4;
+    --charcoal:#2C2B29; --charcoal-light:#4A4845;
+    --gold:#C9A84C; --gold-light:#E2C97A; --gold-pale:#F5EDD6;
+    --muted:#8A8780; --border:rgba(44,43,41,0.12); --border-strong:rgba(44,43,41,0.22);
+    --radius:6px; --radius-lg:12px;
+    --green-pale:#EAF3DE; --green-text:#3B6D11;
+    --coral-pale:#FAECE7; --coral-text:#993C1D;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:var(--warm-white); color:var(--charcoal);
+    font-family:'DM Sans',sans-serif; font-weight:300; min-height:100vh;
+    background-image:radial-gradient(circle at 12% 10%, rgba(201,168,76,0.06), transparent 42%),
+                     radial-gradient(circle at 88% 88%, rgba(201,168,76,0.04), transparent 45%);
+  }
+  .wrap { max-width:780px; margin:0 auto; padding:3rem 2rem 4rem; }
+  a.back { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; display:inline-flex; gap:6px; margin-bottom:1.75rem; transition:color 0.15s; }
+  a.back:hover { color:var(--gold); }
+
+  .eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:0.7rem; }
+  h1 { font-family:'Cormorant Garamond',serif; font-size:2.6rem; font-weight:300; line-height:1.08; }
+  .lede { font-size:14px; color:var(--muted); margin-top:0.7rem; max-width:58ch; line-height:1.6; }
+
+  .keybar { background:var(--gold-pale); border:0.5px solid rgba(201,168,76,0.35); border-radius:var(--radius); padding:0.85rem 1rem; margin:1.5rem 0; font-size:12.5px; color:var(--charcoal-light); line-height:1.6; }
+  .keybar input { width:100%; margin-top:8px; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius); padding:8px 10px; font-family:'DM Mono',monospace; font-size:12px; outline:none; }
+  .keybar .krow { display:flex; gap:8px; align-items:center; margin-top:8px; }
+  .keybar button { background:var(--charcoal); color:#fff; border:none; border-radius:var(--radius); padding:8px 14px; font-family:'DM Mono',monospace; font-size:11px; cursor:pointer; white-space:nowrap; }
+  .key-ok { font-family:'DM Mono',monospace; font-size:11px; color:var(--green-text); }
+  .key-link { color:var(--gold); cursor:pointer; text-decoration:underline; }
+
+  .seg { display:flex; gap:0; border:0.5px solid var(--border-strong); border-radius:var(--radius); overflow:hidden; margin-bottom:1.25rem; }
+  .seg-btn { flex:1; padding:9px 0; text-align:center; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.07em; text-transform:uppercase; cursor:pointer; background:#fff; color:var(--muted); border:none; transition:all 0.15s; }
+  .seg-btn.on { background:var(--gold); color:var(--charcoal); }
+
+  .field { margin-bottom:1.15rem; }
+  .field label { display:block; font-size:13px; color:var(--charcoal); margin-bottom:0.4rem; font-weight:400; }
+  .field .hint { font-size:11.5px; color:var(--muted); margin-bottom:0.45rem; line-height:1.5; }
+  input[type="text"], textarea, select {
+    width:100%; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius);
+    padding:10px 12px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:300; color:var(--charcoal); outline:none; transition:border-color 0.15s;
+  }
+  select { font-family:'DM Mono',monospace; font-size:13px; cursor:pointer; }
+  textarea { line-height:1.6; resize:vertical; min-height:120px; }
+  input:focus, textarea:focus, select:focus { border-color:var(--gold); }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  @media (max-width:560px){ .two-col{ grid-template-columns:1fr; } }
+
+  .role-preview { background:#fff; border:0.5px solid var(--border); border-left:3px solid var(--gold); border-radius:var(--radius); padding:0.9rem 1.1rem; margin-bottom:1.15rem; display:none; }
+  .role-preview.show { display:block; }
+  .rp-title { font-family:'Cormorant Garamond',serif; font-size:1.25rem; line-height:1.2; }
+  .rp-meta { font-family:'DM Mono',monospace; font-size:11px; color:var(--muted); margin-top:3px; }
+  .rp-desc { font-size:12.5px; color:var(--charcoal-light); line-height:1.55; margin-top:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+
+  .controls { display:flex; gap:1rem; flex-wrap:wrap; align-items:flex-end; margin-bottom:0.5rem; }
+  .controls .field { flex:1; min-width:180px; margin-bottom:0; }
+
+  .run-row { display:flex; align-items:center; gap:1rem; margin-top:1.25rem; }
+  .run-btn { background:var(--charcoal); color:var(--warm-white); border:none; border-radius:var(--radius); padding:12px 26px; font-family:'DM Mono',monospace; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer; transition:background 0.15s; }
+  .run-btn:hover:not(:disabled) { background:var(--gold); color:var(--charcoal); }
+  .run-btn:disabled { opacity:0.5; cursor:not-allowed; }
+  .run-note { font-size:11.5px; color:var(--muted); }
+
+  .loading { display:none; flex-direction:column; align-items:center; gap:1rem; padding:2.5rem 1rem; text-align:center; }
+  .loading.show { display:flex; }
+  .loading-dots span { display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--gold); margin:0 3px; animation:bounce 1.2s infinite ease-in-out; }
+  .loading-dots span:nth-child(2){animation-delay:.2s;} .loading-dots span:nth-child(3){animation-delay:.4s;}
+  @keyframes bounce { 0%,80%,100%{transform:scale(.6);opacity:.4;} 40%{transform:scale(1);opacity:1;} }
+  .loading-msg { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.3rem; color:var(--charcoal); }
+
+  .err { display:none; background:var(--coral-pale); color:var(--coral-text); border:0.5px solid rgba(153,60,29,0.25); border-radius:var(--radius); padding:0.9rem 1.1rem; margin-top:1.25rem; font-size:13px; line-height:1.6; }
+  .err.show { display:block; }
+
+  .output { margin-top:1.75rem; display:none; }
+  .output.show { display:block; animation:fade 0.4s ease; }
+  @keyframes fade { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+  .output-head { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.7rem; }
+  .output-head .lbl { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+  .output-actions { display:flex; gap:8px; }
+  .mini-btn { background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius); padding:6px 13px; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--charcoal); cursor:pointer; transition:all 0.15s; }
+  .mini-btn:hover { border-color:var(--gold); color:var(--gold); }
+  #pitchOut { min-height:280px; background:#fff; font-size:14px; line-height:1.7; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back" href="./command-center.html">&larr; Command Center</a>
+
+  <div class="eyebrow">Find &amp; win work</div>
+  <h1>Pitch Generator</h1>
+  <p class="lede">Turn a role into a tailored first-draft pitch — built from your profile, in your voice. Pick a role you saved in The Brief, or paste any listing.</p>
+
+  <div class="keybar" id="keybar">
+    <div id="keyPrompt">
+      <strong>One-time setup:</strong> paste your Anthropic API key (the same one the other tools use). Stored only in this browser.
+      <div class="krow">
+        <input type="password" id="keyInput" placeholder="sk-ant-..." />
+        <button onclick="saveKey()">Save</button>
+      </div>
+    </div>
+    <div id="keySaved" style="display:none;">
+      <span class="key-ok">✓ API key saved in this browser.</span> &nbsp; <span class="key-link" onclick="clearKey()">change</span>
+    </div>
+  </div>
+
+  <div class="seg">
+    <button class="seg-btn on" id="segSaved" onclick="setMode('saved')">From a saved role</button>
+    <button class="seg-btn" id="segPaste" onclick="setMode('paste')">Paste a role</button>
+  </div>
+
+  <!-- Saved role picker -->
+  <div id="savedMode">
+    <div class="field">
+      <label>Your saved &amp; applied roles</label>
+      <div class="hint" id="savedHint">Pulled from The Brief.</div>
+      <select id="savedSelect" onchange="onPickSaved()"><option value="">— select a role —</option></select>
+    </div>
+    <div class="role-preview" id="rolePreview">
+      <div class="rp-title" id="rpTitle"></div>
+      <div class="rp-meta" id="rpMeta"></div>
+      <div class="rp-desc" id="rpDesc"></div>
+    </div>
+  </div>
+
+  <!-- Paste role -->
+  <div id="pasteMode" style="display:none;">
+    <div class="two-col">
+      <div class="field"><label>Role / title</label><input type="text" id="pTitle" placeholder="e.g. Healthcare Content Strategist" /></div>
+      <div class="field"><label>Company</label><input type="text" id="pCompany" placeholder="e.g. Coffey Communications" /></div>
+    </div>
+    <div class="field"><label>Listing details</label><textarea id="pDesc" placeholder="Paste the job description or what you know about the role…"></textarea></div>
+  </div>
+
+  <div class="controls">
+    <div class="field">
+      <label>Format</label>
+      <select id="format">
+        <option value="email">Cold-outreach email</option>
+        <option value="cover">Cover letter</option>
+        <option value="message">Short message (LinkedIn / DM)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Emphasize (optional)</label>
+      <input type="text" id="emphasis" placeholder="e.g. health literacy, patient education" />
+    </div>
+  </div>
+
+  <div class="run-row">
+    <button class="run-btn" id="runBtn" onclick="generate()">Draft my pitch</button>
+    <span class="run-note">A first draft to shape — always your final read before sending.</span>
+  </div>
+
+  <div class="loading" id="loading">
+    <div class="loading-dots"><span></span><span></span><span></span></div>
+    <div class="loading-msg" id="loadingMsg">Reading the role…</div>
+  </div>
+
+  <div class="err" id="err"></div>
+
+  <div class="output" id="output">
+    <div class="output-head">
+      <span class="lbl">Your draft</span>
+      <div class="output-actions">
+        <button class="mini-btn" onclick="copyPitch()" id="copyBtn">Copy</button>
+        <button class="mini-btn" onclick="generate()">Regenerate</button>
+      </div>
+    </div>
+    <textarea id="pitchOut"></textarea>
+  </div>
+
+</div>
+
+<script>
+const KEY_STORE = 'thebrief_anthropic_key';
+const STATUS_KEY = 'thebrief_status_v1';
+const MODEL = 'claude-sonnet-4-6';
+let apiKey = '', profile = {}, mode = 'saved', savedJobs = [];
+
+const FORMATS = {
+  email:   { spec: 'a cold-outreach email, roughly 120–170 words. Put a short subject line as the first line, prefixed "Subject: ". Then the body.' },
+  cover:   { spec: 'a concise cover letter, roughly 220–280 words, opening with a greeting and no mailing-address block.' },
+  message: { spec: 'a brief LinkedIn or DM message, roughly 60–90 words, no subject line, conversational but professional.' },
+};
+
+// ── API key (shared with the other tools on this origin) ──
+function initKey() {
+  try { apiKey = localStorage.getItem(KEY_STORE) || ''; } catch(e) {}
+  document.getElementById('keyPrompt').style.display = apiKey ? 'none' : 'block';
+  document.getElementById('keySaved').style.display = apiKey ? 'block' : 'none';
+}
+function saveKey(){ const v=document.getElementById('keyInput').value.trim(); if(!v)return; apiKey=v; try{localStorage.setItem(KEY_STORE,v);}catch(e){} initKey(); }
+function clearKey(){ apiKey=''; try{localStorage.removeItem(KEY_STORE);}catch(e){} document.getElementById('keyInput').value=''; initKey(); }
+
+// ── Mode toggle ──
+function setMode(m){
+  mode=m;
+  document.getElementById('segSaved').classList.toggle('on', m==='saved');
+  document.getElementById('segPaste').classList.toggle('on', m==='paste');
+  document.getElementById('savedMode').style.display = m==='saved' ? 'block' : 'none';
+  document.getElementById('pasteMode').style.display = m==='paste' ? 'block' : 'none';
+}
+
+// ── Load profile + saved roles from The Brief (same origin) ──
+async function loadData() {
+  try { const r = await fetch('./profile.json?cb='+Date.now()); if (r.ok) profile = await r.json(); } catch(e) {}
+
+  let status = {};
+  try { status = JSON.parse(localStorage.getItem(STATUS_KEY) || '{}'); } catch(e) {}
+  let jobs = [];
+  try { const r = await fetch('./jobs.json?cb='+Date.now()); if (r.ok) { const d = await r.json(); jobs = d.jobs || []; } } catch(e) {}
+
+  savedJobs = jobs.filter(j => { const s = status[j.url]; return s && (s.saved || s.applied); })
+                  .map(j => ({ ...j, _status: (status[j.url].applied ? 'applied' : 'saved') }));
+
+  const sel = document.getElementById('savedSelect');
+  const hint = document.getElementById('savedHint');
+  if (!savedJobs.length) {
+    hint.textContent = 'No saved or applied roles found in The Brief yet — save a few there, or use “Paste a role.”';
+    return;
+  }
+  hint.textContent = `${savedJobs.length} role${savedJobs.length===1?'':'s'} from The Brief.`;
+  sel.innerHTML = '<option value="">— select a role —</option>' +
+    savedJobs.map((j,i)=>`<option value="${i}">[${j._status}] ${escAttr(j.title)}${j.company?' · '+escAttr(j.company):''}</option>`).join('');
+}
+
+function onPickSaved() {
+  const i = document.getElementById('savedSelect').value;
+  const pv = document.getElementById('rolePreview');
+  if (i === '') { pv.classList.remove('show'); return; }
+  const j = savedJobs[+i];
+  document.getElementById('rpTitle').textContent = j.title || '';
+  document.getElementById('rpMeta').textContent = [j.company, j.source, j._status].filter(Boolean).join(' · ');
+  document.getElementById('rpDesc').textContent = j.description || '';
+  pv.classList.add('show');
+}
+
+// ── Build the role + profile text for the prompt ──
+function currentRole() {
+  if (mode === 'saved') {
+    const i = document.getElementById('savedSelect').value;
+    if (i === '') return null;
+    const j = savedJobs[+i];
+    return { title: j.title||'', company: j.company||'', desc: j.description||'' };
+  }
+  const title = document.getElementById('pTitle').value.trim();
+  const company = document.getElementById('pCompany').value.trim();
+  const desc = document.getElementById('pDesc').value.trim();
+  if (!title && !desc) return null;
+  return { title, company, desc };
+}
+
+function buildProfileText(p) {
+  const L = [];
+  if (p.name) L.push('Name: ' + p.name);
+  if (p.headline) { const e = p.years_experience ? ` (${p.years_experience} years' experience)` : ''; L.push('Role: ' + p.headline + e); }
+  if (p.specialties && p.specialties.length) L.push('Specialties: ' + p.specialties.join('; '));
+  if (p.clients && p.clients.length) L.push('Past clients: ' + p.clients.join(', '));
+  if (p.proof_points && p.proof_points.length) L.push('Proof points: ' + p.proof_points.join('; '));
+  if (p.education && p.education.length) L.push('Education: ' + p.education.join('; '));
+  if (p.voice_notes) L.push('Voice: ' + p.voice_notes);
+  const site = p.links && p.links.website ? p.links.website : '';
+  if (site) L.push('Website: ' + site);
+  return L.join('\n');
+}
+
+const LOADING_MSGS = ['Reading the role…','Pulling the right proof points…','Finding the hook…','Drafting in your voice…'];
+let msgTimer=null;
+function cycleMsgs(){ let i=0; document.getElementById('loadingMsg').textContent=LOADING_MSGS[0]; msgTimer=setInterval(()=>{i=(i+1)%LOADING_MSGS.length; document.getElementById('loadingMsg').textContent=LOADING_MSGS[i];},2000); }
+function showErr(m){ const e=document.getElementById('err'); e.textContent=m; e.classList.add('show'); }
+
+async function generate() {
+  document.getElementById('err').classList.remove('show');
+  if (!apiKey) { showErr('Add your Anthropic API key first (the box up top).'); return; }
+  const role = currentRole();
+  if (!role) { showErr(mode==='saved' ? 'Pick a saved role first, or switch to “Paste a role.”' : 'Add at least a role title or some listing details.'); return; }
+
+  const fmt = document.getElementById('format').value;
+  const emphasis = document.getElementById('emphasis').value.trim();
+  const profileText = buildProfileText(profile);
+
+  const prompt = `You are helping a freelance writer draft a tailored outreach pitch for a specific role. Write it in their voice — clear, credible, specific, warm but never gushing. They are a professional writer, so the prose must be sharp and human, not templated.
+
+HARD RULES:
+- Use ONLY facts from the PROFILE. Never invent experience, metrics, clients, or credentials.
+- No clichés or filler. Avoid: "I'm excited to", "I'm passionate", "perfect fit", "I believe", "leverage", "synergy", "wealth of experience", "proven track record", "as you can see", "I would love the opportunity". Avoid "there's a version of".
+- Open with a specific, genuine hook tied to this role or company — not a generic greeting-plus-summary.
+- Weave in 1–2 concrete proof points from the profile that actually fit THIS role.
+- Keep it tight. End with a low-pressure call to action and sign off with their name.
+- Write only the pitch itself — no preamble, no notes, no options.
+
+FORMAT: Write ${FORMATS[fmt].spec}
+${emphasis ? 'EMPHASIZE: lean into ' + emphasis + '.' : ''}
+
+PROFILE:
+${profileText}
+
+ROLE:
+Title: ${role.title || '(not given)'}
+Company: ${role.company || '(not given)'}
+Details: ${role.desc || '(none provided)'}`;
+
+  const btn=document.getElementById('runBtn'); btn.disabled=true;
+  document.getElementById('loading').classList.add('show'); cycleMsgs();
+
+  try {
+    const res = await fetch("https://api.anthropic.com/v1/messages", {
+      method:"POST",
+      headers:{ "Content-Type":"application/json", "x-api-key":apiKey, "anthropic-version":"2023-06-01", "anthropic-dangerous-direct-browser-access":"true" },
+      body: JSON.stringify({ model: MODEL, max_tokens: 1200, messages:[{role:"user", content:prompt}] })
+    });
+    if (!res.ok) {
+      let detail='HTTP '+res.status;
+      try { const j=await res.json(); if(j.error&&j.error.message) detail=j.error.message; } catch(e){}
+      throw new Error(detail);
+    }
+    const data = await res.json();
+    const text = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
+    if (!text) throw new Error('The model returned an empty response — please try again.');
+    document.getElementById('pitchOut').value = text;
+    document.getElementById('output').classList.add('show');
+  } catch(err) {
+    let m = err.message || String(err);
+    if (/Failed to fetch/i.test(m)) m = 'Could not reach the API. Check your connection and that your key is valid.';
+    if (/401|authentication|x-api-key/i.test(m)) m = 'The API key looks invalid — use “change” above to re-enter it.';
+    if (/credit|balance|billing/i.test(m)) m = 'API call refused for billing reasons — check your Anthropic account has credit.';
+    showErr(m);
+  } finally {
+    clearInterval(msgTimer);
+    document.getElementById('loading').classList.remove('show');
+    btn.disabled=false;
+  }
+}
+
+function copyPitch() {
+  const t = document.getElementById('pitchOut').value;
+  navigator.clipboard.writeText(t).then(()=>{
+    const b=document.getElementById('copyBtn'); const o=b.textContent; b.textContent='Copied ✓';
+    setTimeout(()=>b.textContent=o, 1500);
+  }).catch(()=>{});
+}
+
+function escAttr(s){ return String(s==null?'':s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+initKey();
+loadData();
+</script>
+</body>
+</html>
