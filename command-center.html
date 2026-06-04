@@ -90,6 +90,17 @@
 
   footer { margin-top:2.5rem; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.08em; color:var(--muted); text-align:center; line-height:1.7; }
 
+  .nudge { display:flex; align-items:center; gap:1rem; background:#fff; border:0.5px solid var(--border); border-left:3px solid var(--gold); border-radius:var(--radius-lg); padding:1rem 1.25rem; margin-bottom:0.6rem; animation:rise 0.5s ease both; flex-wrap:wrap; }
+  .nudge.saved-type { border-left-color:var(--linen-dark); }
+  .nudge-body { flex:1; min-width:200px; }
+  .nudge-title { font-family:'Cormorant Garamond',serif; font-size:1.2rem; line-height:1.2; color:var(--charcoal); }
+  .nudge-reason { font-size:12.5px; color:var(--muted); margin-top:3px; }
+  .nudge-actions { display:flex; gap:6px; flex-wrap:wrap; }
+  .nudge-btn { background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius); padding:7px 13px; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--charcoal); cursor:pointer; text-decoration:none; transition:all 0.15s; white-space:nowrap; }
+  .nudge-btn:hover { border-color:var(--gold); color:var(--gold); }
+  .nudge-btn.primary { background:var(--charcoal); color:var(--warm-white); border-color:var(--charcoal); }
+  .nudge-btn.primary:hover { background:var(--gold); color:var(--charcoal); }
+
   @keyframes rise { from{ opacity:0; transform:translateY(12px);} to{ opacity:1; transform:translateY(0);} }
 </style>
 </head>
@@ -109,6 +120,9 @@
     <div class="pstat"><div class="pstat-num" id="pSaved">—</div><div class="pstat-label">Saved</div></div>
     <div class="pstat"><div class="pstat-num" id="pApplied">—</div><div class="pstat-label">Applied</div></div>
   </div>
+
+  <div class="section-label" id="nudgeLabel" style="display:none;">Follow-ups due</div>
+  <div id="nudges" style="margin-bottom:3rem; display:none;"></div>
 
   <div class="section-label">Find &amp; win work</div>
   <div class="tools" id="toolsFind"></div>
@@ -171,6 +185,22 @@ function greet() {
   document.getElementById('dateLine').textContent = new Date().toLocaleDateString('en-US', { weekday:'long', month:'long', day:'numeric' });
 }
 
+// follow-up thresholds (days) — tune to taste
+const FOLLOWUP_FIRST_DAYS = 7;
+const FOLLOWUP_REPEAT_DAYS = 7;
+const SAVED_STALE_DAYS = 10;
+const DAY = 86400000;
+
+let statusMap = {};
+let jobMap = {};
+
+function loadStatus() {
+  try { statusMap = JSON.parse(localStorage.getItem('thebrief_status_v1') || '{}'); } catch(e) { statusMap = {}; }
+}
+function saveStatusMap() {
+  try { localStorage.setItem('thebrief_status_v1', JSON.stringify(statusMap)); } catch(e) {}
+}
+
 async function loadPipeline() {
   // Live opportunities + freshness from The Brief's jobs.json (same origin)
   let total = 0, fresh = 0, updated = '';
@@ -180,18 +210,16 @@ async function loadPipeline() {
       const data = await res.json();
       const jobs = (data.jobs || []);
       total = jobs.length;
-      const weekAgo = Date.now() - 7*86400000;
+      jobs.forEach(j => { if (j.url) jobMap[j.url] = j; });
+      const weekAgo = Date.now() - 7*DAY;
       fresh = jobs.filter(j => j.date && new Date(j.date+'T00:00:00').getTime() >= weekAgo).length;
       updated = data.updated || '';
     }
   } catch(e) {}
 
-  // Saved / applied from the SAME localStorage the dashboard writes (shared origin)
+  loadStatus();
   let saved = 0, applied = 0;
-  try {
-    const status = JSON.parse(localStorage.getItem('thebrief_status_v1') || '{}');
-    Object.values(status).forEach(s => { if (s.saved) saved++; if (s.applied) applied++; });
-  } catch(e) {}
+  Object.values(statusMap).forEach(s => { if (s.saved) saved++; if (s.applied) applied++; });
 
   document.getElementById('pOpps').textContent = total || '0';
   document.getElementById('pFresh').textContent = fresh || '0';
@@ -203,7 +231,79 @@ async function loadPipeline() {
     document.getElementById('footer').textContent =
       'The Brief last refreshed ' + d.toLocaleString([], {month:'short',day:'numeric',hour:'2-digit',minute:'2-digit'}) + ' · tools open in the same window unless noted';
   }
+
+  renderNudges();
 }
+
+function computeNudges() {
+  const now = Date.now();
+  const out = [];
+  for (const [url, s] of Object.entries(statusMap)) {
+    if (!s || s.dismissed || s.nudgeMuted) continue;
+    const info = s.snapshot || jobMap[url] || { url };
+    const title = info.title || 'A saved role';
+    const company = info.company || info.source || '';
+
+    if (s.applied) {
+      let due = false, reason = '';
+      if (s.followedUpAt) {
+        const d = Math.floor((now - s.followedUpAt)/DAY);
+        if (d >= FOLLOWUP_REPEAT_DAYS) { due = true; reason = `Last followed up ${d} days ago — check in again?`; }
+      } else if (s.appliedAt) {
+        const d = Math.floor((now - s.appliedAt)/DAY);
+        if (d >= FOLLOWUP_FIRST_DAYS) { due = true; reason = `Applied ${d} days ago — no follow-up logged yet.`; }
+      } else {
+        due = true; reason = 'Applied (date not recorded) — follow up?';
+      }
+      if (due) out.push({ type:'applied', url, title, company, reason });
+    } else if (s.saved && !s.applied && s.savedAt) {
+      const d = Math.floor((now - s.savedAt)/DAY);
+      if (d >= SAVED_STALE_DAYS) out.push({ type:'saved', url, title, company, reason:`Saved ${d} days ago — still want to apply?` });
+    }
+  }
+  // applied follow-ups first
+  out.sort((a,b)=> (a.type==='applied'?0:1) - (b.type==='applied'?0:1));
+  return out;
+}
+
+function renderNudges() {
+  const nudges = computeNudges();
+  const label = document.getElementById('nudgeLabel');
+  const box = document.getElementById('nudges');
+  if (!nudges.length) { label.style.display='none'; box.style.display='none'; return; }
+  label.style.display=''; box.style.display='';
+  box.innerHTML = nudges.map(n => {
+    const u = (n.url||'').replace(/"/g,'&quot;');
+    const meta = n.company ? `<span class="nudge-reason"> · ${esc(n.company)}</span>` : '';
+    const openBtn = (n.url && n.url!=='#') ? `<a class="nudge-btn" href="${n.url}" target="_blank" rel="noopener">Open</a>` : '';
+    const followBtn = n.type==='applied' ? `<button class="nudge-btn primary" onclick="markFollowedUp('${u}')">Mark followed up</button>` : '';
+    return `<div class="nudge ${n.type==='saved'?'saved-type':''}">
+      <div class="nudge-body">
+        <div class="nudge-title">${esc(n.title)}${n.company?` <span style="font-size:0.8rem;color:var(--muted);">· ${esc(n.company)}</span>`:''}</div>
+        <div class="nudge-reason">${esc(n.reason)}</div>
+      </div>
+      <div class="nudge-actions">
+        ${followBtn}
+        ${openBtn}
+        <button class="nudge-btn" onclick="muteNudge('${u}')">Mute</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function markFollowedUp(url) {
+  if (!statusMap[url]) statusMap[url] = {};
+  statusMap[url].followedUpAt = Date.now();
+  saveStatusMap();
+  renderNudges();
+}
+function muteNudge(url) {
+  if (!statusMap[url]) statusMap[url] = {};
+  statusMap[url].nudgeMuted = true;
+  saveStatusMap();
+  renderNudges();
+}
+function esc(s){ return String(s==null?'':s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 
 function cardHtml(t, i) {
   const delay = (0.12 + i*0.05).toFixed(2);
