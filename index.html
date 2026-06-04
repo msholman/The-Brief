@@ -216,9 +216,25 @@ function setStatus(url, patch) {
   statusMap[url] = { ...getStatus(url), ...patch };
   saveStatus();
 }
-function toggleSaved(url){ const s=getStatus(url); setStatus(url,{saved:!s.saved}); applyFilters(); }
-function toggleApplied(url){ const s=getStatus(url); setStatus(url,{applied:!s.applied}); applyFilters(); }
-function toggleDismissed(url){ const s=getStatus(url); setStatus(url,{dismissed:!s.dismissed}); applyFilters(); }
+function jobSnapshot(url) {
+  const j = allJobs.find(x => x.url === url);
+  return j ? { title:j.title, company:j.company, source:j.source, url:j.url } : { url };
+}
+function toggleSaved(url){
+  const s=getStatus(url); const patch={saved:!s.saved};
+  if(!s.saved){ patch.savedAt=Date.now(); patch.snapshot=s.snapshot||jobSnapshot(url); }
+  setStatus(url,patch); applyFilters();
+}
+function toggleApplied(url){
+  const s=getStatus(url); const patch={applied:!s.applied};
+  if(!s.applied){ patch.appliedAt=Date.now(); patch.snapshot=s.snapshot||jobSnapshot(url); }
+  setStatus(url,patch); applyFilters();
+}
+function toggleDismissed(url){
+  const s=getStatus(url); const patch={dismissed:!s.dismissed};
+  if(!s.dismissed){ patch.dismissedAt=Date.now(); }
+  setStatus(url,patch); applyFilters();
+}
 
 let freshnessDays = 7;
 let strictness = 'relevant';
