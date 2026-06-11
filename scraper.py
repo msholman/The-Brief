@@ -209,7 +209,117 @@ def enrich(job, source_cat):
     job["types"] = detect_type(text)
     job["locations"] = detect_location(text)
     job["category"] = detect_category(title, text, source_cat)
+    # If no structured pay was injected (RSS/ATS sources), try parsing description
+    if not job.get("pay_display"):
+        pay = extract_salary_description(job.get("description", ""))
+        job.update(pay)
     return job
+
+
+def extract_salary_structured(row):
+    """Pull salary from JobSpy's structured fields (most reliable source)."""
+    try:
+        mn = row.get("min_amount")
+        mx = row.get("max_amount")
+        interval = str(row.get("interval") or "").lower()
+        currency = str(row.get("currency") or "USD").upper()
+        if mn is None and mx is None:
+            return {}
+        mn = float(mn) if mn is not None else None
+        mx = float(mx) if mx is not None else None
+        # Normalize interval to our standard terms
+        period = "annual"
+        if "hour" in interval:
+            period = "hourly"
+        elif "month" in interval:
+            period = "annual"
+            if mn: mn *= 12
+            if mx: mx *= 12
+        elif "week" in interval:
+            period = "annual"
+            if mn: mn *= 52
+            if mx: mx *= 52
+        elif "contract" in interval or "project" in interval:
+            period = "project"
+        sym = "$" if currency == "USD" else currency + " "
+        def fmt(v): return sym + f"{v:,.0f}"
+        if mn and mx and abs(mx - mn) > 1:
+            display = f"{fmt(mn)}–{fmt(mx)}/{period[:2]}"
+        elif mx:
+            display = f"Up to {fmt(mx)}/{period[:2]}"
+        elif mn:
+            display = f"{fmt(mn)}+/{period[:2]}"
+        else:
+            display = ""
+        return {
+            "pay_min": int(mn) if mn else None,
+            "pay_max": int(mx) if mx else None,
+            "pay_period": period,
+            "pay_display": display,
+        }
+    except Exception:
+        return {}
+
+
+# Salary regex patterns for description parsing
+_PAY_PATTERNS = [
+    # $X,XXX – $X,XXX per hour / hourly / /hr / /h
+    (r"\$\s*([\d,]+(?:\.\d+)?)\s*(?:–|-|to)\s*\$\s*([\d,]+(?:\.\d+)?)\s*(?:per\s*hour|/\s*h(?:our|r)?|hourly)", "hourly"),
+    # $XXX,XXX – $XXX,XXX (annually / per year / salary)
+    (r"\$\s*([\d,]+(?:\.\d+)?)\s*(?:–|-|to)\s*\$\s*([\d,]+(?:\.\d+)?)\s*(?:per\s*year|annually|/\s*year|/\s*yr|salary)?", "annual"),
+    # $XX/hr or $XX/hour (single number)
+    (r"\$\s*([\d,]+(?:\.\d+)?)\s*/\s*h(?:our|r)?", "hourly"),
+    # Rate: $X.XX per word
+    (r"\$\s*([\d.]+)\s*(?:per|/)\s*word", "per_word"),
+]
+
+def extract_salary_description(text):
+    """Parse salary from listing description text — used for RSS and ATS sources."""
+    if not text:
+        return {}
+    for pattern, period in _PAY_PATTERNS:
+        m = re.search(pattern, text, re.IGNORECASE)
+        if not m:
+            continue
+        try:
+            def clean(s): return float(s.replace(",", ""))
+            if period == "per_word":
+                rate = clean(m.group(1))
+                return {"pay_min": None, "pay_max": None,
+                        "pay_period": "per_word",
+                        "pay_display": f"${rate:.2f}/word"}
+            mn = clean(m.group(1))
+            mx = clean(m.group(2)) if len(m.groups()) >= 2 else None
+            # Sanity check: hourly rates should be < 1000; annual > 10000
+            if period == "hourly" and mn > 1000:
+                continue
+            if period == "annual" and mn < 10000:
+                # Probably hourly expressed as a flat number — skip
+                continue
+            sym = "$"
+            def fmt(v): return sym + f"{v:,.0f}"
+            if mx and mx > mn:
+                display = f"{fmt(mn)}–{fmt(mx)}/{'hr' if period == 'hourly' else 'yr'}"
+            else:
+                display = f"{fmt(mn)}+/{'hr' if period == 'hourly' else 'yr'}"
+            return {
+                "pay_min": int(mn),
+                "pay_max": int(mx) if mx else None,
+                "pay_period": period,
+                "pay_display": display,
+            }
+        except Exception:
+            continue
+    return {}
+
+
+def pay_summary(job):
+    """Return a short pay string for the AI scoring prompt, or empty string."""
+    d = job.get("pay_display", "")
+    p = job.get("pay_period", "")
+    if d:
+        return f"Pay: {d}"
+    return ""
 
 
 def iso_date(value):
@@ -274,6 +384,7 @@ def scrape_jobspy_all():
                 site = str(row.get("site", "") or "").replace("_", " ").title()
                 loc = str(row.get("location", "") or "")
                 jtype = str(row.get("job_type", "") or "")
+                pay = extract_salary_structured(row)
                 job = enrich({
                     "title": title.strip(),
                     "url": url.strip(),
@@ -281,6 +392,7 @@ def scrape_jobspy_all():
                     "date": iso_date(row.get("date_posted")),
                     "source": site or "JobSpy",
                     "company": company.strip(),
+                    **pay,
                 }, "mixed")
                 # fold structured fields into detection
                 for k in detect_type(jtype + " " + loc):
@@ -416,14 +528,37 @@ def score_jobs_with_ai(jobs):
     by_id = {id(j): j for j in jobs}
     scored_count = 0
 
+    # Load floors from profile for salary-aware scoring
+    try:
+        with open("profile.json", encoding="utf-8") as f:
+            _prof = json.load(f)
+        rate_floor = float(_prof.get("rate_floor") or 0)
+        salary_floor = float(_prof.get("salary_floor") or 0)
+    except Exception:
+        rate_floor = 0
+        salary_floor = 0
+
+    floor_note = ""
+    if rate_floor:
+        floor_note += f"Hourly/contract floor: ${rate_floor:,.0f}/hr. "
+    if salary_floor:
+        floor_note += f"Full-time salary floor: ${salary_floor:,.0f}/yr. "
+    if floor_note:
+        floor_note = "PAY FLOORS: " + floor_note + \
+            "Roles with stated pay BELOW these floors should be penalized " \
+            "10–20 points regardless of content fit. Roles with no stated pay " \
+            "should NOT be penalized."
+
     for i in range(0, len(to_score), SCORE_BATCH_SIZE):
         batch = to_score[i:i + SCORE_BATCH_SIZE]
         listing_lines = []
         for n, j in enumerate(batch):
             desc = (j.get("description", "") or "")[:300]
+            pay_line = pay_summary(j)
             listing_lines.append(
                 f'{n}. TITLE: {j.get("title","")}\n'
                 f'   COMPANY: {j.get("company","")}\n'
+                + (f'   {pay_line}\n' if pay_line else '') +
                 f'   DETAILS: {desc}'
             )
         listings = "\n\n".join(listing_lines)
@@ -439,6 +574,7 @@ def score_jobs_with_ai(jobs):
             "outside writing/content/communications. A generic non-health "
             "writing role is a mild fit (~40-55); a strong health-content match "
             "is 80+.\n\n"
+            + (f"{floor_note}\n\n" if floor_note else "") +
             f"LISTINGS:\n{listings}\n\n"
             "Respond with ONLY a JSON array, one object per listing, in order, "
             'like: [{"i":0,"score":82,"reason":"six-word reason"}]. '

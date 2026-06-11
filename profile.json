@@ -29,6 +29,7 @@
   "location_preference": "Remote strongly preferred; hybrid acceptable.",
 
   "rate_floor": "",
+  "salary_floor": "",
 
   "clients": [
     "GE HealthCare",
@@ -54,9 +55,9 @@
     "website": "https://taylaholman.com",
     "the_brief": "./index.html",
     "rate_calculator": "./rate-calculator.html",
-    "pitch": "./pitch-generator.html",
     "scorer": "./assignment-scorer.html",
-    "ruffin": "https://www.taylaholman.com/ruffin",
-    "lede": "https://www.taylaholman.com/lede"
+    "pitch": "./pitch-generator.html",
+    "ruffin": "",
+    "lede": ""
   }
 }
