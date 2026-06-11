@@ -80,21 +80,80 @@ RSS_FEEDS = [
 
 # Company boards on Greenhouse (use the slug from boards.greenhouse.io/SLUG).
 GREENHOUSE_BOARDS = [
+    # ── existing ──────────────────────────────────────────────────────
     ("RVO Health (freelance)", "rvohcontentfreelance", "writing"),
     ("Axios",                  "axios",                "journalism"),
     ("Grist",                  "grist",                "journalism"),
     ("The Arena Group",        "thearenagroup",        "writing"),
     ("The Daily Beast",        "thedailybeast31",      "journalism"),
     ("VSA Partners",           "vsapartners",          "writing"),
+    # ── discovered via OpenJobData ────────────────────────────────────
+    ("Axsome Therapeutics",    "axsometherapeutics",   "writing"),
+    ("Accanto Health",         "accantohealth858accanto858", "writing"),
+    ("Boulder Care",           "bouldercare",          "writing"),
+    ("ClinChoice",             "clinchoice",           "writing"),
+    ("Omnicom Health",         "omnicomhealth",        "writing"),
+    ("Real Chemistry",         "realchemistry",        "writing"),
+    ("Recursion Pharma",       "recursionpharmaceuticals", "writing"),
+    ("Spring Health",          "springhealth66",       "writing"),
+    ("Lotte Biologics USA",    "lottebiologicsusallc", "writing"),
+    ("Human Rights Watch",     "humanrightswatch",     "writing"),
+    ("Guidepoint",             "guidepoint",           "writing"),
+    ("The New York Times",     "thenewyorktimes",      "journalism"),
+    ("Forbes",                 "forbes",               "journalism"),
+    ("WPP Media",              "wppmedia",             "writing"),
+    ("Landor",                 "landor",               "writing"),
+    ("Critical Mass",          "criticalmass",         "writing"),
+    ("RAPP",                   "rapp",                 "writing"),
+    ("Tenneo",                 "teneolinkedin",        "writing"),
 ]
 
 # Company boards on Lever (use the slug from jobs.lever.co/SLUG).
 LEVER_BOARDS = [
+    # ── existing ──────────────────────────────────────────────────────
     ("Solutions Journalism", "solutionsjournalism", "journalism"),
     ("MissionWired",         "MissionWired",        "writing"),
     ("Bisnow",               "bisnow",              "journalism"),
     ("Modern Age",           "modern-age",          "writing"),
     ("Artera",               "artera",              "writing"),
+    # ── discovered via OpenJobData ────────────────────────────────────
+    ("Avalere Health",       "avalerehealth",       "writing"),
+    ("Brafton",              "brafton",             "writing"),
+    ("The Athletic",         "theathletic",         "journalism"),
+    ("Sunshine Sachs",       "sunshinesachs",       "writing"),
+    ("Sierra Club",          "sierraclub",          "writing"),
+    ("Digital Media Mgmt",   "digitalmediamanagement", "writing"),
+    ("Afar Media",           "AfarMedia",           "journalism"),
+]
+
+# Company boards on Ashby (use the slug from jobs.ashbyhq.com/SLUG).
+ASHBY_BOARDS = [
+    ("Fira Health",          "fira-health",         "writing"),
+    ("Mytomorrows",          "mytomorrows",         "writing"),
+    ("Rowan",                "rowan",               "writing"),
+    ("Quorum",               "quorum",              "writing"),
+    ("Scribe",               "scribe",              "writing"),
+    ("Payscale",             "payscale",            "writing"),
+    ("Notion",               "notion",              "writing"),
+]
+
+# Company boards on Jobvite (RSS feed per company).
+# URL pattern: https://jobs.jobvite.com/{slug}/jobs/feed
+JOBVITE_BOARDS = [
+    ("Ornge",                "ornge",               "writing"),
+    ("System C",             "system-c",            "writing"),
+    ("USANA Health",         "usana",               "writing"),
+    ("Tyler Technologies",   "tylertech",           "writing"),
+]
+
+# Company boards on Breezy HR (JSON endpoint per company).
+BREEZY_BOARDS = [
+    ("Gastro Health",        "gastro-health",       "writing"),
+    ("Highlights Healthcare","highlights-healthcare","writing"),
+    ("Kaniksu Community",    "kaniksu-community-health", "writing"),
+    ("Cardahealth",          "cardahealth",         "writing"),
+    ("Allcares",             "allcares",            "writing"),
+    ("Vetsez",               "vetsez",              "writing"),
 ]
 
 # ─── AI RELEVANCE SCORING ───────────────────────────────────────────────────
@@ -484,6 +543,107 @@ def scrape_lever():
     return jobs
 
 
+def scrape_ashby():
+    """Ashby has the same clean JSON pattern as Greenhouse."""
+    jobs = []
+    for name, slug, cat in ASHBY_BOARDS:
+        try:
+            print(f"  Ashby: {name}")
+            data = fetch_json(f"https://api.ashbyhq.com/posting-api/job-board/{slug}?includeCompensation=true")
+            for j in data.get("jobPostings", []):
+                comp = j.get("compensationTiers") or []
+                pay = {}
+                if comp:
+                    tier = comp[0]
+                    pay_min = tier.get("minValue")
+                    pay_max = tier.get("maxValue")
+                    interval = str(tier.get("interval") or "").lower()
+                    period = "hourly" if "hour" in interval else "annual"
+                    if pay_min or pay_max:
+                        sym = "$"
+                        def fmt(v): return sym + f"{v:,.0f}"
+                        sfx = "hr" if period == "hourly" else "yr"
+                        if pay_min and pay_max:
+                            display = f"{fmt(pay_min)}–{fmt(pay_max)}/{sfx}"
+                        elif pay_max:
+                            display = f"Up to {fmt(pay_max)}/{sfx}"
+                        else:
+                            display = f"{fmt(pay_min)}+/{sfx}"
+                        pay = {"pay_min": int(pay_min or 0) or None,
+                               "pay_max": int(pay_max or 0) or None,
+                               "pay_period": period, "pay_display": display}
+                loc = j.get("location") or j.get("locationName") or ""
+                jobs.append(enrich({
+                    "title": j.get("title", "").strip(),
+                    "url": j.get("jobUrl", f"https://jobs.ashbyhq.com/{slug}/{j.get('id','')}"),
+                    "description": loc,
+                    "date": iso_date(j.get("publishedAt") or j.get("updatedAt")),
+                    "source": name,
+                    "company": name,
+                    **pay,
+                }, cat))
+        except Exception as ex:
+            print(f"  ! Ashby {name} failed: {ex}", file=sys.stderr)
+    return jobs
+
+
+def scrape_jobvite_boards():
+    """Jobvite exposes an RSS feed per company — works with feedparser."""
+    jobs = []
+    try:
+        import feedparser
+    except ImportError:
+        print("  ! feedparser not installed — skipping Jobvite boards", file=sys.stderr)
+        return jobs
+    for name, slug, cat in JOBVITE_BOARDS:
+        try:
+            print(f"  Jobvite: {name}")
+            url = f"https://jobs.jobvite.com/{slug}/jobs/feed"
+            feed = feedparser.parse(url, request_headers={"User-Agent": UA})
+            for e in feed.entries:
+                title = getattr(e, "title", "")
+                link = getattr(e, "link", "")
+                if not title or not link:
+                    continue
+                desc = re.sub(r"<[^>]*>", " ", getattr(e, "summary", ""))[:320]
+                date = None
+                if getattr(e, "published_parsed", None):
+                    date = datetime.datetime(*e.published_parsed[:6]).strftime("%Y-%m-%d")
+                jobs.append(enrich({
+                    "title": title.strip(),
+                    "url": link.strip(),
+                    "description": re.sub(r"\s+", " ", desc).strip(),
+                    "date": date,
+                    "source": name,
+                    "company": name,
+                }, cat))
+        except Exception as ex:
+            print(f"  ! Jobvite {name} failed: {ex}", file=sys.stderr)
+    return jobs
+
+
+def scrape_breezy():
+    """Breezy HR exposes a simple JSON endpoint per company."""
+    jobs = []
+    for name, slug, cat in BREEZY_BOARDS:
+        try:
+            print(f"  Breezy HR: {name}")
+            data = fetch_json(f"https://{slug}.breezy.hr/json")
+            for j in data:
+                loc = (j.get("location") or {}).get("name", "")
+                jobs.append(enrich({
+                    "title": j.get("name", "").strip(),
+                    "url": j.get("url", f"https://{slug}.breezy.hr/p/{j.get('id','')}"),
+                    "description": loc,
+                    "date": iso_date(j.get("published_date") or j.get("updated_date")),
+                    "source": name,
+                    "company": name,
+                }, cat))
+        except Exception as ex:
+            print(f"  ! Breezy {name} failed: {ex}", file=sys.stderr)
+    return jobs
+
+
 def _prescore(job):
     """Cheap heuristic to pick which jobs are worth sending to the AI."""
     s = 0
@@ -612,6 +772,9 @@ def main():
     all_jobs += scrape_rss()
     all_jobs += scrape_greenhouse()
     all_jobs += scrape_lever()
+    all_jobs += scrape_ashby()
+    all_jobs += scrape_jobvite_boards()
+    all_jobs += scrape_breezy()
 
     # Deduplicate by URL and drop excluded titles
     seen = set()
