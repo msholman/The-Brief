@@ -28,8 +28,8 @@
 
   "location_preference": "Remote strongly preferred; hybrid acceptable.",
 
-  "rate_floor": "",
-  "salary_floor": "",
+  "rate_floor": "50",
+  "salary_floor": "90000",
 
   "clients": [
     "GE HealthCare",
