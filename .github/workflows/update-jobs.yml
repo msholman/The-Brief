@@ -1,10 +1,10 @@
 name: Update job listings
 
-# Runs the scraper automatically every morning, plus a manual "Run" button.
+# Runs the scraper automatically overnight, plus a manual "Run" button.
 on:
   schedule:
-    # 11:00 UTC = 6:00 AM US Eastern (adjust the hour if you like).
-    - cron: "0 11 * * *"
+    # 4:00 AM UTC = midnight US Eastern — off-peak, runs promptly.
+    - cron: "0 4 * * *"
   workflow_dispatch: {}
 
 permissions:
