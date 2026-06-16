@@ -31,17 +31,62 @@ SEARCH_TERMS = [
     "technical writer healthcare",
 ]
 
-# Titles containing any of these phrases are dropped — roles you don't want.
+# Titles containing any of these phrases are dropped at the source — roles
+# you will never want regardless of company or fit score.
 EXCLUDE_TITLE_TERMS = [
-    "grant writer",
-    "grant writing",
-    "grants writer",
-    "compensation analyst",
-    "recruiter",
-    "account executive",
-    "sales representative",
-    "sales manager",
+    # grant / fundraising
+    "grant writer", "grant writing", "grants writer",
+    # clinical / medical / nursing
+    "physician", "doctor", "nurse", "nursing", "surgeon", "surgery",
+    "pharmacist", "pharmacy", "radiolog", "patholog", "anesthes",
+    "medical assistant", "clinical assistant", "dental assistant",
+    "physical therapist", "occupational therapist", "speech therapist",
+    "sonographer", "ultrasound tech", "lab technician", "lab tech",
+    "medical technologist", "phlebotom", "sterile processing",
+    "clinical trial", "clinical research coordinator", "clinical data",
+    "medical director", "chief medical", "chief nursing",
+    "home health aide", "home health", "direct support",
+    "patient care", "patient services", "care coordinator",
+    "medical billing", "medical coder", "medical coding",
+    "front office", "front desk", "medical receptionist",
+    "vet tech", "veterinary tech", "veterinarian",
+    # software / engineering
+    "software engineer", "software developer", "frontend engineer",
+    "backend engineer", "fullstack engineer", "full stack engineer",
+    "data engineer", "data scientist", "machine learning engineer",
+    "devops", "site reliability", "platform engineer",
+    "mobile engineer", "ios developer", "android developer",
+    "qa engineer", "quality assurance engineer", "test engineer",
+    # administrative / ops
+    "administrative assistant", "executive assistant", "office manager",
+    "operations manager", "operations coordinator", "program coordinator",
+    "facilities manager", "warehouse", "driver", "delivery driver",
+    "stockroom", "supply chain",
+    # hr / finance / legal
+    "compensation analyst", "recruiter", "talent acquisition",
+    "human resources", "hr generalist", "hr business partner",
+    "payroll", "accounts payable", "accounts receivable",
+    "financial analyst", "accountant", "controller",
+    "paralegal", "attorney", "legal counsel",
+    # sales
+    "account executive", "sales representative", "sales manager",
+    "business development", "account manager",
 ]
+
+# For ATS boards (company-specific), we require the title to contain at least
+# one writing/content signal before keeping the listing — otherwise a pharma
+# company's physician and lab tech roles flood the feed.
+WRITING_TITLE_REQUIRED_SOURCES = {
+    # all Greenhouse, Lever, Ashby, Jobvite, Breezy company boards
+    # populated dynamically from the board lists below
+}
+
+_WRITING_TITLE_PATTERN = re.compile(
+    r"\b(writer|writing|copywriter|editor|editorial|content|communications|"
+    r"journalist|reporter|strategist|copywriting|publicist|pr\b|brand voice|"
+    r"technical writer|ux writer|creative director|creative lead|storytell)\b",
+    re.IGNORECASE
+)
 
 # Which big boards to scrape via JobSpy.
 # NOTE: from GitHub's servers, "indeed" and "google" are the most reliable.
@@ -776,13 +821,23 @@ def main():
     all_jobs += scrape_jobvite_boards()
     all_jobs += scrape_breezy()
 
-    # Deduplicate by URL and drop excluded titles
+    # Build the set of company-board source names that must have a writing title
+    board_sources = set()
+    for name, _, _ in GREENHOUSE_BOARDS + LEVER_BOARDS + ASHBY_BOARDS + JOBVITE_BOARDS + BREEZY_BOARDS:
+        board_sources.add(name)
+
+    # Deduplicate by URL, drop excluded titles, and enforce writing-title
+    # requirement for company-specific boards
     seen = set()
     deduped = []
     for j in all_jobs:
         u = j.get("url", "")
         title = (j.get("title", "") or "").lower()
+        # hard exclusions — never want these regardless of source
         if any(term in title for term in EXCLUDE_TITLE_TERMS):
+            continue
+        # company boards must show a writing/content signal in the title
+        if j.get("source") in board_sources and not _WRITING_TITLE_PATTERN.search(j.get("title", "")):
             continue
         if u and u not in seen:
             seen.add(u)
