@@ -262,6 +262,27 @@ MAX_TO_SCORE = 120
 # How many jobs to score per API call (batched to save cost/time).
 SCORE_BATCH_SIZE = 10
 
+# ─── EMAIL DIGEST ────────────────────────────────────────────────────────────
+# Sends a morning digest of top new matches after each scrape.
+# Requires two GitHub secrets: DIGEST_EMAIL_ADDRESS and DIGEST_APP_PASSWORD.
+# See SETUP.md "Turning on the email digest" for setup instructions.
+#
+# DIGEST_EMAIL_ADDRESS — your Gmail address (sender and recipient)
+# DIGEST_APP_PASSWORD  — a Gmail App Password (not your regular password)
+#                        Create at: myaccount.google.com/apppasswords
+
+ENABLE_DIGEST = True
+
+# Only include listings at or above this fit score.
+DIGEST_MIN_FIT = 70
+
+# Maximum listings to include in one digest.
+DIGEST_MAX_LISTINGS = 10
+
+# Tracks which URLs have already been sent — prevents duplicates.
+# This file is committed back to the repo by the Action.
+SEEN_URLS_FILE = "seen_urls.json"
+
 # ============================================================================
 # END CONFIG
 # ============================================================================
@@ -810,6 +831,137 @@ def score_jobs_with_ai(jobs):
     return jobs
 
 
+def load_seen_urls():
+    """Load the set of URLs already sent in previous digests."""
+    try:
+        with open(SEEN_URLS_FILE, encoding="utf-8") as f:
+            data = json.load(f)
+        # Prune entries older than 30 days to keep the file lean
+        cutoff = (datetime.datetime.utcnow() - datetime.timedelta(days=30)).strftime("%Y-%m-%d")
+        return {url: date for url, date in data.items() if date >= cutoff}
+    except Exception:
+        return {}
+
+
+def save_seen_urls(seen):
+    """Write the updated seen-URLs map back to disk."""
+    try:
+        with open(SEEN_URLS_FILE, "w", encoding="utf-8") as f:
+            json.dump(seen, f, indent=1)
+    except Exception as e:
+        print(f"  ! Could not save seen_urls.json: {e}", file=sys.stderr)
+
+
+def build_digest_html(listings, date_str):
+    """Compose a clean HTML email from the top listings."""
+    rows = ""
+    for j in listings:
+        score = j.get("fit_score", "")
+        reason = j.get("fit_reason", "")
+        pay = j.get("pay_display", "")
+        company = j.get("company", "")
+        source = j.get("source", "")
+        url = j.get("url", "#")
+        title = j.get("title", "Untitled")
+        meta_parts = [p for p in [company, source, pay] if p]
+        meta = " · ".join(meta_parts)
+        score_color = "#3B6D11" if score and score >= 85 else "#C9A84C" if score and score >= 70 else "#8A8780"
+        rows += f"""
+        <tr>
+          <td style="padding:14px 0;border-bottom:1px solid #EDE8DF;vertical-align:top;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
+              <div>
+                <a href="{url}" style="font-family:Georgia,serif;font-size:16px;font-weight:400;color:#2C2B29;text-decoration:none;line-height:1.3;">{title}</a>
+                <div style="font-size:11px;color:#8A8780;font-family:monospace;margin-top:4px;letter-spacing:0.04em;">{meta}</div>
+                {f'<div style="font-size:12px;color:#4A4845;margin-top:5px;font-style:italic;">{reason}</div>' if reason else ''}
+              </div>
+              {f'<span style="font-family:monospace;font-size:11px;color:{score_color};background:{"#EAF3DE" if score and score >= 85 else "#F5EDD6" if score and score >= 70 else "#EDE8DF"};padding:3px 9px;border-radius:99px;white-space:nowrap;flex-shrink:0;">{score} fit</span>' if score else ''}
+            </div>
+          </td>
+        </tr>"""
+
+    return f"""<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#FAF8F5;font-family:'Helvetica Neue',Arial,sans-serif;font-weight:300;">
+  <div style="max-width:600px;margin:0 auto;padding:40px 24px;">
+    <div style="margin-bottom:28px;">
+      <div style="font-family:monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A84C;margin-bottom:8px;">The Brief · Morning Digest</div>
+      <div style="font-family:Georgia,serif;font-size:28px;font-weight:400;color:#2C2B29;line-height:1.1;">Your top matches, {date_str}.</div>
+      <div style="font-size:13px;color:#8A8780;margin-top:8px;">{len(listings)} role{'s' if len(listings)!=1 else ''} scored {DIGEST_MIN_FIT}+ · ranked by AI fit</div>
+    </div>
+    <table width="100%" cellpadding="0" cellspacing="0" style="border-top:2px solid #2C2B29;">
+      {rows}
+    </table>
+    <div style="margin-top:28px;padding-top:16px;border-top:1px solid #EDE8DF;">
+      <a href="https://msholman.github.io/The-Brief/index.html"
+         style="display:inline-block;background:#2C2B29;color:#FAF8F5;font-family:monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:10px 20px;border-radius:4px;text-decoration:none;">
+        Open The Brief →
+      </a>
+      <div style="font-size:10px;color:#8A8780;margin-top:12px;letter-spacing:0.06em;">
+        Sent by The Brief · taylaholman.com
+      </div>
+    </div>
+  </div>
+</body></html>"""
+
+
+def send_digest(jobs, seen_urls):
+    """Build and send the email digest. Returns updated seen_urls dict."""
+    import os
+    if not ENABLE_DIGEST:
+        return seen_urls
+    email_addr = os.environ.get("DIGEST_EMAIL_ADDRESS", "").strip()
+    app_password = os.environ.get("DIGEST_APP_PASSWORD", "").strip()
+    if not email_addr or not app_password:
+        print("  ! DIGEST_EMAIL_ADDRESS or DIGEST_APP_PASSWORD not set — skipping digest",
+              file=sys.stderr)
+        return seen_urls
+
+    today = datetime.datetime.utcnow().strftime("%Y-%m-%d")
+    cutoff = (datetime.datetime.utcnow() - datetime.timedelta(days=3)).strftime("%Y-%m-%d")
+
+    # Filter: scored above threshold, posted in last 3 days, not already sent
+    candidates = [
+        j for j in jobs
+        if j.get("fit_score") and j.get("fit_score") >= DIGEST_MIN_FIT
+        and j.get("date", "") >= cutoff
+        and j.get("url") not in seen_urls
+    ]
+    # Sort by fit score descending, cap at max
+    candidates.sort(key=lambda x: x.get("fit_score", 0), reverse=True)
+    to_send = candidates[:DIGEST_MAX_LISTINGS]
+
+    if not to_send:
+        print("  Digest: no new listings above threshold today — skipping send.")
+        return seen_urls
+
+    print(f"  Sending digest with {len(to_send)} listings to {email_addr}…")
+    date_str = datetime.datetime.utcnow().strftime("%B %-d")
+    html = build_digest_html(to_send, date_str)
+
+    try:
+        import smtplib
+        from email.mime.multipart import MIMEMultipart
+        from email.mime.text import MIMEText
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = f"The Brief · {len(to_send)} new match{'es' if len(to_send)!=1 else ''} · {date_str}"
+        msg["From"] = f"The Brief <{email_addr}>"
+        msg["To"] = email_addr
+        msg.attach(MIMEText(html, "html"))
+        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
+            smtp.login(email_addr, app_password)
+            smtp.sendmail(email_addr, email_addr, msg.as_string())
+        print(f"  ✓ Digest sent.")
+        # Mark these URLs as seen
+        for j in to_send:
+            if j.get("url"):
+                seen_urls[j["url"]] = today
+    except Exception as e:
+        print(f"  ! Digest send failed: {e}", file=sys.stderr)
+
+    return seen_urls
+
+
 def main():
     print("Scraping job sources…")
     all_jobs = []
@@ -845,6 +997,11 @@ def main():
 
     # AI relevance scoring (skipped automatically if no API key)
     deduped = score_jobs_with_ai(deduped)
+
+    # Email digest (skipped if secrets not set)
+    seen_urls = load_seen_urls()
+    seen_urls = send_digest(deduped, seen_urls)
+    save_seen_urls(seen_urls)
 
     output = {
         "updated": datetime.datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%SZ"),
