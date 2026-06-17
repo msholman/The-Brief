@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plain Language Glossary</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --warm-white:#FAF8F5; --linen:#EDE8DF; --linen-dark:#D8D0C4;
+    --charcoal:#2C2B29; --charcoal-light:#4A4845;
+    --gold:#C9A84C; --gold-pale:#F5EDD6;
+    --muted:#8A8780; --border:rgba(44,43,41,0.11); --border-strong:rgba(44,43,41,0.2);
+    --radius:6px; --radius-lg:12px;
+    --green-pale:#EAF3DE; --green:#3B6D11;
+    --coral-pale:#FAECE7; --coral:#993C1D;
+  }
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  body {
+    background:var(--warm-white); color:var(--charcoal);
+    font-family:'DM Sans',sans-serif; font-weight:300; min-height:100vh;
+    background-image:
+      radial-gradient(circle at 8% 6%, rgba(201,168,76,0.07), transparent 40%),
+      radial-gradient(circle at 92% 94%, rgba(201,168,76,0.05), transparent 42%);
+  }
+
+  /* ── Header ───────────────────────────────────────────────────── */
+  .site-header {
+    padding:2.25rem 3rem 0;
+    display:flex; align-items:flex-start; justify-content:space-between;
+    flex-wrap:wrap; gap:1rem;
+  }
+  .back { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em; color:var(--muted); text-decoration:none; display:inline-flex; gap:6px; transition:color 0.15s; }
+  .back:hover { color:var(--gold); }
+  .header-meta { text-align:right; font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); line-height:1.8; }
+
+  /* ── Hero ─────────────────────────────────────────────────────── */
+  .hero { padding:2rem 3rem 1.75rem; border-bottom:0.5px solid var(--border); }
+  .eyebrow { font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:0.65rem; }
+  .hero h1 { font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:300; line-height:1.05; }
+  .hero h1 em { font-style:italic; color:var(--charcoal-light); }
+  .hero-sub { font-size:14px; color:var(--muted); margin-top:0.75rem; max-width:56ch; line-height:1.65; }
+
+  /* ── Search + filters ─────────────────────────────────────────── */
+  .controls { padding:1.5rem 3rem; border-bottom:0.5px solid var(--border); display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+  .search-wrap { position:relative; flex:1; min-width:220px; }
+  .search-wrap svg { position:absolute; left:13px; top:50%; transform:translateY(-50%); pointer-events:none; color:var(--muted); }
+  #searchInput {
+    width:100%; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius);
+    padding:10px 12px 10px 38px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:300;
+    color:var(--charcoal); outline:none; transition:border-color 0.15s;
+  }
+  #searchInput:focus { border-color:var(--gold); }
+  #searchInput::placeholder { color:var(--muted); }
+  .cat-chips { display:flex; gap:6px; flex-wrap:wrap; }
+  .cat-chip {
+    padding:6px 13px; border-radius:99px; font-size:11.5px; font-family:'DM Mono',monospace;
+    letter-spacing:0.06em; cursor:pointer; border:0.5px solid var(--border-strong);
+    background:#fff; color:var(--muted); transition:all 0.15s; user-select:none;
+  }
+  .cat-chip:hover { border-color:var(--gold); color:var(--charcoal); }
+  .cat-chip.on { background:var(--charcoal); color:var(--warm-white); border-color:var(--charcoal); }
+
+  /* ── Layout ───────────────────────────────────────────────────── */
+  .body-wrap { display:grid; grid-template-columns:1fr 340px; min-height:calc(100vh - 280px); }
+  @media (max-width:800px){ .body-wrap{ grid-template-columns:1fr; } }
+
+  /* ── Glossary list ────────────────────────────────────────────── */
+  .glossary { padding:0 3rem 3rem; }
+  .alpha-group { margin-top:2.25rem; }
+  .alpha-label {
+    font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:300;
+    color:var(--linen-dark); line-height:1; margin-bottom:0.5rem;
+    border-bottom:0.5px solid var(--border); padding-bottom:0.35rem;
+  }
+
+  /* The signature element: clinical ↔ plain as a deliberate visual pair */
+  .term-card {
+    display:grid; grid-template-columns:1fr 1fr; gap:0;
+    border-bottom:0.5px solid var(--border); padding:1.15rem 0;
+    animation:fade-in 0.25s ease both;
+    cursor:pointer; transition:background 0.15s;
+    border-radius:var(--radius);
+  }
+  .term-card:hover { background:var(--linen); padding-left:0.6rem; padding-right:0.6rem; margin-left:-0.6rem; margin-right:-0.6rem; }
+  @media (max-width:600px){ .term-card{ grid-template-columns:1fr; gap:0.4rem; } }
+
+  .term-clinical { padding-right:1.5rem; }
+  .term-label { font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:0.3rem; }
+  .term-name { font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:var(--charcoal-light); line-height:1.2; }
+  .term-cat { display:inline-block; margin-top:0.35rem; font-family:'DM Mono',monospace; font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); background:var(--gold-pale); padding:2px 8px; border-radius:99px; }
+
+  .term-plain { border-left:2px solid var(--linen-dark); padding-left:1.5rem; }
+  .term-plain-word { font-family:'Cormorant Garamond',serif; font-size:1.55rem; font-weight:400; color:var(--charcoal); line-height:1.2; margin-bottom:0.3rem; }
+  .term-def { font-size:12.5px; color:var(--charcoal-light); line-height:1.6; }
+
+  .empty-state { padding:3rem 0; text-align:center; }
+  .empty-state .empty-big { font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-style:italic; color:var(--muted); margin-bottom:0.5rem; }
+  .empty-state .empty-sub { font-size:13px; color:var(--muted); }
+
+  /* ── Sidebar: stats + add form ────────────────────────────────── */
+  .sidebar { border-left:0.5px solid var(--border); padding:2rem; background:var(--linen); position:sticky; top:0; max-height:100vh; overflow-y:auto; }
+  .sidebar-section { margin-bottom:2rem; }
+  .sidebar-label { font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--muted); margin-bottom:0.85rem; display:block; }
+  .stat-row { display:flex; justify-content:space-between; font-size:13px; padding:5px 0; border-bottom:0.5px solid var(--border); color:var(--charcoal-light); }
+  .stat-row span:last-child { font-family:'DM Mono',monospace; color:var(--charcoal); }
+
+  /* Add term form */
+  .add-form { display:flex; flex-direction:column; gap:0.75rem; }
+  .form-field label { display:block; font-size:11.5px; color:var(--charcoal-light); margin-bottom:0.3rem; }
+  .form-field input, .form-field textarea, .form-field select {
+    width:100%; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius);
+    padding:8px 10px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:300;
+    color:var(--charcoal); outline:none; transition:border-color 0.15s;
+  }
+  .form-field input:focus, .form-field textarea:focus, .form-field select:focus { border-color:var(--gold); }
+  .form-field textarea { resize:vertical; min-height:70px; line-height:1.5; }
+  .add-btn {
+    background:var(--charcoal); color:var(--warm-white); border:none; border-radius:var(--radius);
+    padding:9px 16px; font-family:'DM Mono',monospace; font-size:11px; letter-spacing:0.1em;
+    text-transform:uppercase; cursor:pointer; transition:background 0.15s;
+  }
+  .add-btn:hover { background:var(--gold); color:var(--charcoal); }
+  .add-success { font-size:12px; color:var(--green); background:var(--green-pale); border-radius:var(--radius); padding:7px 10px; display:none; }
+  .add-success.show { display:block; }
+
+  /* Export */
+  .export-btn {
+    width:100%; background:#fff; border:0.5px solid var(--border-strong); border-radius:var(--radius);
+    padding:8px 0; font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.1em;
+    text-transform:uppercase; cursor:pointer; color:var(--charcoal); transition:all 0.15s; text-align:center;
+    margin-top:0.4rem;
+  }
+  .export-btn:hover { border-color:var(--gold); color:var(--gold); }
+
+  @keyframes fade-in { from{opacity:0;transform:translateY(4px);} to{opacity:1;transform:translateY(0);} }
+
+  footer { padding:1.5rem 3rem; border-top:0.5px solid var(--border); font-family:'DM Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:0.06em; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="back" href="./command-center.html">&larr; Command Center</a>
+  <div class="header-meta">
+    Health Communications Toolbox<br>
+    Tayla Holman &amp; Co.
+  </div>
+</header>
+
+<div class="hero">
+  <div class="eyebrow">Plain Language Glossary</div>
+  <h1>Clinical terms, <em>made clear.</em></h1>
+  <p class="hero-sub">A working reference for health communicators — the clinical term on one side, the plain-language equivalent on the other. Built for the moments mid-draft when you need the right word, not a definition.</p>
+</div>
+
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="currentColor" stroke-width="1.3"/><path d="M10.5 10.5L13.5 13.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+    <input type="text" id="searchInput" placeholder="Search clinical or plain terms…" oninput="render()" />
+  </div>
+  <div class="cat-chips" id="catChips"></div>
+</div>
+
+<div class="body-wrap">
+  <main class="glossary" id="glossaryMain"></main>
+
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <span class="sidebar-label">Glossary stats</span>
+      <div class="stat-row"><span>Total terms</span><span id="statTotal">—</span></div>
+      <div class="stat-row"><span>Showing</span><span id="statShowing">—</span></div>
+      <div class="stat-row"><span>Categories</span><span id="statCats">—</span></div>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-label">Add a term</span>
+      <div class="add-form">
+        <div class="form-field"><label>Clinical term *</label><input type="text" id="addClinical" placeholder="e.g. Myocardial infarction" /></div>
+        <div class="form-field"><label>Plain equivalent *</label><input type="text" id="addPlain" placeholder="e.g. Heart attack" /></div>
+        <div class="form-field"><label>Definition</label><textarea id="addDef" placeholder="A plain-language explanation in 1–2 sentences…"></textarea></div>
+        <div class="form-field">
+          <label>Category</label>
+          <select id="addCat">
+            <option value="General">General</option>
+            <option value="Cardiology">Cardiology</option>
+            <option value="Oncology">Oncology</option>
+            <option value="Mental health">Mental health</option>
+            <option value="Neurology">Neurology</option>
+            <option value="Pulmonology">Pulmonology</option>
+            <option value="Endocrinology">Endocrinology</option>
+            <option value="Gastroenterology">Gastroenterology</option>
+            <option value="Immunology">Immunology</option>
+            <option value="Musculoskeletal">Musculoskeletal</option>
+            <option value="Reproductive health">Reproductive health</option>
+            <option value="Pediatrics">Pediatrics</option>
+          </select>
+        </div>
+        <button class="add-btn" onclick="addTerm()">Add to glossary</button>
+        <div class="add-success" id="addSuccess">✓ Term added.</div>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <span class="sidebar-label">Export</span>
+      <button class="export-btn" onclick="exportCSV()">Download as CSV</button>
+      <button class="export-btn" onclick="exportJSON()">Download as JSON</button>
+    </div>
+  </aside>
+</div>
+
+<footer id="footer">Plain Language Glossary · Tayla Holman &amp; Co. · taylaholman.com</footer>
+
+<script>
+const STORE_KEY = 'plg_terms_v1';
+
+// ── Seed glossary ──────────────────────────────────────────────────────────
+const SEED = [
+  // General / cross-category
+  {c:'Acute',                    p:'Short-term / sudden onset',        d:'A condition that comes on quickly and usually lasts a short time.',                          cat:'General'},
+  {c:'Chronic',                  p:'Long-term / ongoing',              d:'A condition that lasts a year or more and requires ongoing management.',                     cat:'General'},
+  {c:'Asymptomatic',             p:'No symptoms',                      d:'Having a condition or disease without feeling sick or noticing any signs.',                  cat:'General'},
+  {c:'Benign',                   p:'Not harmful / not cancerous',      d:'A growth or condition that is not cancer and is unlikely to cause serious harm.',            cat:'General'},
+  {c:'Contraindicated',          p:'Not recommended / should avoid',   d:'A treatment or drug that should not be used because it may cause harm in a specific situation.', cat:'General'},
+  {c:'Etiology',                 p:'Cause',                            d:'The cause or origin of a disease or condition.',                                             cat:'General'},
+  {c:'Idiopathic',               p:'Unknown cause',                    d:'A condition with no known cause.',                                                           cat:'General'},
+  {c:'Prognosis',                p:'Likely outcome',                   d:'A forecast of how a disease or condition is expected to progress.',                          cat:'General'},
+  {c:'Comorbidity',              p:'Additional health condition',       d:'Having two or more health conditions at the same time.',                                     cat:'General'},
+  {c:'Prophylactic',             p:'Preventive',                       d:'Something taken or done to prevent a disease or condition before it starts.',                cat:'General'},
+  {c:'Palliative',               p:'Comfort-focused care',             d:'Care focused on relieving symptoms and improving quality of life, not curing a disease.',    cat:'General'},
+  {c:'Morbidity',                p:'Illness / disease burden',         d:'The state of having a disease or the rate of disease in a population.',                     cat:'General'},
+  {c:'Mortality',                p:'Death rate',                       d:'The rate at which people die from a condition or in a given population.',                    cat:'General'},
+  {c:'Pathogen',                 p:'Germ',                             d:'A bacterium, virus, or other microorganism that causes disease.',                            cat:'General'},
+  {c:'Subcutaneous',             p:'Under the skin',                   d:'Located or delivered beneath the skin, as in a subcutaneous injection.',                    cat:'General'},
+  {c:'Intravenous (IV)',         p:'Into a vein',                      d:'Delivered directly into a vein, usually through a needle or catheter.',                     cat:'General'},
+  {c:'Systemic',                 p:'Affecting the whole body',         d:'Relating to or affecting the entire body rather than a single organ or part.',              cat:'General'},
+  {c:'Adverse effect',           p:'Unwanted side effect',             d:'An unintended, harmful reaction to a treatment or medication.',                             cat:'General'},
+  {c:'Placebo',                  p:'Inactive treatment',               d:'A treatment with no active medical ingredients, often used in studies to compare results.', cat:'General'},
+  {c:'Differential diagnosis',   p:'List of possible conditions',      d:'A list of conditions that could explain a patient\'s symptoms, narrowed down over time.',   cat:'General'},
+
+  // Cardiology
+  {c:'Hypertension',             p:'High blood pressure',              d:'A condition where the force of blood against artery walls is consistently too high.',        cat:'Cardiology'},
+  {c:'Hypotension',              p:'Low blood pressure',               d:'Abnormally low blood pressure, which can cause dizziness or fainting.',                     cat:'Cardiology'},
+  {c:'Myocardial infarction',    p:'Heart attack',                     d:'A blockage in blood flow to part of the heart, causing damage to the heart muscle.',        cat:'Cardiology'},
+  {c:'Arrhythmia',               p:'Irregular heartbeat',              d:'A problem with the rate or rhythm of the heartbeat — too fast, too slow, or uneven.',       cat:'Cardiology'},
+  {c:'Atherosclerosis',          p:'Hardening of the arteries',        d:'A buildup of plaque inside artery walls that narrows and stiffens the arteries.',           cat:'Cardiology'},
+  {c:'Tachycardia',              p:'Fast heartbeat',                   d:'A heart rate that is faster than normal, typically over 100 beats per minute at rest.',     cat:'Cardiology'},
+  {c:'Bradycardia',              p:'Slow heartbeat',                   d:'A heart rate that is slower than normal, typically under 60 beats per minute at rest.',     cat:'Cardiology'},
+  {c:'Angina',                   p:'Chest pain from heart disease',    d:'Chest pain or discomfort caused by reduced blood flow to the heart, often triggered by exertion.', cat:'Cardiology'},
+  {c:'Heart failure',            p:'Heart not pumping well',           d:'A condition where the heart doesn\'t pump blood as efficiently as it should.',              cat:'Cardiology'},
+  {c:'Edema',                    p:'Swelling',                         d:'A buildup of fluid in body tissues that causes swelling, often in the legs or feet.',       cat:'Cardiology'},
+
+  // Oncology
+  {c:'Malignant',                p:'Cancerous',                        d:'A tumor or growth that is cancerous and may spread to other parts of the body.',            cat:'Oncology'},
+  {c:'Metastasis',               p:'Cancer spread',                    d:'The spread of cancer from its original location to other parts of the body.',               cat:'Oncology'},
+  {c:'Remission',                p:'Cancer signs reduced or gone',     d:'A period when cancer signs and symptoms are reduced or disappear.',                         cat:'Oncology'},
+  {c:'Oncology',                 p:'Cancer medicine',                  d:'The branch of medicine focused on the study and treatment of cancer.',                      cat:'Oncology'},
+  {c:'Chemotherapy',             p:'Cancer-killing drug treatment',    d:'The use of drugs to kill or slow the growth of cancer cells.',                              cat:'Oncology'},
+  {c:'Biopsy',                   p:'Tissue sample test',               d:'The removal of a small sample of tissue to test for cancer or other disease.',              cat:'Oncology'},
+  {c:'Carcinoma',                p:'A type of cancer',                 d:'Cancer that starts in the cells lining the skin or organs.',                                cat:'Oncology'},
+  {c:'In situ',                  p:'Early stage / not yet spread',     d:'Cancer that is still in its original location and has not spread to nearby tissues.',      cat:'Oncology'},
+
+  // Mental health
+  {c:'Affect',                   p:'Mood or emotional expression',     d:'The visible display of emotion — how someone appears to feel on the outside.',             cat:'Mental health'},
+  {c:'Cognitive',                p:'Related to thinking',              d:'Relating to mental processes like memory, attention, language, and reasoning.',             cat:'Mental health'},
+  {c:'Psychosis',                p:'Loss of touch with reality',       d:'A mental state in which a person has difficulty knowing what is real, sometimes including hallucinations or delusions.', cat:'Mental health'},
+  {c:'Anhedonia',                p:'Loss of pleasure',                 d:'The inability to feel pleasure in activities that were once enjoyable.',                    cat:'Mental health'},
+  {c:'Somatic',                  p:'Physical symptoms linked to stress', d:'Physical symptoms — like pain or fatigue — that are connected to emotional or mental distress.', cat:'Mental health'},
+  {c:'Dysthymia',                p:'Persistent low mood',              d:'A long-lasting form of mild depression that affects daily life.',                           cat:'Mental health'},
+  {c:'Rumination',               p:'Repetitive negative thoughts',     d:'The habit of repeatedly thinking about distressing thoughts, feelings, or problems.',      cat:'Mental health'},
+
+  // Neurology
+  {c:'Cerebrovascular accident', p:'Stroke',                           d:'A sudden interruption of blood flow to the brain, causing brain cells to die.',            cat:'Neurology'},
+  {c:'Transient ischemic attack',p:'Mini-stroke',                      d:'A brief episode of stroke-like symptoms that usually resolves within minutes to hours.',   cat:'Neurology'},
+  {c:'Neuropathy',               p:'Nerve damage',                     d:'Damage or dysfunction of the nerves, often causing pain, numbness, or weakness.',          cat:'Neurology'},
+  {c:'Epilepsy',                 p:'Seizure disorder',                 d:'A neurological disorder marked by recurring seizures caused by abnormal brain activity.',  cat:'Neurology'},
+  {c:'Cognitive impairment',     p:'Problems with thinking or memory', d:'Difficulty with memory, concentration, or decision-making that goes beyond normal aging.', cat:'Neurology'},
+  {c:'Aphasia',                  p:'Difficulty speaking or understanding language', d:'A condition that affects the ability to speak, read, write, or understand language, often after a stroke or brain injury.', cat:'Neurology'},
+
+  // Pulmonology
+  {c:'Dyspnea',                  p:'Shortness of breath',              d:'A feeling of not getting enough air, which can range from mild to severe.',                cat:'Pulmonology'},
+  {c:'Chronic obstructive pulmonary disease (COPD)', p:'Lung disease that blocks airflow', d:'A group of diseases, including emphysema and chronic bronchitis, that cause breathing difficulty and worsen over time.', cat:'Pulmonology'},
+  {c:'Pulmonary embolism',       p:'Blood clot in the lungs',          d:'A blockage in one of the pulmonary arteries in the lungs, often caused by a blood clot.',  cat:'Pulmonology'},
+  {c:'Pneumonia',                p:'Lung infection',                   d:'An infection that inflames the air sacs in one or both lungs, which may fill with fluid.', cat:'Pulmonology'},
+  {c:'Spirometry',               p:'Breathing test',                   d:'A test that measures how much air you can breathe in and out and how fast.',               cat:'Pulmonology'},
+
+  // Endocrinology
+  {c:'Hyperglycemia',            p:'High blood sugar',                 d:'A higher than normal level of glucose in the blood, common in diabetes.',                  cat:'Endocrinology'},
+  {c:'Hypoglycemia',             p:'Low blood sugar',                  d:'A lower than normal level of glucose in the blood, which can cause shakiness or confusion.', cat:'Endocrinology'},
+  {c:'Type 2 diabetes mellitus', p:'Type 2 diabetes',                  d:'A chronic condition where the body doesn\'t use insulin properly, leading to high blood sugar.', cat:'Endocrinology'},
+  {c:'Hypothyroidism',           p:'Underactive thyroid',              d:'A condition where the thyroid gland doesn\'t make enough thyroid hormone, slowing the body\'s functions.', cat:'Endocrinology'},
+  {c:'Hyperthyroidism',          p:'Overactive thyroid',               d:'A condition where the thyroid gland makes too much thyroid hormone, speeding up the body\'s functions.', cat:'Endocrinology'},
+  {c:'Insulin resistance',       p:'Body not responding to insulin',   d:'A condition where the body\'s cells don\'t respond well to insulin, making it harder to control blood sugar.', cat:'Endocrinology'},
+
+  // Gastroenterology
+  {c:'Gastroesophageal reflux disease (GERD)', p:'Acid reflux disease', d:'A chronic condition where stomach acid flows back into the esophagus, causing irritation.', cat:'Gastroenterology'},
+  {c:'Irritable bowel syndrome (IBS)', p:'IBS',                        d:'A common gut disorder that causes cramping, bloating, gas, diarrhea, and constipation.',  cat:'Gastroenterology'},
+  {c:'Dysphagia',                p:'Difficulty swallowing',            d:'Trouble moving food or liquid from the mouth to the stomach.',                             cat:'Gastroenterology'},
+  {c:'Colitis',                  p:'Colon inflammation',               d:'Inflammation of the colon (large intestine), which can cause pain and diarrhea.',          cat:'Gastroenterology'},
+  {c:'Hepatic',                  p:'Related to the liver',             d:'Of or relating to the liver.',                                                             cat:'Gastroenterology'},
+
+  // Immunology
+  {c:'Autoimmune',               p:'Immune system attacks own body',   d:'A condition where the immune system mistakenly attacks the body\'s own healthy cells.',    cat:'Immunology'},
+  {c:'Immunocompromised',        p:'Weakened immune system',           d:'Having a weakened immune system, making it harder to fight off infections.',               cat:'Immunology'},
+  {c:'Anaphylaxis',              p:'Severe allergic reaction',         d:'A life-threatening allergic reaction that can cause a drop in blood pressure and breathing difficulty.', cat:'Immunology'},
+  {c:'Inflammation',             p:'Swelling and irritation',          d:'The body\'s response to injury or infection — causes redness, warmth, swelling, and pain.', cat:'Immunology'},
+
+  // Musculoskeletal
+  {c:'Osteoporosis',             p:'Weak, brittle bones',              d:'A condition where bones become weak and brittle, making them more likely to break.',       cat:'Musculoskeletal'},
+  {c:'Arthritis',                p:'Joint pain and inflammation',      d:'Inflammation of one or more joints, causing pain and stiffness.',                          cat:'Musculoskeletal'},
+  {c:'Fracture',                 p:'Broken bone',                      d:'A break or crack in a bone.',                                                              cat:'Musculoskeletal'},
+  {c:'Atrophy',                  p:'Muscle loss / wasting',            d:'The wasting away or decrease in size of a body part, often muscle, from lack of use.',    cat:'Musculoskeletal'},
+
+  // Reproductive health
+  {c:'Endometriosis',            p:'Uterine tissue growing outside uterus', d:'A disorder where tissue similar to the uterine lining grows outside the uterus, causing pain.', cat:'Reproductive health'},
+  {c:'Polycystic ovary syndrome (PCOS)', p:'PCOS',                    d:'A hormonal disorder common in people with ovaries, causing irregular periods and sometimes cysts on the ovaries.', cat:'Reproductive health'},
+  {c:'Prenatal',                 p:'Before birth',                     d:'Relating to the period of time before childbirth.',                                        cat:'Reproductive health'},
+  {c:'Postpartum',               p:'After childbirth',                 d:'Relating to the period following childbirth.',                                             cat:'Reproductive health'},
+
+  // Pediatrics
+  {c:'Febrile',                  p:'Fever-related',                    d:'Relating to or characterized by fever.',                                                   cat:'Pediatrics'},
+  {c:'Failure to thrive',        p:'Not growing as expected',          d:'When a child does not grow or gain weight at the expected rate.',                          cat:'Pediatrics'},
+  {c:'Jaundice',                 p:'Yellowing of skin or eyes',        d:'A condition where the skin or whites of the eyes turn yellow due to excess bilirubin.',   cat:'Pediatrics'},
+];
+
+// ── State ──────────────────────────────────────────────────────────────────
+let terms = [];
+let activecat = 'All';
+
+function loadTerms() {
+  try {
+    const saved = localStorage.getItem(STORE_KEY);
+    if (saved) return JSON.parse(saved);
+  } catch(e) {}
+  return [...SEED];
+}
+function saveTerms() {
+  try { localStorage.setItem(STORE_KEY, JSON.stringify(terms)); } catch(e) {}
+}
+
+// ── Categories ─────────────────────────────────────────────────────────────
+function getCategories() {
+  const cats = [...new Set(terms.map(t => t.cat))].sort();
+  return ['All', ...cats];
+}
+
+function renderCatChips() {
+  const cats = getCategories();
+  document.getElementById('catChips').innerHTML = cats.map(c =>
+    `<span class="cat-chip ${activecat===c?'on':''}" onclick="setcat('${c.replace(/'/g,"\\'")}')">
+      ${c}${c==='All'?` <span style="opacity:.6;font-size:9px">${terms.length}</span>`:''}
+    </span>`
+  ).join('');
+}
+
+function setcat(c) { activecat = c; renderCatChips(); render(); }
+
+// ── Render glossary ────────────────────────────────────────────────────────
+function render() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const filtered = terms.filter(t => {
+    if (activecat !== 'All' && t.cat !== activecat) return false;
+    if (!q) return true;
+    return t.c.toLowerCase().includes(q) || t.p.toLowerCase().includes(q) || (t.d||'').toLowerCase().includes(q);
+  }).sort((a,b) => a.c.localeCompare(b.c));
+
+  document.getElementById('statTotal').textContent = terms.length;
+  document.getElementById('statShowing').textContent = filtered.length;
+  document.getElementById('statCats').textContent = getCategories().length - 1;
+
+  const main = document.getElementById('glossaryMain');
+  if (!filtered.length) {
+    main.innerHTML = `<div class="empty-state">
+      <div class="empty-big">No terms match.</div>
+      <div class="empty-sub">Try a different search, or add this term using the form →</div>
+    </div>`;
+    return;
+  }
+
+  // Group by first letter
+  const groups = {};
+  filtered.forEach(t => {
+    const letter = t.c[0].toUpperCase();
+    if (!groups[letter]) groups[letter] = [];
+    groups[letter].push(t);
+  });
+
+  main.innerHTML = Object.keys(groups).sort().map(letter => `
+    <div class="alpha-group">
+      <div class="alpha-label">${letter}</div>
+      ${groups[letter].map(t => `
+        <div class="term-card">
+          <div class="term-clinical">
+            <div class="term-label">Clinical term</div>
+            <div class="term-name">${esc(t.c)}</div>
+            <span class="term-cat">${esc(t.cat)}</span>
+          </div>
+          <div class="term-plain">
+            <div class="term-label">Plain equivalent</div>
+            <div class="term-plain-word">${esc(t.p)}</div>
+            ${t.d ? `<div class="term-def">${esc(t.d)}</div>` : ''}
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+}
+
+// ── Add term ───────────────────────────────────────────────────────────────
+function addTerm() {
+  const c = document.getElementById('addClinical').value.trim();
+  const p = document.getElementById('addPlain').value.trim();
+  const d = document.getElementById('addDef').value.trim();
+  const cat = document.getElementById('addCat').value;
+  if (!c || !p) return;
+  // check for duplicate
+  if (terms.some(t => t.c.toLowerCase() === c.toLowerCase())) {
+    alert(`"${c}" is already in the glossary.`); return;
+  }
+  terms.push({c, p, d, cat});
+  saveTerms();
+  document.getElementById('addClinical').value = '';
+  document.getElementById('addPlain').value = '';
+  document.getElementById('addDef').value = '';
+  const suc = document.getElementById('addSuccess');
+  suc.textContent = `✓ "${c}" added.`;
+  suc.classList.add('show');
+  setTimeout(()=>suc.classList.remove('show'), 2500);
+  renderCatChips();
+  render();
+}
+
+// ── Export ─────────────────────────────────────────────────────────────────
+function exportCSV() {
+  const rows = [['Clinical Term','Plain Equivalent','Definition','Category']];
+  terms.sort((a,b)=>a.c.localeCompare(b.c)).forEach(t => {
+    rows.push([t.c, t.p, t.d||'', t.cat].map(v => `"${String(v).replace(/"/g,'""')}"`));
+  });
+  download('plain-language-glossary.csv', rows.map(r=>r.join(',')).join('\n'), 'text/csv');
+}
+function exportJSON() {
+  download('plain-language-glossary.json', JSON.stringify(terms, null, 2), 'application/json');
+}
+function download(name, content, type) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], {type}));
+  a.download = name; a.click();
+}
+
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+// ── Init ───────────────────────────────────────────────────────────────────
+terms = loadTerms();
+renderCatChips();
+render();
+
+document.getElementById('footer').textContent =
+  `Plain Language Glossary · ${terms.length} terms · Tayla Holman & Co. · taylaholman.com`;
+</script>
+</body>
+</html>
