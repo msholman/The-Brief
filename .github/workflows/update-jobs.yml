@@ -28,12 +28,14 @@ jobs:
       - name: Run the scraper
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DIGEST_EMAIL_ADDRESS: ${{ secrets.DIGEST_EMAIL_ADDRESS }}
+          DIGEST_APP_PASSWORD: ${{ secrets.DIGEST_APP_PASSWORD }}
         run: python scraper.py
 
-      - name: Commit updated jobs.json
+      - name: Commit updated files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add jobs.json
+          git add jobs.json seen_urls.json
           git commit -m "Update job listings ($(date -u +%Y-%m-%d))" || echo "No changes to commit"
           git push
