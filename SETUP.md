@@ -144,6 +144,55 @@ can lower `MAX_TO_SCORE` in the config to spend even less.
 
 ---
 
+## Turning on the email digest (optional)
+
+After each overnight scrape, The Brief can email you the top new matches —
+roles scored 70+ that you haven't seen before, ranked by AI fit, delivered
+before you open the dashboard. It uses Gmail and requires two GitHub secrets.
+
+**Step 1 — Create a Gmail App Password**
+You can't use your regular Gmail password here — Google requires a dedicated
+App Password for this kind of programmatic access.
+1. Go to **myaccount.google.com/apppasswords** (you'll need 2-step verification
+   enabled on your Google account).
+2. Under "Select app" choose **Mail**, under "Select device" choose **Other**,
+   name it `the-brief`, and click **Generate**.
+3. Copy the 16-character password shown — you'll only see it once.
+
+**Step 2 — Add two GitHub secrets**
+In your repo, go to **Settings → Secrets and variables → Actions → New
+repository secret** and add these two (exactly as named):
+
+| Name | Value |
+|------|-------|
+| `DIGEST_EMAIL_ADDRESS` | Your Gmail address (e.g. you@gmail.com) |
+| `DIGEST_APP_PASSWORD` | The 16-character App Password from Step 1 |
+
+**Step 3 — Update the workflow file**
+The workflow already has the digest secrets wired in (as of the current version
+of `update-jobs.yml`). If you updated the workflow file recently, you're done.
+If you're unsure, check that your `.github/workflows/update-jobs.yml` contains
+`DIGEST_EMAIL_ADDRESS` and `DIGEST_APP_PASSWORD` under the scraper step's `env:`
+block.
+
+**Step 4 — Run the workflow**
+Actions → Update job listings → Run workflow. If there are 70+ fit listings
+from the last 3 days that you haven't received before, a digest will arrive
+in your inbox within a minute or two of the run finishing.
+
+**Tuning the digest**
+In `scraper.py` under CONFIG:
+- `DIGEST_MIN_FIT` — minimum fit score to include (default 70)
+- `DIGEST_MAX_LISTINGS` — maximum listings per email (default 10)
+
+**How "new" is tracked**
+The scraper writes a `seen_urls.json` file to your repo after each digest send.
+This is how it knows not to send you the same listing twice. The file is
+committed automatically by the Action — you may see it appear in your repo
+after the first digest run. Don't edit or delete it; it's part of the system.
+
+---
+
 ## A few honest notes
 
 - **Big boards from cloud servers:** Indeed and Google Jobs are the most
