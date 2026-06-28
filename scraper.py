@@ -924,7 +924,7 @@ def send_digest(jobs, seen_urls):
     candidates = [
         j for j in jobs
         if j.get("fit_score") and j.get("fit_score") >= DIGEST_MIN_FIT
-        and j.get("date", "") >= cutoff
+        and (j.get("date") or "") >= cutoff
         and j.get("url") not in seen_urls
     ]
     # Sort by fit score descending, cap at max
