@@ -1,6 +1,6 @@
 {
- "updated": "2026-06-28T16:45:54Z",
- "count": 625,
+ "updated": "2026-06-29T16:47:29Z",
+ "count": 617,
  "jobs": [
   {
    "title": "Content Marketing Manager",
@@ -18,8 +18,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Healthcare AI company, content role, remote, strong fit"
+   "fit_score": 82,
+   "fit_reason": "Healthcare AI, remote, content strategy, strong fit"
   },
   {
    "title": "Marketing Lead: Acquisitions",
@@ -33,8 +33,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 32,
-   "fit_reason": "Marketing acquisition, non-health, sales-adjacent focus"
+   "fit_score": 18,
+   "fit_reason": "Acquisitions marketing, no health content focus"
   },
   {
    "title": "Marketing Lead: Content & Demand Gen",
@@ -48,8 +48,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 48,
-   "fit_reason": "Content marketing, non-health, remote, some relevance"
+   "fit_score": 25,
+   "fit_reason": "Demand gen marketing, non-health, acquisitions focus"
   },
   {
    "title": "Associate Director, Scientific Affairs - PRIME Education",
@@ -80,8 +80,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 32,
-   "fit_reason": "Marketing acquisition, non-health, sales-adjacent focus"
+   "fit_score": 18,
+   "fit_reason": "Acquisitions marketing, no health content focus"
   },
   {
    "title": "Marketing Lead: Content & Demand Gen",
@@ -97,8 +97,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 48,
-   "fit_reason": "Content marketing, non-health, remote, some relevance"
+   "fit_score": 25,
+   "fit_reason": "Demand gen marketing, non-health, acquisitions focus"
   },
   {
    "title": "Medical Editor",
@@ -118,8 +118,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 85,
-   "fit_reason": "Medical editing, healthcare, remote, excellent fit"
+   "fit_score": 88,
+   "fit_reason": "Medical editing, remote, excellent health fit"
   },
   {
    "title": "Proposal Manager",
@@ -156,8 +156,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Insurance content, not healthcare; full-time role"
+   "fit_score": 35,
+   "fit_reason": "Insurance content, remote, not healthcare focused"
   },
   {
    "title": "KAP 2026-2027 - Communications Manager - Beacon Center",
@@ -171,8 +171,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 15,
-   "fit_reason": "Fellowship program, social entrepreneurship, not content writing"
+   "fit_score": 22,
+   "fit_reason": "Non-profit communications, not healthcare sector"
   },
   {
    "title": "Client Success Associate - SaaS Software",
@@ -211,8 +211,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 30,
-   "fit_reason": "Education marketing, not healthcare; full-time role"
+   "fit_score": 38,
+   "fit_reason": "Education marketing, remote, non-healthcare"
   },
   {
    "title": "Trainer",
@@ -245,8 +245,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 72,
-   "fit_reason": "Health tech, product marketing, remote, strong fit"
+   "fit_score": 35,
+   "fit_reason": "Product marketing, not healthcare content writing"
   },
   {
    "title": "Senior Technical Writer",
@@ -262,8 +262,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 65,
-   "fit_reason": "Healthcare technical writing, remote, proposal-focused narrow scope"
+   "fit_score": 58,
+   "fit_reason": "Technical writing in health, but proposal-heavy focus"
   },
   {
    "title": "Remote Marketing Manager for Growing Child Psychology Practice. SEO + Referral Growth Focus",
@@ -283,8 +283,48 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 45,
-   "fit_reason": "Healthcare client but marketing/SEO focus; below pay floor"
+   "fit_score": 28,
+   "fit_reason": "Marketing manager role, below pay floor, sales-focused"
+  },
+  {
+   "title": "Writer I",
+   "url": "https://www.indeed.com/viewjob?jk=affd8ab17687c6aa",
+   "description": "Remote, US · **Writer I**  \n\n**Level: Junior \\| Work Location: Remote**  \n\n* **This position is contingent upon contract award.**\n\n**ABOUT THE ROLE**  \n\nRed Carrot is seeking a Junior Writer to support the customer's External Affairs office on a federal communications contract. This role provides writing and editing support across",
+   "date": "2026-06-08",
+   "source": "Indeed",
+   "company": "Red Carrot",
+   "types": [
+    "contract",
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 35,
+   "fit_reason": "Federal comms, junior level, contingent, vague details"
+  },
+  {
+   "title": "Medical Editor - Medical Communications",
+   "url": "https://www.linkedin.com/jobs/view/4414487714",
+   "description": "Philadelphia, PA · nan",
+   "date": "2026-06-27",
+   "source": "Linkedin",
+   "company": "Precision Medicine Group",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Medical Editor - Medical Communications",
+   "url": "https://www.linkedin.com/jobs/view/4414706644",
+   "description": "Chicago, IL · nan",
+   "date": "2026-06-27",
+   "source": "Linkedin",
+   "company": "Precision AQ",
+   "types": [],
+   "locations": [],
+   "category": "writing"
   },
   {
    "title": "Medical Editor - Medical Communications",
@@ -298,12 +338,38 @@
    "category": "writing"
   },
   {
-   "title": "Expert Scientific Writer",
-   "url": "https://www.linkedin.com/jobs/view/4433895119",
-   "description": "Hyderabad, Telangana, India · nan",
+   "title": "SEO Content Manager",
+   "url": "https://www.linkedin.com/jobs/view/4433880333",
+   "description": "nan",
    "date": "2026-06-26",
    "source": "Linkedin",
-   "company": "Sanofi",
+   "company": "Releaf",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Video Editor | WFH, Day shift",
+   "url": "https://www.linkedin.com/jobs/view/4432959181",
+   "description": "Manila, National Capital Region, Philippines · nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "MicroSourcing",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 5,
+   "fit_reason": "Video editing, non-writing, non-health, wrong location"
+  },
+  {
+   "title": "Medical Editor - Medical Communications",
+   "url": "https://www.linkedin.com/jobs/view/4414706620",
+   "description": "Gladstone, NJ · nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "Precision Medicine Group",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -315,17 +381,6 @@
    "date": "2026-06-26",
    "source": "Linkedin",
    "company": "Precision AQ",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Medical Editor - Medical Communications",
-   "url": "https://www.linkedin.com/jobs/view/4414706620",
-   "description": "Gladstone, NJ · nan",
-   "date": "2026-06-26",
-   "source": "Linkedin",
-   "company": "Precision Medicine Group",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -353,39 +408,6 @@
    "category": "writing"
   },
   {
-   "title": "Medical Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4433087863",
-   "description": "Goregaon, Maharashtra, India · nan",
-   "date": "2026-06-25",
-   "source": "Linkedin",
-   "company": "Greenpark",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Copywriting Specialist",
-   "url": "https://www.linkedin.com/jobs/view/4413643767",
-   "description": "nan",
-   "date": "2026-06-25",
-   "source": "Linkedin",
-   "company": "Accenture in India",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Content Writer & Communications Head",
-   "url": "https://www.linkedin.com/jobs/view/4431215014",
-   "description": "Bengaluru, Karnataka, India · nan",
-   "date": "2026-06-23",
-   "source": "Linkedin",
-   "company": "Tricog Health",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
    "title": "Medical Editor",
    "url": "https://www.linkedin.com/jobs/view/4432025827",
    "description": "West Chester, PA · nan",
@@ -397,23 +419,34 @@
    "category": "writing"
   },
   {
-   "title": "Web Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4430452243",
-   "description": "Mumbai, Maharashtra, India · nan",
-   "date": "2026-06-18",
+   "title": "SEO Content Specialist | Philippines",
+   "url": "https://www.linkedin.com/jobs/view/4412474480",
+   "description": "Makati, National Capital Region, Philippines · nan",
+   "date": "2026-06-21",
    "source": "Linkedin",
-   "company": "Tatvartha Health Pvt. Ltd.",
+   "company": "Heidi",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Content Manager",
-   "url": "https://www.linkedin.com/jobs/view/4413885148",
-   "description": "New Delhi, Delhi, India · nan",
-   "date": "2026-06-16",
+   "title": "Italian Speakers | Customer Support, Content Moderation & Operations in Lisbon",
+   "url": "https://www.linkedin.com/jobs/view/4429384189",
+   "description": "Catania, Sicily, Italy · nan",
+   "date": "2026-06-18",
    "source": "Linkedin",
-   "company": "SFRI India (Medical Diagnostics)",
+   "company": "FH Collective - Academy",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Assistant Editor",
+   "url": "https://www.linkedin.com/jobs/view/4429360775",
+   "description": "London, England, UK · nan",
+   "date": "2026-06-18",
+   "source": "Linkedin",
+   "company": "Clio",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -441,17 +474,6 @@
    "category": "writing"
   },
   {
-   "title": "Expert Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4428101873",
-   "description": "Hyderabad, Telangana, India · nan",
-   "date": "2026-06-12",
-   "source": "Linkedin",
-   "company": "Sanofi",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
    "title": "Editor, Content Engagement",
    "url": "https://www.linkedin.com/jobs/view/4416734369",
    "description": "nan",
@@ -463,46 +485,37 @@
    "category": "writing"
   },
   {
-   "title": "Content Specialist (Healthcare) in Gurgaon",
-   "url": "https://www.linkedin.com/jobs/view/4424948294",
-   "description": "Gurgaon, Haryana, India · nan",
-   "date": "2026-06-06",
+   "title": "Pharma Copywriter",
+   "url": "https://www.linkedin.com/jobs/view/4423064058",
+   "description": "Toronto, Ontario, Canada · nan",
+   "date": "2026-06-03",
    "source": "Linkedin",
-   "company": "MoreTasks",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Scientific Writer",
-   "url": "https://www.linkedin.com/jobs/view/4421144435",
-   "description": "Gurugram, Haryana, India · nan",
-   "date": "2026-06-05",
-   "source": "Linkedin",
-   "company": "WNS",
+   "company": "Creative Circle",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
    "title": "Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4423967510",
-   "description": "nan",
-   "date": "2026-06-02",
+   "url": "https://www.linkedin.com/jobs/view/4420135734",
+   "description": "South Carolina, United States · nan",
+   "date": "2026-06-03",
    "source": "Linkedin",
-   "company": "Creative Cove Inc.",
+   "company": "Thorne",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Medical Writer - Manager",
-   "url": "https://www.linkedin.com/jobs/view/4422033288",
-   "description": "nan",
-   "date": "2026-05-29",
+   "title": "Founding Community & Content Lead (Part-Time, USA Only)",
+   "url": "https://www.linkedin.com/jobs/view/4431503483",
+   "description": "New York, United States · nan",
+   "date": null,
    "source": "Linkedin",
-   "company": "Omnicom Global Solutions",
-   "types": [],
+   "company": "Todai Health",
+   "types": [
+    "part-time"
+   ],
    "locations": [],
    "category": "writing"
   },
@@ -543,8 +556,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 20,
-   "fit_reason": "SEO/developer role, non-health, not content writing"
+   "fit_score": 15,
+   "fit_reason": "SEO/WordPress developer, not healthcare, not writing-focused"
   },
   {
    "title": "Junior Marketing Copywriter",
@@ -564,8 +577,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 42,
-   "fit_reason": "Generic copywriting, remote, below pay floor"
+   "fit_score": 48,
+   "fit_reason": "Copywriting role, remote, but non-health, junior level"
   },
   {
    "title": "Strategy Director",
@@ -604,8 +617,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "Early childhood education, content strategy, not healthcare"
+   "fit_score": 42,
+   "fit_reason": "Content strategy role but early childhood, not health"
   },
   {
    "title": "Content Writer (contract)",
@@ -626,7 +639,7 @@
    ],
    "category": "writing",
    "fit_score": 15,
-   "fit_reason": "Below pay floor; non-health generic content"
+   "fit_reason": "Far below pay floor ($29-33/hr), generic content"
   },
   {
    "title": "Senior Strategic Content Manager",
@@ -644,8 +657,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Content strategy, thought leadership, remote, B2B focus"
+   "fit_score": 72,
+   "fit_reason": "Content strategy, thought leadership, remote, strong strategic fit"
   },
   {
    "title": "Digital Marketing/Social Media Strategist",
@@ -659,8 +672,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 45,
-   "fit_reason": "Wellness SaaS but marketing-focused, not health content writing"
+   "fit_score": 55,
+   "fit_reason": "Wellness SaaS, remote, but marketing-heavy vs. content writing"
   },
   {
    "title": "Web & SEO Project Specialist",
@@ -680,8 +693,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 30,
-   "fit_reason": "SEO/web project work, below pay floor, not content strategy"
+   "fit_score": 32,
+   "fit_reason": "Web/SEO project management, not healthcare, not writing-focused"
   },
   {
    "title": "Senior Experience Partner",
@@ -718,8 +731,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Event management, not writing/content, outside core expertise"
+   "fit_score": 15,
+   "fit_reason": "Event strategy, non-health, full-time in-office"
   },
   {
    "title": "SEO & AI Search Strategist",
@@ -735,29 +748,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 62,
-   "fit_reason": "Health-adjacent SEO but strategy-light, full-time only"
-  },
-  {
-   "title": "Director, AI Operations & Marketing Transformation (Remote)",
-   "url": "https://www.indeed.com/viewjob?jk=b0e26734fb084e86",
-   "description": "Remote, US · As a global leader in cybersecurity, CrowdStrike protects the people, processes and technologies that drive modern organizations. Since 2011, our mission hasn’t changed — we’re here to stop breaches, and we’ve redefined modern security with the world’s most advanced AI\\-native platform. Our customers span all industrie",
-   "date": "2026-06-23",
-   "source": "Indeed",
-   "company": "CrowdStrike",
-   "pay_min": 155000,
-   "pay_max": 240000,
-   "pay_period": "annual",
-   "pay_display": "$155,000–$240,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 15,
-   "fit_reason": "Cybersecurity ops/marketing, unrelated to healthcare communications"
+   "fit_score": 28,
+   "fit_reason": "SEO/AI focus, health adjacent, full-time role"
   },
   {
    "title": "Brand Copywriter & Narrative Strategist",
@@ -773,8 +765,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 50,
-   "fit_reason": "Copywriting & narrative strategy but cybersecurity/AI focus"
+   "fit_score": 22,
+   "fit_reason": "Brand copywriting, non-health, AI cybersecurity focus"
   },
   {
    "title": "Open Call: All Roles in Tech, AI & Web3 (Engineering, Growth, Design & More)",
@@ -834,8 +826,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 20,
-   "fit_reason": "Social media management for snack brand, not health content"
+   "fit_score": 18,
+   "fit_reason": "Social media strategy, food brand, non-health"
   },
   {
    "title": "Senior Manager, Social Media",
@@ -855,8 +847,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 20,
-   "fit_reason": "Social media management for snack brand, not health content"
+   "fit_score": 18,
+   "fit_reason": "Social media strategy, food brand, non-health"
   },
   {
    "title": "SEO Manager",
@@ -877,56 +869,53 @@
     "hybrid"
    ],
    "category": "marketing",
-   "fit_score": 35,
-   "fit_reason": "SEO manager role, generic marketing, not health writing"
+   "fit_score": 25,
+   "fit_reason": "SEO manager, non-health, below pay floor slightly"
   },
   {
-   "title": "Content Editor - AI Trainer",
-   "url": "https://www.linkedin.com/jobs/view/4304435360",
-   "description": "nan",
-   "date": "2026-06-27",
+   "title": "Global Social Media Strategist",
+   "url": "https://www.indeed.com/viewjob?jk=9fb86d4c15c65748",
+   "description": "Remote, US · As a **Global Social Media Strategist** on EPAM Systems’ Global Marketing team, you will own the strategy and evolution of EPAM’s worldwide organic social media presence. This is a highly strategic role focused on shaping how EPAM tells its story across platforms, regions, and audiences — using data, storytelling, and",
+   "date": "2026-06-19",
+   "source": "Indeed",
+   "company": "EPAM Systems",
+   "pay_min": 90000,
+   "pay_max": 100000,
+   "pay_period": "annual",
+   "pay_display": "$90,000–$100,000/an",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "marketing",
+   "fit_score": 28,
+   "fit_reason": "Social media strategy, tech company, non-health"
+  },
+  {
+   "title": "Sr. Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4430608276",
+   "description": "New York, United States · nan",
+   "date": "2026-06-26",
    "source": "Linkedin",
-   "company": "DataAnnotation",
+   "company": "Solomon Page",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Earned Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4433233035",
-   "description": "London Area, United Kingdom · nan",
-   "date": "2026-06-26",
-   "source": "Linkedin",
-   "company": "Havas SO",
-   "types": [],
-   "locations": [],
-   "category": "other"
-  },
-  {
-   "title": "Creative Strategist - Juniper UK",
-   "url": "https://www.linkedin.com/jobs/view/4432570117",
-   "description": "London, England, UK · nan",
+   "title": "Content Strategist [211038]",
+   "url": "https://www.linkedin.com/jobs/view/4433003125",
+   "description": "nan",
    "date": "2026-06-24",
    "source": "Linkedin",
-   "company": "Eucalyptus",
+   "company": "Aquent",
    "types": [],
    "locations": [],
-   "category": "other"
-  },
-  {
-   "title": "Analyst - Scientific Communications & Medical Information",
-   "url": "https://www.linkedin.com/jobs/view/4423921531",
-   "description": "Bengaluru, Karnataka, India · nan",
-   "date": "2026-06-24",
-   "source": "Linkedin",
-   "company": "AstraZeneca",
-   "types": [],
-   "locations": [],
-   "category": "marketing"
+   "category": "writing"
   },
   {
    "title": "Freelance Website Copywriter / Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4432077597",
+   "url": "https://www.linkedin.com/jobs/view/4434297720",
    "description": "London, England, UK · nan",
    "date": "2026-06-23",
    "source": "Linkedin",
@@ -938,44 +927,14 @@
    "category": "writing"
   },
   {
-   "title": "Content Editor | $70/hr Remote",
-   "url": "https://www.linkedin.com/jobs/view/4432247390",
-   "description": "nan",
+   "title": "Freelance Website Copywriter / Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4434292893",
+   "description": "San Francisco, CA · nan",
    "date": "2026-06-23",
    "source": "Linkedin",
-   "company": "Crossing Hurdles",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Content editing, good rate, but no health focus stated"
-  },
-  {
-   "title": "Content Editor | $70/hr Remote",
-   "url": "https://www.linkedin.com/jobs/view/4432239480",
-   "description": "nan",
-   "date": "2026-06-23",
-   "source": "Linkedin",
-   "company": "Crossing Hurdles",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Remote content editing, good pay, unclear health focus"
-  },
-  {
-   "title": "Senior Content Strategist (m/w/d) in DACH-Region - Full-time",
-   "url": "https://www.linkedin.com/jobs/view/4429823147",
-   "description": "nan",
-   "date": "2026-06-23",
-   "source": "Linkedin",
-   "company": "notus",
+   "company": "N4 Studio®",
    "types": [
-    "full-time"
+    "freelance"
    ],
    "locations": [],
    "category": "writing"
@@ -992,100 +951,157 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Remote content editing, good pay, unclear health focus"
+   "fit_score": 62,
+   "fit_reason": "Content editor, solid rate, no health context"
   },
   {
-   "title": "Senior Content Marketing Specialist",
-   "url": "https://www.linkedin.com/jobs/view/4431241998",
-   "description": "Watford, England, UK · nan",
+   "title": "Freelance Website Copywriter / Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4434295855",
+   "description": "Sydney, New South Wales, Australia · nan",
    "date": "2026-06-23",
    "source": "Linkedin",
-   "company": "Medtronic",
-   "types": [],
+   "company": "N4 Studio®",
+   "types": [
+    "freelance"
+   ],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Digital Content Manager",
-   "url": "https://www.linkedin.com/jobs/view/4411681027",
-   "description": "Bengaluru, Karnataka, India · nan",
-   "date": "2026-06-20",
+   "title": "Freelance Website Copywriter / Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4434411175",
+   "description": "Auckland, Auckland, New Zealand · nan",
+   "date": "2026-06-23",
    "source": "Linkedin",
-   "company": "Astellas Pharma",
+   "company": "N4 Studio®",
+   "types": [
+    "freelance"
+   ],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Content Strategist + Producer",
+   "url": "https://www.linkedin.com/jobs/view/4430380421",
+   "description": "nan",
+   "date": "2026-06-22",
+   "source": "Linkedin",
+   "company": "Jobgether",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Head of Content",
-   "url": "https://www.linkedin.com/jobs/view/4429912110",
+   "title": "Social Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4428286082",
+   "description": "nan",
+   "date": "2026-06-19",
+   "source": "Linkedin",
+   "company": "Creative Circle",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Editor, Subscriber Content",
+   "url": "https://www.linkedin.com/jobs/view/4419077965",
+   "description": "London, England, UK · nan",
+   "date": "2026-06-19",
+   "source": "Linkedin",
+   "company": "Newsweek",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Social Content Strategist - Reddit [210996]",
+   "url": "https://www.linkedin.com/jobs/view/4430753632",
+   "description": "nan",
+   "date": "2026-06-18",
+   "source": "Linkedin",
+   "company": "Skill",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Social Content Designer & Producer",
+   "url": "https://www.linkedin.com/jobs/view/4429925327",
    "description": "nan",
    "date": "2026-06-17",
    "source": "Linkedin",
-   "company": "OnTheGoSystems",
+   "company": "Josie Maran",
    "types": [],
    "locations": [],
-   "category": "other"
+   "category": "writing"
   },
   {
-   "title": "Strategist - Healthcare Advertising",
-   "url": "https://www.linkedin.com/jobs/view/4408293678",
-   "description": "London, England, UK · nan",
+   "title": "Social Content Editor (Reddit & LinkedIn Specialist) [210921]",
+   "url": "https://www.linkedin.com/jobs/view/4429976903",
+   "description": "nan",
    "date": "2026-06-17",
    "source": "Linkedin",
-   "company": "Avalere Health",
+   "company": "Skill",
    "types": [],
    "locations": [],
-   "category": "other"
+   "category": "writing"
   },
   {
-   "title": "Senior Communications Specialist Choosing Wisely Canada",
-   "url": "https://www.linkedin.com/jobs/view/4425883565",
-   "description": "Toronto, Ontario, Canada · nan",
+   "title": "Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4429547412",
+   "description": "nan",
+   "date": "2026-06-16",
+   "source": "Linkedin",
+   "company": "HireTalent - Staffing & Recruiting Firm",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4427571393",
+   "description": "Texas, United States · nan",
    "date": "2026-06-11",
    "source": "Linkedin",
-   "company": "St. Michael's Hospital",
+   "company": "Aditi Consulting",
    "types": [],
    "locations": [],
-   "category": "marketing"
+   "category": "writing"
   },
   {
-   "title": "Content Development Manager",
-   "url": "https://www.linkedin.com/jobs/view/4425276009",
+   "title": "Content Strategist III [210783]",
+   "url": "https://www.linkedin.com/jobs/view/4427561877",
    "description": "nan",
-   "date": "2026-06-08",
+   "date": "2026-06-11",
    "source": "Linkedin",
-   "company": "Dynata",
+   "company": "Aquent",
    "types": [],
    "locations": [],
-   "category": "other"
+   "category": "writing"
   },
   {
-   "title": "Project Lead - HCP Content & Campaigns",
-   "url": "https://www.linkedin.com/jobs/view/4421929102",
-   "description": "Bengaluru East, Karnataka, India · nan",
-   "date": "2026-06-08",
+   "title": "Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4422793356",
+   "description": "Minneapolis, MN · nan",
+   "date": "2026-06-10",
    "source": "Linkedin",
-   "company": "Novo Nordisk",
+   "company": "Horizontal Talent",
    "types": [],
    "locations": [],
-   "category": "other"
+   "category": "writing"
   },
   {
-   "title": "Content Editor - Remote",
-   "url": "https://www.linkedin.com/jobs/view/4424020199",
-   "description": "nan",
+   "title": "Content strategist (Freelancer)",
+   "url": "https://www.linkedin.com/jobs/view/4422912014",
+   "description": "Gurugram, Haryana, India · nan",
    "date": "2026-06-03",
    "source": "Linkedin",
-   "company": "YO IT Consulting",
-   "types": [],
-   "locations": [
-    "remote"
+   "company": "Deccan AI Experts",
+   "types": [
+    "freelance"
    ],
-   "category": "writing",
-   "fit_score": 45,
-   "fit_reason": "Remote content editor, no pay stated, no health focus"
+   "locations": [],
+   "category": "writing"
   },
   {
    "title": "Content strategist (Freelancer)",
@@ -1096,6 +1112,19 @@
    "company": "Deccan AI Experts",
    "types": [
     "freelance"
+   ],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Senior Copywriter - Contract",
+   "url": "https://www.linkedin.com/jobs/view/4434115814",
+   "description": "San Diego, CA · nan",
+   "date": null,
+   "source": "Linkedin",
+   "company": "Curology",
+   "types": [
+    "contract"
    ],
    "locations": [],
    "category": "writing"
@@ -1119,8 +1148,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "Health content, remote, freelance, culturally relevant"
+   "fit_score": 78,
+   "fit_reason": "Health content, remote, contract, meets pay floor"
   },
   {
    "title": "Regulatory Writer and/or Regulatory QC/ Editor",
@@ -1139,7 +1168,7 @@
    ],
    "category": "writing",
    "fit_score": 85,
-   "fit_reason": "Regulatory biotech writing, remote, solid pay, strong fit"
+   "fit_reason": "Regulatory writing, biotech health, remote contract, strong fit"
   },
   {
    "title": "Principal Regulatory Writer (Temporary)",
@@ -1157,8 +1186,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 62,
-   "fit_reason": "Regulatory biotech, remote, but annual pay stated oddly"
+   "fit_score": 22,
+   "fit_reason": "Pay listed as annual not hourly, unclear"
   },
   {
    "title": "Sr. Director, Medical Writing",
@@ -1176,8 +1205,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 88,
-   "fit_reason": "Senior medical writing leadership, remote, excellent pay, great fit"
+   "fit_score": 75,
+   "fit_reason": "Full-time senior role, excellent health fit, remote"
   },
   {
    "title": "Medical Writer",
@@ -1197,8 +1226,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Full-time medical writing, remote, below-floor salary hurts score"
+   "fit_score": 62,
+   "fit_reason": "Full-time, medical writing, remote; below salary floor"
   },
   {
    "title": "Medical Writer (Publications)",
@@ -1218,8 +1247,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 75,
-   "fit_reason": "Medical writing publications, remote, borderline salary, Canada location"
+   "fit_score": 58,
+   "fit_reason": "Medical writing, remote; Canada-based, below salary floor"
   },
   {
    "title": "Senior Medical Writer (Medical Affairs)",
@@ -1235,8 +1264,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Senior medical affairs writing, remote, good fit, no pay"
+   "fit_score": 68,
+   "fit_reason": "Senior medical writer, remote; no pay stated"
   },
   {
    "title": "Senior Medical Writer (Medical Affairs)",
@@ -1256,8 +1285,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "Senior medical writing, remote, strong pay, excellent fit"
+   "fit_score": 72,
+   "fit_reason": "Senior medical writer, remote, strong health fit"
   },
   {
    "title": "Senior Medical Editor",
@@ -1275,8 +1304,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Health content, remote, but below salary floor."
+   "fit_score": 71,
+   "fit_reason": "Medical editor, remote, healthcare focused, good fit"
   },
   {
    "title": "PFMEA Technical Writer - Medical Device #9614",
@@ -1292,8 +1321,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 75,
-   "fit_reason": "Medical device technical writing, remote, strong fit."
+   "fit_score": 58,
+   "fit_reason": "Technical writing, medical devices; full-time likely"
   },
   {
    "title": "Head of Medical Writing, West Coast Hub",
@@ -1313,8 +1342,38 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 55,
-   "fit_reason": "Leadership role, medical writing, but likely full-time."
+   "fit_score": 73,
+   "fit_reason": "Medical writing leader, remote, excellent health expertise"
+  },
+  {
+   "title": "Associate Medical Editor - Remote",
+   "url": "https://www.linkedin.com/jobs/view/4415099815",
+   "description": "Salt Lake City, UT · nan",
+   "date": "2026-06-28",
+   "source": "Linkedin",
+   "company": "American Cancer Society",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 45,
+   "fit_reason": "In-office location, nonprofit; no pay stated"
+  },
+  {
+   "title": "Associate Medical Editor - Remote",
+   "url": "https://www.linkedin.com/jobs/view/4415094936",
+   "description": "Rochester, MN · nan",
+   "date": "2026-06-28",
+   "source": "Linkedin",
+   "company": "American Cancer Society",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 45,
+   "fit_reason": "In-office location, nonprofit; no pay stated"
   },
   {
    "title": "Associate Medical Editor - Remote",
@@ -1328,8 +1387,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical editing, health nonprofit, but in-office location."
+   "fit_score": 85,
+   "fit_reason": "Remote medical editing, health literacy, perfect audience fit"
   },
   {
    "title": "Associate Medical Editor - Remote",
@@ -1343,19 +1402,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical editing, health nonprofit, but in-office location."
-  },
-  {
-   "title": "Medical Editor - Medical Communications",
-   "url": "https://www.linkedin.com/jobs/view/4414497658",
-   "description": "New York, NY · nan",
-   "date": "2026-06-27",
-   "source": "Linkedin",
-   "company": "Precision Medicine Group",
-   "types": [],
-   "locations": [],
-   "category": "writing"
+   "fit_score": 85,
+   "fit_reason": "Remote medical editing, health literacy, perfect audience fit"
   },
   {
    "title": "Medical Editor- Medical Communications",
@@ -1381,6 +1429,21 @@
   },
   {
    "title": "Medical Writer | Remote",
+   "url": "https://www.linkedin.com/jobs/view/4424396746",
+   "description": "nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "Crossing Hurdles",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 72,
+   "fit_reason": "Medical writing remote role, limited detail available"
+  },
+  {
+   "title": "Medical Writer | Remote",
    "url": "https://www.linkedin.com/jobs/view/4424419446",
    "description": "nan",
    "date": "2026-06-26",
@@ -1391,8 +1454,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 65,
-   "fit_reason": "Medical writing, remote, but insufficient details provided."
+   "fit_score": 72,
+   "fit_reason": "Medical writing remote role, limited detail available"
   },
   {
    "title": "Medical Writer - Publications",
@@ -1401,17 +1464,6 @@
    "date": "2026-06-24",
    "source": "Linkedin",
    "company": "OPEN Health",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Medical Editor",
-   "url": "https://www.linkedin.com/jobs/view/4429874843",
-   "description": "nan",
-   "date": "2026-06-24",
-   "source": "Linkedin",
-   "company": "Creative Circle",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -1461,8 +1513,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical editing, health nonprofit, but in-office location."
+   "fit_score": 85,
+   "fit_reason": "Remote medical editing, health literacy, perfect audience fit"
   },
   {
    "title": "Associate Medical Editor - Remote",
@@ -1476,8 +1528,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical editing, health nonprofit, but in-office location."
+   "fit_score": 85,
+   "fit_reason": "Remote medical editing, health literacy, perfect audience fit"
   },
   {
    "title": "Associate Medical Editor - Remote",
@@ -1491,8 +1543,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical editing, health nonprofit, but in-office location."
+   "fit_score": 85,
+   "fit_reason": "Remote medical editing, health literacy, perfect audience fit"
   },
   {
    "title": "Medical Writer - Publications",
@@ -1518,17 +1570,6 @@
   },
   {
    "title": "Medical Writer",
-   "url": "https://www.linkedin.com/jobs/view/4137029726",
-   "description": "nan",
-   "date": "2026-06-07",
-   "source": "Linkedin",
-   "company": "MJH Life Sciences®",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Medical Writer",
    "url": "https://www.linkedin.com/jobs/view/4419250750",
    "description": "nan",
    "date": "2026-06-02",
@@ -1539,365 +1580,285 @@
    "category": "writing"
   },
   {
-   "title": "Associate Medical Editor - Remote",
-   "url": "https://www.linkedin.com/jobs/view/4415099815",
-   "description": "Salt Lake City, UT · nan",
+   "title": "Medical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4137029726",
+   "description": "nan",
    "date": null,
    "source": "Linkedin",
-   "company": "American Cancer Society",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical editing, health nonprofit, but in-office location."
-  },
-  {
-   "title": "Associate Medical Editor - Remote",
-   "url": "https://www.linkedin.com/jobs/view/4415094936",
-   "description": "Rochester, MN · nan",
-   "date": null,
-   "source": "Linkedin",
-   "company": "American Cancer Society",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 85,
-   "fit_reason": "Medical editing, healthcare focus, remote preferred"
-  },
-  {
-   "title": "Senior Service Engineer – 3D Printing (West Coast)",
-   "url": "https://www.indeed.com/viewjob?jk=bbd8f358e5852aa8",
-   "description": "Remote, US · Effective Communication\n\n**Description**\n\nThe Senior Service Engineer \\- 3D Printing serves as a regional technical authority within the Services Competence Center, responsible for resolving complex customer and field escalations through advanced troubleshooting and root cause analysis. The role works closely with Remo",
-   "date": "2026-06-28",
-   "source": "Indeed",
-   "company": "hp",
-   "pay_min": 89000,
-   "pay_max": 130000,
-   "pay_period": "annual",
-   "pay_display": "$89,000–$130,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Client Success Manager",
-   "url": "https://www.indeed.com/viewjob?jk=e61500aa686906c7",
-   "description": "Remote, US · At Arrow Capital, relationships don’t end when a conversation starts—they’re built through consistent communication, follow\\-through, and execution.\n\nThe Client Success Manager is responsible for making sure clients stay supported, informed, and engaged throughout their relationship with the firm. This role sits at the",
-   "date": "2026-06-28",
-   "source": "Indeed",
-   "company": "Arrow Capital",
-   "pay_min": 94000,
-   "pay_max": 100000,
-   "pay_period": "annual",
-   "pay_display": "$94,000–$100,000/an",
-   "types": [
-    "part-time",
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Arizona-Licensed Outpatient Therapist (LPC, LCSW, LMFT) Licensed Professional Counselor",
-   "url": "https://www.indeed.com/viewjob?jk=26f95769dc321ad1",
-   "description": "Remote, US · **New Mexico\\-Licensed Outpatient Therapist (LPCC, LCSW, LMFT)**\n\n*Part\\-Time or Full\\-Time \\| Hybrid – Telehealth\\-First with Optional In\\-Person \\| Flexible Schedule \\| No On\\-Call \\| Competitive Compensation*\n\n**About Integrated Psych Solutions (IPS)**\n\nIntegrated Psych Solutions (IPS) is a growing behavioral health",
-   "date": "2026-06-28",
-   "source": "Indeed",
-   "company": "Integrated Psych Solutions",
-   "pay_min": 65000,
-   "pay_max": 125000,
-   "pay_period": "annual",
-   "pay_display": "$65,000–$125,000/an",
-   "types": [
-    "contract",
-    "part-time",
-    "full-time"
-   ],
-   "locations": [
-    "remote",
-    "hybrid"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Arizona-Licensed Outpatient Therapist (LPC, LCSW, LMFT) Licensed Professional Counselor",
-   "url": "https://www.indeed.com/viewjob?jk=ca404daac52a1368",
-   "description": "Remote, US · **Arizona\\-Licensed Outpatient Therapist (LPC, LCSW, LMFT)**\n\n*Part\\-Time or Full\\-Time \\| Hybrid – Telehealth\\-First with Optional In\\-Person \\| Flexible Schedule \\| No On\\-Call \\| Competitive Compensation*\n\n**About Integrated Psych Solutions (IPS)**\n\nIntegrated Psych Solutions (IPS) is a growing behavioral healthcare",
-   "date": "2026-06-28",
-   "source": "Indeed",
-   "company": "Integrated Psych Solutions",
-   "pay_min": 65000,
-   "pay_max": 125000,
-   "pay_period": "annual",
-   "pay_display": "$65,000–$125,000/an",
-   "types": [
-    "contract",
-    "part-time",
-    "full-time"
-   ],
-   "locations": [
-    "remote",
-    "hybrid"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Remote Revenue Cycle Manager",
-   "url": "https://www.indeed.com/viewjob?jk=2ea1ccb094621785",
-   "description": "Remote, US · Company Overview  \nCanterfield of Franklin offers luxurious, upscale apartments complemented by a vibrant social calendar and exceptional dining experiences. Our community is dedicated to providing a continuum of care that adapts to residents’ evolving healthcare needs, fostering independence and personalized support i",
-   "date": "2026-06-28",
-   "source": "Indeed",
-   "company": "Canterfield of Franklin",
-   "pay_min": 40,
-   "pay_max": 60,
-   "pay_period": "hourly",
-   "pay_display": "$40–$60/ho",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Relationship Coach (LMHP Background) – 100% Remote / Independent Contractor (1099)",
-   "url": "https://www.indeed.com/viewjob?jk=cbb1baca371712f2",
-   "description": "Remote, US · **About the Opportunity**\n\n**Babe Relationship Coaching** (www.babe.dating) is an elite, tech\\-enabled relationship coaching provider. We are seeking high\\-functioning, trained clinicians (LMFT, LCSW, LPC, LMSW PsyD, or international equivalents) who want to leverage their expertise in the high\\-margin, borderless worl",
-   "date": "2026-06-28",
-   "source": "Indeed",
-   "company": "Babe Productions LLC",
-   "pay_min": 60,
-   "pay_max": 100,
-   "pay_period": "hourly",
-   "pay_display": "$60–$100/ho",
-   "types": [
-    "contract"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Lead Client Services Project Manager, CX",
-   "url": "https://www.indeed.com/viewjob?jk=bfd47a7bc89901ba",
-   "description": "Remote, US · At NiCE, we don’t limit our challenges. We challenge our limits. Always. We’re ambitious. We’re game changers. And we play to win. We set the highest standards and execute beyond them. And if you’re like us, we can offer you the ultimate career opportunity that will light a fire within you.\n\n**Project Management, GSI**",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "NiCE",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Secondary ELA Teacher for MiaPrep Online Academy of Ohio (MOAO)",
-   "url": "https://www.indeed.com/viewjob?jk=45a1ef7e9ce134b6",
-   "description": "Remote, US · **Location:** 100% remote, resident of Ohio or within 25 miles of Ohio required\n\n**Classification:** Full\\-time, non\\-exempt employee\n\n**Salary:** $27 \\- $30 per hour\n\n**Welcome to Miaplaza!**\n\n\nOur vision is to elevate online learning by applying the most successful approaches in virtual education to create an accessi",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "Miaplaza Inc.",
-   "pay_min": 27,
-   "pay_max": 30,
-   "pay_period": "hourly",
-   "pay_display": "$27–$30/ho",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Project Manager - Commercial Audio Visual",
-   "url": "https://www.indeed.com/viewjob?jk=2613ccdeb416a600",
-   "description": "Remote, US · **About Diversified:**  \n\nDiversified is a global leader in audiovisual and media technology. We design and build innovative spaces and experiences for clients across industries such as corporate, entertainment, sports, retail, and government. Our team partners with organizations around the world to create environments",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "Diversified",
-   "pay_min": 88500,
-   "pay_max": 115000,
-   "pay_period": "annual",
-   "pay_display": "$88,500–$115,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Project Manager - Commercial Audio Visual",
-   "url": "https://www.indeed.com/viewjob?jk=889e2aabe58848ea",
-   "description": "Remote, US · **About Diversified:**  \n\nDiversified is a global leader in audiovisual and media technology. We design and build innovative spaces and experiences for clients across industries such as corporate, entertainment, sports, retail, and government. Our team partners with organizations around the world to create environments",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "Diversified",
-   "pay_min": 88500,
-   "pay_max": 115000,
-   "pay_period": "annual",
-   "pay_display": "$88,500–$115,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Senior Manager of AI Enablement",
-   "url": "https://www.indeed.com/viewjob?jk=57eb0295406368ef",
-   "description": "Remote, US · CodePath is the largest educator of college computer science students in the country. We have trained over 40,000 students from 1,000\\+ universities. Our partners include Amazon, Google, Meta, and 4,000\\+ companies across the industry. We’ve been training the next generation of technical talent for nearly a decade, and",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "CodePath.org",
-   "pay_min": 110000,
-   "pay_max": 150000,
-   "pay_period": "annual",
-   "pay_display": "$110,000–$150,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Organic Silicon Chemist",
-   "url": "https://www.indeed.com/viewjob?jk=4e1ad112f21ad668",
-   "description": "Remote, US · A leader in technology and innovation, Southwire Company, LLC is one of North America’s largest wire and cable producers. Southwire and its subsidiaries manufacture building wire and cable, utility products, metal\\-clad cable, portable and electronic cord products, OEM wire products and engineered products. In addition",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "Southwire",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "ADHD and Executive Function Coach—Remote Sessions",
-   "url": "https://www.indeed.com/viewjob?jk=e98c0e2e23864caa",
-   "description": "Remote, US · **Job Overview**\n\nWe’re looking for an experienced ADHD or executive function coach to provide one\\-on\\-one virtual coaching sessions for our client. You’ll work remotely from home on a flexible schedule. Great side income. Seeking applicants in the Philippines Only.\n\nWhat you’ll do: Conduct two coaching sessions per w",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "nan",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Fully Licensed Professional Counselors 1099 Contractor in ARIZONA, MONTANA, NEVEDA",
-   "url": "https://www.indeed.com/viewjob?jk=36696f32ea162f5a",
-   "description": "Remote, US · **Job Summary**\n\nWe are seeking Fully Licensed Professional Counselors (LPCs) to join our dynamic team as 1099 contractors. In this role, you will provide expert mental health counseling services across a variety of settings, including outpatient clinics, inpatient facilities, and via telehealth platforms. Your experti",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "Sunaura Therapy Collective",
-   "types": [
-    "contract"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Licensed Mental Health Therapist- Psychologist, LMHC, LMFT, or LCSW 1099 Contractor",
-   "url": "https://www.indeed.com/viewjob?jk=dc48ba795fe03d7a",
-   "description": "Remote, US · **Job Summary**\n\nWe are seeking a compassionate and dedicated Licensed Mental Health Counselor, Psychologist, Licensed Marriage and Family Therapist, or Licensed Clinical Social Worker to work as 1099 contractor. Our practice is very busy with many patients desiring care from a psychotherapist. In this role, you will p",
-   "date": "2026-06-27",
-   "source": "Indeed",
-   "company": "Pacific Psychiatric Services",
-   "pay_min": 40,
-   "pay_max": 80,
-   "pay_period": "hourly",
-   "pay_display": "$40–$80/ho",
-   "types": [
-    "contract"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
-   "title": "Internal Communications Consultant",
-   "url": "https://www.linkedin.com/jobs/view/4434080047",
-   "description": "British Columbia, Canada · nan",
-   "date": "2026-06-27",
-   "source": "Linkedin",
-   "company": "Interior Health Authority",
+   "company": "MJH Life Sciences®",
    "types": [],
    "locations": [],
-   "category": "marketing"
+   "category": "writing"
   },
   {
-   "title": "REMOTE - Communications & Content Governance Specialist III - R12910",
-   "url": "https://www.linkedin.com/jobs/view/4430685339",
-   "description": "nan",
-   "date": "2026-06-27",
+   "title": "Medical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4367241262",
+   "description": "Abu Dhabi, Abu Dhabi Emirate, United Arab Emirates · nan",
+   "date": null,
    "source": "Linkedin",
-   "company": "CareSource",
+   "company": "M42 Health",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Traveling Field Sales Rep-Outside Sales-bilingual Eng/Span Pref-Airport Proximity Req (1HR)",
+   "url": "https://www.indeed.com/viewjob?jk=b3ccd56919f6436d",
+   "description": "Remote, US · **About Drive** \n\nDRIVE is your premier partner in elevating auto repair, collision, truck, Restoration, and tow businesses across North America. With over 30 years of industry expertise, we empower independent shop owners with the tools, training, and strategies they need to succeed.\n\nOur comprehensive approach includ",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "DRIVE",
+   "pay_min": 59000,
+   "pay_max": 108000,
+   "pay_period": "annual",
+   "pay_display": "$59,000–$108,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Quality Control Specialist",
+   "url": "https://www.indeed.com/viewjob?jk=208f6cddaa2f59a4",
+   "description": "Remote, US · **Job Summary:** Join our dynamic team in the solar industry as a Quality Control Specialist! We are seeking a detail\\-oriented and knowledgeable professional with a strong background in solar PV systems, electrical design standards, and construction documentation. This role is critical in upholding the company’s high",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "eEquals",
+   "pay_min": 50000,
+   "pay_max": 60000,
+   "pay_period": "annual",
+   "pay_display": "$50,000–$60,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Insurance Authorization Specialist II",
+   "url": "https://www.indeed.com/viewjob?jk=8b66ab59e1f4348b",
+   "description": "Remote, US · **Welcome! We’re excited you’re considering an opportunity with us! To apply to this position and be considered, click the Apply button located above this message and complete the application in full. Below, you’ll find other important information about this position.**\n-------------------------------------------------",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "nan",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Supervisor - Epic Cogito Analytics",
+   "url": "https://www.indeed.com/viewjob?jk=b958f246d145ae5f",
+   "description": "Remote, US · **Welcome! We’re excited you’re considering an opportunity with us! To apply to this position and be considered, click the Apply button located above this message and complete the application in full. Below, you’ll find other important information about this position.**\n-------------------------------------------------",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "nan",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "BI Developer – Power BI, Fabric & SQL Server",
+   "url": "https://www.indeed.com/viewjob?jk=5858586a1d9633a5",
+   "description": "Remote, US · **Welcome! We’re excited you’re considering an opportunity with us! To apply to this position and be considered, click the Apply button located above this message and complete the application in full. Below, you’ll find other important information about this position.**\n-------------------------------------------------",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "nan",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Lead QA Automation",
+   "url": "https://www.indeed.com/viewjob?jk=d25cb2bfcab6f175",
+   "description": "Remote, US · **Group 1001** is a consumer\\-centric, technology\\-driven family of insurance companies on a mission to deliver outstanding value and operational performance by combining financial strength and stability with deep insurance expertise and a can\\-do culture. Group1001’s culture emphasizes the importance of collaboration,",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "Group1001",
+   "pay_min": 160000,
+   "pay_max": 180000,
+   "pay_period": "annual",
+   "pay_display": "$160,000–$180,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Senior Compliance Monitoring Specialist - Remote Position",
+   "url": "https://www.indeed.com/viewjob?jk=49e1405166b7382b",
+   "description": "Remote, US · Rooted in our Christian faith, Bethany Christian Services works to ensure children are safe, loved, and connected through family. Across 29 states, we strengthen families, support foster care and adoption, and walk alongside refugees with compassion. Here, living out your faith means using your gifts to bring hope and",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "Bethany Christian Services",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Construction Manager Lead",
+   "url": "https://www.indeed.com/viewjob?jk=0c7bda74023831b5",
+   "description": "Remote, US · Aldea Design Services, LLC is an LJB Engineering Company. LJB Engineering is a national, multi\\-disciplinary engineering consulting firm with multiple business lines including Transportation, Water Resources, Geospatial and Site Design, Buildings Structure Design and Safety/Fall Protection Design/Installation. Our dive",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "LJB, INC.",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Senior Project Manager – SAP Carveout & TSA Exit",
+   "url": "https://www.indeed.com/viewjob?jk=a1af44e81299931a",
+   "description": "Remote, US · **Purpose\\-Driven \\| Faith\\-Based Consultancy \\| United States \\| 12\\-Month Engagement**\n\nWho is Sanctus Solutions?\n\n**Sanctus Solutions is a purpose\\-driven project management consultancy dedicated to transforming organizations by aligning Morals, Purpose, and Business to activate meaningful change.** We believe proje",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "Sanctus Solutions",
+   "pay_min": 100,
+   "pay_max": 125,
+   "pay_period": "hourly",
+   "pay_display": "$100–$125/ho",
+   "types": [
+    "contract"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Personal Injury Litigation Assistant",
+   "url": "https://www.indeed.com/viewjob?jk=20d28abed7ed22fc",
+   "description": "Remote, US · Stalwart Law Group, a highly respected boutique civil litigation firm in Los Angeles, specializing in the representation of injured victims, is seeking a full\\-time litigation assistant to join our personal injury team. Applicants must have a minimum of three years experience handling PI cases in California. Applicant",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "Stalwart Law Group",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Head of Corporate Development",
+   "url": "https://www.indeed.com/viewjob?jk=59679c5c32cee133",
+   "description": "Remote, US · Great Place to Work® Certified \\| USA\n\n\nHarbor Compliance is a leading technology platform for entity compliance, helping more than 80,000 businesses and nonprofits manage licensing, tax registration, and legal entity requirements nationwide. Founded in 2012 and recognized repeatedly by the Inc. 5000 and Deloitte Techn",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "Harbor Compliance",
+   "pay_min": 186919,
+   "pay_max": 233649,
+   "pay_period": "annual",
+   "pay_display": "$186,919–$233,649/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Senior Medical Underwriter",
+   "url": "https://www.indeed.com/viewjob?jk=9cb9d27ba41ce233",
+   "description": "Remote, US · Let’s change healthcare together!\n\n\nAt Optimyl Benefits, we provide accessible, high\\-quality, and easy\\-to\\-use healthcare plans for small employers. We partner closely with the broker community to help employers offer competitive benefits without unnecessary complexity.\n\n##### **About the role**\n\n\nThe Senior Medical",
+   "date": "2026-06-29",
+   "source": "Indeed",
+   "company": "nan",
+   "pay_min": 85000,
+   "pay_max": 90000,
+   "pay_period": "annual",
+   "pay_display": "$85,000–$90,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
+   "url": "https://www.linkedin.com/jobs/view/4425173426",
+   "description": "nan",
+   "date": "2026-06-28",
+   "source": "Linkedin",
+   "company": "Mercor",
    "types": [],
    "locations": [
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 78,
-   "fit_reason": "Healthcare communications, content governance, remote role"
+   "fit_score": 92,
+   "fit_reason": "Health communications expert, remote, excellent pay, perfect match"
   },
   {
-   "title": "Communication Officer",
-   "url": "https://www.linkedin.com/jobs/view/4433277475",
-   "description": "Amsterdam, North Holland, Netherlands · nan",
+   "title": "Senior research communications officer",
+   "url": "https://www.linkedin.com/jobs/view/4432950400",
+   "description": "Peterborough, England, UK · nan",
    "date": "2026-06-26",
    "source": "Linkedin",
-   "company": "European Medicines Agency",
-   "types": [],
-   "locations": [],
-   "category": "other"
-  },
-  {
-   "title": "Consultant, Senior Communications Specialist",
-   "url": "https://www.linkedin.com/jobs/view/4431830217",
-   "description": "Rome, Latium, Italy · nan",
-   "date": "2026-06-24",
-   "source": "Linkedin",
-   "company": "Alliance of Bioversity International and CIAT",
+   "company": "Kidney Research UK",
    "types": [],
    "locations": [],
    "category": "marketing"
   },
   {
-   "title": "Communications Specialist (1 Year Contract)",
-   "url": "https://www.linkedin.com/jobs/view/4423289115",
-   "description": "nan",
+   "title": "Earned Media Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4433233035",
+   "description": "London Area, United Kingdom · nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "Havas SO",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Patient and Public (PPIE) and Comms Lead",
+   "url": "https://www.linkedin.com/jobs/view/4432570771",
+   "description": "London, England, UK · nan",
+   "date": "2026-06-24",
+   "source": "Linkedin",
+   "company": "Barts Health NHS Trust",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Global Operations Communications Lead",
+   "url": "https://www.linkedin.com/jobs/view/4431249799",
+   "description": "London, England, UK · nan",
    "date": "2026-06-23",
    "source": "Linkedin",
-   "company": "Allstate Canada",
-   "types": [
-    "contract"
-   ],
+   "company": "Neko Health",
+   "types": [],
    "locations": [],
    "category": "marketing"
   },
@@ -1908,6 +1869,28 @@
    "date": "2026-06-23",
    "source": "Linkedin",
    "company": "Jobgether",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Employee Communications Consultant",
+   "url": "https://www.linkedin.com/jobs/view/4419082345",
+   "description": "nan",
+   "date": "2026-06-23",
+   "source": "Linkedin",
+   "company": "Allstate Canada",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Digital Communications Officer",
+   "url": "https://www.linkedin.com/jobs/view/4428913904",
+   "description": "London, England, UK · nan",
+   "date": "2026-06-22",
+   "source": "Linkedin",
+   "company": "The Health and Care Professions Council",
    "types": [],
    "locations": [],
    "category": "marketing"
@@ -1935,6 +1918,39 @@
    "category": "marketing"
   },
   {
+   "title": "Communications and Marketing Officer",
+   "url": "https://www.linkedin.com/jobs/view/4430701043",
+   "description": "Wythenshawe, England, UK · nan",
+   "date": "2026-06-18",
+   "source": "Linkedin",
+   "company": "Prevent Breast Cancer",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Director of Public Relations, Health & Wellness (own the full vertical) | 3618862",
+   "url": "https://www.linkedin.com/jobs/view/4428092466",
+   "description": "nan",
+   "date": "2026-06-16",
+   "source": "Linkedin",
+   "company": "Pave Talent",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Creative & Cultural Advocacy Manager",
+   "url": "https://www.linkedin.com/jobs/view/4427707646",
+   "description": "London, England, UK · nan",
+   "date": "2026-06-15",
+   "source": "Linkedin",
+   "company": "Wellcome Trust",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
    "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
    "url": "https://www.linkedin.com/jobs/view/4426695827",
    "description": "Toronto, Ontario, Canada · nan",
@@ -1947,93 +1963,18 @@
    ],
    "category": "marketing",
    "fit_score": 92,
-   "fit_reason": "Health comms expert, remote, strong pay rate"
+   "fit_reason": "Health communications expert, remote, excellent pay, perfect match"
   },
   {
-   "title": "Director Leadership Communications",
-   "url": "https://www.linkedin.com/jobs/view/4427617392",
-   "description": "nan",
-   "date": "2026-06-11",
+   "title": "Media & Communications Manager",
+   "url": "https://www.linkedin.com/jobs/view/4422236142",
+   "description": "Sydney, New South Wales, Australia · nan",
+   "date": "2026-06-09",
    "source": "Linkedin",
-   "company": "SCA Health",
+   "company": "Victor Chang Cardiac Research Institute",
    "types": [],
    "locations": [],
    "category": "marketing"
-  },
-  {
-   "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
-   "url": "https://www.linkedin.com/jobs/view/4422777552",
-   "description": "London, England, UK · nan",
-   "date": "2026-06-10",
-   "source": "Linkedin",
-   "company": "Mercor",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 92,
-   "fit_reason": "Health comms expert, remote, strong pay rate"
-  },
-  {
-   "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
-   "url": "https://www.linkedin.com/jobs/view/4425967712",
-   "description": "nan",
-   "date": "2026-06-09",
-   "source": "Linkedin",
-   "company": "Mercor",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 92,
-   "fit_reason": "Health comms expert, remote, strong pay rate"
-  },
-  {
-   "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
-   "url": "https://www.linkedin.com/jobs/view/4425458572",
-   "description": "nan",
-   "date": "2026-06-08",
-   "source": "Linkedin",
-   "company": "Mercor",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 92,
-   "fit_reason": "Health comms expert, remote, strong pay rate"
-  },
-  {
-   "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
-   "url": "https://www.linkedin.com/jobs/view/4425456642",
-   "description": "nan",
-   "date": "2026-06-08",
-   "source": "Linkedin",
-   "company": "Mercor",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 92,
-   "fit_reason": "Health comms expert, remote, strong pay rate"
-  },
-  {
-   "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
-   "url": "https://www.linkedin.com/jobs/view/4425461627",
-   "description": "nan",
-   "date": "2026-06-08",
-   "source": "Linkedin",
-   "company": "Mercor",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 92,
-   "fit_reason": "Health comms expert, remote, strong pay rate"
   },
   {
    "title": "Freelance Communications Coordinator",
@@ -2049,12 +1990,12 @@
    "category": "marketing"
   },
   {
-   "title": "Communications Manager",
-   "url": "https://www.linkedin.com/jobs/view/4421127174",
-   "description": "nan",
+   "title": "Communications Officer",
+   "url": "https://www.linkedin.com/jobs/view/4421161300",
+   "description": "England, United Kingdom · nan",
    "date": "2026-06-05",
    "source": "Linkedin",
-   "company": "STADA Group",
+   "company": "Sightsavers",
    "types": [],
    "locations": [],
    "category": "marketing"
@@ -2071,30 +2012,26 @@
    "category": "other"
   },
   {
-   "title": "Director of Communications and Partnerships",
-   "url": "https://www.linkedin.com/jobs/view/4420999814",
-   "description": "nan",
-   "date": "2026-05-29",
+   "title": "Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4420759373",
+   "description": "London, England, UK · nan",
+   "date": "2026-06-04",
    "source": "Linkedin",
-   "company": "BodyHealth",
+   "company": "Lucid Group",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Head of Communications & Brand Marketing",
+   "url": "https://www.linkedin.com/jobs/view/4423026446",
+   "description": "nan",
+   "date": "2026-06-03",
+   "source": "Linkedin",
+   "company": "8VC",
    "types": [],
    "locations": [],
    "category": "marketing"
-  },
-  {
-   "title": "Health Communications Expert - Fully Remote | Upto $120/hr",
-   "url": "https://www.linkedin.com/jobs/view/4425173426",
-   "description": "nan",
-   "date": null,
-   "source": "Linkedin",
-   "company": "Mercor",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 92,
-   "fit_reason": "Health comms expert, remote, strong pay rate"
   },
   {
    "title": "Senior Copywriter",
@@ -2109,7 +2046,7 @@
    ],
    "category": "writing",
    "fit_score": 28,
-   "fit_reason": "Generic copywriting, non-health, data company focus"
+   "fit_reason": "Non-health copywriting, data services company, poor fit"
   },
   {
    "title": "21GRAMS- Associate Creative Director, Copy",
@@ -2166,7 +2103,7 @@
    ],
    "category": "marketing",
    "fit_score": 28,
-   "fit_reason": "Marketing role, non-health, below salary floor"
+   "fit_reason": "Non-health marketing role, below salary floor"
   },
   {
    "title": "Marketing Manager",
@@ -2187,7 +2124,7 @@
    ],
    "category": "marketing",
    "fit_score": 28,
-   "fit_reason": "Marketing role, non-health, below salary floor"
+   "fit_reason": "Non-health marketing role, below salary floor"
   },
   {
    "title": "Marketing Manager",
@@ -2208,7 +2145,7 @@
    ],
    "category": "marketing",
    "fit_score": 28,
-   "fit_reason": "Marketing role, non-health, below salary floor"
+   "fit_reason": "Non-health marketing role, below salary floor"
   },
   {
    "title": "Co - Brand Senior Designer (contract)",
@@ -2228,8 +2165,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 8,
-   "fit_reason": "Design role, not writing; below pay floor"
+   "fit_score": 5,
+   "fit_reason": "Design role, below pay floor, non-writing"
   },
   {
    "title": "Multichannel Graphic Designer",
@@ -2265,48 +2202,19 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 28,
-   "fit_reason": "Tech copywriting, remote freelance but non-health"
-  },
-  {
-   "title": "Email Marketing Manager",
-   "url": "https://www.indeed.com/viewjob?jk=922574c04e08bb94",
-   "description": "Remote, US · As an **Email Marketing Manager,** you will plan and manage high\\-volume, segmented email marketing campaigns. The Email Marketing Manager partners with strategists, account executives, copywriters, designers, and developers to manage email marketing content, scheduling, and email deliverability across multiple marketi",
-   "date": "2026-05-29",
-   "source": "Indeed",
-   "company": "nan",
-   "pay_min": 75000,
-   "pay_max": 85000,
-   "pay_period": "annual",
-   "pay_display": "$75,000–$85,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
    "fit_score": 32,
-   "fit_reason": "Email marketing, generic, below salary floor"
+   "fit_reason": "Tech copywriting, remote freelance, non-health sector"
   },
   {
-   "title": "Digital Producer",
-   "url": "https://www.indeed.com/viewjob?jk=f8c4ba2fbe374c8e",
-   "description": "Remote, US · As a **Digital Producer** you will manage the creation and execution of digital campaigns for our non\\-profit clients and play an essential role in establishing and implementing agency processes. The Digital Producer will partner with strategists, account executives, copywriters, designers, and developers to define pro",
-   "date": "2026-05-29",
-   "source": "Indeed",
-   "company": "nan",
-   "pay_min": 75000,
-   "pay_max": 90000,
-   "pay_period": "annual",
-   "pay_display": "$75,000–$90,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
+   "title": "Associate Copywriter",
+   "url": "https://www.linkedin.com/jobs/view/4433261227",
+   "description": "nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "Studio McGee",
+   "types": [],
+   "locations": [],
+   "category": "writing"
   },
   {
    "title": "Content Writer (contract)",
@@ -2323,34 +2231,8 @@
   },
   {
    "title": "Freelance Website Copywriter / Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4432069876",
-   "description": "San Francisco, CA · nan",
-   "date": "2026-06-23",
-   "source": "Linkedin",
-   "company": "N4 Studio®",
-   "types": [
-    "freelance"
-   ],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Freelance Website Copywriter / Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4432062956",
-   "description": "Sydney, New South Wales, Australia · nan",
-   "date": "2026-06-23",
-   "source": "Linkedin",
-   "company": "N4 Studio®",
-   "types": [
-    "freelance"
-   ],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Freelance Website Copywriter / Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4432078158",
-   "description": "Auckland, Auckland, New Zealand · nan",
+   "url": "https://www.linkedin.com/jobs/view/4434402759",
+   "description": "nan",
    "date": "2026-06-23",
    "source": "Linkedin",
    "company": "N4 Studio®",
@@ -2373,7 +2255,7 @@
   },
   {
    "title": "Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4430555363",
+   "url": "https://www.linkedin.com/jobs/view/4430558283",
    "description": "nan",
    "date": "2026-06-22",
    "source": "Linkedin",
@@ -2383,25 +2265,8 @@
    "category": "writing"
   },
   {
-   "title": "B2B Content Writer (Remote, Contract)",
-   "url": "https://www.linkedin.com/jobs/view/4431707686",
-   "description": "Lisboa, Lisbon, Portugal · nan",
-   "date": "2026-06-22",
-   "source": "Linkedin",
-   "company": "INFUSE",
-   "types": [
-    "contract"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 32,
-   "fit_reason": "B2B content, remote contract, but non-health"
-  },
-  {
    "title": "Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4430558283",
+   "url": "https://www.linkedin.com/jobs/view/4430555363",
    "description": "nan",
    "date": "2026-06-22",
    "source": "Linkedin",
@@ -2423,67 +2288,24 @@
    ],
    "category": "writing",
    "fit_score": 42,
-   "fit_reason": "Generic content writing, no details provided"
+   "fit_reason": "Generic content writing, no health details provided"
   },
   {
-   "title": "Remote Freelance Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4431364452",
-   "description": "nan",
-   "date": "2026-06-21",
+   "title": "B2B Content Writer (Remote, Contract)",
+   "url": "https://www.linkedin.com/jobs/view/4431707686",
+   "description": "Lisboa, Lisbon, Portugal · nan",
+   "date": "2026-06-22",
    "source": "Linkedin",
-   "company": "Bankable Wisdom",
+   "company": "INFUSE",
    "types": [
-    "freelance"
+    "contract"
    ],
    "locations": [
     "remote"
    ],
    "category": "writing",
-   "fit_score": 18,
-   "fit_reason": "Financial copywriting, no details; non-health focus"
-  },
-  {
-   "title": "Remote Freelance Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4431375389",
-   "description": "nan",
-   "date": "2026-06-21",
-   "source": "Linkedin",
-   "company": "Bankable Wisdom",
-   "types": [
-    "freelance"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 18,
-   "fit_reason": "Financial copywriting, no details; non-health focus"
-  },
-  {
-   "title": "Content Writer Needed at Nogigiddy",
-   "url": "https://www.linkedin.com/jobs/view/4430997147",
-   "description": "nan",
-   "date": "2026-06-19",
-   "source": "Linkedin",
-   "company": "Bankable Wisdom",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Remote Content Writer at MyJobMag Limited",
-   "url": "https://www.linkedin.com/jobs/view/4430997111",
-   "description": "nan",
-   "date": "2026-06-19",
-   "source": "Linkedin",
-   "company": "Bankable Wisdom",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 42,
-   "fit_reason": "Generic content writing, no details provided"
+   "fit_score": 28,
+   "fit_reason": "Portugal location, generic B2B, not remote US"
   },
   {
    "title": "Business Copywriter",
@@ -2540,6 +2362,30 @@
    "date": "2026-06-03",
    "source": "Linkedin",
    "company": "Deccan AI Experts",
+   "types": [
+    "freelance"
+   ],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Copywriter",
+   "url": "https://www.linkedin.com/jobs/view/4423967510",
+   "description": "nan",
+   "date": "2026-06-02",
+   "source": "Linkedin",
+   "company": "Creative Cove Inc.",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Freelance Social Copywriter",
+   "url": "https://www.linkedin.com/jobs/view/4434121939",
+   "description": "New York, United States · nan",
+   "date": null,
+   "source": "Linkedin",
+   "company": "Milk Makeup",
    "types": [
     "freelance"
    ],
@@ -2620,7 +2466,7 @@
    ],
    "category": "marketing",
    "fit_score": 72,
-   "fit_reason": "Healthcare focus, social media role, remote"
+   "fit_reason": "Healthcare company, social media focus, remote, good pay"
   },
   {
    "title": "Senior Director of Math",
@@ -2734,8 +2580,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 45,
-   "fit_reason": "Veterinary health, marketing comms, remote role"
+   "fit_score": 35,
+   "fit_reason": "Veterinary/animal health, marketing-heavy, not human healthcare"
   },
   {
    "title": "Marketing Communications & Media Manager",
@@ -2755,8 +2601,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 45,
-   "fit_reason": "Veterinary health, marketing comms, remote role"
+   "fit_score": 35,
+   "fit_reason": "Veterinary/animal health, marketing-heavy, not human healthcare"
   },
   {
    "title": "Brand Designer",
@@ -2776,8 +2622,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 32,
-   "fit_reason": "Design-focused, non-health, below salary floor"
+   "fit_score": 25,
+   "fit_reason": "Brand design role, not content/writing focused"
   },
   {
    "title": "Electrical Designer",
@@ -2825,8 +2671,23 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 35,
-   "fit_reason": "Healthcare adjacent but marketing-focused, full-time"
+   "fit_score": 65,
+   "fit_reason": "Healthcare clearinghouse, remote, needs content strategy work"
+  },
+  {
+   "title": "Volunteer Training & Video Content Developer",
+   "url": "https://www.indeed.com/viewjob?jk=2498bb2f6fbaabab",
+   "description": "Remote, US · **Contract Opportunity: Volunteer Training Module Developer**\n\n**Project Type:** Fixed\\-Price Contract\n\n**Project Overview**\n\nThe North Plains Volunteer Network (NPVN) is a community\\-based nonprofit program connecting volunteers with older adults and neighbors who need assistance with transportation, errands, companio",
+   "date": "2026-06-16",
+   "source": "Indeed",
+   "company": "North Plains Volunteer Network",
+   "types": [
+    "contract"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
   },
   {
    "title": "Momentum Training Specialist",
@@ -2848,6 +2709,21 @@
    "category": "other"
   },
   {
+   "title": "Senior B2B Content Writer (Marketing) - remote opportunity",
+   "url": "https://www.linkedin.com/jobs/view/4406667745",
+   "description": "nan",
+   "date": "2026-06-27",
+   "source": "Linkedin",
+   "company": "Tivity Health",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 48,
+   "fit_reason": "B2B content writer, health company, no details"
+  },
+  {
    "title": "Content Writer (SEO) | WFH, Day shift",
    "url": "https://www.linkedin.com/jobs/view/4432957306",
    "description": "Manila, National Capital Region, Philippines · nan",
@@ -2859,23 +2735,25 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 28,
-   "fit_reason": "Generic SEO content writing, offshore location"
-  },
-  {
-   "title": "Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4433851408",
-   "description": "City of Cape Town, Western Cape, South Africa · nan",
-   "date": "2026-06-26",
-   "source": "Linkedin",
-   "company": "Hunterlodge Advertising",
-   "types": [],
-   "locations": [],
-   "category": "writing"
+   "fit_score": 35,
+   "fit_reason": "Generic SEO writing, non-health, offshore location"
   },
   {
    "title": "Content Designer, Contractor (copy)",
    "url": "https://www.linkedin.com/jobs/view/4424233457",
+   "description": "nan",
+   "date": "2026-06-25",
+   "source": "Linkedin",
+   "company": "PointClickCare",
+   "types": [
+    "contract"
+   ],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Content Designer, Contractor",
+   "url": "https://www.linkedin.com/jobs/view/4424232448",
    "description": "nan",
    "date": "2026-06-25",
    "source": "Linkedin",
@@ -2902,19 +2780,6 @@
   {
    "title": "Content Writer, Contractor",
    "url": "https://www.linkedin.com/jobs/view/4424242211",
-   "description": "nan",
-   "date": "2026-06-25",
-   "source": "Linkedin",
-   "company": "PointClickCare",
-   "types": [
-    "contract"
-   ],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Content Designer, Contractor",
-   "url": "https://www.linkedin.com/jobs/view/4424232448",
    "description": "nan",
    "date": "2026-06-25",
    "source": "Linkedin",
@@ -3003,19 +2868,6 @@
    "category": "writing"
   },
   {
-   "title": "Visual Designer (Remote)",
-   "url": "https://www.linkedin.com/jobs/view/4432051177",
-   "description": "Oak Brook, IL · nan",
-   "date": "2026-06-22",
-   "source": "Linkedin",
-   "company": "Inspira Financial",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
    "title": "Content Designer (Contract Role, PT)",
    "url": "https://www.linkedin.com/jobs/view/4417978134",
    "description": "West Des Moines, IA · nan",
@@ -3027,17 +2879,6 @@
    ],
    "locations": [],
    "category": "writing"
-  },
-  {
-   "title": "Founding Designer",
-   "url": "https://www.linkedin.com/jobs/view/4429209012",
-   "description": "Seattle, WA · nan",
-   "date": "2026-06-16",
-   "source": "Linkedin",
-   "company": "Leap",
-   "types": [],
-   "locations": [],
-   "category": "other"
   },
   {
    "title": "Content Writer",
@@ -3084,6 +2925,28 @@
    "category": "other"
   },
   {
+   "title": "Brand Designer",
+   "url": "https://www.linkedin.com/jobs/view/4431095387",
+   "description": "nan",
+   "date": null,
+   "source": "Linkedin",
+   "company": "Twine",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Graphic Designer",
+   "url": "https://www.linkedin.com/jobs/view/4434450845",
+   "description": "nan",
+   "date": null,
+   "source": "Linkedin",
+   "company": "Sundayy",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
    "title": "Group Product Manager, SmarterDenials",
    "url": "https://www.indeed.com/viewjob?jk=cc7d414387c14bbd",
    "description": "Remote, US · SmarterDx, a Smarter Technologies company, builds clinical AI that is transforming how hospitals translate care into payment. Founded by physicians in 2020, our platform connects clinical context with revenue intelligence, helping health systems recover millions in missed revenue, improve quality scores, and appeal eve",
@@ -3099,6 +2962,22 @@
     "remote"
    ],
    "category": "other"
+  },
+  {
+   "title": "SAP User Assistance Developer (Technical Writer)",
+   "url": "https://www.indeed.com/viewjob?jk=45bb59308590e658",
+   "description": "Remote, US · * Location\nWorldwide\n* Work Mode\nHybrid\n\n\nRemote\nAt LeverX, we have had the privilege of working on over 1,500\\+ SAP projects, including some with Fortune 500 companies. With 20\\+ years in the market, our team of 2,200\\+ is strong, reliable, and always evolving: learning, growing, and striving for excellence.\n\n\nWe are",
+   "date": "2026-06-16",
+   "source": "Indeed",
+   "company": "LeverX",
+   "types": [],
+   "locations": [
+    "remote",
+    "hybrid"
+   ],
+   "category": "writing",
+   "fit_score": 42,
+   "fit_reason": "Technical writing but SAP/non-health, hybrid not remote"
   },
   {
    "title": "Sr. Program Manager (IC) Tech PgMo",
@@ -3144,8 +3023,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Financial content, remote freelance but non-health"
+   "fit_score": 38,
+   "fit_reason": "Financial content, remote freelance, non-health writing"
   },
   {
    "title": "Content Manager",
@@ -3165,8 +3044,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Content strategy role, strong pay, remote, diverse clients"
+   "fit_score": 78,
+   "fit_reason": "Content strategy role, strong match, remote, adequate pay"
   },
   {
    "title": "Marketing Manager, Growth + Engagement",
@@ -3186,8 +3065,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 42,
-   "fit_reason": "Marketing-focused, below salary floor, nonprofit"
+   "fit_score": 38,
+   "fit_reason": "Marketing focus, below pay floor, nonprofit education"
   },
   {
    "title": "Freelance Cybersecurity Content Writer",
@@ -3203,8 +3082,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "Tech content, remote freelance but non-health"
+   "fit_score": 39,
+   "fit_reason": "Cybersecurity content, remote freelance, non-health sector"
   },
   {
    "title": "Freelance Content Writer",
@@ -3220,16 +3099,27 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 32,
-   "fit_reason": "Generic content, remote freelance but non-health"
+   "fit_score": 40,
+   "fit_reason": "Generic content writing, remote freelance, no health"
   },
   {
-   "title": "Senior Staff UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4434069702",
+   "title": "Autor/a de contenidos eLearning profesional",
+   "url": "https://www.linkedin.com/jobs/view/4431010976",
    "description": "nan",
-   "date": "2026-06-27",
+   "date": "2026-06-28",
    "source": "Linkedin",
-   "company": "Airbnb",
+   "company": "ADR Formación",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "UX Writer I - Car Rental",
+   "url": "https://www.linkedin.com/jobs/view/4423509596",
+   "description": "Manchester, England, UK · nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "Booking.com",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -3290,60 +3180,34 @@
    "category": "writing"
   },
   {
-   "title": "Technical Content Writer (Mobile /  UX Specialist) - Remote Work",
-   "url": "https://www.linkedin.com/jobs/view/4431294012",
-   "description": "Texas, United States · nan",
-   "date": "2026-06-23",
+   "title": "UX Writer | Web Product & Apps | Mid-Senior",
+   "url": "https://www.linkedin.com/jobs/view/4430466766",
+   "description": "Vilnius, Vilniaus, Lithuania · nan",
+   "date": "2026-06-18",
    "source": "Linkedin",
-   "company": "BairesDev",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 48,
-   "fit_reason": "Technical writing UX but non-health industry"
-  },
-  {
-   "title": "Content & RFP Enablement Specialist",
-   "url": "https://www.linkedin.com/jobs/view/4431206938",
-   "description": "nan",
-   "date": "2026-06-23",
-   "source": "Linkedin",
-   "company": "ORO Labs",
-   "types": [],
-   "locations": [],
-   "category": "other"
-  },
-  {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4430380656",
-   "description": "nan",
-   "date": "2026-06-22",
-   "source": "Linkedin",
-   "company": "Sumsub",
+   "company": "Nord Security",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4428046864",
-   "description": "nan",
-   "date": "2026-06-16",
+   "title": "UX Writer | Web Product & Apps | Mid-Senior",
+   "url": "https://www.linkedin.com/jobs/view/4430460782",
+   "description": "Kaunas, Kaunas, Lithuania · nan",
+   "date": "2026-06-18",
    "source": "Linkedin",
-   "company": "Insight Global",
+   "company": "Nord Security",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4429730167",
-   "description": "Madison, WI · nan",
+   "title": "Senior Staff UX Writer, International",
+   "url": "https://www.linkedin.com/jobs/view/4429197624",
+   "description": "London, England, UK · nan",
    "date": "2026-06-16",
    "source": "Linkedin",
-   "company": "Kforce Inc",
+   "company": "Airbnb",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -3355,6 +3219,28 @@
    "date": "2026-06-11",
    "source": "Linkedin",
    "company": "Pyramid Consulting, Inc",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "UX Writer",
+   "url": "https://www.linkedin.com/jobs/view/4426597996",
+   "description": "Kingston Upon Thames, England, UK · nan",
+   "date": "2026-06-10",
+   "source": "Linkedin",
+   "company": "GoTymeX",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "UX Writer",
+   "url": "https://www.linkedin.com/jobs/view/4426704878",
+   "description": "Silverstone, England, UK · nan",
+   "date": "2026-06-10",
+   "source": "Linkedin",
+   "company": "GoTymeX",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -3373,12 +3259,23 @@
    "category": "writing"
   },
   {
-   "title": "UX Copywriter (ECommerce)",
-   "url": "https://www.linkedin.com/jobs/view/4424473306",
-   "description": "nan",
-   "date": "2026-06-04",
+   "title": "Content Designer, Ads",
+   "url": "https://www.linkedin.com/jobs/view/4423255176",
+   "description": "San Jose, CA · nan",
+   "date": "2026-06-01",
    "source": "Linkedin",
-   "company": "Robert Half",
+   "company": "TikTok",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Content Designer - TikTok Design (San Jose)",
+   "url": "https://www.linkedin.com/jobs/view/4423250452",
+   "description": "San Jose, CA · nan",
+   "date": "2026-06-01",
+   "source": "Linkedin",
+   "company": "TikTok",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -3387,17 +3284,6 @@
    "title": "UX Writer",
    "url": "https://www.linkedin.com/jobs/view/4433370514",
    "description": "New York, NY · nan",
-   "date": "2026-05-31",
-   "source": "Linkedin",
-   "company": "Databento",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4433363739",
-   "description": "San Francisco, CA · nan",
    "date": "2026-05-31",
    "source": "Linkedin",
    "company": "Databento",
@@ -3417,37 +3303,30 @@
    "category": "writing"
   },
   {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4433376322",
-   "description": "Boston, MA · nan",
-   "date": "2026-05-31",
-   "source": "Linkedin",
-   "company": "Databento",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4433370515",
-   "description": "Salt Lake City, UT · nan",
-   "date": "2026-05-31",
-   "source": "Linkedin",
-   "company": "Databento",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Autor/a de contenidos eLearning profesional",
-   "url": "https://www.linkedin.com/jobs/view/4431010976",
+   "title": "UX Writer | UNPAID VOLUNTEER | The City Tutors | United States (Remote)",
+   "url": "https://www.linkedin.com/jobs/view/4433617928",
    "description": "nan",
    "date": null,
    "source": "Linkedin",
-   "company": "ADR Formación",
+   "company": "The City Tutors",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 25,
+   "fit_reason": "UX writing relevant but unpaid volunteer role"
+  },
+  {
+   "title": "UX Writer & Content Manager",
+   "url": "https://www.linkedin.com/jobs/view/4434494490",
+   "description": "Limassol, Limassol, Cyprus · nan",
+   "date": null,
+   "source": "Linkedin",
+   "company": "CRAE GROUP",
    "types": [],
    "locations": [],
-   "category": "other"
+   "category": "writing"
   },
   {
    "title": "Technical Writer I (Remote)",
@@ -3467,8 +3346,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "Technical writing but vehicle/government, not health"
+   "fit_score": 48,
+   "fit_reason": "Technical writing but non-health vehicle tech focus"
   },
   {
    "title": "Business Intelligence Developer/Report Writer",
@@ -3488,8 +3367,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 65,
-   "fit_reason": "Healthcare organization but BI/reporting not content writing"
+   "fit_score": 72,
+   "fit_reason": "Healthcare employer, remote, but BI/reporting not writing"
   },
   {
    "title": "Workday HRIS Analyst",
@@ -3554,25 +3433,6 @@
    "category": "other"
   },
   {
-   "title": "Digital Strategist",
-   "url": "https://www.indeed.com/viewjob?jk=d58397c621abe5e0",
-   "description": "Remote, US · As the **Digital Strategist**, you will be responsible for leading digital campaign execution to acquire, cultivate, retain, and upgrade online donors across one or multiple nonprofit clients. The successful Strategist will be able to work in a fast\\-paced, creative environment with ever\\-shifting schedules and priorit",
-   "date": "2026-05-29",
-   "source": "Indeed",
-   "company": "nan",
-   "pay_min": 80000,
-   "pay_max": 90000,
-   "pay_period": "annual",
-   "pay_display": "$80,000–$90,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
-  },
-  {
    "title": "Sr. Volume Lead/Proposal Writer-Technical",
    "url": "https://www.indeed.com/viewjob?jk=13ccaa8a384f30cd",
    "description": "Remote, US · Job ID\n327278\nJob Title: Sr. Volume Lead/Proposal Writer\\-Technical\nJob Category: Business Development and Marketing\nTime Type: Full time\nMinimum Clearance Required to Start: None\nEmployee Type: Regular\nPercentage of Travel Required: Up to 25%\nType of Travel: Continental US\n\\* \\* \\*\nThis position is within CACI’s Busin",
@@ -3590,23 +3450,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Proposal/sales writing, not content strategy or health"
-  },
-  {
-   "title": "Senior B2B Content Writer (Marketing) - remote opportunity",
-   "url": "https://www.linkedin.com/jobs/view/4406667745",
-   "description": "nan",
-   "date": "2026-06-27",
-   "source": "Linkedin",
-   "company": "Tivity Health",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 50,
-   "fit_reason": "B2B marketing content writing but no health focus"
+   "fit_score": 32,
+   "fit_reason": "Proposal writing, sales-adjacent, full-time not preferred"
   },
   {
    "title": "Technical Writer (Healthcare Products)",
@@ -3615,6 +3460,17 @@
    "date": "2026-06-26",
    "source": "Linkedin",
    "company": "Gainwell Technologies",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Expert Scientific Writer",
+   "url": "https://www.linkedin.com/jobs/view/4433895119",
+   "description": "Hyderabad, Telangana, India · nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "Sanofi",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -3631,6 +3487,17 @@
    "category": "writing"
   },
   {
+   "title": "Medical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4433850882",
+   "description": "Bengaluru, Karnataka, India · nan",
+   "date": "2026-06-26",
+   "source": "Linkedin",
+   "company": "Excelya",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
    "title": "Director of Content",
    "url": "https://www.linkedin.com/jobs/view/4420154411",
    "description": "nan",
@@ -3640,17 +3507,6 @@
    "types": [],
    "locations": [],
    "category": "other"
-  },
-  {
-   "title": "Senior Technical Writer - Optical & AI",
-   "url": "https://www.linkedin.com/jobs/view/4432872014",
-   "description": "nan",
-   "date": "2026-06-24",
-   "source": "Linkedin",
-   "company": "Integrated Resources, Inc ( IRI )",
-   "types": [],
-   "locations": [],
-   "category": "writing"
   },
   {
    "title": "Payor Process & Documentation Specialist",
@@ -3686,6 +3542,17 @@
    "category": "writing"
   },
   {
+   "title": "Technical Writer, Experience & Delivery",
+   "url": "https://www.linkedin.com/jobs/view/4432029928",
+   "description": "Porto, Porto, Portugal · nan",
+   "date": "2026-06-22",
+   "source": "Linkedin",
+   "company": "Nox Health",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
    "title": "Scientific Specialist-Medical Information",
    "url": "https://www.linkedin.com/jobs/view/4344890482",
    "description": "Serilingampalli, Telangana, India · nan",
@@ -3708,8 +3575,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 45,
-   "fit_reason": "Technical writing but unclear industry, no pay info"
+   "fit_score": 40,
+   "fit_reason": "Technical writing but no health context details"
   },
   {
    "title": "Technical Writer",
@@ -3729,17 +3596,6 @@
    "date": "2026-06-11",
    "source": "Linkedin",
    "company": "Cyient",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Technical Writer",
-   "url": "https://www.linkedin.com/jobs/view/4426040627",
-   "description": "Chennai, Tamil Nadu, India · nan",
-   "date": "2026-06-10",
-   "source": "Linkedin",
-   "company": "Neurealm",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -3778,17 +3634,6 @@
    "category": "writing"
   },
   {
-   "title": "Technical Writer",
-   "url": "https://www.linkedin.com/jobs/view/4433625270",
-   "description": "nan",
-   "date": null,
-   "source": "Linkedin",
-   "company": "FetchJobs.co",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
    "title": "Senior Content Writer",
    "url": "https://jobicy.com/jobs/146772-senior-content-writer",
    "description": "Informations générales Entité Premier gérant d&#8217;actifs européen parmi les 10 premiers acteurs mondiaux (1), Amundi propose à ses 100 millions de clients &#8211; particuliers, institutionnels et entreprises &#8211; une gamme...",
@@ -3809,6 +3654,50 @@
    "types": [],
    "locations": [],
    "category": "writing"
+  },
+  {
+   "title": "VP, Growth Marketing",
+   "url": "https://jobicy.com/jobs/144979-vp-growth-marketing",
+   "description": "At Cision, we believe in empowering every individual to make an impact. Here, your voice is heard, your ideas are valued, and your unique perspective fuels our collective success....",
+   "date": "2026-06-29",
+   "source": "Jobicy — Marketing",
+   "company": "",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Associate Manager, Consumer Integrated Marketing – New Verticals Habituation",
+   "url": "https://jobicy.com/jobs/145010-associate-manager-consumer-integrated-marketing-new-verticals-habituation",
+   "description": "About the TeamThe Consumer Marketing team is committed to bringing DoorDash’s mission of empowering local economies to life for our millions of consumers. By building intelligent, last-mile delivery technology for...",
+   "date": "2026-06-29",
+   "source": "Jobicy — Marketing",
+   "company": "",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Field Marketing Manager – Nordics & Benelux",
+   "url": "https://jobicy.com/jobs/144916-field-marketing-manager-nordics-benelux",
+   "description": "Chainguard is the trusted source for open source. By delivering hardened, secure, and production-ready builds of all the open source software engineers and AI agents rely on, Chainguard helps organizations...",
+   "date": "2026-06-28",
+   "source": "Jobicy — Marketing",
+   "company": "",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Channel Marketing Manager",
+   "url": "https://jobicy.com/jobs/144922-channel-marketing-manager",
+   "description": "Your wellbeing, our mission. Join a company shaping a healthier world.GET TO KNOW USAt Wellhub we&#8217;re revolutionizing workplace wellness. Our platform connects employees worldwide to the best partners for fitness,...",
+   "date": "2026-06-28",
+   "source": "Jobicy — Marketing",
+   "company": "",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
   },
   {
    "title": "Sr. Director, Field Marketing EMEA",
@@ -3957,8 +3846,8 @@
     "hybrid"
    ],
    "category": "marketing",
-   "fit_score": 15,
-   "fit_reason": "Full-time in-office, nutrition marketing, not healthcare writing"
+   "fit_score": 35,
+   "fit_reason": "Marketing manager, full-time, non-health nutrition focus"
   },
   {
    "title": "Integrated Marketing Consultant – France",
@@ -4153,7 +4042,7 @@
    ],
    "category": "marketing",
    "fit_score": 5,
-   "fit_reason": "Analytics role, no writing/content focus, recruiting adjacent"
+   "fit_reason": "Marketing analytics, not healthcare writing/content"
   },
   {
    "title": "Digital Marketing & SEO Specialist – Freelance, Remote",
@@ -4174,8 +4063,8 @@
    "pay_max": null,
    "pay_period": "hourly",
    "pay_display": "$7+/hr",
-   "fit_score": 5,
-   "fit_reason": "Far below pay floor, non-health e-commerce"
+   "fit_score": 8,
+   "fit_reason": "Far below pay floor, SEO/marketing, Philippines"
   },
   {
    "title": "Director, Growth Marketing (TV & Offline Media)",
@@ -4248,28 +4137,6 @@
    "url": "https://jobicy.com/jobs/145123-product-marketing-lead-core-banking",
    "description": "🚀 We’re on a mission to make money work for everyone. We’re waving goodbye to the complicated and confusing ways of traditional banking. After starting as a prepaid card, our...",
    "date": "2026-05-30",
-   "source": "Jobicy — Marketing",
-   "company": "",
-   "types": [],
-   "locations": [],
-   "category": "marketing"
-  },
-  {
-   "title": "Associate Manager, Consumer Integrated Marketing – New Verticals Habituation",
-   "url": "https://jobicy.com/jobs/145010-associate-manager-consumer-integrated-marketing-new-verticals-habituation",
-   "description": "About the TeamThe Consumer Marketing team is committed to bringing DoorDash’s mission of empowering local economies to life for our millions of consumers. By building intelligent, last-mile delivery technology for...",
-   "date": "2026-05-28",
-   "source": "Jobicy — Marketing",
-   "company": "",
-   "types": [],
-   "locations": [],
-   "category": "marketing"
-  },
-  {
-   "title": "VP, Growth Marketing",
-   "url": "https://jobicy.com/jobs/144979-vp-growth-marketing",
-   "description": "At Cision, we believe in empowering every individual to make an impact. Here, your voice is heard, your ideas are valued, and your unique perspective fuels our collective success....",
-   "date": "2026-05-28",
    "source": "Jobicy — Marketing",
    "company": "",
    "types": [],
@@ -4354,6 +4221,17 @@
    "category": "writing"
   },
   {
+   "title": "Content",
+   "url": "https://remoteOK.com/remote-jobs/remote-content-den-danske-seermaling-1134220",
+   "description": "Sorry, Internet Explorer 11 is no longer supported by SmartRecruiters Please Update To One Of The Following Browsers Google Chrome Microsoft Edge Apple Safari Mozilla Firefox You can find details about supported web browsershere. Skip openings section Search job openings, e.g. \"manager\"Search job openings,",
+   "date": "2026-06-27",
+   "source": "RemoteOK — Writing",
+   "company": "",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
    "title": "Ut Facere Aut",
    "url": "https://remoteOK.com/remote-jobs/remote-ut-facere-aut-innodrei-1134193",
    "description": " Angestellter (m/w/d)  Unbefristet  Vollzeit Ut Facere Aut  Angestellter (m/w/d)  Unbefristet  Vollzeit Deine Aufgaben Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. Lorem ipsum dolor sit",
@@ -4385,6 +4263,17 @@
    "types": [
     "full-time"
    ],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "AI Filmmaker",
+   "url": "https://remoteOK.com/remote-jobs/remote-ai-filmmaker-foxelli-group-1134232",
+   "description": "Please be informed that Foxelli Group hires exclusively in-house and doesn't work with any external recruitment agencies. Any company or individual claiming to recruit on behalf of Foxelli Group is not affiliated with us. At Foxelli, we’re building more than e-commerce brands - we’re building a tribe of thoughtful h",
+   "date": "2026-06-27",
+   "source": "RemoteOK — Writing",
+   "company": "",
+   "types": [],
    "locations": [],
    "category": "writing"
   },
@@ -4434,6 +4323,17 @@
    "locations": [
     "hybrid"
    ],
+   "category": "writing"
+  },
+  {
+   "title": "Manager Social Art Director",
+   "url": "https://remoteOK.com/remote-jobs/remote-manager-social-art-director-starface-world-1134222",
+   "description": "your impact @ starface Starface is seeking a Manager, Social Art Director to help evolve and elevate our social creative across owned, paid, and retail channels. In this role, you’ll report directly to our Director, Social &amp; Content. You’ll lead the ideation and execution of highly creative, brand-right so",
+   "date": "2026-06-27",
+   "source": "RemoteOK — Writing",
+   "company": "",
+   "types": [],
+   "locations": [],
    "category": "writing"
   },
   {
@@ -4503,6 +4403,30 @@
    "category": "writing"
   },
   {
+   "title": "Graphic Designer",
+   "url": "https://remoteOK.com/remote-jobs/remote-graphic-designer-digital-executive-1134223",
+   "description": "We are hiring a part-time Graphic Designer to support a growing agency across the overall brand development, including email marketing, social media and website assets. This role is a mix of execution and creative direction, we need someone who can take existing assets, refine the brand visually, and help elevate the",
+   "date": "2026-06-26",
+   "source": "RemoteOK — Writing",
+   "company": "",
+   "types": [
+    "part-time"
+   ],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Entry Level Scheduling &amp; Coordinating Reservations Online",
+   "url": "https://remoteOK.com/remote-jobs/remote-entry-level-scheduling-amp-coordinating-reservations-online-destination-careers-1134224",
+   "description": "About Us We are a client coordination and services company that supports individuals and organizations with scheduling, reservations, and service-related logistics. We focus on clear communication, organized workflows, and delivering a consistent, high-quality client experience. Position Overview The Scheduling",
+   "date": "2026-06-26",
+   "source": "RemoteOK — Writing",
+   "company": "",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
    "title": "Guard",
    "url": "https://remoteOK.com/remote-jobs/remote-guard-township-of-langley-1134218",
    "description": "Organization Township of Langley Region British Columbia Application Deadline July 10, 2026 before 23:30 Type Regular Full-Time Category Police services Twitter Facebook Linkedin Send Save Print Description Click here to view full screen From the same organization Guard (up to 3) - Township",
@@ -4512,6 +4436,17 @@
    "types": [
     "full-time"
    ],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "UX UI Designer",
+   "url": "https://remoteOK.com/remote-jobs/remote-ux-ui-designer-siroko-1134233",
+   "description": "🫵¡Únete al #TeamSiroko! En Siroko seguimos creciendo y buscamos un/a UX/UI Designer para reforzar nuestras líneas de negocio digitales, trabajando codo con codo con desarrollo, producto, marketing, contenido y data. El objetivo es claro: diseñar experiencias cuidadas, coherentes con la marca y preparadas para llegar",
+   "date": "2026-06-26",
+   "source": "RemoteOK — Writing",
+   "company": "",
+   "types": [],
    "locations": [],
    "category": "writing"
   },
@@ -4528,7 +4463,7 @@
    ],
    "category": "writing",
    "fit_score": 0,
-   "fit_reason": "Game testing, completely unrelated to healthcare communications"
+   "fit_reason": "Game testing, completely outside healthcare/writing"
   },
   {
    "title": "SOCIAL MEDIA MANAGER â€",
@@ -4553,8 +4488,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 20,
-   "fit_reason": "Marketing assistant, non-health, e-commerce brand focus"
+   "fit_score": 8,
+   "fit_reason": "Marketing assistant for home goods brand"
   },
   {
    "title": "View Open Positions",
@@ -4568,8 +4503,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 8,
-   "fit_reason": "Sales focus, strategy firm, not writing/content role"
+   "fit_score": 10,
+   "fit_reason": "Sales role, explicitly stated not interested"
   },
   {
    "title": "Chief Growth Officer",
@@ -4605,8 +4540,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 10,
-   "fit_reason": "Scheduling coordinator, administrative, not writing/content"
+   "fit_score": 12,
+   "fit_reason": "Scheduling coordinator, not writing/content work"
   },
   {
    "title": "Communication Officer",
@@ -4678,7 +4613,7 @@
    ],
    "category": "writing",
    "fit_score": 28,
-   "fit_reason": "HR coordinator in healthcare, full-time, not content role"
+   "fit_reason": "HR coordinator at health company, full-time"
   },
   {
    "title": "Freelancers de Motion Design &amp; Designers 3D",
@@ -4741,7 +4676,7 @@
    ],
    "category": "writing",
    "fit_score": 5,
-   "fit_reason": "Business analyst, full-time, no writing/content component"
+   "fit_reason": "Business analyst, not healthcare writing/content"
   },
   {
    "title": "Youth Mental Wellness Coach",
@@ -4766,8 +4701,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 18,
-   "fit_reason": "Graphic design, not writing/content strategy, e-commerce focus"
+   "fit_score": 15,
+   "fit_reason": "Graphic designer for e-commerce, not writing"
   },
   {
    "title": "Retail Marketing Coordinator",
@@ -4795,7 +4730,7 @@
    ],
    "category": "writing",
    "fit_score": 12,
-   "fit_reason": "Creative director for film, not healthcare communications"
+   "fit_reason": "Film creative director, outside healthcare"
   },
   {
    "title": "Social Media Manager",
@@ -4809,8 +4744,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 28,
-   "fit_reason": "Social media/brand content, not health writing"
+   "fit_score": 25,
+   "fit_reason": "Social media content, no healthcare focus"
   },
   {
    "title": "Social Media Video Editor",
@@ -4837,8 +4772,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 25,
-   "fit_reason": "Social media retail, not healthcare content"
+   "fit_score": 15,
+   "fit_reason": "Retail grocery, not healthcare, sales-adjacent role"
   },
   {
    "title": "Director of Sales Development",
@@ -5003,8 +4938,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 18,
-   "fit_reason": "Art direction role, outside writing/content scope"
+   "fit_score": 15,
+   "fit_reason": "Art direction, not writing/content work"
   },
   {
    "title": "Video Editor",
@@ -5091,7 +5026,7 @@
    ],
    "category": "writing",
    "fit_score": 5,
-   "fit_reason": "Data analysis, unrelated to communications"
+   "fit_reason": "Data analysis role, outside communications"
   },
   {
    "title": "English Language Expert",
@@ -5107,8 +5042,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 48,
-   "fit_reason": "Language expertise but generic, non-health focus"
+   "fit_score": 35,
+   "fit_reason": "Generic language review, no health context specified"
   },
   {
    "title": "Marketing Coordinator",
@@ -5125,8 +5060,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 22,
-   "fit_reason": "Marketing coordinator for sports league, non-health"
+   "fit_score": 20,
+   "fit_reason": "Marketing coordinator, non-health, sales-adjacent"
   },
   {
    "title": "Digital Marketing Designer",
@@ -5140,8 +5075,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 15,
-   "fit_reason": "Design-focused marketing, not writing/strategy"
+   "fit_score": 18,
+   "fit_reason": "Design role for non-health e-commerce"
   },
   {
    "title": "Hiring For Air Ticketing Executive Ground Staff",
@@ -5178,7 +5113,7 @@
    ],
    "category": "writing",
    "fit_score": 8,
-   "fit_reason": "Operations/HR leadership, unrelated to writing"
+   "fit_reason": "IT operations, not healthcare communications"
   },
   {
    "title": "CHRO",
@@ -5194,8 +5129,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 12,
-   "fit_reason": "HR executive role, full-time, not writing"
+   "fit_score": 35,
+   "fit_reason": "Healthcare HR executive, full-time, not content"
   },
   {
    "title": "Retoucher",
@@ -5209,8 +5144,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 10,
-   "fit_reason": "Video/photo editing, outside writing scope"
+   "fit_score": 12,
+   "fit_reason": "Video/photo editing, not writing/strategy"
   },
   {
    "title": "Sales Development Representative",
@@ -5270,8 +5205,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 8,
-   "fit_reason": "Product testing, unrelated to communications"
+   "fit_score": 10,
+   "fit_reason": "Product testing, non-writing, below pay floor"
   },
   {
    "title": "Content Creator",
@@ -5297,7 +5232,9 @@
    "locations": [
     "remote"
    ],
-   "category": "writing"
+   "category": "writing",
+   "fit_score": 22,
+   "fit_reason": "Teaching role, not freelance content work"
   },
   {
    "title": "Director of Operations",
@@ -5310,7 +5247,9 @@
    "locations": [
     "remote"
    ],
-   "category": "writing"
+   "category": "writing",
+   "fit_score": 8,
+   "fit_reason": "Operations director, not healthcare communications"
   },
   {
    "title": "Social Media Manager",
@@ -5415,85 +5354,9 @@
    "pay_min": 75000,
    "pay_max": 110000,
    "pay_period": "annual",
-   "pay_display": "$75,000–$110,000/yr"
-  },
-  {
-   "title": "Graphic Designer",
-   "url": "https://remoteOK.com/remote-jobs/remote-graphic-designer-swoon-1133676",
-   "description": "Location: Fully Remote Duration: 6-Month Contract with Potential Extension Schedule: Monday–Friday | Standard Business Hours About the Opportunity This role is ideal for a highly creative presentation design professional who thrives at the intersection of visual storytelling, executive communications, a",
-   "date": "2026-06-18",
-   "source": "RemoteOK — Writing",
-   "company": "",
-   "types": [
-    "contract"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 20,
-   "fit_reason": "Design role, not writing/content strategy"
-  },
-  {
-   "title": "VP GM East &amp; Control",
-   "url": "https://remoteOK.com/remote-jobs/remote-vp-gm-east-amp-control-mast-jagermeister-us-inc-1133678",
-   "description": "At Mast-Jägermeister US, we build brands people love and create moments worth celebrating—and the VP/GM role is one of the most dynamic seats in our commercial organization. The VP/GM has full sales responsibility for one of Jägermeister's US sales regions. The VP/GM develops and executes the region's sales strategy i",
-   "date": "2026-06-18",
-   "source": "RemoteOK — Writing",
-   "company": "",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "CRM Sr Analyst",
-   "url": "https://remoteOK.com/remote-jobs/remote-crm-sr-analyst-pedidosya-1133781",
-   "description": "PedidosYa forma parte de Delivery Hero, empresa líder mundial en servicios de delivery con presencia en ~65 países. PedidosYa es la empresa de tecnología líder en delivery y quick-commerce en Latinoamérica. Es una plataforma simple, rápida y accesible que conecta a millones de personas usuarias, empresas y repartidores",
-   "date": "2026-06-18",
-   "source": "RemoteOK — Writing",
-   "company": "",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Visual Merchandiser",
-   "url": "https://remoteOK.com/remote-jobs/remote-visual-merchandiser-hampm-1133953",
-   "description": "Job Description WHAT YOU’LL DO As a Visual Merchandiser, you’ll play a key role in creating an inspiring and consistent customer experience by implementing visual standards and driving commercial excellence. Acting in line with our values, you’ll contribute to your success and that of the company. You wil",
-   "date": "2026-06-18",
-   "source": "RemoteOK — Writing",
-   "company": "",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Scrum Master",
-   "url": "https://remoteOK.com/remote-jobs/remote-scrum-master-blackstone-talent-group-1133679",
-   "description": "Scrum Master (Contractor) — Job Description Position Details: Location: Dallas, Tx (Remote) Type : 6 Month Contract - NO C2C Responsibilities: Support Agile delivery for assigned team(s) under guidance of the Senior Scrum Master Lead Facilitate team-level Agile ceremonies (daily standups, spring p",
-   "date": "2026-06-18",
-   "source": "RemoteOK — Writing",
-   "company": "",
-   "types": [
-    "contract"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 10,
-   "fit_reason": "Project management, not healthcare communications"
-  },
-  {
-   "title": "Projeteur VRD F H",
-   "url": "https://remoteOK.com/remote-jobs/remote-projeteur-vrd-f-h-b-hive-engineering-1133787",
-   "description": "B-HIVE est une entreprise spécialisée dans le domaine de l'ingénierie. Nous sommes une équipe passionnée et dynamique qui travaille ensemble pour offrir des solutions innovantes et efficaces à nos clients. Notre entreprise est fondée sur des valeurs telles que l'entraide, l'esprit d'équipe et la bienveillance. Nous cr",
-   "date": "2026-06-18",
-   "source": "RemoteOK — Writing",
-   "company": "",
-   "types": [],
-   "locations": [],
-   "category": "writing"
+   "pay_display": "$75,000–$110,000/yr",
+   "fit_score": 15,
+   "fit_reason": "EdTech operations, not health content/writing"
   },
   {
    "title": "Product Growth Expert Acquisition Afirmativa para Pessoas de Grupos Sub representados",
@@ -5552,7 +5415,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 8,
+   "fit_reason": "Customer support, not writing or health"
   },
   {
    "title": "Data Entry Specialist Assistant Administrator",
@@ -5565,7 +5430,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 5,
+   "fit_reason": "Data entry administrative, not content/writing"
   },
   {
    "title": "Freelance Designer",
@@ -5591,7 +5458,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 25,
+   "fit_reason": "Healthcare adjacent but claims processing, not writing"
   },
   {
    "title": "Senior Vice President Global Operations",
@@ -5604,7 +5473,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 12,
+   "fit_reason": "Operations executive, not content/writing role"
   },
   {
    "title": "Asistente de Cuentas Marketing BTL Weldon",
@@ -5639,7 +5510,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 10,
+   "fit_reason": "Scheduling coordinator, not writing or content"
   },
   {
    "title": "Entry Level Online Scheduling Coordinator",
@@ -5652,7 +5525,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 10,
+   "fit_reason": "Entry-level scheduling, not writing or content"
   },
   {
    "title": "School Crossing Patrol",
@@ -5868,6 +5743,17 @@
    "category": "marketing"
   },
   {
+   "title": "Maintenance",
+   "url": "https://remoteOK.com/remote-jobs/remote-maintenance-apple-self-storage-1134228",
+   "description": "This position is supporting two locations. (North and South side) As a Maintenance Person, you help ensure that our facilities are clean, safe, and operating efficiently. You’ll support our site teams by performing essential upkeep, minor repairs, and seasonal tasks that help maintain the professional appearance and",
+   "date": "2026-06-23",
+   "source": "RemoteOK — Marketing",
+   "company": "",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
    "title": "Junior Data Analyst",
    "url": "https://remoteOK.com/remote-jobs/remote-junior-data-analyst-caterpillar-inc-1134008",
    "description": "Job Title: Junior Data Analyst Location: Remote / Onsite (as applicable) Employment Type: Full-Time Job Summary We are seeking a detail-oriented and analytical Junior Data Analyst to join our team. The ideal candidate will assist in collecting, analyzing, and interpreting data to help drive business decisions",
@@ -5881,7 +5767,9 @@
     "remote",
     "onsite"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 18,
+   "fit_reason": "Data analyst, not writing or content strategy"
   },
   {
    "title": "Associate Product Manager",
@@ -5894,7 +5782,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 35,
+   "fit_reason": "Product role, some content strategy overlap"
   },
   {
    "title": "Canva Design Specialist Real Estate",
@@ -5909,7 +5799,9 @@
    "locations": [
     "remote"
    ],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 12,
+   "fit_reason": "Design focus, real estate, not healthcare"
   },
   {
    "title": "Medical Secretary",
@@ -6021,45 +5913,6 @@
    "source": "RemoteOK — Marketing",
    "company": "",
    "types": [],
-   "locations": [],
-   "category": "marketing"
-  },
-  {
-   "title": "Biology Research Expert — $65 $95 hour",
-   "url": "https://remoteOK.com/remote-jobs/remote-biology-research-expert-65-95-hour-24-mag-1133980",
-   "description": "We are sharing a specialised part-time consulting opportunity for professionals experienced in biology, molecular and cellular biology, experimental design, laboratory research, life sciences data analysis, scientific reporting, and structured biology review. This role supports current and upcoming remote consulting",
-   "date": "2026-06-23",
-   "source": "RemoteOK — Marketing",
-   "company": "",
-   "types": [
-    "part-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing"
-  },
-  {
-   "title": "Medical Scheduler",
-   "url": "https://remoteOK.com/remote-jobs/remote-medical-scheduler-resonance-cx-partners-1133909",
-   "description": "Posted 8:04:11 AM. Resonance CX Partners' mission is to help experienced professionals find opportunities that truly…See this and similar jobs on LinkedIn.",
-   "date": "2026-06-23",
-   "source": "RemoteOK — Marketing",
-   "company": "",
-   "types": [],
-   "locations": [],
-   "category": "marketing"
-  },
-  {
-   "title": "Capital Planning Investment Control Business Analyst Lead",
-   "url": "https://remoteOK.com/remote-jobs/remote-capital-planning-investment-control-business-analyst-lead-aretum-1133900",
-   "description": "Public Trust Eligibility Required This is a contingent position, meaning employment is dependent upon the successful award of the associated contract to Aretum and completion of any required background investigation or security clearance verification. About Aretum Aretum is a mission-driven organization committe",
-   "date": "2026-06-23",
-   "source": "RemoteOK — Marketing",
-   "company": "",
-   "types": [
-    "contract"
-   ],
    "locations": [],
    "category": "marketing"
   },
@@ -6208,8 +6061,8 @@
   },
   {
    "title": "Senior Writer",
-   "url": "https://job-boards.greenhouse.io/vsapartners/jobs/6001563004",
-   "description": "New York",
+   "url": "https://job-boards.greenhouse.io/vsapartners/jobs/6001558004",
+   "description": "Chicago, IL ",
    "date": "2026-05-20",
    "source": "VSA Partners",
    "company": "VSA Partners",
@@ -6219,8 +6072,8 @@
   },
   {
    "title": "Senior Writer",
-   "url": "https://job-boards.greenhouse.io/vsapartners/jobs/6001558004",
-   "description": "Chicago, IL ",
+   "url": "https://job-boards.greenhouse.io/vsapartners/jobs/6001563004",
+   "description": "New York",
    "date": "2026-05-20",
    "source": "VSA Partners",
    "company": "VSA Partners",
@@ -6288,8 +6141,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "Healthcare copywriter, freelance, Omnicom Health platform"
+   "fit_score": 78,
+   "fit_reason": "Health agency, copywriting, remote freelance community"
   },
   {
    "title": "US Freelance Editor Community",
@@ -6305,8 +6158,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 85,
-   "fit_reason": "Healthcare editor, freelance, Omnicom Health platform"
+   "fit_score": 82,
+   "fit_reason": "Health agency, editing, remote freelance community match"
   },
   {
    "title": "21GRAMS- Associate Creative Director, Art",
@@ -6452,17 +6305,6 @@
   },
   {
    "title": "Manager (Medical Communications & Marketing)",
-   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5164711008",
-   "description": "Munich",
-   "date": "2026-06-04",
-   "source": "Real Chemistry",
-   "company": "Real Chemistry",
-   "types": [],
-   "locations": [],
-   "category": "marketing"
-  },
-  {
-   "title": "Manager (Medical Communications & Marketing)",
    "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5181936008",
    "description": "Munich",
    "date": "2026-06-04",
@@ -6473,10 +6315,34 @@
    "category": "marketing"
   },
   {
+   "title": "Manager (Medical Communications & Marketing)",
+   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5164711008",
+   "description": "Munich",
+   "date": "2026-06-04",
+   "source": "Real Chemistry",
+   "company": "Real Chemistry",
+   "types": [],
+   "locations": [],
+   "category": "marketing"
+  },
+  {
+   "title": "Medical Copywriter",
+   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5283599008",
+   "description": "Edinburgh - UK; London - UK; Manchester - UK; Remote",
+   "date": "2026-06-29",
+   "source": "Real Chemistry",
+   "company": "Real Chemistry",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing"
+  },
+  {
    "title": "Medical Writer",
    "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5217036008",
    "description": "Edinburgh - UK; London - UK; Manchester - UK",
-   "date": "2026-06-04",
+   "date": "2026-06-29",
    "source": "Real Chemistry",
    "company": "Real Chemistry",
    "types": [],
@@ -6509,7 +6375,7 @@
    "title": "Medical Writer - Publications",
    "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5211459008",
    "description": "Edinburgh - UK; London - UK; Manchester - UK",
-   "date": "2026-06-04",
+   "date": "2026-06-29",
    "source": "Real Chemistry",
    "company": "Real Chemistry",
    "types": [],
@@ -6542,9 +6408,31 @@
   },
   {
    "title": "Senior Medical Writer",
+   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5203498008",
+   "description": "Edinburgh - UK; London - UK; Manchester - UK",
+   "date": "2026-06-29",
+   "source": "Real Chemistry",
+   "company": "Real Chemistry",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Senior Medical Writer",
+   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5217040008",
+   "description": "Edinburgh - UK; London - UK; Manchester - UK",
+   "date": "2026-06-29",
+   "source": "Real Chemistry",
+   "company": "Real Chemistry",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Senior Medical Writer",
    "url": "https://job-boards.greenhouse.io/realchemistry/jobs/4993995008",
    "description": "Edinburgh - UK; London - UK; Manchester - UK",
-   "date": "2026-05-06",
+   "date": "2026-06-29",
    "source": "Real Chemistry",
    "company": "Real Chemistry",
    "types": [],
@@ -6565,32 +6453,10 @@
    "category": "writing"
   },
   {
-   "title": "Senior Medical Writer",
-   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5203498008",
-   "description": "Edinburgh - UK; London - UK; Manchester - UK",
-   "date": "2026-06-04",
-   "source": "Real Chemistry",
-   "company": "Real Chemistry",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Senior Medical Writer",
-   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5217040008",
-   "description": "Edinburgh - UK; London - UK; Manchester - UK",
-   "date": "2026-06-04",
-   "source": "Real Chemistry",
-   "company": "Real Chemistry",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
    "title": "Senior Pricing Strategist",
-   "url": "https://job-boards.greenhouse.io/springhealth66/jobs/4704354005",
-   "description": "San Francisco, CA (Hybrid)",
-   "date": "2026-06-12",
+   "url": "https://job-boards.greenhouse.io/springhealth66/jobs/4679859005",
+   "description": "New York (Hybrid)",
+   "date": "2026-06-10",
    "source": "Spring Health",
    "company": "Spring Health",
    "types": [],
@@ -6601,9 +6467,9 @@
   },
   {
    "title": "Senior Pricing Strategist",
-   "url": "https://job-boards.greenhouse.io/springhealth66/jobs/4679859005",
-   "description": "New York (Hybrid)",
-   "date": "2026-06-10",
+   "url": "https://job-boards.greenhouse.io/springhealth66/jobs/4704354005",
+   "description": "San Francisco, CA (Hybrid)",
+   "date": "2026-06-12",
    "source": "Spring Health",
    "company": "Spring Health",
    "types": [],
@@ -6712,10 +6578,10 @@
    "category": "journalism"
   },
   {
-   "title": "Conflict Editor",
+   "title": "Conflict Operations Editor",
    "url": "https://job-boards.greenhouse.io/thenewyorktimes/jobs/4709872005",
    "description": "London, United Kingdom",
-   "date": "2026-06-26",
+   "date": "2026-06-29",
    "source": "The New York Times",
    "company": "The New York Times",
    "types": [],
@@ -7321,31 +7187,9 @@
    "category": "writing"
   },
   {
-   "title": "Content Planning Supervisor",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5205945008",
-   "description": "Bangkok, Thailand",
-   "date": "2026-06-18",
-   "source": "WPP Media",
-   "company": "WPP Media",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
    "title": "Copywriter",
    "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5230508008",
    "description": "Prague, Czech Republic",
-   "date": "2026-06-18",
-   "source": "WPP Media",
-   "company": "WPP Media",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Director - Content",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5218848008",
-   "description": "Mumbai, India",
    "date": "2026-06-18",
    "source": "WPP Media",
    "company": "WPP Media",
@@ -7366,9 +7210,9 @@
   },
   {
    "title": "Executive Content Planning",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5077348008",
+   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5077341008",
    "description": "Jakarta, Indonesia",
-   "date": "2026-06-26",
+   "date": "2026-06-18",
    "source": "WPP Media",
    "company": "WPP Media",
    "types": [],
@@ -7377,9 +7221,9 @@
   },
   {
    "title": "Executive Content Planning",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5077341008",
+   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5077348008",
    "description": "Jakarta, Indonesia",
-   "date": "2026-06-18",
+   "date": "2026-06-26",
    "source": "WPP Media",
    "company": "WPP Media",
    "types": [],
@@ -7467,8 +7311,8 @@
   },
   {
    "title": "Media Strategist (Mensch)",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5070478008",
-   "description": "Düsseldorf, Germany",
+   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5140788008",
+   "description": "Cologne, Germany",
    "date": "2026-06-18",
    "source": "WPP Media",
    "company": "WPP Media",
@@ -7478,8 +7322,8 @@
   },
   {
    "title": "Media Strategist (Mensch)",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5140788008",
-   "description": "Cologne, Germany",
+   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5070478008",
+   "description": "Düsseldorf, Germany",
    "date": "2026-06-18",
    "source": "WPP Media",
    "company": "WPP Media",
@@ -7543,17 +7387,6 @@
    "category": "marketing"
   },
   {
-   "title": "Senior Manager, Staffing Strategist",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5172411008",
-   "description": "Kuala Lumpur, Malaysia",
-   "date": "2026-06-18",
-   "source": "WPP Media",
-   "company": "WPP Media",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
    "title": "Senior Media & Communications Consultant Finanzbranche (Mensch)",
    "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5106699008",
    "description": "Frankfurt, Germany",
@@ -7566,7 +7399,7 @@
   },
   {
    "title": "Stage Chargé Brand Content & Partenariat Media F/H",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5250994008",
+   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5256561008",
    "description": "Paris, France",
    "date": "2026-06-18",
    "source": "WPP Media",
@@ -7577,7 +7410,7 @@
   },
   {
    "title": "Stage Chargé Brand Content & Partenariat Media F/H",
-   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5256561008",
+   "url": "https://job-boards.greenhouse.io/wppmedia/jobs/5250994008",
    "description": "Paris, France",
    "date": "2026-06-18",
    "source": "WPP Media",
@@ -7798,8 +7631,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "Content strategy but nonprofit advocacy focus"
+   "fit_score": 45,
+   "fit_reason": "Content strategy but nonprofit/advocacy, not healthcare"
   },
   {
    "title": "Freelance Ads Strategist",
@@ -7815,8 +7648,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 15,
-   "fit_reason": "Ads strategy, not healthcare content writing"
+   "fit_score": 22,
+   "fit_reason": "Ads strategist, nonprofit, misaligned with profile"
   },
   {
    "title": "Senior Digital Ads Strategist",
@@ -7832,8 +7665,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 10,
-   "fit_reason": "Digital ads strategy, not healthcare content"
+   "fit_score": 25,
+   "fit_reason": "Digital ads strategist, nonprofit, not content writing"
   },
   {
    "title": "Strategist, Growth Partnerships and Operations",
@@ -8014,8 +7847,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "Generic content writing, non-health, full-time"
+   "fit_score": 20,
+   "fit_reason": "Generic content writing, no health focus, India-based"
   },
   {
    "title": "Remote Full-Time Travel Writer",
@@ -8047,8 +7880,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 28,
-   "fit_reason": "SEO focus, non-health, full-time contractor"
+   "fit_score": 18,
+   "fit_reason": "SEO specialist, non-health, India-based contractor"
   },
   {
    "title": "Remote SEO Strategist - Canada",
@@ -8080,8 +7913,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 28,
-   "fit_reason": "SEO focus, non-health, full-time contractor"
+   "fit_score": 20,
+   "fit_reason": "SEO specialist, non-health, South Africa-based contractor"
   },
   {
    "title": "Remote Social Media Strategist - Barbados",
@@ -8098,8 +7931,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 25,
-   "fit_reason": "Social media, non-health, full-time contractor"
+   "fit_score": 28,
+   "fit_reason": "Social media role, non-health, full-time in-office"
   },
   {
    "title": "Deputy Managing Editor, Daily Desk (UK)",
