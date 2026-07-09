@@ -184,6 +184,30 @@
 
     <div class="section-h">Suggested fixes</div>
     <div id="suggs"></div>
+
+    <!-- Action bar -->
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:1.75rem;padding-top:1.25rem;border-top:0.5px solid var(--border);">
+      <button class="mini-btn" onclick="exportMarkdown()">Export scorecard (.md)</button>
+      <button class="mini-btn" onclick="exportPDF()">Export scorecard (.pdf)</button>
+      <button class="mini-btn" id="rewriteToggleBtn" onclick="toggleRewrite()">Rewrite draft with fixes →</button>
+    </div>
+  </div>
+
+  <!-- Rewrite panel (hidden until requested) -->
+  <div id="rewritePanel" style="display:none;margin-top:1.5rem;">
+    <div class="section-h">Revised draft</div>
+    <div class="loading" id="rewriteLoading">
+      <div class="loading-dots"><span></span><span></span><span></span></div>
+      <div class="loading-msg" id="rewriteMsg">Applying fixes to your draft…</div>
+    </div>
+    <div id="rewriteErr" class="err"></div>
+    <div id="rewriteOut" style="display:none;">
+      <div style="display:flex;justify-content:flex-end;gap:8px;margin-bottom:0.6rem;">
+        <button class="mini-btn" onclick="copyRewrite()" id="copyRewriteBtn">Copy</button>
+        <button class="mini-btn" onclick="rewriteAgain()">Regenerate</button>
+      </div>
+      <textarea id="rewriteText" style="width:100%;min-height:320px;background:#fff;border:0.5px solid var(--border-strong);border-radius:var(--radius);padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;line-height:1.7;color:var(--charcoal);outline:none;resize:vertical;"></textarea>
+    </div>
   </div>
 
 </div>
@@ -192,7 +216,7 @@
 const KEY_STORE = 'thebrief_anthropic_key';
 const MODEL = 'claude-sonnet-4-6';
 let apiKey = '';
-
+let lastResult = null;   // stores the most recent scorecard for export/rewrite
 function initKey() {
   try { apiKey = localStorage.getItem(KEY_STORE) || ''; } catch(e) {}
   document.getElementById('keyPrompt').style.display = apiKey ? 'none' : 'block';
@@ -314,6 +338,7 @@ Only include dimensions that the brief gives you something to judge; omit any th
       throw new Error('Could not read the analysis (the response came back malformed). Please try again.');
     }
     renderResult(result);
+    lastResult = result;
   } catch(err) {
     let m = err.message || String(err);
     if (/Failed to fetch/i.test(m)) m = 'Could not reach the API. Check your connection and that your key is valid.';
@@ -367,6 +392,170 @@ function renderResult(r) {
     || '<div class="dim-note">No fixes suggested — strong alignment.</div>';
 
   document.getElementById('results').classList.add('show');
+}
+
+// ── Export ─────────────────────────────────────────────────────────────────
+function buildMarkdown() {
+  if (!lastResult) return '';
+  const r = lastResult;
+  const overall = Math.max(0, Math.min(100, parseInt(r.overall_score)||0));
+  const date = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+  let md = `# Assignment Scorecard\n\n_${date}_\n\n`;
+  md += `## Overall score: ${overall}/100\n\n${r.verdict || ''}\n\n`;
+  if (r.dimensions && r.dimensions.length) {
+    md += `## By dimension\n\n`;
+    r.dimensions.forEach(d => {
+      const s = Math.max(0,Math.min(100,parseInt(d.score)||0));
+      const bar = '█'.repeat(Math.round(s/10)) + '░'.repeat(10-Math.round(s/10));
+      md += `**${d.name}** — ${s}/100\n${bar}\n${d.note||''}\n\n`;
+    });
+  }
+  if (r.requirements && r.requirements.length) {
+    md += `## Brief requirements\n\n`;
+    r.requirements.forEach(q => {
+      const icon = q.met==='yes'?'✓':q.met==='partial'?'~':'✕';
+      md += `${icon} **${q.item}**${q.note?' — '+q.note:''}\n`;
+    });
+    md += '\n';
+  }
+  if (r.suggestions && r.suggestions.length) {
+    md += `## Suggested fixes\n\n`;
+    r.suggestions.forEach((s,i) => { md += `${i+1}. ${s}\n`; });
+  }
+  return md;
+}
+
+function exportMarkdown() {
+  const md = buildMarkdown();
+  if (!md) return;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([md], {type:'text/markdown'}));
+  a.download = 'scorecard.md';
+  a.click();
+}
+
+function exportPDF() {
+  const md = buildMarkdown();
+  if (!md) return;
+  // Build a clean printable HTML page and open it for Save as PDF
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+  body{font-family:'Georgia',serif;max-width:680px;margin:3rem auto;color:#2C2B29;line-height:1.7;font-size:14px;}
+  h1{font-size:2rem;font-weight:400;border-bottom:2px solid #2C2B29;padding-bottom:0.5rem;margin-bottom:0.25rem;}
+  h2{font-size:1.15rem;font-weight:600;margin-top:1.75rem;margin-bottom:0.5rem;color:#2C2B29;}
+  p{margin:0 0 1rem;}
+  em{color:#8A8780;font-size:0.9rem;}
+  code{font-family:monospace;background:#EDE8DF;padding:1px 5px;border-radius:3px;}
+  @media print{body{margin:1.5rem;}}
+</style></head><body>
+${md.replace(/^# (.+)$/m,'<h1>$1</h1>').replace(/^## (.+)$/gm,'<h2>$1</h2>')
+  .replace(/^_(.+)_$/m,'<p><em>$1</em></p>')
+  .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+  .replace(/^(\d+)\. (.+)$/gm,'<p>$1. $2</p>')
+  .replace(/^([✓~✕]) \*\*(.+?)\*\*(.*)$/gm,'<p>$1 <strong>$2</strong>$3</p>')
+  .replace(/\n{2,}/g,'</p><p>').replace(/^(?!<[hp])/gm,'').trim()}
+<script>window.onload=function(){window.print();}<\/script>
+</body></html>`;
+  const w = window.open('', '_blank');
+  if (w) { w.document.write(html); w.document.close(); }
+}
+
+// ── Rewrite ────────────────────────────────────────────────────────────────
+let rewriteOpen = false;
+
+function toggleRewrite() {
+  const panel = document.getElementById('rewritePanel');
+  rewriteOpen = !rewriteOpen;
+  panel.style.display = rewriteOpen ? 'block' : 'none';
+  document.getElementById('rewriteToggleBtn').textContent =
+    rewriteOpen ? 'Hide rewrite ↑' : 'Rewrite draft with fixes →';
+  if (rewriteOpen && !document.getElementById('rewriteText').value) {
+    doRewrite();
+  }
+}
+
+function rewriteAgain() { doRewrite(); }
+
+async function doRewrite() {
+  if (!lastResult) return;
+  if (!apiKey) { showRewriteErr('Add your API key first (the box up top).'); return; }
+  const brief = document.getElementById('brief').value.trim();
+  const article = document.getElementById('article').value.trim();
+  if (!article) { showRewriteErr('The draft text is needed for a rewrite — paste or upload it again.'); return; }
+
+  document.getElementById('rewriteLoading').classList.add('show');
+  document.getElementById('rewriteOut').style.display = 'none';
+  document.getElementById('rewriteErr').classList.remove('show');
+
+  const suggestions = (lastResult.suggestions || []).join('\n');
+  const missed = (lastResult.requirements || [])
+    .filter(q => q.met !== 'yes')
+    .map(q => `${q.met === 'partial' ? 'Partially met' : 'Missing'}: ${q.item}${q.note?' ('+q.note+')':''}`)
+    .join('\n');
+
+  const prompt = `You are a skilled health communications editor. Revise the DRAFT below to address the specific gaps identified in the scorecard. Make targeted improvements only — preserve the author's voice, structure, and what already works. Do not add fabricated facts, statistics, or citations that weren't in the original.
+
+GAPS TO ADDRESS:
+${missed || 'None flagged as missing.'}
+
+SUGGESTED FIXES FROM SCORECARD:
+${suggestions || 'None.'}
+
+${brief ? `ORIGINAL BRIEF (for reference):\n${brief.slice(0,1500)}\n\n` : ''}DRAFT TO REVISE:
+${article.slice(0, 6000)}
+
+Return the revised draft only — no preamble, no explanation, no notes. Just the improved text, ready to copy.`;
+
+  let msgTimer = null;
+  const msgs = ['Reading the scorecard gaps…','Revising the draft…','Preserving your voice…','Almost there…'];
+  let mi = 0;
+  document.getElementById('rewriteMsg').textContent = msgs[0];
+  msgTimer = setInterval(() => { mi=(mi+1)%msgs.length; document.getElementById('rewriteMsg').textContent=msgs[mi]; }, 2200);
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':apiKey,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({model:MODEL, max_tokens:4000, messages:[{role:'user',content:prompt}]})
+    });
+    if (!res.ok) {
+      let d='HTTP '+res.status;
+      try{const j=await res.json();if(j.error&&j.error.message)d=j.error.message;}catch(e){}
+      throw new Error(d);
+    }
+    const data = await res.json();
+    const text = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
+    if (!text) throw new Error('Empty response — please try again.');
+    document.getElementById('rewriteText').value = text;
+    document.getElementById('rewriteOut').style.display = 'block';
+  } catch(err) {
+    let m = err.message || String(err);
+    if (/Failed to fetch/i.test(m)) m='Could not reach the API. Check your connection.';
+    if (/401|authentication/i.test(m)) m='API key looks invalid — use "change" above to re-enter it.';
+    showRewriteErr(m);
+  } finally {
+    clearInterval(msgTimer);
+    document.getElementById('rewriteLoading').classList.remove('show');
+  }
+}
+
+function showRewriteErr(m) {
+  const e = document.getElementById('rewriteErr');
+  e.textContent = m; e.classList.add('show');
+}
+
+function copyRewrite() {
+  const t = document.getElementById('rewriteText').value;
+  navigator.clipboard.writeText(t).then(() => {
+    const b = document.getElementById('copyRewriteBtn');
+    const o = b.textContent; b.textContent = 'Copied ✓';
+    setTimeout(() => b.textContent = o, 1500);
+  }).catch(()=>{});
 }
 
 function esc(s){ return String(s==null?'':s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
