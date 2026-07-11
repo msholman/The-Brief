@@ -111,6 +111,28 @@
   .loading-msg { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.3rem; color:var(--charcoal); }
   .err { display:none; background:var(--coral-pale); color:var(--coral-text); border:0.5px solid rgba(153,60,29,0.25); border-radius:var(--radius); padding:0.9rem 1.1rem; margin-top:1.5rem; font-size:13px; line-height:1.6; }
   .err.show { display:block; }
+
+  /* sourcing audit */
+  .audit-results { margin-top:2rem; display:none; }
+  .audit-results.show { display:block; animation:fade 0.4s ease; }
+  .audit-hero { background:#fff; border:0.5px solid var(--border); border-left:3px solid var(--slate,#4A6070); border-radius:var(--radius-lg); padding:1.25rem 1.75rem; margin-bottom:1.5rem; }
+  .audit-summary { font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:400; color:var(--charcoal); line-height:1.25; }
+  .audit-counts { display:flex; gap:1.25rem; margin-top:0.75rem; flex-wrap:wrap; }
+  .audit-count { font-family:'DM Mono',monospace; font-size:10.5px; letter-spacing:0.1em; text-transform:uppercase; padding:3px 10px; border-radius:99px; }
+  .ac-flag { background:var(--coral-pale); color:var(--coral-text); }
+  .ac-warn { background:var(--gold-pale); color:#854F0B; }
+  .ac-note { background:var(--linen); color:var(--muted); }
+  .ac-ok   { background:var(--green-pale); color:var(--green-text); }
+
+  .finding { display:flex; gap:12px; padding:10px 0; border-bottom:0.5px solid var(--border); font-size:13.5px; line-height:1.55; }
+  .finding:last-child { border-bottom:none; }
+  .finding-sev { flex-shrink:0; width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; margin-top:1px; font-weight:500; }
+  .sev-flag .finding-sev  { background:var(--coral-pale); color:var(--coral-text); }
+  .sev-warn .finding-sev  { background:var(--gold-pale); color:#854F0B; }
+  .sev-note .finding-sev  { background:var(--linen); color:var(--muted); }
+  .finding-body b { font-weight:500; display:block; margin-bottom:2px; }
+  .finding-quote { font-size:12px; font-style:italic; color:var(--muted); margin-top:3px; background:var(--linen); border-radius:3px; padding:4px 8px; display:block; }
+  --slate:#4A6070;
 </style>
 </head>
 <body>
@@ -157,15 +179,31 @@
 
   <div class="run-row">
     <button class="run-btn" id="runBtn" onclick="score()">Score the draft</button>
-    <span class="run-note">Sends both texts to Claude for analysis. Nothing is stored.</span>
+    <button class="run-btn" id="auditBtn" onclick="audit()" style="background:var(--charcoal-light,#4A4845);">Audit sources</button>
+    <span class="run-note">Score checks brief fidelity. Audit checks sourcing hygiene — unsupported claims, missing attributions, vague hedges, unresolvable links.</span>
   </div>
 
-  <div class="loading" id="loading">
+  <div class="loading" id="auditLoading" style="display:none;">
     <div class="loading-dots"><span></span><span></span><span></span></div>
-    <div class="loading-msg" id="loadingMsg">Reading your brief…</div>
+    <div class="loading-msg" id="auditLoadingMsg">Scanning for unsupported claims…</div>
   </div>
 
-  <div class="err" id="err"></div>
+  <div class="err" id="auditErr"></div>
+
+  <div class="audit-results" id="auditResults">
+    <div class="audit-hero">
+      <div class="score-verdict-label">Sourcing hygiene</div>
+      <div class="audit-summary" id="auditSummary">—</div>
+      <div class="audit-counts" id="auditCounts"></div>
+    </div>
+    <div class="section-h">Findings</div>
+    <div id="auditFindings"></div>
+    <div class="section-h" id="auditLinksHead" style="display:none;">Links</div>
+    <div id="auditLinks"></div>
+    <div style="display:flex;gap:10px;margin-top:1.75rem;padding-top:1.25rem;border-top:0.5px solid var(--border);">
+      <button class="mini-btn" onclick="exportAuditMarkdown()">Export audit (.md)</button>
+    </div>
+  </div>
 
   <div class="results" id="results">
     <div class="score-hero">
@@ -394,7 +432,173 @@ function renderResult(r) {
   document.getElementById('results').classList.add('show');
 }
 
-// ── Export ─────────────────────────────────────────────────────────────────
+// ── Sourcing audit ─────────────────────────────────────────────────────────
+let lastAudit = null;
+
+async function audit() {
+  const article = document.getElementById('article').value.trim();
+  document.getElementById('auditErr').classList.remove('show');
+  document.getElementById('auditResults').classList.remove('show');
+
+  if (!apiKey) { showAuditErr('Add your Anthropic API key first (the box up top).'); return; }
+  if (!article) { showAuditErr('Paste or upload your draft before auditing.'); return; }
+
+  const btn = document.getElementById('auditBtn');
+  btn.disabled = true;
+  document.getElementById('auditLoading').style.display = 'flex';
+  const msgs = ['Scanning for unsupported claims…','Checking attribution…','Looking for vague hedges…','Reviewing links…'];
+  let mi = 0, msgTimer = null;
+  document.getElementById('auditLoadingMsg').textContent = msgs[0];
+  msgTimer = setInterval(() => { mi=(mi+1)%msgs.length; document.getElementById('auditLoadingMsg').textContent=msgs[mi]; }, 2200);
+
+  const draftWords = wordCount(article);
+
+  const prompt = `You are a sourcing and attribution editor for health communications content. Review the DRAFT below for sourcing hygiene — not to fact-check whether claims are true, but to identify where a responsible health communicator should have sourced, attributed, or caveated a claim and didn't.
+
+IMPORTANT — what this audit IS and IS NOT:
+- DO flag: unsupported statistics or data points, quotes without attribution, specific factual claims that need a source, vague hedges like "studies show" or "research suggests" without a citation, internal links described but not present, URLs that appear broken or mismatched, and phrases like "experts say" without naming the expert.
+- DO NOT attempt to verify whether any claim is factually correct — you cannot reliably do that. Only flag missing or weak sourcing structure.
+- DO NOT flag general knowledge, widely accepted medical consensus (e.g. "exercise is good for cardiovascular health"), or claims that are appropriately hedged already.
+
+The draft is ${draftWords} words.
+
+DRAFT:
+${article.slice(0, 6000)}
+
+Respond with ONLY a JSON object, no prose or markdown:
+{
+  "summary": "<one sentence overall assessment, plain and specific>",
+  "findings": [
+    {
+      "severity": "flag|warn|note",
+      "type": "<Unsupported statistic|Missing attribution|Vague hedge|Unattributed quote|Missing caveat|Link issue|Expert claim>",
+      "description": "<what the problem is>",
+      "quote": "<the exact phrase or sentence from the draft that triggered this — keep it short, under 20 words>"
+    }
+  ],
+  "links": [
+    {
+      "url": "<URL found in draft>",
+      "status": "present|missing|vague",
+      "note": "<short note>"
+    }
+  ]
+}
+
+Severity guide: "flag" = should be fixed before publishing (missing source on a specific statistic, unattributed quote); "warn" = worth addressing (vague hedge, expert claim without name); "note" = minor observation or good practice suggestion. If the draft has strong sourcing throughout, return an empty findings array and say so in the summary. Max 12 findings. JSON only.`;
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'x-api-key':apiKey,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({model:MODEL, max_tokens:2000, messages:[{role:'user',content:prompt}]})
+    });
+    if (!res.ok) {
+      let d='HTTP '+res.status;
+      try{const j=await res.json();if(j.error&&j.error.message)d=j.error.message;}catch(e){}
+      throw new Error(d);
+    }
+    const data = await res.json();
+    let text = (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('').trim();
+    text = text.replace(/```json/gi,'').replace(/```/g,'').trim();
+    const fi = text.indexOf('{'), la = text.lastIndexOf('}');
+    if (fi!==-1&&la!==-1&&la>fi) text = text.slice(fi,la+1);
+    let result;
+    try { result = JSON.parse(text); }
+    catch(e) {
+      if (data.stop_reason==='max_tokens') throw new Error('Draft too long to audit fully — try a shorter excerpt.');
+      throw new Error('Could not read the audit response. Please try again.');
+    }
+    lastAudit = result;
+    renderAudit(result);
+  } catch(err) {
+    let m = err.message||String(err);
+    if (/Failed to fetch/i.test(m)) m='Could not reach the API. Check your connection.';
+    if (/401|authentication/i.test(m)) m='API key looks invalid — use "change" above to re-enter it.';
+    showAuditErr(m);
+  } finally {
+    clearInterval(msgTimer);
+    document.getElementById('auditLoading').style.display='none';
+    btn.disabled=false;
+  }
+}
+
+function showAuditErr(m){const e=document.getElementById('auditErr');e.textContent=m;e.classList.add('show');}
+
+function renderAudit(r) {
+  const findings = r.findings || [];
+  const links = (r.links||[]).filter(l=>l.url);
+  const flags = findings.filter(f=>f.severity==='flag').length;
+  const warns = findings.filter(f=>f.severity==='warn').length;
+  const notes = findings.filter(f=>f.severity==='note').length;
+
+  document.getElementById('auditSummary').textContent = r.summary || '';
+
+  const counts = [];
+  if (flags) counts.push(`<span class="audit-count ac-flag">⚑ ${flags} flag${flags!==1?'s':''}</span>`);
+  if (warns) counts.push(`<span class="audit-count ac-warn">⚠ ${warns} warning${warns!==1?'s':''}</span>`);
+  if (notes) counts.push(`<span class="audit-count ac-note">${notes} note${notes!==1?'s':''}</span>`);
+  if (!findings.length) counts.push(`<span class="audit-count ac-ok">✓ No sourcing issues found</span>`);
+  document.getElementById('auditCounts').innerHTML = counts.join('');
+
+  const sevIcon = s => s==='flag'?'⚑':s==='warn'?'⚠':'○';
+  document.getElementById('auditFindings').innerHTML = findings.length
+    ? findings.map(f=>`<div class="finding sev-${esc(f.severity)}">
+        <div class="finding-sev">${sevIcon(f.severity)}</div>
+        <div class="finding-body">
+          <b>${esc(f.type)}</b>${esc(f.description)}
+          ${f.quote?`<span class="finding-quote">"${esc(f.quote)}"</span>`:''}
+        </div>
+      </div>`).join('')
+    : '<div class="dim-note" style="padding:8px 0;">No sourcing issues detected.</div>';
+
+  const linksHead = document.getElementById('auditLinksHead');
+  if (links.length) {
+    linksHead.style.display='';
+    const statusIcon = s=>s==='present'?'✓':s==='missing'?'✕':'~';
+    const statusCls = s=>s==='present'?'req-yes':s==='missing'?'req-no':'req-partial';
+    document.getElementById('auditLinks').innerHTML = links.map(l=>`
+      <div class="req ${statusCls(l.status)}">
+        <div class="req-icon">${statusIcon(l.status)}</div>
+        <div class="req-text"><b>${esc(l.url)}</b>${l.note?` — <span class="req-note">${esc(l.note)}</span>`:''}</div>
+      </div>`).join('');
+  } else {
+    linksHead.style.display='none';
+    document.getElementById('auditLinks').innerHTML='';
+  }
+
+  document.getElementById('auditResults').classList.add('show');
+}
+
+function exportAuditMarkdown() {
+  if (!lastAudit) return;
+  const r = lastAudit;
+  const date = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  let md = `# Sourcing Audit\n\n_${date}_\n\n## Summary\n\n${r.summary||''}\n\n`;
+  const findings = r.findings||[];
+  if (findings.length) {
+    md += `## Findings\n\n`;
+    findings.forEach(f=>{
+      const icon = f.severity==='flag'?'⚑':f.severity==='warn'?'⚠':'○';
+      md += `${icon} **${f.type}** [${f.severity}]\n${f.description}\n`;
+      if (f.quote) md += `> "${f.quote}"\n`;
+      md += '\n';
+    });
+  } else { md += `## Findings\n\nNo sourcing issues detected.\n\n`; }
+  const links = (r.links||[]).filter(l=>l.url);
+  if (links.length) {
+    md += `## Links\n\n`;
+    links.forEach(l=>{ md += `- [${l.status}] ${l.url}${l.note?' — '+l.note:''}\n`; });
+  }
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([md],{type:'text/markdown'}));
+  a.download = 'sourcing-audit.md'; a.click();
+}
 function buildMarkdown() {
   if (!lastResult) return '';
   const r = lastResult;
