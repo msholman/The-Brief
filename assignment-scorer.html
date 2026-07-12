@@ -133,6 +133,33 @@
   .finding-body b { font-weight:500; display:block; margin-bottom:2px; }
   .finding-quote { font-size:12px; font-style:italic; color:var(--muted); margin-top:3px; background:var(--linen); border-radius:3px; padding:4px 8px; display:block; }
   --slate:#4A6070;
+
+  /* client deliverable package */
+  .pkg-panel { margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--border-strong); }
+  .pkg-intro { font-size:13px; color:var(--muted); line-height:1.6; margin-bottom:1.25rem; max-width:60ch; }
+  .pkg-source { display:flex; align-items:center; gap:10px; padding:10px 14px; border-radius:var(--radius); border:0.5px solid var(--border); background:#fff; margin-bottom:0.6rem; font-size:13px; }
+  .pkg-source .pkg-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .pkg-dot.on { background:var(--green-text); }
+  .pkg-dot.off { background:var(--border-strong); }
+  .pkg-source .pkg-label { flex:1; color:var(--charcoal); }
+  .pkg-source .pkg-status { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--muted); letter-spacing:0.05em; }
+  .ruffin-input { display:none; margin-top:0.5rem; }
+  .ruffin-input.show { display:block; }
+  .ruffin-input textarea { min-height:100px; font-family:'DM Mono',monospace; font-size:12px; }
+  .ruffin-link { color:var(--gold); text-decoration:underline; cursor:pointer; }
+
+  .pkg-preview { background:#fff; border:0.5px solid var(--border); border-radius:var(--radius-lg); padding:2rem 2.25rem; margin-top:1.5rem; display:none; }
+  .pkg-preview.show { display:block; animation:fade 0.4s ease; }
+  .pkg-brand { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem; }
+  .pkg-title { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:400; color:var(--charcoal); margin-bottom:0.2rem; }
+  .pkg-date { font-family:'DM Mono',monospace; font-size:10.5px; color:var(--muted); margin-bottom:1.5rem; }
+  .pkg-grid { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1.5rem; }
+  @media (max-width:560px){ .pkg-grid{ grid-template-columns:1fr; } }
+  .pkg-metric { background:var(--linen); border-radius:var(--radius); padding:0.9rem 1.1rem; }
+  .pkg-metric-label { font-family:'DM Mono',monospace; font-size:9.5px; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:0.3rem; }
+  .pkg-metric-val { font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:var(--charcoal); }
+  .pkg-metric-sub { font-size:11.5px; color:var(--charcoal-light); margin-top:0.2rem; line-height:1.4; }
+  .pkg-note { font-size:12.5px; color:var(--charcoal-light); line-height:1.6; font-style:italic; border-left:2px solid var(--gold); padding-left:0.9rem; margin-top:1.25rem; }
 </style>
 </head>
 <body>
@@ -202,6 +229,50 @@
     <div id="auditLinks"></div>
     <div style="display:flex;gap:10px;margin-top:1.75rem;padding-top:1.25rem;border-top:0.5px solid var(--border);">
       <button class="mini-btn" onclick="exportAuditMarkdown()">Export audit (.md)</button>
+    </div>
+  </div>
+
+  <!-- ── Client Deliverable Package ─────────────────────────────────── -->
+  <div class="pkg-panel">
+    <div class="section-h">Client deliverable package</div>
+    <p class="pkg-intro">Assembles the sourcing audit above with a Ruffin readability summary into one branded, client-ready report. Run the audit first, then add your Ruffin results.</p>
+
+    <div class="pkg-source" id="pkgSourceAudit">
+      <span class="pkg-dot off" id="pkgDotAudit"></span>
+      <span class="pkg-label">Sourcing audit</span>
+      <span class="pkg-status" id="pkgStatusAudit">Not run yet</span>
+    </div>
+
+    <div class="pkg-source" id="pkgSourceRuffin" style="cursor:pointer;" onclick="toggleRuffinInput()">
+      <span class="pkg-dot off" id="pkgDotRuffin"></span>
+      <span class="pkg-label">Ruffin readability summary <span class="ruffin-link">(paste it in)</span></span>
+      <span class="pkg-status" id="pkgStatusRuffin">Not added</span>
+    </div>
+    <div class="ruffin-input" id="ruffinInputWrap">
+      <textarea id="ruffinPaste" placeholder="Paste Ruffin's output here — grade level, jargon flags, plain-language notes, etc. Any format is fine; it's read as-is." oninput="onRuffinPaste()"></textarea>
+    </div>
+
+    <div class="run-row" style="margin-top:1rem;">
+      <button class="run-btn" id="pkgBtn" onclick="buildPackage()" style="background:var(--gold);color:var(--charcoal);">Build the package</button>
+      <span class="run-note">Composes a client-facing PDF from what's available above. The audit isn't required — the package works with just Ruffin's notes, or just the audit.</span>
+    </div>
+
+    <div class="pkg-preview" id="pkgPreview">
+      <div class="pkg-brand">Content Quality Review</div>
+      <div class="pkg-title" id="pkgTitle">Deliverable Report</div>
+      <div class="pkg-date" id="pkgDate"></div>
+
+      <div class="pkg-grid" id="pkgGrid"></div>
+
+      <div id="pkgAuditSection"></div>
+      <div id="pkgRuffinSection"></div>
+
+      <div class="pkg-note">Reviewed for plain-language clarity and sourcing integrity — Tayla Holman, Health Communications</div>
+
+      <div style="display:flex;gap:10px;margin-top:1.75rem;padding-top:1.25rem;border-top:0.5px solid var(--border);">
+        <button class="mini-btn" onclick="exportPackagePDF()">Export package (.pdf)</button>
+        <button class="mini-btn" onclick="exportPackageMarkdown()">Export package (.md)</button>
+      </div>
     </div>
   </div>
 
@@ -516,6 +587,7 @@ Severity guide: "flag" = should be fixed before publishing (missing source on a 
     }
     lastAudit = result;
     renderAudit(result);
+    updatePkgSources();
   } catch(err) {
     let m = err.message||String(err);
     if (/Failed to fetch/i.test(m)) m='Could not reach the API. Check your connection.';
@@ -598,6 +670,135 @@ function exportAuditMarkdown() {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([md],{type:'text/markdown'}));
   a.download = 'sourcing-audit.md'; a.click();
+}
+
+// ── Client deliverable package ───────────────────────────────────────────
+let ruffinNotes = '';
+
+function updatePkgSources() {
+  const auditOk = !!lastAudit;
+  document.getElementById('pkgDotAudit').className = 'pkg-dot ' + (auditOk?'on':'off');
+  document.getElementById('pkgStatusAudit').textContent = auditOk ? 'Ready' : 'Not run yet';
+
+  const ruffinOk = !!ruffinNotes.trim();
+  document.getElementById('pkgDotRuffin').className = 'pkg-dot ' + (ruffinOk?'on':'off');
+  document.getElementById('pkgStatusRuffin').textContent = ruffinOk ? 'Added' : 'Not added';
+}
+
+function toggleRuffinInput() {
+  document.getElementById('ruffinInputWrap').classList.toggle('show');
+}
+function onRuffinPaste() {
+  ruffinNotes = document.getElementById('ruffinPaste').value;
+  updatePkgSources();
+}
+
+function buildPackage() {
+  if (!lastAudit && !ruffinNotes.trim()) {
+    alert('Run the sourcing audit above, or paste in Ruffin\u2019s notes, before building the package.');
+    return;
+  }
+  const title = (document.getElementById('article').value.trim().split('\n')[0] || 'Untitled draft').slice(0, 80);
+  document.getElementById('pkgTitle').textContent = title;
+  document.getElementById('pkgDate').textContent = new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+
+  // ── metric tiles ──
+  const tiles = [];
+  if (lastAudit) {
+    const findings = lastAudit.findings || [];
+    const flags = findings.filter(f=>f.severity==='flag').length;
+    const warns = findings.filter(f=>f.severity==='warn').length;
+    tiles.push(`<div class="pkg-metric">
+      <div class="pkg-metric-label">Sourcing hygiene</div>
+      <div class="pkg-metric-val">${flags===0&&warns===0?'Clean':`${flags+warns} item${flags+warns!==1?'s':''}`}</div>
+      <div class="pkg-metric-sub">${flags} flag${flags!==1?'s':''} · ${warns} warning${warns!==1?'s':''}</div>
+    </div>`);
+  }
+  if (ruffinNotes.trim()) {
+    tiles.push(`<div class="pkg-metric">
+      <div class="pkg-metric-label">Readability</div>
+      <div class="pkg-metric-val">Reviewed</div>
+      <div class="pkg-metric-sub">See notes below</div>
+    </div>`);
+  }
+  document.getElementById('pkgGrid').innerHTML = tiles.join('');
+
+  // ── audit section ──
+  const auditSec = document.getElementById('pkgAuditSection');
+  if (lastAudit) {
+    const findings = lastAudit.findings || [];
+    auditSec.innerHTML = `<div class="section-h">Sourcing notes</div>
+      <p style="font-size:13px;color:var(--charcoal-light);line-height:1.6;margin-bottom:0.75rem;">${esc(lastAudit.summary||'')}</p>
+      ${findings.length ? findings.map(f=>`<div class="finding sev-${esc(f.severity)}">
+          <div class="finding-sev">${f.severity==='flag'?'⚑':f.severity==='warn'?'⚠':'○'}</div>
+          <div class="finding-body"><b>${esc(f.type)}</b>${esc(f.description)}</div>
+        </div>`).join('') : ''}`;
+  } else { auditSec.innerHTML = ''; }
+
+  // ── ruffin section ──
+  const ruffinSec = document.getElementById('pkgRuffinSection');
+  if (ruffinNotes.trim()) {
+    ruffinSec.innerHTML = `<div class="section-h">Readability notes</div>
+      <div style="font-size:13px;color:var(--charcoal-light);line-height:1.7;white-space:pre-wrap;">${esc(ruffinNotes.trim())}</div>`;
+  } else { ruffinSec.innerHTML = ''; }
+
+  document.getElementById('pkgPreview').classList.add('show');
+  document.getElementById('pkgPreview').scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+function buildPackageMarkdown() {
+  const title = document.getElementById('pkgTitle').textContent;
+  const date = document.getElementById('pkgDate').textContent;
+  let md = `# Content Quality Review\n\n## ${title}\n\n_${date}_\n\n`;
+  if (lastAudit) {
+    md += `## Sourcing notes\n\n${lastAudit.summary||''}\n\n`;
+    (lastAudit.findings||[]).forEach(f=>{
+      const icon = f.severity==='flag'?'⚑':f.severity==='warn'?'⚠':'○';
+      md += `${icon} **${f.type}** — ${f.description}\n`;
+    });
+    md += '\n';
+  }
+  if (ruffinNotes.trim()) {
+    md += `## Readability notes\n\n${ruffinNotes.trim()}\n\n`;
+  }
+  md += `---\n\n_Reviewed for plain-language clarity and sourcing integrity — Tayla Holman, Health Communications_\n`;
+  return md;
+}
+
+function exportPackageMarkdown() {
+  const md = buildPackageMarkdown();
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([md],{type:'text/markdown'}));
+  a.download = 'client-deliverable-package.md'; a.click();
+}
+
+function exportPackagePDF() {
+  const md = buildPackageMarkdown();
+  const html = `<!DOCTYPE html><html><head><meta charset="UTF-8">
+<style>
+  body{font-family:'Georgia',serif;max-width:680px;margin:3rem auto;color:#2C2B29;line-height:1.7;font-size:14px;}
+  h1{font-size:1.9rem;font-weight:400;border-bottom:2px solid #2C2B29;padding-bottom:0.5rem;margin-bottom:0.25rem;}
+  h2{font-size:1.3rem;font-weight:400;color:#8A8780;margin:0 0 1.25rem;font-style:italic;}
+  h3{font-size:1.1rem;font-weight:600;margin-top:1.75rem;margin-bottom:0.5rem;}
+  p{margin:0 0 0.75rem;}
+  em{color:#8A8780;font-size:0.9rem;}
+  hr{border:none;border-top:1px solid #EDE8DF;margin:2rem 0 1rem;}
+  @media print{body{margin:1.5rem;}}
+</style></head><body>
+${md
+  .replace(/^# (.+)$/m,'<h1>$1</h1>')
+  .replace(/^## (.+)$/m,'<h2>$1</h2>')
+  .replace(/^## (.+)$/gm,'<h3>$1</h3>')
+  .replace(/^_(.+)_$/gm,'<p><em>$1</em></p>')
+  .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+  .replace(/^---$/gm,'<hr>')
+  .replace(/\n{2,}/g,'</p><p>')
+  .replace(/^(?!<[h1-6p]|<hr)/gm,'')
+  .trim()}
+<script>window.onload=function(){window.print();}<\/script>
+</body></html>`;
+  const w = window.open('', '_blank');
+  if (w) { w.document.write(html); w.document.close(); }
 }
 function buildMarkdown() {
   if (!lastResult) return '';
@@ -876,6 +1077,7 @@ async function handleFile(target, fileOrInput) {
 
 initKey();
 updateCounts();
+updatePkgSources();
 </script>
 </body>
 </html>
