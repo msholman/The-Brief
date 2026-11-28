@@ -1,46 +1,7 @@
 {
- "updated": "2026-11-27T13:39:08Z",
- "count": 322,
+ "updated": "2026-11-28T12:49:36Z",
+ "count": 344,
  "jobs": [
-  {
-   "title": "Senior Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4493812359",
-   "description": "Sahibzada Ajit Singh Nagar, Punjab, India",
-   "date": "2026-11-27",
-   "source": "Linkedin",
-   "company": "Sohana Hospital",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Healthcare content, senior level, location concern"
-  },
-  {
-   "title": "Scientific Copywriter US - Pharma",
-   "url": "https://www.linkedin.com/jobs/view/4495800850",
-   "description": "Bogota, D.C., Capital District, Colombia",
-   "date": "2026-11-27",
-   "source": "Linkedin",
-   "company": "EML Agencia de Comunicaciones Healthcare",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Pharma/scientific copywriting, strong health fit"
-  },
-  {
-   "title": "Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4495016352",
-   "description": "Sahibzada Ajit Singh Nagar, Punjab, India",
-   "date": "2026-11-26",
-   "source": "Linkedin",
-   "company": "Sohana A Multi Super Speciality Hospital",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 58,
-   "fit_reason": "Healthcare writing but junior level role"
-  },
   {
    "title": "Content Writer",
    "url": "https://www.linkedin.com/jobs/view/4495277041",
@@ -51,8 +12,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 60,
-   "fit_reason": "Healthcare writing, international location concern"
+   "fit_score": 55,
+   "fit_reason": "Healthcare content but location unclear, no details"
   },
   {
    "title": "Senior Medical Copywriter",
@@ -64,8 +25,21 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "Senior medical copywriting, strong expertise match"
+   "fit_score": 78,
+   "fit_reason": "Medical copywriting expertise match; London location"
+  },
+  {
+   "title": "Content Writer",
+   "url": "https://www.linkedin.com/jobs/view/4494682789",
+   "description": "Latin America",
+   "date": "2026-11-25",
+   "source": "Linkedin",
+   "company": "elev8.io",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 38,
+   "fit_reason": "Generic content writing; no health focus stated"
   },
   {
    "title": "Content Writer",
@@ -78,7 +52,7 @@
    "locations": [],
    "category": "writing",
    "fit_score": 48,
-   "fit_reason": "Healthcare adjacent, but niche/limited scope"
+   "fit_reason": "Healthcare (aligners) content but minimal details provided"
   },
   {
    "title": "Communications Creative Writer - HRI",
@@ -90,8 +64,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 75,
-   "fit_reason": "Healthcare communications writing, good fit overall"
+   "fit_score": 62,
+   "fit_reason": "Healthcare communications but in-office Arizona role"
   },
   {
    "title": "Medical Copywriter",
@@ -103,8 +77,19 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical copywriting, international location concern"
+   "fit_score": 72,
+   "fit_reason": "Medical copywriting, remote unclear, UK location"
+  },
+  {
+   "title": "Content Creator",
+   "url": "https://www.linkedin.com/jobs/view/4494341224",
+   "description": "Kathmandu, Bāgmatī, Nepal",
+   "date": "2026-11-24",
+   "source": "Linkedin",
+   "company": "Nepal International Health Services",
+   "types": [],
+   "locations": [],
+   "category": "other"
   },
   {
    "title": "Senior Content Writer",
@@ -116,8 +101,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 15,
-   "fit_reason": "Non-health generic content, India-based"
+   "fit_score": 25,
+   "fit_reason": "Generic content writing, non-health, India-based"
   },
   {
    "title": "Medical Copywriter",
@@ -129,8 +114,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Medical copywriting, strong fit, Latvia location"
+   "fit_score": 68,
+   "fit_reason": "Medical copywriting, strong brand, Latvia location"
   },
   {
    "title": "Medical Content Creator",
@@ -153,8 +138,34 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Medical writing aligned, India-based reduces score"
+   "fit_score": 65,
+   "fit_reason": "Medical writing role, India-based, remote unclear"
+  },
+  {
+   "title": "Senior Copywriter, Promotional Medical Writing",
+   "url": "https://www.linkedin.com/jobs/view/4483691321",
+   "description": "New York, NY, USA",
+   "date": "2026-11-18",
+   "source": "Linkedin",
+   "company": "Precision Medicine Group",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 78,
+   "fit_reason": "Medical copywriting, USA-based, in-office location penalized"
+  },
+  {
+   "title": "Senior Copywriter, Promotional Medical Writing",
+   "url": "https://www.linkedin.com/jobs/view/4483676922",
+   "description": "Gladstone, NJ, USA",
+   "date": "2026-11-18",
+   "source": "Linkedin",
+   "company": "Precision Medicine Group",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 76,
+   "fit_reason": "Medical copywriting, USA-based, in-office location penalized"
   },
   {
    "title": "Content Writer",
@@ -166,8 +177,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 65,
-   "fit_reason": "Pharma content writing, India location concern"
+   "fit_score": 48,
+   "fit_reason": "Generic content writing, tech focus, India-based"
   },
   {
    "title": "Medical Copywriter",
@@ -179,8 +190,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Medical copywriting, Canada remote-friendly, strong match"
+   "fit_score": 74,
+   "fit_reason": "Medical copywriting, Canada-based, remote status unclear"
   },
   {
    "title": "Senior Medical Copywriter (M/F) - CDI",
@@ -192,8 +203,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 75,
-   "fit_reason": "Senior medical copywriter, France-based full-time"
+   "fit_score": 70,
+   "fit_reason": "Medical copywriting, France-based, full-time CDI contract"
   },
   {
    "title": "Medical Content Writer",
@@ -204,9 +215,7 @@
    "company": "WhiteCoats",
    "types": [],
    "locations": [],
-   "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical content writer, India-based, healthcare focus"
+   "category": "writing"
   },
   {
    "title": "Copywriter, Web Content & Accessibility",
@@ -218,8 +227,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "Healthcare UX writing, accessibility, Denver USA"
+   "fit_score": 72,
+   "fit_reason": "Healthcare, web content, remote unclear but Denver listed"
   },
   {
    "title": "Writer",
@@ -231,8 +240,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 42,
-   "fit_reason": "Academic writer, non-health, in-office location"
+   "fit_score": 35,
+   "fit_reason": "Academic writing, not healthcare-focused, location-based"
   },
   {
    "title": "Medical Copywriter",
@@ -244,21 +253,34 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Medical copywriting, Brazil-based, healthcare expertise"
+   "fit_score": 68,
+   "fit_reason": "Medical copywriting strong fit, international location concern"
   },
   {
-   "title": "Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4482556561",
-   "description": "Noida, Uttar Pradesh, India",
-   "date": "2026-10-28",
+   "title": "Director, Content Strategy",
+   "url": "https://www.linkedin.com/jobs/view/4480182195",
+   "description": "New York, NY, USA",
+   "date": "2026-11-27",
    "source": "Linkedin",
-   "company": "SisuCare",
+   "company": "Noom",
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "Healthcare content, but India-based; no remote clarity"
+   "fit_score": 78,
+   "fit_reason": "Content strategy director, health/wellness, location not remote"
+  },
+  {
+   "title": "Director, Content Strategy",
+   "url": "https://www.linkedin.com/jobs/view/4480172589",
+   "description": "Princeton, NJ, USA",
+   "date": "2026-11-27",
+   "source": "Linkedin",
+   "company": "Noom",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 80,
+   "fit_reason": "Content strategy director, health/wellness, remote-feasible NJ location"
   },
   {
    "title": "Content Strategist Sr",
@@ -270,8 +292,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Content strategist, healthcare org, CA location acceptable"
+   "fit_score": 75,
+   "fit_reason": "Senior strategist at health plan, location-based role"
   },
   {
    "title": "Associate Director, Scientific Strategy",
@@ -280,6 +302,67 @@
    "date": "2026-11-26",
    "source": "Linkedin",
    "company": "Klick",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Associate Director, Scientific Strategy",
+   "url": "https://www.linkedin.com/jobs/view/4486765753",
+   "description": "Philadelphia, PA, USA",
+   "date": "2026-11-26",
+   "source": "Linkedin",
+   "company": "Klick",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Associate Lead, Health Communications",
+   "url": "https://www.linkedin.com/jobs/view/4490452001",
+   "description": "Bengaluru, Karnataka, India",
+   "date": "2026-11-25",
+   "source": "Linkedin",
+   "company": "Noora Health",
+   "types": [],
+   "locations": [],
+   "category": "marketing",
+   "fit_score": 70,
+   "fit_reason": "Health communications, international location, seniority level fits"
+  },
+  {
+   "title": "Content Marketing Manager at VC backed Health & Wellness startups (£50-65k)",
+   "url": "https://www.linkedin.com/jobs/view/4494609524",
+   "description": "London Area, UK",
+   "date": "2026-11-25",
+   "source": "Linkedin",
+   "company": "Jumpstart",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 45,
+   "fit_reason": "Content marketing, health/wellness, below pay floor penalty"
+  },
+  {
+   "title": "Senior Content Designer",
+   "url": "https://www.linkedin.com/jobs/view/4494330094",
+   "description": "USA",
+   "date": "2026-11-24",
+   "source": "Linkedin",
+   "company": "Jobgether",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 55,
+   "fit_reason": "Content design but non-health, remote USA friendly"
+  },
+  {
+   "title": "Associate Director, Patient Content - Patient Engagement",
+   "url": "https://www.linkedin.com/jobs/view/4494008567",
+   "description": "Ontario, Canada",
+   "date": "2026-11-23",
+   "source": "Linkedin",
+   "company": "OPEN Health",
    "types": [],
    "locations": [],
    "category": "other"
@@ -295,7 +378,20 @@
    "locations": [],
    "category": "writing",
    "fit_score": 82,
-   "fit_reason": "Content design in health, USA remote-friendly tech company"
+   "fit_reason": "Senior content designer, healthcare-focused, remote USA role"
+  },
+  {
+   "title": "Content Strategist",
+   "url": "https://www.linkedin.com/jobs/view/4492956111",
+   "description": "Chicago, IL, USA",
+   "date": "2026-11-20",
+   "source": "Linkedin",
+   "company": "NOCD",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 65,
+   "fit_reason": "Health content strategy, but non-medical (OCD/mental health), unclear if remote"
   },
   {
    "title": "Content Marketing (Healthcare BU)",
@@ -307,8 +403,21 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 42,
-   "fit_reason": "Healthcare content marketing, but India-based location concern"
+   "fit_score": 48,
+   "fit_reason": "Healthcare marketing focus, but India-based, likely not remote-friendly"
+  },
+  {
+   "title": "Healthcare Content Manager (f/h/n)",
+   "url": "https://www.linkedin.com/jobs/view/4490296006",
+   "description": "Paris, Île-de-France, France",
+   "date": "2026-11-16",
+   "source": "Linkedin",
+   "company": "Hublo",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 52,
+   "fit_reason": "Healthcare content, good fit, but Paris-based location is barrier"
   },
   {
    "title": "Director, Content Strategy (Healthcare)",
@@ -320,8 +429,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 71,
-   "fit_reason": "Director-level strategy, healthcare, NYC in-office likely barrier"
+   "fit_score": 72,
+   "fit_reason": "Healthcare content strategy director, strong match, NYC in-office likely"
   },
   {
    "title": "Director, Content Strategy (Healthcare)",
@@ -333,8 +442,24 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 75,
-   "fit_reason": "Director-level strategy, healthcare, Boston hybrid potentially workable"
+   "fit_score": 78,
+   "fit_reason": "Healthcare content strategy director, Boston location acceptable, strong role fi"
+  },
+  {
+   "title": "Manager, Content Strategy & Digital Communications | Hybrid – 3 Days Onsite",
+   "url": "https://www.linkedin.com/jobs/view/4463090752",
+   "description": "New York, NY, USA",
+   "date": "2026-11-12",
+   "source": "Linkedin",
+   "company": "VNS Health",
+   "types": [],
+   "locations": [
+    "hybrid",
+    "onsite"
+   ],
+   "category": "writing",
+   "fit_score": 68,
+   "fit_reason": "Healthcare content strategy but hybrid/3-days onsite"
   },
   {
    "title": "Strategic Content Lead",
@@ -346,34 +471,21 @@
    "types": [],
    "locations": [],
    "category": "writing",
+   "fit_score": 71,
+   "fit_reason": "Healthcare content strategy, good experience level, NJ in-office role"
+  },
+  {
+   "title": "Lead Web Content Editor (Science / Health)",
+   "url": "https://www.linkedin.com/jobs/view/4489487425",
+   "description": "USA",
+   "date": "2026-11-10",
+   "source": "Linkedin",
+   "company": "The Hired Guns",
+   "types": [],
+   "locations": [],
+   "category": "writing",
    "fit_score": 73,
-   "fit_reason": "Strategic content, life sciences, NJ; likely in-office"
-  },
-  {
-   "title": "Director, Content Strategy",
-   "url": "https://www.linkedin.com/jobs/view/4480182195",
-   "description": "New York, NY, USA",
-   "date": "2026-11-06",
-   "source": "Linkedin",
-   "company": "Noom",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Content strategy, health-adjacent, NYC in-office likely barrier"
-  },
-  {
-   "title": "Director, Content Strategy",
-   "url": "https://www.linkedin.com/jobs/view/4480172589",
-   "description": "Princeton, NJ, USA",
-   "date": "2026-11-06",
-   "source": "Linkedin",
-   "company": "Noom",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 76,
-   "fit_reason": "Content strategy, NJ-based, patient education focus strong match"
+   "fit_reason": "Science/health content editing, remote-friendly, strong writing/editing focus"
   },
   {
    "title": "Sr. Content Strategist Patient Education",
@@ -386,7 +498,281 @@
    "locations": [],
    "category": "writing",
    "fit_score": 85,
-   "fit_reason": "Patient education content strategist, healthcare, Newark NJ workable"
+   "fit_reason": "Healthcare patient education, WebMD, NJ-based, excellent content strategy fit"
+  },
+  {
+   "title": "Manager, Content Strategy",
+   "url": "https://www.linkedin.com/jobs/view/4486472340",
+   "description": "Boston, MA, USA",
+   "date": "2026-11-03",
+   "source": "Linkedin",
+   "company": "Boston Medical Center (BMC)",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 62,
+   "fit_reason": "Healthcare content strategy, Boston, likely in-office, not ideal setup"
+  },
+  {
+   "title": "Medical Writer, Encores",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010335901694",
+   "description": "Volo, IL, USA · nan",
+   "date": "2026-11-26",
+   "source": "Glassdoor",
+   "company": "AbbVie",
+   "pay_min": 65500,
+   "pay_max": 125500,
+   "pay_period": "annual",
+   "pay_display": "$65,500–$125,500/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 71,
+   "fit_reason": "Medical writing, pharmaceutical, decent pay, but in-office Illinois location"
+  },
+  {
+   "title": "Senior Medical Writer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010334362696",
+   "description": "Atlanta, GA, USA · nan",
+   "date": "2026-11-25",
+   "source": "Glassdoor",
+   "company": "BOLDSCIENCE",
+   "pay_min": 73044,
+   "pay_max": 107038,
+   "pay_period": "annual",
+   "pay_display": "$73,044–$107,038/an",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 72,
+   "fit_reason": "Strong medical writing fit, below pay floor, in-office Atlanta"
+  },
+  {
+   "title": "YouTube Video Editor for Health & Nutrition Channel (8 videos/month, ongoing)",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010334367090",
+   "description": "nan · nan",
+   "date": "2026-11-25",
+   "source": "Glassdoor",
+   "company": "Autumn Elle Nutrition",
+   "pay_min": 10,
+   "pay_max": 31,
+   "pay_period": "hourly",
+   "pay_display": "$10–$31/ho",
+   "types": [
+    "part-time"
+   ],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 18,
+   "fit_reason": "Video editing not writing, well below pay floor"
+  },
+  {
+   "title": "Medical Editor - Market Access Marketing",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010331190155",
+   "description": "Philadelphia, PA, USA · nan",
+   "date": "2026-11-20",
+   "source": "Glassdoor",
+   "company": "Precision Medicine Group",
+   "pay_min": 54000,
+   "pay_max": 81600,
+   "pay_period": "annual",
+   "pay_display": "$54,000–$81,600/an",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 58,
+   "fit_reason": "Medical editing relevant, below pay floor, in-office Philadelphia"
+  },
+  {
+   "title": "Senior Medical Writer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010328757661",
+   "description": "nan · nan",
+   "date": "2026-11-18",
+   "source": "Glassdoor",
+   "company": "Merit Medical Systems Inc.",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 75,
+   "fit_reason": "Senior medical writer, strong fit, no pay/location data"
+  },
+  {
+   "title": "Sr. Manager, Regulatory Writer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010329251111",
+   "description": "Thousand Oaks, CA, USA · nan",
+   "date": "2026-11-18",
+   "source": "Glassdoor",
+   "company": "Angitia Incorporated Limited",
+   "pay_min": 130000,
+   "pay_max": 150000,
+   "pay_period": "annual",
+   "pay_display": "$130,000–$150,000/an",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 68,
+   "fit_reason": "Regulatory writing related, in-office only, no remote option"
+  },
+  {
+   "title": "Associate Medical Writer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010327833874",
+   "description": "nan · nan",
+   "date": "2026-11-17",
+   "source": "Glassdoor",
+   "company": "PSI CRO",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 72,
+   "fit_reason": "Medical writing aligned, associate level, no pay/location data"
+  },
+  {
+   "title": "Technical Writer III - CDP",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010324964832",
+   "description": "Bethesda, MD, USA · nan",
+   "date": "2026-11-13",
+   "source": "Glassdoor",
+   "company": "The Henry M. Jackson Foundation for the Advancement of Military Medicine, Inc",
+   "pay_min": 77600,
+   "pay_max": 125000,
+   "pay_period": "annual",
+   "pay_display": "$77,600–$125,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 62,
+   "fit_reason": "Technical writer in health, military context, in-office Bethesda"
+  },
+  {
+   "title": "Director, Medical Writing - Market Access Promotional Agency",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010319679859",
+   "description": "Chicago, IL, USA · nan",
+   "date": "2026-11-07",
+   "source": "Glassdoor",
+   "company": "Precision Medicine Group",
+   "pay_min": 120000,
+   "pay_max": 160000,
+   "pay_period": "annual",
+   "pay_display": "$120,000–$160,000/an",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 85,
+   "fit_reason": "Director medical writing, strong fit, market access expertise"
+  },
+  {
+   "title": "Freelance Medical Editor (West Coast)",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010318241586",
+   "description": "Seattle, WA, USA · nan",
+   "date": "2026-11-06",
+   "source": "Glassdoor",
+   "company": "Princeton10",
+   "pay_min": 60,
+   "pay_max": 70,
+   "pay_period": "hourly",
+   "pay_display": "$60–$70/ho",
+   "types": [
+    "freelance",
+    "contract"
+   ],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 85,
+   "fit_reason": "Medical editor, freelance, strong pay floor met"
+  },
+  {
+   "title": "Freelance Medical/Legal Post-Editors (English-Latvian)",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010318207046",
+   "description": "Colchester, CT, USA · nan",
+   "date": "2026-11-06",
+   "source": "Glassdoor",
+   "company": "IQVIA Language Solutions",
+   "pay_min": 50216,
+   "pay_max": 82456,
+   "pay_period": "annual",
+   "pay_display": "$50,216–$82,456/an",
+   "types": [
+    "freelance",
+    "contract"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Associate Medical Writer, Market Access",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010315963491",
+   "description": "Raleigh, NC, USA · nan",
+   "date": "2026-11-04",
+   "source": "Glassdoor",
+   "company": "Precision AQ",
+   "pay_min": 55000,
+   "pay_max": 70000,
+   "pay_period": "annual",
+   "pay_display": "$55,000–$70,000/an",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 68,
+   "fit_reason": "Medical writer market access, below pay floor, in-office"
+  },
+  {
+   "title": "Associate Medical Writer, Market Access",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010315963495",
+   "description": "Raleigh, NC, USA · nan",
+   "date": "2026-11-04",
+   "source": "Glassdoor",
+   "company": "Precision Medicine Group",
+   "pay_min": 55000,
+   "pay_max": 70000,
+   "pay_period": "annual",
+   "pay_display": "$55,000–$70,000/an",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 68,
+   "fit_reason": "Medical writer market access, below pay floor, in-office"
+  },
+  {
+   "title": "Associate Director, Medical Writing - Experimental Medicine - Remote",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010314276712",
+   "description": "Ridgefield, CT, USA · nan",
+   "date": "2026-11-02",
+   "source": "Glassdoor",
+   "company": "BI Pharmaceuticals, Inc.",
+   "pay_min": 97753,
+   "pay_max": 136917,
+   "pay_period": "annual",
+   "pay_display": "$97,753–$136,917/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "writing",
+   "fit_score": 78,
+   "fit_reason": "Medical writing, pharma, remote, strong salary, good fit"
+  },
+  {
+   "title": "Senior Medical Writer/Medical Writer II - Brand/Promo",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010311344908",
+   "description": "nan · nan",
+   "date": "2026-10-30",
+   "source": "Glassdoor",
+   "company": "Lumanity",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 75,
+   "fit_reason": "Medical writing, brand/promo; lacks location/pay details"
   },
   {
    "title": "Medical Writer, Encores",
@@ -404,8 +790,8 @@
    ],
    "locations": [],
    "category": "writing",
-   "fit_score": 65,
-   "fit_reason": "Medical writing, pharma, but in-office required"
+   "fit_score": 62,
+   "fit_reason": "Medical writing but full-time in-office Illinois role"
   },
   {
    "title": "YouTube Video Editor for Health & Nutrition Channel (8 videos/month, ongoing)",
@@ -426,20 +812,7 @@
    ],
    "category": "writing",
    "fit_score": 28,
-   "fit_reason": "Health topic but video editing role, pay below floor"
-  },
-  {
-   "title": "Senior Medical Writer",
-   "url": "https://www.indeed.com/viewjob?jk=634cc88dac3891f7",
-   "description": "Atlanta, GA, USA · A BOLDSCIENCE Senior Medical Writer is starting to gain experience working across a range of deliverables and therapy areas within the medical communications industry. They have developed good technical writing skills and can quickly get up to speed with new therapy areas and client accounts. They have a strong scienti",
-   "date": "2026-11-24",
-   "source": "Indeed",
-   "company": "BOLDSCIENCE",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 48,
-   "fit_reason": "Medical writing but location/work arrangement unclear"
+   "fit_reason": "Video editing not writing, health topic, pay below floor"
   },
   {
    "title": "Medical Editor - Market Access Marketing",
@@ -455,8 +828,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 45,
-   "fit_reason": "Medical editing but below pay floor, in-office"
+   "fit_score": 48,
+   "fit_reason": "Below pay floor ($54k); market access focus limits fit"
   },
   {
    "title": "Sr. Manager, Regulatory Writer",
@@ -474,8 +847,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Regulatory writing, healthcare focus, remote, but specialized niche"
+   "fit_score": 65,
+   "fit_reason": "Regulatory writing, healthcare, remote, strong pay, narrow scope"
   },
   {
    "title": "Senior Medical Writer",
@@ -491,8 +864,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 62,
-   "fit_reason": "Medical writing, healthcare, remote, but clinical specialist role"
+   "fit_score": 72,
+   "fit_reason": "Medical writing, healthcare, remote, details incomplete"
   },
   {
    "title": "Associate Medical Writer",
@@ -508,25 +881,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 65,
-   "fit_reason": "Medical writing, healthcare, remote, but clinical specialist role"
-  },
-  {
-   "title": "RWE Senior Medical Writer",
-   "url": "https://www.indeed.com/viewjob?jk=22b3bda0713e033d",
-   "description": "Blue Bell, PA, USA · Senior Medical Writer - Remote  \n  \n\nICON is a global healthcare intelligence and clinical research organisation united by a mission to bring new medicines and treatments to patients faster.\n\n  \n  \n\nAs a values-driven organisation, integrity, collaboration, agility, and inclusion are at the heart of how we work and int",
-   "date": "2026-11-13",
-   "source": "Indeed",
-   "company": "ICON plc",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
    "fit_score": 85,
-   "fit_reason": "Remote senior medical writing, strong health fit"
+   "fit_reason": "Remote medical writing, clinical complexity translation focus"
   },
   {
    "title": "Technical Writer III - CDP",
@@ -544,8 +900,8 @@
    ],
    "locations": [],
    "category": "writing",
-   "fit_score": 62,
-   "fit_reason": "Technical writing, health context, but in-office"
+   "fit_score": 55,
+   "fit_reason": "Technical writing health context; in-office Bethesda location"
   },
   {
    "title": "Director, Medical Writing - Market Access Promotional Agency",
@@ -562,40 +918,7 @@
    "locations": [],
    "category": "writing",
    "fit_score": 58,
-   "fit_reason": "Medical writing director but in-office NYC role"
-  },
-  {
-   "title": "Freelance Medical Editor (West Coast)",
-   "url": "https://www.indeed.com/viewjob?jk=102dd270931e2a68",
-   "description": "Seattle, WA, USA · We are looking for a freelance Medical Editor to join our team. You will be responsible for a range of editorial services, including medical editing, copyediting, and fact-checking of a wide range of digital and print pharmaceutical advertising materials, internal and external presentations, and corporate communication",
-   "date": "2026-11-05",
-   "source": "Indeed",
-   "company": "Princeton10",
-   "pay_min": 60,
-   "pay_max": 70,
-   "pay_period": "hourly",
-   "pay_display": "$60–$70/ho",
-   "types": [
-    "freelance",
-    "contract"
-   ],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 85,
-   "fit_reason": "Medical editing, freelance, strong fit, remote"
-  },
-  {
-   "title": "Freelance Medical/Legal Post-Editors (English-Latvian)",
-   "url": "https://www.indeed.com/viewjob?jk=caf267b1060638d4",
-   "description": "Colchester, CT, USA · **Exciting Opportunity for Freelance Legal/Medical Post-Editors (English-Latvian)!**\n------------------------------------------------------------------------------------\n\nDo you have a keen eye for detail and a passion for ensuring the accuracy and clarity of medical documents? We’re on the hunt for skilled **Freelance",
-   "date": "2026-11-05",
-   "source": "Indeed",
-   "company": "IQVIA Language Solutions",
-   "types": [
-    "freelance"
-   ],
-   "locations": [],
-   "category": "other"
+   "fit_reason": "Strong pay/seniority but full-time in-office New York"
   },
   {
    "title": "Associate Medical Writer, Market Access",
@@ -611,8 +934,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 50,
-   "fit_reason": "Medical writing but below pay floor, in-office"
+   "fit_score": 52,
+   "fit_reason": "Below pay floor ($55k); promotional medical writing focus"
   },
   {
    "title": "Associate Medical Writer, Market Access",
@@ -628,8 +951,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 50,
-   "fit_reason": "Medical writing but below pay floor, in-office"
+   "fit_score": 52,
+   "fit_reason": "Below pay floor ($55k); promotional medical writing focus"
   },
   {
    "title": "Associate Director, Medical Writing - Experimental Medicine - Remote",
@@ -645,8 +968,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 88,
-   "fit_reason": "Remote medical writing, strategy, clinical development focus"
+   "fit_score": 72,
+   "fit_reason": "Medical writing expertise, hybrid location not ideal"
   },
   {
    "title": "Senior Medical Writer/Medical Writer II - Brand/Promo",
@@ -660,44 +983,44 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Remote medical writing but brand/promo oriented"
+   "fit_score": 68,
+   "fit_reason": "Medical writing but pharma/promo focus, not core strength"
   },
   {
-   "title": "Client Implementation Medical Writer",
-   "url": "https://www.indeed.com/viewjob?jk=05202b4898559115",
-   "description": "Remote, USA · Overview:\n\nCertara is a growing company that provides a dynamic and exciting place to work. Our purpose is to assist in accelerating the development of meaningful medicines that make an impact on our society and the people that need them most. Innovation and proactivity are highly valued, and everyone is given the oppo",
-   "date": "2026-10-29",
-   "source": "Indeed",
-   "company": "Certara",
-   "types": [
-    "full-time"
-   ],
+   "title": "Public Health Communication Specialist- Hybrid- Nashville, TN",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010316831878",
+   "description": "Nashville, TN, USA · nan",
+   "date": "2026-11-05",
+   "source": "Glassdoor",
+   "company": "INFO ORIGIN INC",
+   "pay_min": 35,
+   "pay_max": 40,
+   "pay_period": "hourly",
+   "pay_display": "$35–$40/ho",
+   "types": [],
    "locations": [
-    "remote"
+    "hybrid"
    ],
-   "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Remote medical writing, clinical development, good fit"
+   "category": "other"
   },
   {
-   "title": "Director, Global Medical Writing",
-   "url": "https://www.indeed.com/viewjob?jk=27a5c3e7fa233c89",
-   "description": "Waltham, MA, USA · **Job Description**\n\nThe Medical Writing team is looking for an experienced, self-motivated individual knowledgeable of the current MW landscape to serve as Director, Global Medical Writing. The individual will be the lead writer across programs/submissions that are part of the growing clinical pipeline.\n\nIn this high",
-   "date": "2026-10-28",
-   "source": "Indeed",
-   "company": "Deciphera Pharmaceuticals",
-   "pay_min": 175000,
-   "pay_max": 215000,
+   "title": "Public Health Communications & Outreach Specialist",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010314883615",
+   "description": "Atlanta, GA, USA · nan",
+   "date": "2026-11-03",
+   "source": "Glassdoor",
+   "company": "Blu Omega LLC",
+   "pay_min": 85,
+   "pay_max": 110000,
    "pay_period": "annual",
-   "pay_display": "$175,000–$215,000/an",
+   "pay_display": "$85–$110,000/an",
    "types": [
-    "full-time"
+    "contract"
    ],
    "locations": [],
-   "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Strong medical writing fit but likely in-office"
+   "category": "marketing",
+   "fit_score": 72,
+   "fit_reason": "Public health focus, remote/flexible, pay acceptable"
   },
   {
    "title": "Public Health Communication Specialist- Hybrid- Nashville, TN",
@@ -737,7 +1060,18 @@
    ],
    "category": "marketing",
    "fit_score": 72,
-   "fit_reason": "Public health content, remote option, but full-time only"
+   "fit_reason": "Public health content, remote option, but full-time preferred"
+  },
+  {
+   "title": "Vice President, Client Experience",
+   "url": "https://www.linkedin.com/jobs/view/4479175597",
+   "description": "New York, NY, USA · nan",
+   "date": "2026-11-28",
+   "source": "Linkedin",
+   "company": "Weber Shandwick",
+   "types": [],
+   "locations": [],
+   "category": "other"
   },
   {
    "title": "Sr Mgr, Research Communications & Knowledge Translation",
@@ -749,21 +1083,21 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 52,
-   "fit_reason": "Healthcare communications but manager role, unclear details"
+   "fit_score": 71,
+   "fit_reason": "Research communications fit; lacks pay/location clarity details"
   },
   {
-   "title": "Assistant Manager, Communications Office, PHCC",
-   "url": "https://www.linkedin.com/jobs/view/4461045526",
-   "description": "Singapore, Singapore · nan",
+   "title": "Assistant Consultant, Health & Wellness Communications",
+   "url": "https://www.linkedin.com/jobs/view/4492664457",
+   "description": "Toronto, Ontario, Canada · nan",
    "date": "2026-11-24",
    "source": "Linkedin",
-   "company": "National University Health System",
+   "company": "Burson",
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 35,
-   "fit_reason": "Healthcare admin, Singapore location, weak fit overall"
+   "fit_score": 38,
+   "fit_reason": "Health/wellness but junior role; lacks pay/location details"
   },
   {
    "title": "Chargé de communication (siège) - H/F",
@@ -772,17 +1106,6 @@
    "date": "2026-11-23",
    "source": "Linkedin",
    "company": "INSERM",
-   "types": [],
-   "locations": [],
-   "category": "other"
-  },
-  {
-   "title": "Associate Director, Patient Content - Patient Engagement",
-   "url": "https://www.linkedin.com/jobs/view/4494008567",
-   "description": "Ontario, Canada · nan",
-   "date": "2026-11-23",
-   "source": "Linkedin",
-   "company": "OPEN Health",
    "types": [],
    "locations": [],
    "category": "other"
@@ -820,7 +1143,7 @@
    "locations": [],
    "category": "marketing",
    "fit_score": 72,
-   "fit_reason": "Healthcare comms VP, but in-office NYC location"
+   "fit_reason": "Healthcare communications executive; lacks pay/remote/contract details"
   },
   {
    "title": "Communications Specialist - External Communications",
@@ -832,8 +1155,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 68,
-   "fit_reason": "Healthcare communications, in-office Duluth MN role"
+   "fit_score": 35,
+   "fit_reason": "Healthcare org, but in-office Duluth location"
   },
   {
    "title": "Senior/ Assistant Manager, Communications",
@@ -845,8 +1168,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 65,
-   "fit_reason": "Healthcare comms manager, in-office Singapore location"
+   "fit_score": 45,
+   "fit_reason": "Healthcare comms, manager-level, Singapore location"
   },
   {
    "title": "CDI - CONSULTANT RP & INFLUENCE (SANTE / MEDICAL) - F/H",
@@ -880,8 +1203,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 65,
-   "fit_reason": "Healthcare corporate comms, in-office Singapore location"
+   "fit_score": 48,
+   "fit_reason": "Healthcare corporate comms, Singapore in-office role"
   },
   {
    "title": "Assistente de Comunicação e Marketing",
@@ -893,8 +1216,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 35,
-   "fit_reason": "Healthcare marketing, in-office Brazil, language barrier"
+   "fit_score": 32,
+   "fit_reason": "Healthcare marketing/comms, Brazil in-office, language barrier"
   },
   {
    "title": "Communications Specialist - Aspire Health",
@@ -906,19 +1229,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 70,
-   "fit_reason": "Healthcare comms specialist, in-office CA location"
-  },
-  {
-   "title": "Vice President, Client Experience",
-   "url": "https://www.linkedin.com/jobs/view/4479175597",
-   "description": "New York, NY, USA · nan",
-   "date": "2026-11-06",
-   "source": "Linkedin",
-   "company": "Weber Shandwick",
-   "types": [],
-   "locations": [],
-   "category": "other"
+   "fit_score": 55,
+   "fit_reason": "Healthcare comms specialist, in-office California location"
   },
   {
    "title": "Manager of Behavioral Health Marketing and Communications",
@@ -930,8 +1242,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 60,
-   "fit_reason": "Healthcare marketing focus, in-office Houston role"
+   "fit_score": 50,
+   "fit_reason": "Healthcare behavioral health marketing comms, in-office Houston"
   },
   {
    "title": "Senior Assistant Manager / Manager, Corporate Communications",
@@ -943,8 +1255,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 65,
-   "fit_reason": "Healthcare corporate comms, in-office Singapore location"
+   "fit_score": 48,
+   "fit_reason": "Healthcare corporate comms, Singapore in-office role"
   },
   {
    "title": "Deputy Director, Communications",
@@ -956,8 +1268,8 @@
    "types": [],
    "locations": [],
    "category": "marketing",
-   "fit_score": 75,
-   "fit_reason": "External healthcare comms director, in-office Miami"
+   "fit_score": 52,
+   "fit_reason": "Healthcare population health comms, Singapore location"
   },
   {
    "title": "Director External Communications",
@@ -968,7 +1280,9 @@
    "company": "MoonLake Immunotherapeutics (NASDAQ: MLTX)",
    "types": [],
    "locations": [],
-   "category": "marketing"
+   "category": "marketing",
+   "fit_score": 72,
+   "fit_reason": "Biotech external comms director, remote-friendly likely"
   },
   {
    "title": "Coordinador de Comunicaciones Externas - RedSalud CChC",
@@ -977,6 +1291,36 @@
    "date": "2026-10-30",
    "source": "Linkedin",
    "company": "RedSalud CCHC",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Group Copy Supervisor - Healthcare Advertising",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010328681402",
+   "description": "Boston, MA, USA · nan",
+   "date": "2026-11-18",
+   "source": "Glassdoor",
+   "company": "Precision Medicine Group",
+   "pay_min": 100000,
+   "pay_max": 130000,
+   "pay_period": "annual",
+   "pay_display": "$100,000–$130,000/an",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Group Copy Supervisor - Healthcare Advertising",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010328681400",
+   "description": "Gladstone, NJ, USA · nan",
+   "date": "2026-11-18",
+   "source": "Glassdoor",
+   "company": "Precision AQ",
+   "pay_min": 100000,
+   "pay_max": 130000,
+   "pay_period": "annual",
+   "pay_display": "$100,000–$130,000/an",
    "types": [],
    "locations": [],
    "category": "other"
@@ -1012,6 +1356,19 @@
    "category": "other"
   },
   {
+   "title": "21GRAMS- Senior Copywriter",
+   "url": "https://www.linkedin.com/jobs/view/4479896182",
+   "description": "Chicago, IL, USA · nan",
+   "date": "2026-11-27",
+   "source": "Linkedin",
+   "company": "Real Chemistry",
+   "types": [],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 68,
+   "fit_reason": "Healthcare copywriter, Real Chemistry, likely remote/flexible"
+  },
+  {
    "title": "Senior Copywriter",
    "url": "https://www.linkedin.com/jobs/view/4485797212",
    "description": "New York, NY, USA · nan",
@@ -1022,7 +1379,7 @@
    "locations": [],
    "category": "writing",
    "fit_score": 72,
-   "fit_reason": "Health agency copywriting, in-office location concern"
+   "fit_reason": "Health agency, senior role, but in-office NYC location"
   },
   {
    "title": "Senior Copywriter",
@@ -1034,8 +1391,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 65,
-   "fit_reason": "Health focus unclear, NYC in-office role"
+   "fit_score": 68,
+   "fit_reason": "Health copywriting, senior level, in-office only concern"
   },
   {
    "title": "Senior Copywriter (DTC Pharma Experience Preferred)",
@@ -1048,7 +1405,7 @@
    "locations": [],
    "category": "writing",
    "fit_score": 75,
-   "fit_reason": "Pharma DTC experience relevant, location not ideal"
+   "fit_reason": "Pharma DTC copywriting, senior, in-office Chicago role"
   },
   {
    "title": "Senior Copywriter",
@@ -1060,8 +1417,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 50,
-   "fit_reason": "Generic copywriting, UK location, no health focus"
+   "fit_score": 45,
+   "fit_reason": "Senior copywriter but UK-based, no health context"
   },
   {
    "title": "Senior Copywriter",
@@ -1073,8 +1430,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Specialized health agency, strong fit, in-office"
+   "fit_score": 74,
+   "fit_reason": "Health agency expertise, senior copywriter, in-office NYC"
   },
   {
    "title": "Senior Copywriter",
@@ -1086,8 +1443,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Health-focused, limited details, NYC in-office"
+   "fit_score": 70,
+   "fit_reason": "Health communications focus, senior copywriter, in-office only"
   },
   {
    "title": "Senior Copywriter",
@@ -1099,8 +1456,8 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 60,
-   "fit_reason": "Precision marketing focus, health relevance unclear"
+   "fit_score": 65,
+   "fit_reason": "Precision marketing agency, copywriter, in-office NYC based"
   },
   {
    "title": "Senior Copywriter",
@@ -1113,7 +1470,7 @@
    "locations": [],
    "category": "writing",
    "fit_score": 76,
-   "fit_reason": "Health-specialized agency, strong copywriting fit, in-office"
+   "fit_reason": "Health agency, senior copywriting, in-office location concern"
   },
   {
    "title": "Senior Copywriter - Oncology Specialization",
@@ -1125,21 +1482,372 @@
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 80,
-   "fit_reason": "Oncology specialization, health expertise valued, Canada"
+   "fit_score": 78,
+   "fit_reason": "Oncology specialization, senior level, in-office Toronto"
   },
   {
-   "title": "21GRAMS- Senior Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4479896182",
-   "description": "Chicago, IL, USA · nan",
-   "date": "2026-11-06",
-   "source": "Linkedin",
-   "company": "Real Chemistry",
+   "title": "Instructional Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010337919782",
+   "description": "nan · nan",
+   "date": "2026-11-28",
+   "source": "Glassdoor",
+   "company": "viva",
+   "pay_min": 39,
+   "pay_max": 44,
+   "pay_period": "hourly",
+   "pay_display": "$39–$44/ho",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Creative Designer - US Remote",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010335848446",
+   "description": "Minnetonka, MN, USA · nan",
+   "date": "2026-11-26",
+   "source": "Glassdoor",
+   "company": "UnitedHealthcare",
+   "pay_min": 72800,
+   "pay_max": 130000,
+   "pay_period": "annual",
+   "pay_display": "$72,800–$130,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Copy Editor, Professional",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010334868897",
+   "description": "New York, NY, USA · nan",
+   "date": "2026-11-25",
+   "source": "Glassdoor",
+   "company": "Morning Brew Inc.",
+   "pay_min": 40,
+   "pay_max": 45,
+   "pay_period": "hourly",
+   "pay_display": "$40–$45/ho",
+   "types": [
+    "contract",
+    "part-time"
+   ],
+   "locations": [],
+   "category": "writing",
+   "fit_score": 20,
+   "fit_reason": "Generic editing, below pay floor ($40–45/hr)"
+  },
+  {
+   "title": "Instructional Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010333646798",
+   "description": "nan · nan",
+   "date": "2026-11-24",
+   "source": "Glassdoor",
+   "company": "CACI",
+   "pay_min": 68400,
+   "pay_max": 143700,
+   "pay_period": "annual",
+   "pay_display": "$68,400–$143,700/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Senior Instructional Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010333646795",
+   "description": "nan · nan",
+   "date": "2026-11-24",
+   "source": "Glassdoor",
+   "company": "CACI",
+   "pay_min": 82100,
+   "pay_max": 172400,
+   "pay_period": "annual",
+   "pay_display": "$82,100–$172,400/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Integrated Design Strategist",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010334079726",
+   "description": "nan · nan",
+   "date": "2026-11-24",
+   "source": "Glassdoor",
+   "company": "EPAM Systems, Inc.",
+   "pay_min": 120000,
+   "pay_max": 160000,
+   "pay_period": "annual",
+   "pay_display": "$120,000–$160,000/an",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "UX/UI Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010333454700",
+   "description": "nan · nan",
+   "date": "2026-11-24",
+   "source": "Glassdoor",
+   "company": "Provation",
+   "pay_min": 109700,
+   "pay_max": 183200,
+   "pay_period": "annual",
+   "pay_display": "$109,700–$183,200/an",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Senior Motion & Graphic Designer (Remote)",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010332944840",
+   "description": "nan · nan",
+   "date": "2026-11-23",
+   "source": "Glassdoor",
+   "company": "Silverback Strategies",
+   "pay_min": 90000,
+   "pay_max": 110000,
+   "pay_period": "annual",
+   "pay_display": "$90,000–$110,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Dental Sales - Instructional Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010332514150",
+   "description": "nan · nan",
+   "date": "2026-11-21",
+   "source": "Glassdoor",
+   "company": "Henry Schein, Inc.",
+   "pay_min": 56604,
+   "pay_max": 88443,
+   "pay_period": "annual",
+   "pay_display": "$56,604–$88,443/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Senior Digital Visual Designer (Contract)",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010199702226",
+   "description": "New York, NY, USA · nan",
+   "date": "2026-11-18",
+   "source": "Glassdoor",
+   "company": "Velir",
+   "pay_min": 90,
+   "pay_max": 110,
+   "pay_period": "hourly",
+   "pay_display": "$90–$110/ho",
+   "types": [
+    "contract",
+    "part-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Associate Director, Editorial",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010323793022",
+   "description": "nan · nan",
+   "date": "2026-11-12",
+   "source": "Glassdoor",
+   "company": "サイネオス・ヘルス",
+   "pay_min": 100000,
+   "pay_max": 125000,
+   "pay_period": "annual",
+   "pay_display": "$100,000–$125,000/an",
    "types": [],
    "locations": [],
    "category": "writing",
-   "fit_score": 73,
-   "fit_reason": "Real Chemistry health focus, copywriting role, Chicago"
+   "fit_score": 81,
+   "fit_reason": "Editorial director, health company, strong salary, remote unknown"
+  },
+  {
+   "title": "Group Copy Supervisor",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010322667524",
+   "description": "nan · nan",
+   "date": "2026-11-11",
+   "source": "Glassdoor",
+   "company": "Lumanity",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Financial Systems Training Specialist",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010321493378",
+   "description": "nan · nan",
+   "date": "2026-11-10",
+   "source": "Glassdoor",
+   "company": "CACI",
+   "pay_min": 75200,
+   "pay_max": 158100,
+   "pay_period": "annual",
+   "pay_display": "$75,200–$158,100/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Sr. Graphic Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010321204179",
+   "description": "nan · nan",
+   "date": "2026-11-10",
+   "source": "Glassdoor",
+   "company": "Harrow, Inc.",
+   "pay_min": 90000,
+   "pay_max": 90000,
+   "pay_period": "annual",
+   "pay_display": "Up to $90,000/an",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Deputy Director, Care Transformation",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010318990698",
+   "description": "nan · nan",
+   "date": "2026-11-06",
+   "source": "Glassdoor",
+   "company": "National Association Of Community Health Centers Inc",
+   "pay_min": 101000,
+   "pay_max": 130000,
+   "pay_period": "annual",
+   "pay_display": "$101,000–$130,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "SharePoint/Web Administrator",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010317675352",
+   "description": "nan · nan",
+   "date": "2026-11-05",
+   "source": "Glassdoor",
+   "company": "NetImpact Strategies",
+   "pay_min": 90000,
+   "pay_max": 108000,
+   "pay_period": "annual",
+   "pay_display": "$90,000–$108,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "LMS Administrator",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010317675353",
+   "description": "nan · nan",
+   "date": "2026-11-05",
+   "source": "Glassdoor",
+   "company": "NetImpact Strategies",
+   "pay_min": 75000,
+   "pay_max": 98000,
+   "pay_period": "annual",
+   "pay_display": "$75,000–$98,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Principal Learning Experience Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010316679890",
+   "description": "Atlanta, GA, USA · nan",
+   "date": "2026-11-05",
+   "source": "Glassdoor",
+   "company": "OneTrust",
+   "pay_min": 90000,
+   "pay_max": 120000,
+   "pay_period": "annual",
+   "pay_display": "$90,000–$120,000/an",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Creative Video Producer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010317120614",
+   "description": "Boston, MA, USA · nan",
+   "date": "2026-11-05",
+   "source": "Glassdoor",
+   "company": "Care Access",
+   "pay_min": 90000,
+   "pay_max": 120000,
+   "pay_period": "annual",
+   "pay_display": "$90,000–$120,000/an",
+   "types": [
+    "full-time"
+   ],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Product Designer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010311951087",
+   "description": "Boston, MA, USA · nan",
+   "date": "2026-10-31",
+   "source": "Glassdoor",
+   "company": "Care Access",
+   "pay_min": 85000,
+   "pay_max": 115000,
+   "pay_period": "annual",
+   "pay_display": "$85,000–$115,000/an",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Instructional Designer",
+   "url": "https://www.indeed.com/viewjob?jk=54989fd9b498b6fc",
+   "description": "Remote, USA · Fully remote in the Eastern or Central time zones.  \n  \n\nJob Duties:\n  \nCollaborate with sales trainers to define and document project goals and learning objectives.\n  \nConduct research and collaborate with subject experts to obtain source content.\n  \nCreate storyboard to ensure alignment before developing content.\n  \n",
+   "date": "2026-11-27",
+   "source": "Indeed",
+   "company": "VIVA",
+   "pay_min": 39,
+   "pay_max": 44,
+   "pay_period": "hourly",
+   "pay_display": "$39–$44/ho",
+   "types": [],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "Head of Brand",
+   "url": "https://www.indeed.com/viewjob?jk=88b72af83183b859",
+   "description": "Remote, USA · Cofertility is a Series A company focused on the fast-growing field of fertility and family planning. Through Cofertility Freeze, women can freeze their eggs for free when they donate eggs to a family who can't otherwise conceive. Cofertility Family serves as a more transparent, ethical egg donor matching platform. We",
+   "date": "2026-11-27",
+   "source": "Indeed",
+   "company": "Cofertility",
+   "types": [
+    "full-time"
+   ],
+   "locations": [
+    "remote"
+   ],
+   "category": "marketing",
+   "fit_score": 45,
+   "fit_reason": "Healthcare company but brand leadership, not writing-focused"
   },
   {
    "title": "Creative Designer - US Remote",
@@ -1175,26 +1883,7 @@
     "part-time"
    ],
    "locations": [],
-   "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Non-health content, below pay floor"
-  },
-  {
-   "title": "UX/UI Designer",
-   "url": "https://www.indeed.com/viewjob?jk=d0da402d85addd6e",
-   "description": "Remote, USA · The UX/UI Designer is responsible for leading end-to-end, user-centered design for healthcare SaaS applications, translating complex clinical and administrative workflows into intuitive, accessible experiences. This role drives experience strategy, partners closely with Product and Engineering to shape roadmaps, and in",
-   "date": "2026-11-23",
-   "source": "Indeed",
-   "company": "ProVation",
-   "pay_min": 109700,
-   "pay_max": 183200,
-   "pay_period": "annual",
-   "pay_display": "$109,700–$183,200/an",
-   "types": [],
-   "locations": [
-    "remote"
-   ],
-   "category": "other"
+   "category": "writing"
   },
   {
    "title": "Instructional Designer",
@@ -1210,6 +1899,23 @@
    "types": [
     "full-time"
    ],
+   "locations": [
+    "remote"
+   ],
+   "category": "other"
+  },
+  {
+   "title": "UX/UI Designer",
+   "url": "https://www.indeed.com/viewjob?jk=d0da402d85addd6e",
+   "description": "Remote, USA · The UX/UI Designer is responsible for leading end-to-end, user-centered design for healthcare SaaS applications, translating complex clinical and administrative workflows into intuitive, accessible experiences. This role drives experience strategy, partners closely with Product and Engineering to shape roadmaps, and in",
+   "date": "2026-11-23",
+   "source": "Indeed",
+   "company": "ProVation",
+   "pay_min": 109700,
+   "pay_max": 183200,
+   "pay_period": "annual",
+   "pay_display": "$109,700–$183,200/an",
+   "types": [],
    "locations": [
     "remote"
    ],
@@ -1254,27 +1960,6 @@
    "category": "other"
   },
   {
-   "title": "Marketing Manager",
-   "url": "https://www.indeed.com/viewjob?jk=23f016d0e21c06a1",
-   "description": "Remote, USA · **Overview**\n\nWe're Looking for a Superstar! As our Full-Time Marketing Manager, you will own and operate our marketing function, from high-level strategy to hands-on execution oversight. We have tremendous assets to leverage, including internationally recognized physicians, a large social media following, YouTube, boo",
-   "date": "2026-11-19",
-   "source": "Indeed",
-   "company": "Ovadia Heart Health",
-   "pay_min": 105000,
-   "pay_max": 140000,
-   "pay_period": "annual",
-   "pay_display": "$105,000–$140,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [
-    "remote"
-   ],
-   "category": "marketing",
-   "fit_score": 35,
-   "fit_reason": "Full-time marketing, not writing/content focus role"
-  },
-  {
    "title": "Senior Digital Visual Designer (Contract)",
    "url": "https://www.indeed.com/viewjob?jk=951edf06f536c2ef",
    "description": "New York, NY, USA · Velir x Brooklyn Data is an established mid-sized agency with a top-tier portfolio of clients, ranging from the world's largest non-profits to Fortune 500 brands. As of 2023, Velir acquired Brooklyn Data Company, a premier data and analytics consultancy focused on leadership, process improvement, implementation, and ad",
@@ -1307,7 +1992,7 @@
    ],
    "category": "marketing",
    "fit_score": 15,
-   "fit_reason": "Design-focused, non-health, not writing-oriented"
+   "fit_reason": "Non-healthcare fintech, brand design not writing"
   },
   {
    "title": "Sr. Graphic Designer",
@@ -1359,8 +2044,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 48,
-   "fit_reason": "Healthcare company but marketing coordinator, light writing"
+   "fit_score": 50,
+   "fit_reason": "HCA Healthcare connection but marketing coordinator level"
   },
   {
    "title": "LMS Administrator",
@@ -1484,249 +2169,53 @@
    "category": "other"
   },
   {
-   "title": "Pharmaceutical Digital Copywriter",
-   "url": "https://www.indeed.com/viewjob?jk=1c4615cbdab28960",
-   "description": "Blue Bell, PA, USA · Copywriter - United States (Remote)  \n  \n\nICON is a global healthcare intelligence and clinical research organisation united by a mission to bring new medicines and treatments to patients faster.\n\n  \n  \n\nAs a values-driven organisation, integrity, collaboration, agility, and inclusion are at the heart of how we work an",
-   "date": "2026-10-28",
-   "source": "Indeed",
-   "company": "ICON plc",
+   "title": "Senior Copywriter",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010335865165",
+   "description": "West Chester, PA, USA · nan",
+   "date": "2026-11-26",
+   "source": "Glassdoor",
+   "company": "Synchrony Group",
+   "pay_min": 72540,
+   "pay_max": 96208,
+   "pay_period": "annual",
+   "pay_display": "$72,540–$96,208/an",
    "types": [
     "full-time"
    ],
-   "locations": [
-    "remote"
-   ],
-   "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "Remote pharma copywriting, plain-language health content"
-  },
-  {
-   "title": "Conversational Designer/Specialist (m/w/d)",
-   "url": "https://www.linkedin.com/jobs/view/4486354782",
-   "description": "Coblenz, Rhineland-Palatinate, Germany · nan",
-   "date": "2026-11-25",
-   "source": "Linkedin",
-   "company": "CompuGroup Medical SE & Co. KGaA",
-   "types": [],
    "locations": [],
-   "category": "other"
+   "category": "writing"
   },
   {
-   "title": "Associate Medical Content Writer",
-   "url": "https://www.linkedin.com/jobs/view/4494477844",
-   "description": "Bengaluru, Karnataka, India · nan",
-   "date": "2026-11-25",
-   "source": "Linkedin",
-   "company": "Noora Health",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Medical content writing, location outside preference"
-  },
-  {
-   "title": "AVP, Content Design",
-   "url": "https://www.linkedin.com/jobs/view/4478131145",
-   "description": "Singapore, Singapore · nan",
-   "date": "2026-11-25",
-   "source": "Linkedin",
-   "company": "Great Eastern",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 48,
-   "fit_reason": "Content design but non-health focus unclear"
-  },
-  {
-   "title": "Senior Content Designer",
-   "url": "https://www.linkedin.com/jobs/view/4494330094",
-   "description": "USA · nan",
-   "date": "2026-11-24",
-   "source": "Linkedin",
-   "company": "Jobgether",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 45,
-   "fit_reason": "Content design role, non-health context"
-  },
-  {
-   "title": "Technical Writing & Instructional Design",
-   "url": "https://www.linkedin.com/jobs/view/4423229485",
-   "description": "Cincinnati, OH, USA · nan",
-   "date": "2026-11-21",
-   "source": "Linkedin",
-   "company": "Medpace",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 68,
-   "fit_reason": "Technical writing health context, in-office location"
-  },
-  {
-   "title": "Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4492956111",
-   "description": "Chicago, IL, USA · nan",
+   "title": "Senior UX Writer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010331405307",
+   "description": "Redmond, WA, USA · nan",
    "date": "2026-11-20",
-   "source": "Linkedin",
-   "company": "NOCD",
+   "source": "Glassdoor",
+   "company": "Blueprint Technologies",
+   "pay_min": 40,
+   "pay_max": 48,
+   "pay_period": "hourly",
+   "pay_display": "$40–$48/ho",
    "types": [],
    "locations": [],
-   "category": "writing",
-   "fit_score": 75,
-   "fit_reason": "Content strategy, mental health company, Chicago"
+   "category": "writing"
   },
   {
-   "title": "Staff Content Designer - Patient Experience",
-   "url": "https://www.linkedin.com/jobs/view/4483745909",
-   "description": "Columbus, OH, USA · nan",
+   "title": "Staff Technical Writer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010328287276",
+   "description": "nan · nan",
    "date": "2026-11-17",
-   "source": "Linkedin",
-   "company": "Gifthealth",
-   "types": [],
+   "source": "Glassdoor",
+   "company": "GitLab",
+   "pay_min": 139200,
+   "pay_max": 235200,
+   "pay_period": "annual",
+   "pay_display": "$139,200–$235,200/an",
+   "types": [
+    "full-time"
+   ],
    "locations": [],
-   "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Patient experience focus, content design, healthcare"
-  },
-  {
-   "title": "Scientific Digital and Visual Specialist",
-   "url": "https://www.linkedin.com/jobs/view/4480099132",
-   "description": "Nashville Metropolitan Area · nan",
-   "date": "2026-11-17",
-   "source": "Linkedin",
-   "company": "Meharry Medical College",
-   "types": [],
-   "locations": [],
-   "category": "other"
-  },
-  {
-   "title": "Senior UX Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4489888824",
-   "description": "San Diego, CA, USA · nan",
-   "date": "2026-11-14",
-   "source": "Linkedin",
-   "company": "Insulet Corporation",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "UX content strategy, medical device company"
-  },
-  {
-   "title": "Senior UX Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4489886788",
-   "description": "Acton, MA, USA · nan",
-   "date": "2026-11-14",
-   "source": "Linkedin",
-   "company": "Insulet Corporation",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 85,
-   "fit_reason": "UX content strategy healthcare, Massachusetts location"
-  },
-  {
-   "title": "Sr. UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4483161567",
-   "description": "Torrance, CA, USA · nan",
-   "date": "2026-11-14",
-   "source": "Linkedin",
-   "company": "Herbalife",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "UX writing non-health, wellness supplement company"
-  },
-  {
-   "title": "Sr UX Content Designer",
-   "url": "https://www.linkedin.com/jobs/view/4454916134",
-   "description": "USA · nan",
-   "date": "2026-11-13",
-   "source": "Linkedin",
-   "company": "HealthEquity",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 85,
-   "fit_reason": "Healthcare UX content, remote possible, strong fit"
-  },
-  {
-   "title": "Senior Medical Copy Writer",
-   "url": "https://www.linkedin.com/jobs/view/4456015614",
-   "description": "Iselin, NJ, USA · nan",
-   "date": "2026-11-12",
-   "source": "Linkedin",
-   "company": "Tata Consultancy Services",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 72,
-   "fit_reason": "Medical copywriting but in-office NJ location"
-  },
-  {
-   "title": "Senior Content Designer",
-   "url": "https://www.linkedin.com/jobs/view/4490339649",
-   "description": "Manchester, England, UK · nan",
-   "date": "2026-11-12",
-   "source": "Linkedin",
-   "company": "Hippo",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 45,
-   "fit_reason": "Content design but non-health, UK location"
-  },
-  {
-   "title": "Product Learning Designer, Platform",
-   "url": "https://www.linkedin.com/jobs/view/4487970810",
-   "description": "Waterloo, Ontario, Canada · nan",
-   "date": "2026-11-10",
-   "source": "Linkedin",
-   "company": "Verily Health",
-   "types": [],
-   "locations": [],
-   "category": "other"
-  },
-  {
-   "title": "Junior Content Designer",
-   "url": "https://www.linkedin.com/jobs/view/4487685642",
-   "description": "London Area, UK · nan",
-   "date": "2026-11-09",
-   "source": "Linkedin",
-   "company": "UK Health Security Agency",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 50,
-   "fit_reason": "Junior level, public health but junior role"
-  },
-  {
-   "title": "Content Design",
-   "url": "https://www.linkedin.com/jobs/view/4489103627",
-   "description": "The Home, UK · nan",
-   "date": "2026-11-09",
-   "source": "Linkedin",
-   "company": "Kainos",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 40,
-   "fit_reason": "Content design non-health, in-office UK location"
-  },
-  {
-   "title": "Content Design",
-   "url": "https://www.linkedin.com/jobs/view/4489117012",
-   "description": "Belfast, Northern Ireland, UK · nan",
-   "date": "2026-11-09",
-   "source": "Linkedin",
-   "company": "Kainos",
-   "types": [],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 40,
-   "fit_reason": "Content design non-health, in-office NI location"
+   "category": "writing"
   },
   {
    "title": "Senior Copywriter",
@@ -1739,9 +2228,7 @@
     "full-time"
    ],
    "locations": [],
-   "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Medical communications copywriting but in-office PA"
+   "category": "writing"
   },
   {
    "title": "Senior UX Writer",
@@ -1756,28 +2243,7 @@
    "pay_display": "$40–$48/ho",
    "types": [],
    "locations": [],
-   "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Below pay floor ($40-48/hr), tech not health"
-  },
-  {
-   "title": "Growth Copywriter",
-   "url": "https://www.indeed.com/viewjob?jk=6dfaeb5b13f27281",
-   "description": "Austin, TX, USA · **Why should you join Jerry?**\n\n* Join a pre-IPO startup with capital, traction, and runway ($240M funded | 40X revenue growth in 4 years | $2T market size).\n* Work closely with brilliant leaders and teammates from companies like McKinsey, BCG, Nvidia, Better, NerdWallet, SoFi, etc.\n* Disrupt a massive market and help",
-   "date": "2026-11-17",
-   "source": "Indeed",
-   "company": "Jerry.AI",
-   "pay_min": 100000,
-   "pay_max": 145000,
-   "pay_period": "annual",
-   "pay_display": "$100,000–$145,000/an",
-   "types": [
-    "full-time"
-   ],
-   "locations": [],
-   "category": "writing",
-   "fit_score": 20,
-   "fit_reason": "Growth copywriting, non-health, Austin in-office likely"
+   "category": "writing"
   },
   {
    "title": "Staff Technical Writer",
@@ -1797,278 +2263,249 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Technical writing but non-health, software focus"
+   "fit_score": 20,
+   "fit_reason": "Technical writing non-healthcare, DevSecOps platform focus"
   },
   {
-   "title": "Conversion Copywriter, Growth",
-   "url": "https://www.indeed.com/viewjob?jk=c17deae740bcad0d",
-   "description": "New York, NY, USA · **Why should you join Jerry?**\n\n* Join a pre-IPO startup with capital, traction, and runway ($240M funded | 40X revenue growth in 4 years | $2T market size).\n* Work closely with brilliant leaders and teammates from companies like McKinsey, BCG, Nvidia, Better, NerdWallet, SoFi, etc.\n* Disrupt a massive market and help",
-   "date": "2026-11-17",
-   "source": "Indeed",
-   "company": "Jerry.AI",
-   "pay_min": 100000,
-   "pay_max": 145000,
-   "pay_period": "annual",
-   "pay_display": "$100,000–$145,000/an",
+   "title": "RN Medical Policy Writer",
+   "url": "https://www.glassdoor.com/job-listing/j?jl=1010319319255",
+   "description": "Michigan, USA · nan",
+   "date": "2026-11-07",
+   "source": "Glassdoor",
+   "company": "Medasource",
+   "pay_min": 35,
+   "pay_max": 45,
+   "pay_period": "hourly",
+   "pay_display": "$35–$45/ho",
    "types": [
+    "contract",
     "full-time"
    ],
    "locations": [],
    "category": "writing",
-   "fit_score": 20,
-   "fit_reason": "Conversion copywriting, non-health, NYC in-office likely"
+   "fit_score": 25,
+   "fit_reason": "Health content but pay far below floor ($35-45/hr)"
   },
   {
-   "title": "Senior Growth Copywriter",
-   "url": "https://www.indeed.com/viewjob?jk=79ebfc44e9d1cb86",
-   "description": "Austin, TX, USA · **Why should you join Jerry?**\n\n* Join a pre-IPO startup with capital, traction, and runway ($240M funded | 40X revenue growth in 4 years | $2T market size).\n* Work closely with brilliant leaders and teammates from companies like McKinsey, BCG, Nvidia, Better, NerdWallet, SoFi, etc.\n* Disrupt a massive market and help",
-   "date": "2026-11-17",
-   "source": "Indeed",
-   "company": "Jerry.AI",
-   "pay_min": 120000,
-   "pay_max": 165000,
-   "pay_period": "annual",
-   "pay_display": "$120,000–$165,000/an",
-   "types": [
-    "full-time"
-   ],
+   "title": "Scientific Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4330626069",
+   "description": "Cincinnati, OH, USA · nan",
+   "date": "2026-11-26",
+   "source": "Linkedin",
+   "company": "Medpace",
+   "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Senior Conversion Copywriter, Growth",
-   "url": "https://www.indeed.com/viewjob?jk=82e547ea689ed679",
-   "description": "Los Angeles, CA, USA · **Why should you join Jerry?**\n\n* Join a pre-IPO startup with capital, traction, and runway ($240M funded | 40X revenue growth in 4 years | $2T market size).\n* Work closely with brilliant leaders and teammates from companies like McKinsey, BCG, Nvidia, Better, NerdWallet, SoFi, etc.\n* Disrupt a massive market and help",
-   "date": "2026-11-17",
-   "source": "Indeed",
-   "company": "Jerry.AI",
-   "pay_min": 120000,
-   "pay_max": 165000,
-   "pay_period": "annual",
-   "pay_display": "$120,000–$165,000/an",
-   "types": [
-    "full-time"
-   ],
+   "title": "Senior Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4470641925",
+   "description": "Sunnyvale, CA, USA · nan",
+   "date": "2026-11-26",
+   "source": "Linkedin",
+   "company": "Intuitive",
+   "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4494626190",
-   "description": "Brussels Metropolitan Area · nan",
+   "title": "Senior Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4493434447",
+   "description": "Bengaluru East, Karnataka, India · nan",
    "date": "2026-11-25",
    "source": "Linkedin",
-   "company": "Keytrade Bank",
+   "company": "Cytiva",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Writer II - Organic Marketing",
-   "url": "https://www.linkedin.com/jobs/view/4461224039",
-   "description": "Amsterdam, North Holland, Netherlands · nan",
+   "title": "Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4494912629",
+   "description": "Makati, National Capital Region, Philippines · nan",
    "date": "2026-11-25",
    "source": "Linkedin",
-   "company": "Booking.com",
+   "company": "PSC Biotech® Corporation",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Writer – Product",
-   "url": "https://www.linkedin.com/jobs/view/4458355815",
-   "description": "Jakarta, Indonesia · nan",
-   "date": "2026-11-23",
+   "title": "Technical Writer (m/w/d) - Jobbird.com",
+   "url": "https://www.linkedin.com/jobs/view/4494787308",
+   "description": "Eberhardzell, Baden-Württemberg, Germany · nan",
+   "date": "2026-11-25",
    "source": "Linkedin",
-   "company": "Shopee",
+   "company": "Jobster",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Senior User Experience Copywriter",
-   "url": "https://www.linkedin.com/jobs/view/4477853426",
-   "description": "Los Angeles, CA, USA · nan",
-   "date": "2026-11-22",
+   "title": "Scientific Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4494743004",
+   "description": "Rockville, MD, USA · nan",
+   "date": "2026-11-24",
    "source": "Linkedin",
-   "company": "Thrive Market",
+   "company": "Axle",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Writer (Japan)",
-   "url": "https://www.linkedin.com/jobs/view/4485115632",
-   "description": "Seoul, Seoul, South Korea · nan",
-   "date": "2026-11-21",
+   "title": "Technical Writer I",
+   "url": "https://www.linkedin.com/jobs/view/4494755152",
+   "description": "Irvine, CA, USA · nan",
+   "date": "2026-11-24",
    "source": "Linkedin",
-   "company": "Toss",
+   "company": "B. Braun Medical Inc. (US)",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Senior UX Writer (d/f/m)",
-   "url": "https://www.linkedin.com/jobs/view/4492963767",
-   "description": "Berlin, Berlin, Germany · nan",
+   "title": "Senior Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4491910490",
+   "description": "Bengaluru, Karnataka, India · nan",
    "date": "2026-11-20",
    "source": "Linkedin",
-   "company": "DEPT®",
+   "company": "Siemens Healthineers",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "Senior UX Writer (d/f/m)",
-   "url": "https://www.linkedin.com/jobs/view/4492956871",
+   "title": "Sr Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4491154431",
+   "description": "Singapore, Singapore · nan",
+   "date": "2026-11-19",
+   "source": "Linkedin",
+   "company": "Thermo Fisher Scientific",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Technical Writer - Capital Projects - Hybrid",
+   "url": "https://www.linkedin.com/jobs/view/4491349967",
+   "description": "Thousand Oaks, CA, USA · nan",
+   "date": "2026-11-19",
+   "source": "Linkedin",
+   "company": "CyberCoders",
+   "types": [],
+   "locations": [
+    "hybrid"
+   ],
+   "category": "writing",
+   "fit_score": 28,
+   "fit_reason": "Technical writing but non-health capital projects"
+  },
+  {
+   "title": "Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4467404073",
+   "description": "Greenville, NC, USA · nan",
+   "date": "2026-11-18",
+   "source": "Linkedin",
+   "company": "Catalent",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4491700124",
+   "description": "Arcadia, CA, USA · nan",
+   "date": "2026-11-17",
+   "source": "Linkedin",
+   "company": "Children's Oncology Group",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4490150689",
+   "description": "Rancho Santa Margarita, CA, USA · nan",
+   "date": "2026-11-17",
+   "source": "Linkedin",
+   "company": "Applied Medical",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Technical Writer 80 - 100 % (f/m/d)",
+   "url": "https://www.linkedin.com/jobs/view/4490291782",
+   "description": "Bonaduz, Graubünden, Switzerland · nan",
+   "date": "2026-11-16",
+   "source": "Linkedin",
+   "company": "Hamilton Medical",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "高级医学撰写",
+   "url": "https://www.linkedin.com/jobs/view/4489721003",
+   "description": "Shanghai, Shanghai, China · nan",
+   "date": "2026-11-16",
+   "source": "Linkedin",
+   "company": "CARsgen Therapeutics",
+   "types": [],
+   "locations": [],
+   "category": "other"
+  },
+  {
+   "title": "Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4379051356",
+   "description": "Falls Church, VA, USA · nan",
+   "date": "2026-11-14",
+   "source": "Linkedin",
+   "company": "Goldbelt Apex LLC",
+   "types": [],
+   "locations": [],
+   "category": "writing"
+  },
+  {
+   "title": "Technical Writer (m/f/d)",
+   "url": "https://www.linkedin.com/jobs/view/4488540086",
    "description": "Hamburg, Hamburg, Germany · nan",
-   "date": "2026-11-20",
-   "source": "Linkedin",
-   "company": "DEPT®",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Staff Content Designer, Investing",
-   "url": "https://www.linkedin.com/jobs/view/4465586070",
-   "description": "New York, NY, USA · nan",
-   "date": "2026-11-19",
-   "source": "Linkedin",
-   "company": "Wealthsimple",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "UX Writer (French/German) (w/m/d)",
-   "url": "https://www.linkedin.com/jobs/view/4491399268",
-   "description": "Zurich, Zurich, Switzerland · nan",
-   "date": "2026-11-19",
-   "source": "Linkedin",
-   "company": "Digitec Galaxus AG",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Senior UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4488379751",
-   "description": "England, UK · nan",
    "date": "2026-11-13",
    "source": "Linkedin",
-   "company": "Tide",
+   "company": "Olympus Corporation",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Writer - Vice President",
-   "url": "https://www.linkedin.com/jobs/view/4472756401",
-   "description": "Salt Lake City, UT, USA · nan",
-   "date": "2026-11-11",
-   "source": "Linkedin",
-   "company": "iCapital",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4489410892",
-   "description": "Jakarta Metropolitan Area · nan",
+   "title": "Technical Writer",
+   "url": "https://www.linkedin.com/jobs/view/4487839076",
+   "description": "San Diego, CA, USA · nan",
    "date": "2026-11-10",
    "source": "Linkedin",
-   "company": "Kredivo Group",
+   "company": "Grifols",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "UX Writer - Vice President",
-   "url": "https://www.linkedin.com/jobs/view/4489652473",
-   "description": "New York, NY, USA · nan",
-   "date": "2026-11-10",
-   "source": "Linkedin",
-   "company": "iCapital",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "UX Writer",
-   "url": "https://www.linkedin.com/jobs/view/4487428692",
-   "description": "Jakarta Metropolitan Area · nan",
-   "date": "2026-11-10",
-   "source": "Linkedin",
-   "company": "FinAccel",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Nuuly Jr UX Content Strategist",
-   "url": "https://www.linkedin.com/jobs/view/4487976787",
-   "description": "Philadelphia, PA, USA · nan",
-   "date": "2026-11-10",
-   "source": "Linkedin",
-   "company": "Nuuly",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Content Designer",
-   "url": "https://www.linkedin.com/jobs/view/4462807241",
-   "description": "Petaling Jaya, Selangor, Malaysia · nan",
-   "date": "2026-11-07",
-   "source": "Linkedin",
-   "company": "Electrolux Group",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "Product Writer",
-   "url": "https://www.linkedin.com/jobs/view/4483589830",
-   "description": "Washington, DC, USA · nan",
+   "title": "Technical Writer III - CDP",
+   "url": "https://www.linkedin.com/jobs/view/4486278811",
+   "description": "Bethesda, MD, USA · nan",
    "date": "2026-11-06",
    "source": "Linkedin",
-   "company": "Accenture Federal Services",
+   "company": "The Henry M. Jackson Foundation for the Advancement of Military Medicine",
    "types": [],
    "locations": [],
    "category": "writing"
   },
   {
-   "title": "User Experience Writer",
-   "url": "https://www.linkedin.com/jobs/view/4485749315",
-   "description": "Mississauga, Ontario, Canada · nan",
-   "date": "2026-11-02",
+   "title": "Technical Writer II",
+   "url": "https://www.linkedin.com/jobs/view/4487566663",
+   "description": "San Diego Metropolitan Area · nan",
+   "date": "2026-11-04",
    "source": "Linkedin",
-   "company": "Cella",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "UX Writer | Mid-Senior | Web Product and Apps",
-   "url": "https://www.linkedin.com/jobs/view/4483024454",
-   "description": "Vilnius, Vilniaus, Lithuania · nan",
-   "date": "2026-10-29",
-   "source": "Linkedin",
-   "company": "Nord Security",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
-   "title": "UX Writer | Mid-Senior | Web Product and Apps",
-   "url": "https://www.linkedin.com/jobs/view/4483038011",
-   "description": "Kaunas, Kaunas, Lithuania · nan",
-   "date": "2026-10-29",
-   "source": "Linkedin",
-   "company": "Nord Security",
+   "company": "Grifols",
    "types": [],
    "locations": [],
    "category": "writing"
@@ -2085,8 +2522,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 20,
-   "fit_reason": "News editing, not healthcare or content strategy"
+   "fit_score": 25,
+   "fit_reason": "News editing, not healthcare or health literacy"
   },
   {
    "title": "Editor, Politics (Enterprise)",
@@ -2203,7 +2640,7 @@
    "locations": [],
    "category": "writing",
    "fit_score": 15,
-   "fit_reason": "Design-focused, not writing/content work"
+   "fit_reason": "Design-focused, not writing; outside core expertise"
   },
   {
    "title": "Freelance Creative Director, Writing",
@@ -2217,8 +2654,8 @@
    ],
    "locations": [],
    "category": "writing",
-   "fit_score": 45,
-   "fit_reason": "Writing role but creative-focused, not health"
+   "fit_score": 42,
+   "fit_reason": "Writing role but no health focus or strategy"
   },
   {
    "title": "Medical Writer/Senior Medical Writer (Medical Affairs)",
@@ -2331,8 +2768,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 15,
-   "fit_reason": "Art role, not writing/content focus"
+   "fit_score": 55,
+   "fit_reason": "Healthcare agency creative but art director not writer"
   },
   {
    "title": "21GRAMS- Associate Creative Director, Copy",
@@ -2347,7 +2784,7 @@
    ],
    "category": "writing",
    "fit_score": 72,
-   "fit_reason": "Copy role, healthcare, remote, Real Chemistry"
+   "fit_reason": "Healthcare creative writing, potential fit but remote flexibility unclear"
   },
   {
    "title": "21GRAMS- Creative Director, Copy",
@@ -2361,8 +2798,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 75,
-   "fit_reason": "Senior copy/strategy, healthcare, remote option"
+   "fit_score": 72,
+   "fit_reason": "Healthcare creative/copy, remote option, but creative director focus"
   },
   {
    "title": "21GRAMS- Medical Copywriter",
@@ -2376,8 +2813,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 82,
-   "fit_reason": "Medical copywriter, healthcare expertise, remote available"
+   "fit_score": 85,
+   "fit_reason": "Medical copywriting, healthcare expertise, remote available"
   },
   {
    "title": "21GRAMS- Senior Copywriter",
@@ -2391,8 +2828,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 70,
-   "fit_reason": "Senior copywriter, healthcare, remote, good fit"
+   "fit_score": 78,
+   "fit_reason": "Senior copywriter healthcare, remote, strong writing fit"
   },
   {
    "title": "21GRAMS- Senior Editor",
@@ -2406,8 +2843,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 78,
-   "fit_reason": "Senior editor, healthcare, remote, strong match"
+   "fit_score": 82,
+   "fit_reason": "Senior editor healthcare, remote, editing specialty match"
   },
   {
    "title": "21GRAMS- Senior Strategist",
@@ -2421,8 +2858,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 80,
-   "fit_reason": "Senior strategist, healthcare, content strategy focus"
+   "fit_score": 86,
+   "fit_reason": "Healthcare strategist remote, perfect content strategy match"
   },
   {
    "title": "6-month Internship (PR & Comms)",
@@ -2536,9 +2973,9 @@
   },
   {
    "title": "Senior Medical Writer",
-   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5478069008",
-   "description": "London - UK",
-   "date": "2026-11-26",
+   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5404546008",
+   "description": "Edinburgh - UK; London - UK; Manchester - UK",
+   "date": "2026-11-13",
    "source": "Real Chemistry",
    "company": "Real Chemistry",
    "types": [],
@@ -2557,14 +2994,14 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 85,
-   "fit_reason": "Medical writer, healthcare, remote, perfect fit"
+   "fit_score": 81,
+   "fit_reason": "Medical writer remote, clinical/health expertise, freelance-friendly"
   },
   {
    "title": "Senior Medical Writer",
-   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5404546008",
-   "description": "Edinburgh - UK; London - UK; Manchester - UK",
-   "date": "2026-11-13",
+   "url": "https://job-boards.greenhouse.io/realchemistry/jobs/5478069008",
+   "description": "London - UK",
+   "date": "2026-11-26",
    "source": "Real Chemistry",
    "company": "Real Chemistry",
    "types": [],
@@ -2881,9 +3318,9 @@
   },
   {
    "title": "Senior Producer, Reporter Video",
-   "url": "https://job-boards.greenhouse.io/thenewyorktimes/jobs/4676925005",
-   "description": "New York, NY",
-   "date": "2026-11-05",
+   "url": "https://job-boards.greenhouse.io/thenewyorktimes/jobs/4744522005",
+   "description": "London, United Kingdom",
+   "date": "2026-11-24",
    "source": "The New York Times",
    "company": "The New York Times",
    "types": [],
@@ -2892,9 +3329,9 @@
   },
   {
    "title": "Senior Producer, Reporter Video",
-   "url": "https://job-boards.greenhouse.io/thenewyorktimes/jobs/4744522005",
-   "description": "London, United Kingdom",
-   "date": "2026-11-24",
+   "url": "https://job-boards.greenhouse.io/thenewyorktimes/jobs/4676925005",
+   "description": "New York, NY",
+   "date": "2026-11-05",
    "source": "The New York Times",
    "company": "The New York Times",
    "types": [],
@@ -3441,17 +3878,6 @@
    "category": "writing"
   },
   {
-   "title": "Senior Strategist - 12M FTC",
-   "url": "https://job-boards.greenhouse.io/landor/jobs/8382743",
-   "description": "London",
-   "date": "2026-11-17",
-   "source": "Landor",
-   "company": "Landor",
-   "types": [],
-   "locations": [],
-   "category": "writing"
-  },
-  {
    "title": "Associate Content Author (AEM)",
    "url": "https://job-boards.greenhouse.io/criticalmass/jobs/8350942",
    "description": "San Jose, Costa Rica",
@@ -3474,10 +3900,10 @@
    "category": "writing"
   },
   {
-   "title": "Associate Consultant, Financial Communications - Industrials",
-   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/7997011003",
-   "description": "London, United Kingdom",
-   "date": "2026-11-24",
+   "title": "Consultant, Strategy & Communications",
+   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8008722003",
+   "description": "Melbourne, Australia",
+   "date": "2026-10-19",
    "source": "Tenneo",
    "company": "Tenneo",
    "types": [],
@@ -3496,10 +3922,10 @@
    "category": "marketing"
   },
   {
-   "title": "Consultant, Strategy & Communications",
-   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8008722003",
-   "description": "Melbourne, Australia",
-   "date": "2026-10-19",
+   "title": "Director, Corporate Communications",
+   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8217514003",
+   "description": "Frankfurt, Germany",
+   "date": "2026-11-26",
    "source": "Tenneo",
    "company": "Tenneo",
    "types": [],
@@ -3510,17 +3936,6 @@
    "title": "Director, Corporate Communications",
    "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8217516003",
    "description": "Berlin, Germany",
-   "date": "2026-11-26",
-   "source": "Tenneo",
-   "company": "Tenneo",
-   "types": [],
-   "locations": [],
-   "category": "marketing"
-  },
-  {
-   "title": "Director, Corporate Communications",
-   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8217514003",
-   "description": "Frankfurt, Germany",
    "date": "2026-11-26",
    "source": "Tenneo",
    "company": "Tenneo",
@@ -3574,8 +3989,8 @@
   },
   {
    "title": "Senior Vice President, Corporate Communications",
-   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8009747003",
-   "description": "San Francisco, United States",
+   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8009978003",
+   "description": "New York, United States",
    "date": "2026-10-19",
    "source": "Tenneo",
    "company": "Tenneo",
@@ -3585,8 +4000,8 @@
   },
   {
    "title": "Senior Vice President, Corporate Communications",
-   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8009978003",
-   "description": "New York, United States",
+   "url": "https://job-boards.greenhouse.io/teneolinkedin/jobs/8009747003",
+   "description": "San Francisco, United States",
    "date": "2026-10-19",
    "source": "Tenneo",
    "company": "Tenneo",
@@ -3682,8 +4097,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 20,
-   "fit_reason": "Art role, full-time, not content writing"
+   "fit_score": 55,
+   "fit_reason": "Healthcare remote but art-focused, not writing-primary"
   },
   {
    "title": "Associate Creative Director, Art",
@@ -3725,8 +4140,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 60,
-   "fit_reason": "Copy role, full-time permanent, healthcare adjacent"
+   "fit_score": 74,
+   "fit_reason": "Healthcare copy remote, full-time only, content-focused"
   },
   {
    "title": "Associate Creative Director, Copy",
@@ -3742,8 +4157,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 35,
-   "fit_reason": "Full-time in-office role, not interested"
+   "fit_score": 74,
+   "fit_reason": "Healthcare copy remote, full-time only, content-focused"
   },
   {
    "title": "Associate Scientific Director - Medical Communications",
@@ -3759,8 +4174,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 72,
-   "fit_reason": "Medical comms expertise, remote, but full-time"
+   "fit_score": 70,
+   "fit_reason": "Medical comms remote, full-time, strategic but limited freelance"
   },
   {
    "title": "Associate Scientific Director - Medical Communications",
@@ -3854,8 +4269,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 38,
-   "fit_reason": "Full-time in-office role, not interested"
+   "fit_score": 72,
+   "fit_reason": "Health content, remote, permanent role (not preferred)"
   },
   {
    "title": "Senior Director/VP, Medical Strategy - Medical Communications",
@@ -3871,8 +4286,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 68,
-   "fit_reason": "Medical strategy fit, remote, but full-time"
+   "fit_score": 78,
+   "fit_reason": "Medical strategy fit, remote, permanent role (not preferred)"
   },
   {
    "title": "Senior Editorial Project Specialist",
@@ -3940,8 +4355,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 55,
-   "fit_reason": "Strategy focus, remote, but full-time role"
+   "fit_score": 65,
+   "fit_reason": "Strategy angle weak, remote, permanent role (not preferred)"
   },
   {
    "title": "Content Marketing Strategist - Canada remote",
@@ -3957,8 +4372,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Non-health, account management, full-time in-office"
+   "fit_score": 35,
+   "fit_reason": "Generic content marketing, full-time, location hybrid"
   },
   {
    "title": "Freelance SEO Content Writer - Dutch",
@@ -3974,8 +4389,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 15,
-   "fit_reason": "Generic SEO writing, non-health, language barrier"
+   "fit_score": 25,
+   "fit_reason": "Generic SEO content, non-health, language barrier"
   },
   {
    "title": "Freelance SEO Content Writer - Italian",
@@ -3991,8 +4406,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 15,
-   "fit_reason": "Generic SEO writing, non-health, language barrier"
+   "fit_score": 25,
+   "fit_reason": "Generic SEO content, non-health, language barrier"
   },
   {
    "title": "Freelance SEO Content Writer - Spanish",
@@ -4008,8 +4423,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 15,
-   "fit_reason": "Generic SEO writing, non-health, language barrier"
+   "fit_score": 25,
+   "fit_reason": "Generic SEO content, non-health, language barrier"
   },
   {
    "title": "Remote Content Writer - Eastern Canada",
@@ -4025,8 +4440,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 20,
-   "fit_reason": "Non-health editorial, full-time in-office role"
+   "fit_score": 38,
+   "fit_reason": "Generic writing, full-time, location hybrid"
   },
   {
    "title": "Remote Content Writer - South Africa",
@@ -4043,8 +4458,8 @@
     "remote"
    ],
    "category": "writing",
-   "fit_score": 25,
-   "fit_reason": "Generic content writing, full-time only, non-health"
+   "fit_score": 20,
+   "fit_reason": "Generic content, full-time in-office preference, non-health"
   },
   {
    "title": "Remote SEO Strategist - Canada",
@@ -4060,8 +4475,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 15,
-   "fit_reason": "Non-health SEO, full-time in-office role"
+   "fit_score": 25,
+   "fit_reason": "SEO focus, not writing-focused, full-time location"
   },
   {
    "title": "Remote SEO Strategist - South Africa",
@@ -4078,8 +4493,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 20,
-   "fit_reason": "SEO strategy, full-time only, non-health focus"
+   "fit_score": 15,
+   "fit_reason": "SEO consulting, non-health, full-time, outside core expertise"
   },
   {
    "title": "Account Director, Content (Film/Television/Streaming)",
@@ -4173,8 +4588,8 @@
     "remote"
    ],
    "category": "marketing",
-   "fit_score": 8,
-   "fit_reason": "Grant/donor writing, full-time, not interested"
+   "fit_score": 20,
+   "fit_reason": "Nonprofit fundraising, not healthcare, full-time"
   },
   {
    "title": "Social Content Producer, Temporary",
